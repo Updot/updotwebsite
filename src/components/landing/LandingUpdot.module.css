@@ -1,0 +1,9 @@
+.landing-updot path {
+  transition: all 8s ease-out;
+  fill: #000;
+}
+
+.landing-updot-light path {
+  transition: all 0.25s ease-in;
+  fill: #fff;
+}

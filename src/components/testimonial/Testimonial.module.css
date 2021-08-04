@@ -1,0 +1,7 @@
+.testimonial {
+  width: 100vw;
+  height: 100vh;
+  padding: 5vh 0 5vw;
+  display: grid;
+  place-content: center;
+}

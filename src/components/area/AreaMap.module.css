@@ -1,0 +1,18 @@
+.area-map {
+  height: auto;
+  width: 80%;
+}
+
+.map-loc {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.map-loc:hover {
+  fill: #69b423;
+  stroke: #69b423;
+  /* transform: translateY(-50px); */
+  z-index: 9999;
+  opacity: 1;
+}

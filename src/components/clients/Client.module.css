@@ -1,0 +1,13 @@
+.client {
+  height: 25rem;
+  width: 25rem;
+  background-color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  position: absolute;
+}
+.client img {
+  height: auto;
+  width: 13rem;
+}

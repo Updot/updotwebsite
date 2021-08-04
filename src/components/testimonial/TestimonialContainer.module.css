@@ -1,0 +1,27 @@
+.testimonial-container {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.testimonial-container-inner {
+  padding-left: 10rem;
+  display: flex;
+  column-gap: 10rem;
+  cursor: grab;
+  -webkit-animation: loop 20s infinite linear;
+  animation: loop 15s infinite linear;
+  animation-fill-mode: forwards;
+}
+.testimonial-container::-webkit-scrollbar {
+  display: none;
+}
+.testimonial-container.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+@keyframes loop {
+  100% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}

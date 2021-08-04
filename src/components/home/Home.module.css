@@ -1,0 +1,75 @@
+.home {
+  height: 100vh;
+  width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  place-content: center;
+  position: relative;
+}
+.heading {
+  font-size: 6.6rem;
+  color: #fff;
+  user-select: none;
+  display: flex;
+  align-items: flex-end;
+  transform: translateY(-23%);
+}
+.heading-video {
+  margin-left: 3rem;
+  display: inline-block;
+  transform: translateY(20%);
+}
+.heading-video video {
+  width: auto;
+  height: 19rem;
+  opacity: 0;
+  transition: all 0.2s;
+  animation: animateText 1s linear;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes animateText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* .heading-video:hover video {
+  opacity: 1;
+} */
+
+.scroll {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translate(-50%, -5%);
+}
+.scroll-text {
+  color: currentColor;
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+.scroll-text::after {
+  content: "\203A";
+  font-size: 4rem;
+  display: inline-block;
+  transform: rotateZ(90deg);
+  margin-left: 1rem;
+  margin-top: 5px;
+  animation: animateArrow 1s linear infinite;
+}
+
+@keyframes animateArrow {
+  0% {
+    transform: translateY(0px) rotateZ(90deg);
+  }
+  50% {
+    transform: translateY(5px) rotateZ(90deg);
+  }
+  1000% {
+    transform: translateY(0px) rotateZ(90deg);
+  }
+}

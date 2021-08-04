@@ -1,0 +1,22 @@
+.tech-nav {
+  list-style: none;
+}
+.tech-nav li {
+  text-align: right;
+}
+.tech-nav li:not(:last-of-type) {
+  margin-bottom: 3rem;
+}
+.tech-nav button {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 3.3rem;
+  transition: all 0.2s linear;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.tech-nav button.tech-nav-active {
+  font-size: 4.5rem !important;
+}

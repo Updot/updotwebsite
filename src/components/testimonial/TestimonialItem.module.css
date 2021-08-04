@@ -1,0 +1,40 @@
+.testimonial-item {
+  min-width: 401px;
+  user-select: none;
+}
+.testimonal-header {
+  text-align: right;
+}
+.testimonal-header img {
+  height: auto;
+  width: 100px;
+}
+.testimonal-main p,
+.author-name {
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+.testimonal-main img {
+  height: auto;
+  width: 10rem;
+  margin-right: 5.6rem;
+}
+.testimonal-footer {
+  margin-top: 4rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.author-info {
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+.testimonial-quote img {
+  height: auto;
+  width: 10rem;
+}
+@media only screen and (max-width: 1300px) {
+  .testimonial-item {
+    min-width: 345px;
+  }
+}

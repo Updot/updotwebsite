@@ -1,0 +1,174 @@
+.error {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: 30vh 55vh;
+  padding-bottom: unset;
+}
+.error-text-container {
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+.error-heading {
+  font-weight: bold;
+  font-size: 12.7rem;
+}
+.error-text {
+  font-size: 8.7rem;
+}
+.error-link {
+  color: #fff;
+  font-weight: bold;
+  font-size: 4.3rem;
+  text-decoration: none;
+}
+.error-link img {
+  height: auto;
+  width: 15rem;
+}
+.error-feature {
+  width: 100%;
+  grid-row: 2/ 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.error-image-container {
+  height: 100%;
+  position: relative;
+  display: grid;
+  place-content: center;
+}
+.egg {
+  transform: translateX(30px) translateY(23%);
+}
+.updot-u {
+  height: 90%;
+  width: auto;
+}
+.dot-container {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  left: 15vw;
+  bottom: 45vh;
+  animation: animateEgg 3s linear 1s;
+  animation-fill-mode: forwards;
+}
+
+.egg-left {
+  animation: animateEggLeft 0.5s ease-in 4s;
+  animation-fill-mode: forwards;
+  transform: rotate(0deg);
+  transform-origin: bottom;
+  position: absolute;
+  left: -3px;
+  bottom: 10px;
+}
+.egg-right {
+  animation: animateEggRight 0.5s ease-in 4s;
+  animation-fill-mode: forwards;
+  transform: rotate(0deg);
+  transform-origin: bottom;
+  position: absolute;
+  left: 49.5px;
+  bottom: 18px;
+}
+@keyframes animateEgg {
+  0% {
+    left: 15vw;
+    bottom: 45vh;
+  }
+  15% {
+    left: 17vw;
+    bottom: 35.5vh;
+  }
+  17% {
+    left: 17vw;
+    bottom: 35.5vh;
+  }
+  85% {
+    left: 26vw;
+    bottom: 24vh;
+  }
+
+  100% {
+    left: 27vw;
+    bottom: 0vh;
+  }
+}
+/* @keyframes animateEgg {
+  0% {
+    left: 15vw;
+    bottom: 45vh;
+  }
+  40% {
+    left: 22vw;
+    bottom: 29vh;
+  }
+  50% {
+    left: 25vw;
+    bottom: 33vh;
+  }
+  60% {
+    left: 28vw;
+    bottom: 37vh;
+  }
+  100% {
+    left: 31vw;
+    bottom: 0vh;
+  }
+} */
+
+@keyframes animateEggLeft {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(-40deg);
+  }
+}
+@keyframes animateEggRight {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(70deg) translatex(-25%);
+  }
+}
+@media screen and (max-width: 1300px) {
+  .dot-container {
+    left: 19vw;
+    bottom: 45vh;
+  }
+  .egg-left {
+    bottom: 10.4px;
+  }
+  @keyframes animateEgg {
+    0% {
+      left: 19vw;
+      bottom: 45vh;
+    }
+    15% {
+      left: 21vw;
+      bottom: 36vh;
+    }
+    17% {
+      left: 21vw;
+      bottom: 36vh;
+    }
+    85% {
+      left: 29vw;
+      bottom: 24vh;
+    }
+
+    100% {
+      left: 32vw;
+      bottom: 0vh;
+    }
+  }
+}

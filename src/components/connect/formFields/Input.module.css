@@ -1,0 +1,74 @@
+.input-container {
+  width: 100%;
+  position: relative;
+}
+.input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  color: #fff;
+  width: 100%;
+  font-size: 2.6rem;
+  position: relative;
+}
+.input-span::after {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 0;
+  width: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.2s linear;
+  transition-delay: 0.2s;
+}
+.input-span::before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 1px;
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 0.2s linear;
+}
+.input:focus ~ .input-span::before {
+  width: 100%;
+  transition-delay: 0.4s;
+}
+.input:focus ~ .input-span::after {
+  height: 100%;
+}
+.input-container label {
+  font-weight: bold;
+  font-size: 2.6rem;
+  color: #363636;
+  position: absolute;
+  top: 25%;
+  left: 4%;
+  transition: all 0.2s linear;
+  pointer-events: none;
+  z-index: -1;
+}
+
+textarea ~ label {
+  top: 20% !important;
+}
+textarea ~ .input-span::before {
+  bottom: 0.5% !important;
+}
+.input:focus ~ label,
+.input-container .change-label {
+  top: -45%;
+  left: 2%;
+  font-size: 2rem;
+}
+textarea:focus ~ label,
+textarea ~ .change-label {
+  top: -25% !important;
+  left: 2.5%;
+  font-size: 2rem;
+}

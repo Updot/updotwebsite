@@ -1,0 +1,36 @@
+.skills {
+  scroll-behavior: smooth;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+  /* overflow-x: scroll; */
+
+  /* pointer-events: none; */
+}
+.skills-outer {
+  width: 800vw;
+  position: relative;
+  top: 0;
+  left: 0;
+  /* transition: all 0.6s linear; */
+}
+.skills::-webkit-scrollbar {
+  display: none;
+}
+.ghost {
+  display: block;
+  width: 100vw;
+  height: 700vw;
+}
+
+.skills-inner {
+  position: relative;
+  height: 100vh;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  padding: 0px 160px;
+}

@@ -1,0 +1,13 @@
+.area-inner {
+  display: flex;
+  margin-top: 10rem;
+  height: 70%;
+}
+.area-map-container {
+  flex-basis: 80%;
+  display: grid;
+  place-content: center;
+}
+.area-states-container {
+  flex-basis: 20%;
+}

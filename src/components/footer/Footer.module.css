@@ -1,0 +1,80 @@
+.footer {
+  height: 30vh;
+  width: 100vw;
+  padding: 2vh 7.5vw;
+  margin-top: 10vh;
+}
+.footer a,
+.footer h5,
+.footer p {
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+.footer-top a,
+.footer-top h5,
+.footer-top p {
+  font-size: 2.2rem;
+}
+.footer-heading {
+  font-weight: 600 !important;
+  margin-bottom: 2rem;
+}
+.footer-top {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 20% 15% 25% 20% 15%;
+  width: 100%;
+  padding-bottom: 8rem;
+  column-gap: 2%;
+}
+.footer-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-link-container {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+}
+.follow {
+  padding: 0 3rem;
+}
+.follow .footer-link {
+  display: grid;
+  place-content: center;
+}
+.ring .footer-link-container {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.footer-link img {
+  width: auto;
+  height: 2rem;
+}
+.footer-link img.insta-icon {
+  height: 3rem;
+  transform: translateY(15%);
+}
+.footer-bottom p,
+.footer-bottom a,
+span {
+  font-size: 1.5rem;
+}
+.footer-bottom span {
+  font-weight: bold;
+  margin: 0 1rem;
+}
+.up-arrow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.up-arrow img {
+  height: auto;
+  width: 4rem;
+}
