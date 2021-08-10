@@ -12,13 +12,13 @@
 .skill-heading {
   font-size: 6.3rem;
   font-weight: bold;
-  color: #fff;
+  color: var(--text-color);
   margin-bottom: 2rem;
 }
 .skill-para {
   font-size: 4rem;
   font-weight: bold;
-  color: #fff;
+  color: var(--text-color);
 }
 
 .skill-icon {

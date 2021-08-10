@@ -1,18 +1,38 @@
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+
 import UpdotLogo from "../../assets/img/updot-big.svg";
-import InputClasses from "../connect/formFields/Input.module.css";
+import Input from "../connect/formFields/Input";
 import classes from "./Newsletter.module.css";
 const Newsletter = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitSuccessful },
+    reset,
+  } = useForm();
+  const formSubmitHandler = (formData) => {
+    alert(`Hey, ${formData.name}!, Thankyou for Submitting form`);
+  };
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({ something: "" });
+    }
+  });
   return (
     <div className={classes.newsletter}>
       <div className={classes["newsletter-container"]}>
         <h3 className={classes["newsletter-heading"]}>
           Subscribe to our Newsletter
         </h3>
-        <form>
-          <input
-            className={InputClasses["input"]}
+        <form onSubmit={handleSubmit(formSubmitHandler)}>
+          <Input
             type="email"
             placeholder="Email*"
+            register={register}
+            fieldName="email"
+            error={errors}
+            required={true}
           />
           <div className={classes["newsletter-btn-container"]}>
             <button className="btn" type="submit">

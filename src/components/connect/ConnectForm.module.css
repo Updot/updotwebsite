@@ -20,7 +20,7 @@
 .input-error {
   font-size: 1.6rem;
   font-weight: 300;
-  color: #fff;
+  color: var(--text-color);
   margin-top: 1rem;
 }
 .form-field:not(:last-of-type) {

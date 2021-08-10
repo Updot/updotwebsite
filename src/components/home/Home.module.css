@@ -6,9 +6,22 @@
   place-content: center;
   position: relative;
 }
+
+.rest-dark-toggle {
+  position: absolute;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  border: 1px solid var(--text-color);
+  top: 17%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+}
+
 .heading {
   font-size: 6.6rem;
-  color: #fff;
+  color: var(--text-color);
   user-select: none;
   display: flex;
   align-items: flex-end;
@@ -36,12 +49,9 @@
     opacity: 1;
   }
 }
-/* .heading-video:hover video {
-  opacity: 1;
-} */
 
 .scroll {
-  color: #fff;
+  color: var(--text-color);
   position: absolute;
   left: 50%;
   bottom: 5%;

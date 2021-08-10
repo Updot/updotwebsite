@@ -1,0 +1,18 @@
+{
+  "dark": {
+    "bgColor": "#000",
+    "textColor": "#fff",
+    "inputBorderFade": "rgba(255, 255, 255, 0.2)",
+    "inputBorderDark": " rgba(255, 255, 255, 0.9)",
+    "fadeBlack": "#363636",
+    "filter": "invert(0)"
+  },
+  "light": {
+    "bgColor": "#fff",
+    "textColor": "#000",
+    "inputBorderFade": "rgba(0, 0, 0, 0.2)",
+    "inputBorderDark": " rgba(0, 0, 0, 0.9)",
+    "fadeBlack": "#dedede",
+    "filter": "invert(100%)"
+  }
+}

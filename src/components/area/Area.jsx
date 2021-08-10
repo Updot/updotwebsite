@@ -1,19 +1,46 @@
+import { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 import SectionHeading from "../ui/SectionHeading";
-import AreaMap from "./AreaMap";
-import AreaStates from "./AreaStates";
+import AreaMapIndia from "./AreaMapIndia";
+import AreaMapUae from "./AreaMapUae";
+import AreaSwitch from "./areaSwitch/AreaSwitch";
+// import AreaStates from "./AreaStates";
 
 import classes from "./Area.module.css";
 
 const Area = () => {
+  const currMap = useSelector((state) => state.mapState.currMap);
+  const mapContainerRef = useRef(null);
+  const indiaMapRef = useRef(null);
+  const uaeMapRef = useRef(null);
+  useEffect(() => {
+    window.map = currMap;
+    let onEntry = (entries) => {
+      entries.forEach((change) => {
+        if (change.isIntersecting) {
+          if (window.map === "ind") {
+            indiaMapRef.current.animateMap();
+          } else uaeMapRef.current.animateMap();
+        }
+      });
+    };
+    let options = {
+      threshold: [0.6],
+    };
+
+    let observer = new IntersectionObserver(onEntry, options);
+    observer.observe(mapContainerRef.current);
+  }, [currMap]);
   return (
     <div className="container">
       <SectionHeading>Covered Area</SectionHeading>
       <div className={classes["area-inner"]}>
         <div className={classes["area-map-container"]}>
-          <AreaMap />
+          {currMap === "ind" && <AreaMapIndia ref={indiaMapRef} />}
+          {currMap === "uae" && <AreaMapUae ref={uaeMapRef} />}
         </div>
-        <div className={classes["area-states-container"]}>
-          <AreaStates />
+        <div ref={mapContainerRef} className={classes["area-states-container"]}>
+          <AreaSwitch current={currMap} />
         </div>
       </div>
     </div>

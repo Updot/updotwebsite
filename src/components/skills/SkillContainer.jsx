@@ -48,7 +48,17 @@ const SKILLS_DATA = [
     img: brandingIcon,
   },
   {
+    name: "Business Analysis",
+    desc: "Looking to promote your brand across the nation? We have you covered. After extensive research and planning, we’ll present the best possible strategy to boost your digital presence.",
+    img: brandingIcon,
+  },
+  {
     name: "Digital Marketing",
+    desc: "Looking to promote your brand across the nation? We have you covered. After extensive research and planning, we’ll present the best possible strategy to boost your digital presence.",
+    img: dmIcon,
+  },
+  {
+    name: "Maintenance and Upgrade",
     desc: "Looking to promote your brand across the nation? We have you covered. After extensive research and planning, we’ll present the best possible strategy to boost your digital presence.",
     img: dmIcon,
   },

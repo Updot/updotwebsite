@@ -1,6 +1,6 @@
 .dropdown {
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid var(--input-border-fade);
+  border-bottom: 1px solid var(--input-border-fade);
   position: relative;
   font-size: 2.6rem;
 }
@@ -12,15 +12,15 @@ fieldset {
   outline: none;
   border: none;
   padding: 2rem;
-  color: #363636;
+  color: var(--fade-black);
   width: 100%;
   font-size: 2.6rem;
-  color: #fff;
+  color: var(--text-color);
 }
 .dropdown-info::placeholder {
   font-weight: bold;
   font-size: 2.6rem;
-  color: #363636;
+  color: var(--fade-black);
 }
 
 .dropdown-options {
@@ -31,7 +31,7 @@ fieldset {
   left: -1%;
   width: 100%;
   border-radius: 0.4rem;
-  background-color: #363636;
+  background-color: var(--fade-black);
   overflow: hidden;
   transition: all 0.2s;
   z-index: 99;
@@ -45,6 +45,7 @@ fieldset {
 }
 .dropdown-options .option:hover {
   background-color: #262626;
+  color: #fff;
 }
 .dropdown-options-hide {
   height: 0px;

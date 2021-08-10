@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import classes from "./Landing.module.css";
-
 import LandingUpdot from "./LandingUpdot";
-
 import updotBlack from "../../assets/img/updot-black.svg";
 import { pageStateAction } from "../../store/pageState";
+import { mouseLocationAction } from "../../store/mouseLocation";
 
 const Landing = () => {
   const isLoaded = useSelector((state) => state.pageState.isLoaded);
+  const isLoaderHidden = useSelector(
+    (state) => state.pageState.isLoaderRemoved
+  );
   const dispatch = useDispatch();
   const [updotSize, setUpdotSize] = useState({});
   const landingRef = useRef(null);
@@ -17,14 +19,32 @@ const Landing = () => {
   };
   useEffect(() => {
     if (isLoaded) {
-      window.onkeyup = (e) => {
-        landingRef.current.style.display = "none";
+      const setDot = () => {
+        const toggleBtn = document.querySelector(`[data-type="toggle-btn"]`);
+        const { x, y } = toggleBtn.getBoundingClientRect();
+        if (!isLoaderHidden) {
+          dispatch(
+            mouseLocationAction.setCurrLocation({ x: x + 1.3, y: y + 1.55 })
+          );
+          dispatch(
+            mouseLocationAction.setRestLocation({ x: x + 1.3, y: y + 1.55 })
+          );
+        }
+        document.querySelector("[data-arrow='mousearrow']").style.transition =
+          "all 0.1s linear";
       };
-      window.addEventListener("click", (e) => {
+      document.onkeyup = (e) => {
         landingRef.current.style.display = "none";
+        dispatch(pageStateAction.setLoadederRemoved());
+        setDot();
+      };
+      landingRef.current.addEventListener("click", (e) => {
+        landingRef.current.style.display = "none";
+        setDot();
+        dispatch(pageStateAction.setLoadederRemoved());
       });
     }
-  }, [isLoaded]);
+  }, [isLoaded, isLoaderHidden, dispatch]);
   let updots = [];
   useEffect(() => {
     setUpdotSize({

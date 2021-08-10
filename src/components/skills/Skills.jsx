@@ -8,9 +8,9 @@ const Skills = () => {
   const ghostRef = useRef(null);
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
-      let scroll = window.scrollY - window.innerHeight;
+      let scroll = window.scrollY - window.innerHeight * 2;
 
-      if (window.scrollY < window.innerHeight) {
+      if (window.scrollY < window.innerHeight * 2) {
         skillRef.current.style.position = "unset";
       }
       if (scroll >= 0) {

@@ -1,0 +1,16 @@
+.sub-nav {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.2s linear;
+}
+.sub-nav .sub-nav-item {
+  text-align: right;
+  height: 3rem;
+}
+.sub-nav .sub-nav-item a {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.sub-nav .sub-nav-item:not(:last-of-type) {
+  margin-bottom: 1rem;
+}

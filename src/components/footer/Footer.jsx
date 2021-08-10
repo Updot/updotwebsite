@@ -13,7 +13,7 @@ const Footer = () => {
     <section className={classes.footer}>
       <div className={classes["footer-top"]}>
         <div className={classes.inbox}>
-          <h5 className={classes["footer-heading"]}>Inbox Us</h5>
+          <h3 className={classes["footer-heading"]}>Inbox Us</h3>
           <a
             className={classes["footer-link"]}
             href="mailto:updotofficial@gmail.com"
@@ -22,7 +22,7 @@ const Footer = () => {
           </a>
         </div>
         <div className={classes.ring}>
-          <h5 className={classes["footer-heading"]}>Ring Us Up</h5>
+          <h3 className={classes["footer-heading"]}>Ring Us Up</h3>
           <div className={classes["footer-link-container"]}>
             <a className={classes["footer-link"]} href="tel:+918549827162">
               +91 85498 27162
@@ -33,14 +33,14 @@ const Footer = () => {
           </div>
         </div>
         <div className={classes.spot}>
-          <h5 className={classes["footer-heading"]}>Spot Us</h5>
+          <h3 className={classes["footer-heading"]}>Spot Us</h3>
           <p className={classes["footer-address"]}>
             No.8, next to Spring Valley Club,
             <br /> Bengaluru, Karnataka 560090
           </p>
         </div>
         <div className={classes.follow}>
-          <h5 className={classes["footer-heading"]}>Follow Us</h5>
+          <h3 className={classes["footer-heading"]}>Follow Us</h3>
           <div className={classes["footer-link-container"]}>
             <a className={classes["footer-link"]} href="/">
               <img

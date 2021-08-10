@@ -6,17 +6,18 @@
   background-color: transparent;
   outline: none;
   border: none;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid var(--input-border-fade);
+  border-bottom: 1px solid var(--input-border-fade);
   padding: 2rem;
-  color: #fff;
+  color: var(--text-color);
   width: 100%;
   font-size: 2.6rem;
   position: relative;
+  cursor: none;
 }
 .input-span::after {
   content: "";
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--input-border-dark);
   height: 0;
   width: 1px;
   position: absolute;
@@ -27,7 +28,7 @@
 }
 .input-span::before {
   content: "";
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--input-border-dark);
   height: 1px;
   width: 0;
   position: absolute;
@@ -45,7 +46,7 @@
 .input-container label {
   font-weight: bold;
   font-size: 2.6rem;
-  color: #363636;
+  color: var(--fade-black);
   position: absolute;
   top: 25%;
   left: 4%;

@@ -3,7 +3,7 @@
   width: 100vw;
   padding: 10vh 7.5vw;
   position: relative;
-  background-color: #000;
+  background-color: var(--bg-color);
   z-index: 9;
 }
 .client-loc-1,

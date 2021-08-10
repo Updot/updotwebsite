@@ -6,6 +6,7 @@
   display: grid;
   place-content: center;
   position: absolute;
+  filter: var(--filter);
 }
 .client img {
   height: auto;

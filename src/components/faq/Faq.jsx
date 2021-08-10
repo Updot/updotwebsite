@@ -31,13 +31,14 @@ const FAQ_POINTS = [
   },
 ];
 
-const Faq = () => {
+const Faq = (props) => {
+  const faqData = props.faqData || FAQ_POINTS;
   return (
     <div className={classes.faq}>
-      <SectionHeading>FAQ</SectionHeading>
+      <SectionHeading>{props.faqHeading || "FAQ"}</SectionHeading>
       <ul className={classes["faq-container"]}>
-        {FAQ_POINTS.map((fp) => (
-          <FaqItem key={fp.id} qn={fp.qn} ans={fp.ans} />
+        {faqData.map((fd) => (
+          <FaqItem key={fd.id} qn={fd.qn} ans={fd.ans} />
         ))}
       </ul>
     </div>

@@ -17,6 +17,7 @@ const TextArea = (props) => {
   return (
     <div className={classes["input-container"]}>
       <textarea
+        id={props.fieldName}
         className={classes.input}
         {...props.register(`${props.fieldName}`, { required: true })}
         onChange={onChangeHandler}

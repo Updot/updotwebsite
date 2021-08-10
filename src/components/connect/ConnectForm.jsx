@@ -106,7 +106,7 @@ const ConnectForm = () => {
         />
       </div>
       <div className={`${classes["form-field"]} ${classes["form-field-4"]}`}>
-        <h5 className={classes.FormOptionHeading}>Services Required</h5>
+        <h3 className={classes.FormOptionHeading}>Services Required</h3>
         <Checkbox
           name="ServicesRequired"
           data={ServiceData}

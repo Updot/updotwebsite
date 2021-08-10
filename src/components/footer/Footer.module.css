@@ -8,11 +8,11 @@
 .footer h5,
 .footer p {
   font-weight: bold;
-  color: #fff;
+  color: var(--text-color);
   text-decoration: none;
 }
 .footer-top a,
-.footer-top h5,
+.footer-top h3,
 .footer-top p {
   font-size: 2.2rem;
 }
@@ -54,6 +54,7 @@
 .footer-link img {
   width: auto;
   height: 2rem;
+  filter: var(--filter);
 }
 .footer-link img.insta-icon {
   height: 3rem;
@@ -77,4 +78,5 @@ span {
 .up-arrow img {
   height: auto;
   width: 4rem;
+  filter: var(--filter);
 }

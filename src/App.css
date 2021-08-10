@@ -4,6 +4,15 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --bg-color: #000;
+  --text-color: #fff;
+  --input-border-fade: rgba(255, 255, 255, 0.2);
+  --input-border-dark: rgba(255, 255, 255, 0.9);
+  --fade-black: #363636;
+  --filter: invert(0);
+}
+
 :root,
 a {
   cursor: none !important;
@@ -16,7 +25,8 @@ a {
   box-sizing: border-box;
 }
 body {
-  background-color: #000;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -28,8 +38,27 @@ button {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
-body::-webkit-scrollbar {
-  display: none;
+body::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track {
+  background: var(--bg-color) !important;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+  background: var(--text-color) !important;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover,
+textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color) !important;
 }
 h1,
 h2,
@@ -38,27 +67,37 @@ h4,
 h5,
 h6,
 p,
-span {
-  color: #fff;
+span,
+a {
+  color: var(--text-color);
 }
 textarea {
   resize: none;
 }
 .container {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   padding: 10vh 7.5vw;
   margin: 0 auto;
 }
 .btn {
   background-color: transparent;
-  color: #fff;
+  text-decoration: none;
+  color: var(--text-color);
   font-size: 3rem;
   font-weight: bold;
   border: none;
   outline: none;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid var(--text-color);
   cursor: pointer;
+}
+.mousearrow-change {
+  transform: rotate(-135deg) !important;
+  border-radius: 30% 100% 100% 100% !important;
+}
+.mousearrow-change-up {
+  transform: rotate(-135deg) !important;
+  border-radius: 100% 100% 30% 100% !important;
 }
 
 @media screen and (max-width: 1600px) {

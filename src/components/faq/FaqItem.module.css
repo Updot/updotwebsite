@@ -7,30 +7,32 @@
   margin-bottom: 2rem;
 }
 .faq-qn {
-  font-size: 6.3rem;
+  font-size: 4.5rem;
   font-weight: bold;
-  color: #fff;
-  flex-basis: 85%;
+  color: var(--text-color);
+  flex-basis: max-content;
   pointer-events: none;
 }
 .faq-arrow {
   min-height: 100%;
   display: inline-block;
-  color: #fff;
+  color: var(--text-color);
   flex-basis: auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  transform: translateY(-10%);
+  margin-left: 2rem;
+  /* transform: translateY(-10%); */
   pointer-events: none;
 }
 .faq-arrow img {
   height: auto;
-  width: 80%;
+  width: 4rem;
+  filter: var(--filter);
 }
 .faq-ans {
   font-size: 4rem;
-  color: #fff;
+  color: var(--text-color);
   font-weight: bold;
   width: 90%;
   height: 100%;

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isLoaded: false,
+  isLoaderRemoved: false,
 };
 
 const pageStateSlice = createSlice({
@@ -9,6 +10,9 @@ const pageStateSlice = createSlice({
   reducers: {
     setLoaded(state) {
       state.isLoaded = true;
+    },
+    setLoadederRemoved(state) {
+      state.isLoaderRemoved = true;
     },
   },
 });

@@ -28,6 +28,7 @@
   height: 100%;
   width: auto;
   transform: translateX(-10%);
+  filter: var(--filter);
 }
 .newsletter-btn-container {
   margin-top: 3rem;
@@ -46,5 +47,5 @@
   border: none;
   outline: none;
   border-bottom: 2px solid #fff;
-  cursor: pointer;
+  cursor: none;
 }

@@ -1,0 +1,16 @@
+.master-container {
+  padding-top: 25vh;
+}
+.skills-container {
+  margin-top: 10vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 4vw;
+  row-gap: 1vw;
+}
+.skills-link {
+  text-decoration: none;
+  font-size: 4.5rem;
+  font-weight: bold;
+}

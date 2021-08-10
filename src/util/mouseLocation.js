@@ -25,7 +25,7 @@ const useMouseLocation = (config, refs, dispatch) => {
   }
 
   let options = {
-    threshold: [0.5],
+    threshold: [0.2],
   };
 
   let observer = new IntersectionObserver(onEntry, options);

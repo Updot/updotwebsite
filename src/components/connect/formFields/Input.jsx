@@ -17,6 +17,7 @@ const Input = (props) => {
   return (
     <div className={classes["input-container"]}>
       <input
+        id={props.fieldName}
         className={classes.input}
         type={props.type}
         {...props.register(`${props.fieldName}`, { required: props.required })}

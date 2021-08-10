@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Landing from "./components/landing/Landing";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -11,6 +12,10 @@ function App() {
       <Route path="/" exact>
         <Landing />
         <Home />
+      </Route>
+      <Route path="/about-us" exact>
+        <Landing />
+        <About />
       </Route>
       <Route path="*">
         <NotFound />

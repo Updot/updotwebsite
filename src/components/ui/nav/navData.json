@@ -1,0 +1,45 @@
+[
+  {
+    "name": "work",
+    "link": "#",
+    "subNav": [
+      { "name": "Loream Ipsum", "link": "#" },
+      { "name": "Loream Ipsum1", "link": "#" },
+      { "name": "Loream Ipsum2", "link": "#" }
+    ]
+  },
+  {
+    "name": "Services",
+    "link": "#",
+    "subNav": [
+      { "name": "Web Development", "link": "#" },
+      { "name": "App Development", "link": "#" },
+      { "name": "Chatbot Development", "link": "#" },
+      { "name": "DevOps & Cloud", "link": "#" },
+      { "name": "UI & UX Design", "link": "#" },
+      { "name": "SEO", "link": "#" },
+      { "name": "Branding", "link": "#" },
+      { "name": "Digital Marketing", "link": "#" }
+    ]
+  },
+  {
+    "name": "Carrer",
+    "link": "#",
+    "subNav": []
+  },
+  {
+    "name": "Insight",
+    "link": "#",
+    "subNav": []
+  },
+  {
+    "name": "About",
+    "link": "/about-us",
+    "subNav": []
+  },
+  {
+    "name": "Contact",
+    "link": "#",
+    "subNav": []
+  }
+]

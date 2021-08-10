@@ -1,0 +1,105 @@
+import React from "react";
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+
+import classes from "./FeaturedInfo.module.css";
+const FeaturedInfo = (props) => {
+  // const [featuredBoundary, setFeatureBoundary] = useState();
+  const wrapperRef = useRef(null);
+  const fiRef = useRef(null);
+  // const bubbleRef = useRef(null);
+  useEffect(() => {
+    let onEntry = (entries) => {
+      entries.forEach((change) => {
+        if (fiRef.current) {
+          if (change.isIntersecting) {
+            fiRef.current.classList.add(
+              `${classes["featured-info-outer-animate"]}`
+            );
+          } else {
+            fiRef.current.classList.remove(
+              `${classes["featured-info-outer-animate"]}`
+            );
+          }
+        }
+      });
+    };
+    let options = {
+      threshold: [0.2],
+    };
+
+    let observer = new IntersectionObserver(onEntry, options);
+    const el = document.querySelector(`[data-section="Featured"]`);
+    observer.observe(el);
+  }, []);
+  // useEffect(() => {
+  //   const el = document.querySelector("[data-arrow='mousearrow']");
+  //   window.addEventListener("scroll", (e) => {
+  //     setFeatureBoundary(wrapperRef.current.getBoundingClientRect().top - 70);
+  //   });
+  //   window.addEventListener("mouseover", (e) => {
+  //     if (featuredBoundary < e.clientY) {
+  //       if (featuredBoundary + 40 < e.clientY) {
+  //         el.classList.remove("mousearrow-change");
+  //         el.classList.add("mousearrow-change-up");
+  //       } else {
+  //         el.classList.remove("mousearrow-change-up");
+  //         el.classList.add("mousearrow-change");
+  //       }
+  //     }
+  //     if (featuredBoundary + 200 < e.clientY || featuredBoundary > e.clientY) {
+  //       el.classList.remove("mousearrow-change");
+  //       el.classList.remove("mousearrow-change-up");
+  //     }
+  //   });
+  // }, [featuredBoundary]);
+  const onMouseOverOuterHandler = (event) => {
+    document.querySelector("[data-arrow='mousearrow']").style.filter =
+      "invert(100%)";
+  };
+  const onMouseOutOuterHandler = () => {
+    document.querySelector("[data-arrow='mousearrow']").style.filter = "unset";
+  };
+  const onMouseOverHandler = (event) => {};
+  const onMouseOutHandler = () => {
+    // bubbleRef.current.style.top = `${0}px`;
+  };
+
+  return (
+    <div
+      ref={wrapperRef}
+      className={classes["featured-info-wrapper"]}
+      onMouseOver={onMouseOverOuterHandler}
+      onMouseOut={onMouseOutOuterHandler}
+    >
+      <div ref={fiRef} className={classes["featured-info-outer"]}>
+        {/* <div
+          ref={bubbleRef}
+          className={classes["featured-sunction-bubble"]}
+        ></div> */}
+        <div
+          className={classes["featured-info-container"]}
+          onMouseOver={onMouseOverHandler}
+          onMouseOut={onMouseOutHandler}
+        >
+          <div className={classes["featured-info"]}>
+            <img src={props.logo} alt="remax" />
+            <p className={classes["featured-subtext"]}>{props.description}</p>
+            <Link
+              to="#"
+              className="btn"
+              style={{ color: props.btnColor, borderColor: props.btnColor }}
+            >
+              {props.btnText}
+            </Link>
+          </div>
+          <div className={classes["featured-graphics"]}>
+            <img src={props.ui} alt="remax web design" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FeaturedInfo;

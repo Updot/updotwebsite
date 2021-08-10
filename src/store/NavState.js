@@ -10,6 +10,9 @@ const navStateSlice = createSlice({
     setIsActive(state) {
       state.isActive = !state.isActive;
     },
+    setClose(state) {
+      state.isActive = false;
+    },
   },
 });
 

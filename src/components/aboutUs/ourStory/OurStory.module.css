@@ -1,0 +1,11 @@
+.stroy-container {
+  padding-top: 35vh;
+  margin-bottom: 5vh;
+}
+.story-para {
+  margin-top: 5rem;
+  line-height: 1.5;
+  font-size: 3.5rem;
+  font-weight: bold;
+  width: 63vw;
+}

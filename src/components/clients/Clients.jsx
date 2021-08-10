@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-import mouseLocation from "../../util/mouseLocation";
+// import { useEffect, useRef } from "react";
+import { useRef } from "react";
+// import { useDispatch } from "react-redux";
+// import mouseLocation from "../../util/mouseLocation";
 import SectionHeading from "../ui/SectionHeading";
 import Client from "./Client";
 
@@ -12,19 +13,19 @@ import vp from "../../assets/img/clients/virtusel-post.svg";
 const Clients = () => {
   const sectionRef = useRef(null);
   const RestPlaceRef = useRef(null);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    window.addEventListener("scroll", (e) => {
-      mouseLocation(
-        { default: false },
-        {
-          el: sectionRef.current,
-          bounding: RestPlaceRef.current.getBoundingClientRect(),
-        },
-        dispatch
-      );
-    });
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   window.addEventListener("scroll", (e) => {
+  //     mouseLocation(
+  //       { default: false },
+  //       {
+  //         el: sectionRef.current,
+  //         bounding: RestPlaceRef.current.getBoundingClientRect(),
+  //       },
+  //       dispatch
+  //     );
+  //   });
+  // }, [dispatch]);
 
   return (
     <div ref={sectionRef} className={classes.clients}>

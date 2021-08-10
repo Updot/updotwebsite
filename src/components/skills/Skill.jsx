@@ -20,7 +20,12 @@ const Skill = (props) => {
       </div>
       <div className={classes["skill-icon"]}>
         <div>
-          <Lottie options={defaultOptions} height={400} width={400} />
+          <Lottie
+            options={defaultOptions}
+            height={400}
+            width={400}
+            style={{ filter: "var(--filter)" }}
+          />
         </div>
       </div>
     </div>

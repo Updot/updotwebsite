@@ -4,8 +4,11 @@
   padding: 10vh 7.5vw;
   position: relative;
   margin: 0 auto;
-  background-color: #000;
+  background-color: var(--bg-color);
   z-index: 10;
+}
+.faq ul {
+  list-style: none;
 }
 .faq-container {
   margin-top: 4rem;
