@@ -1,0 +1,21 @@
+.social-outer {
+  width: 100vw;
+  padding: 10vh 7.5vw;
+  margin: 0 auto 10rem;
+}
+.social-container {
+  display: flex;
+  align-items: center;
+  column-gap: 5rem;
+  margin-top: 10rem;
+}
+.social-container a {
+  text-decoration: none;
+  font-size: 4rem;
+  transition: all 0.2s linear;
+  font-weight: 600;
+  backface-visibility: none;
+}
+.social-container a:hover {
+  font-weight: bold;
+}

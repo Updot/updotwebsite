@@ -16,7 +16,6 @@ const DropDown = (props) => {
     });
   }, [isExpended]);
   const onDropDownClickHandler = () => {
-    console.log(isExpended);
     setIsExpended((prevState) => !prevState);
   };
   const onOptionClickHanlder = (val, event) => {
@@ -25,7 +24,7 @@ const DropDown = (props) => {
   };
   let dropdownOptionClass = isExpended
     ? `${classes["dropdown-options"]}`
-    : `${classes["dropdown-options"]} ${classes["dropdown-options-hide"]}`;
+    : `${classes["dropdown-options"]} ${classes["dropdown-outer-hide"]}`;
 
   return (
     <div className={classes.dropdown} onClick={onDropDownClickHandler}>
@@ -39,19 +38,21 @@ const DropDown = (props) => {
           })}
         />
       </fieldset>
-      <div ref={dropdownOptionsRef} className={dropdownOptionClass}>
-        {/* <span className={classes["option"]} data-value="none">
+      <div ref={dropdownOptionsRef} className={classes["dropdown-outer"]}>
+        <div className={dropdownOptionClass}>
+          {/* <span className={classes["option"]} data-value="none">
           {props.fieldName}
         </span> */}
-        {props.data.map((dd) => (
-          <span
-            key={dd}
-            className={classes["option"]}
-            onClick={onOptionClickHanlder.bind(null, dd)}
-          >
-            {dd}
-          </span>
-        ))}
+          {props.data.map((dd) => (
+            <span
+              key={Math.random() * 100}
+              className={classes["option"]}
+              onClick={onOptionClickHanlder.bind(null, dd)}
+            >
+              {dd}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -6,7 +6,6 @@ import Nav from "../ui/nav/Nav";
 import updot from "../../assets/img/updot.svg";
 import maskVideo from "../../assets/videos/mask-video.mp4";
 import { navStateAction } from "../../store/NavState";
-import { themeStateAction } from "../../store/themeState";
 // import { mouseLocationAction } from "../../store/mouseLocation";
 import colorTheme from "./colorTheme.json";
 import classes from "./Home.module.css";
@@ -19,7 +18,6 @@ const Home = (props) => {
   const [headerDisplayed, setHeaderDisplayed] = useState(true);
   const sectionRef = useRef(null);
   const navRef = useRef(null);
-  const toogleRef = useRef(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -82,9 +80,6 @@ const Home = (props) => {
     dispatch(navStateAction.setClose());
   };
 
-  const toggleThemeHandler = () => {
-    dispatch(themeStateAction.toggleTheme());
-  };
   return (
     <Fragment>
       {headerDisplayed && (
@@ -97,14 +92,11 @@ const Home = (props) => {
       )}
       {isNavActive && <Nav onNavBtnClick={navClickHandler} ref={navRef} />}
 
-      <div ref={sectionRef} className={classes.home}>
-        <div
-          data-type="toggle-btn"
-          ref={toogleRef}
-          className={classes["rest-dark-toggle"]}
-          onClick={toggleThemeHandler}
-          style={isNavActive ? { opacity: 0 } : {}}
-        ></div>
+      <div
+        ref={sectionRef}
+        className={classes.home}
+        style={props.hideInner ? { display: "none" } : {}}
+      >
         {props.isShowVideoHeading ? (
           <h1 className={classes.heading}>
             {props.heading}

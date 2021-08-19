@@ -29,7 +29,7 @@
   },
   {
     "name": "Insight",
-    "link": "#",
+    "link": "/insight",
     "subNav": []
   },
   {
@@ -39,7 +39,7 @@
   },
   {
     "name": "Contact",
-    "link": "#",
+    "link": "/contact",
     "subNav": []
   }
 ]

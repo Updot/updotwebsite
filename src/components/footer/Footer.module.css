@@ -1,5 +1,5 @@
 .footer {
-  height: 30vh;
+  min-height: 30vh;
   width: 100vw;
   padding: 2vh 7.5vw;
   margin-top: 10vh;
@@ -25,7 +25,7 @@
   grid-auto-flow: column;
   grid-template-columns: 20% 15% 25% 20% 15%;
   width: 100%;
-  padding-bottom: 8rem;
+  padding-bottom: 20vh;
   column-gap: 2%;
 }
 .footer-bottom {
@@ -33,6 +33,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 5vh;
 }
 .footer-link-container {
   display: flex;

@@ -1,6 +1,5 @@
 .heading,
 .heading span {
   color: var(--text-color);
-  font-size: 8rem;
   font-weight: bold;
 }

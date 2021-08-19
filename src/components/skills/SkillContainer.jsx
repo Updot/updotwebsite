@@ -2,14 +2,14 @@ import Skill from "./Skill";
 import SectionHeading from "../ui/SectionHeading";
 import classes from "./SkillContainer.module.css";
 
-import webIcon from "../../assets/img/skills/webdev-icon.svg";
-import appIcon from "../../assets/img/skills/appdev-icon.svg";
-import chatBotIcon from "../../assets/img/skills/chatbot-icon.svg";
-import cloudIcon from "../../assets/img/skills/cloud-icon.svg";
-import uiIcon from "../../assets/img/skills/ui-icon.svg";
-import seoIcon from "../../assets/img/skills/seo-icon.svg";
-import brandingIcon from "../../assets/img/skills/branding-icon.svg";
-import dmIcon from "../../assets/img/skills/dm-icon.svg";
+import webIcon from "../../assets/videos/data.json";
+import appIcon from "../../assets/img/lottiefiles/ANDROID.json";
+import chatBotIcon from "../../assets/videos/data.json";
+import cloudIcon from "../../assets/videos/data.json";
+import uiIcon from "../../assets/img/lottiefiles/UI.json";
+import seoIcon from "../../assets/videos/data.json";
+import brandingIcon from "../../assets/img/lottiefiles/BRANDING.json";
+import dmIcon from "../../assets/videos/data.json";
 
 const SKILLS_DATA = [
   {
@@ -70,7 +70,7 @@ const SkillContainer = () => {
       {SKILLS_DATA.map((skill) => (
         <div key={skill.name} className={classes["skill-inner"]}>
           <SectionHeading>Our Mastered Skills</SectionHeading>
-          <Skill skillData={skill} />
+          <Skill lottie={skill.img} skillData={skill} />
         </div>
       ))}
     </div>

@@ -11,3 +11,33 @@
 .area-states-container {
   flex-basis: 20%;
 }
+.state-indicator {
+  display: inline-block;
+  min-width: 5rem;
+  position: fixed;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  pointer-events: none;
+}
+.state-name {
+  font-size: 2.8rem;
+  font-weight: bold;
+  padding-right: 2rem;
+}
+.h-line,
+.angle-line {
+  display: inline-block;
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.angle-line {
+  width: 2.5rem;
+  position: absolute;
+  height: 2px;
+  right: 1.5%;
+  bottom: 4.5%;
+  transform-origin: right;
+  transform: rotate(-135deg);
+}

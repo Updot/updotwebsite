@@ -22,6 +22,7 @@ const TextArea = (props) => {
         {...props.register(`${props.fieldName}`, { required: true })}
         onChange={onChangeHandler}
         value={inputValue}
+        style={props.height ? { height: `${props.height}rem` } : {}}
       ></textarea>
       <span className={classes["input-span"]}></span>
       <label ref={labelRef} htmlFor={props.fieldName}>

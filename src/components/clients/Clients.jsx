@@ -12,7 +12,7 @@ import vp from "../../assets/img/clients/virtusel-post.svg";
 
 const Clients = () => {
   const sectionRef = useRef(null);
-  const RestPlaceRef = useRef(null);
+  // const RestPlaceRef = useRef(null);
   // const dispatch = useDispatch();
   // useEffect(() => {
   //   window.addEventListener("scroll", (e) => {
@@ -28,10 +28,8 @@ const Clients = () => {
   // }, [dispatch]);
 
   return (
-    <div ref={sectionRef} className={classes.clients}>
-      <SectionHeading>
-        Cl<span ref={RestPlaceRef}>i</span>ent
-      </SectionHeading>
+    <div ref={sectionRef} className={`${classes.clients}`}>
+      <SectionHeading>Client</SectionHeading>
       <div className={classes["clients-container"]}>
         <Client className={classes["client-loc-1"]} img={vp} />
         <Client className={classes["client-loc-2"]} img={ww} />

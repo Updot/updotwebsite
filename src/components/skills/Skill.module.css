@@ -7,16 +7,16 @@
 .skill-text {
   display: grid;
   place-content: end;
-  flex-basis: 60%;
+  flex-basis: 50%;
 }
 .skill-heading {
-  font-size: 6.3rem;
+  font-size: 5.5rem;
   font-weight: bold;
   color: var(--text-color);
   margin-bottom: 2rem;
 }
 .skill-para {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: bold;
   color: var(--text-color);
 }

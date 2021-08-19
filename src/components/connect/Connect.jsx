@@ -6,7 +6,7 @@ import classes from "./Connect.module.css";
 const Connect = () => {
   return (
     <section className={classes.connect}>
-      <SectionHeading>Let's Connect</SectionHeading>
+      <SectionHeading size="4rem">Let's Connect</SectionHeading>
       <div>
         <ConnectForm />
       </div>

@@ -9,20 +9,21 @@ const Skills = () => {
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
       let scroll = window.scrollY - window.innerHeight * 2;
-
-      if (window.scrollY < window.innerHeight * 2) {
-        skillRef.current.style.position = "unset";
-      }
-      if (scroll >= 0) {
-        skillRef.current.style.position = "fixed";
-        if (scroll <= skillRef.current.scrollWidth - window.innerWidth) {
-          skillRef.current.style.top = "0px";
-          skillRef.current.style.left = `-${Math.round(scroll)}px`;
+      if (skillRef.current) {
+        if (window.scrollY < window.innerHeight * 2) {
+          skillRef.current.style.position = "unset";
         }
-        if (scroll > skillRef.current.scrollWidth - window.innerWidth) {
-          skillRef.current.style.top = `-${
-            scroll - skillRef.current.scrollWidth + window.innerWidth
-          }px`;
+        if (scroll >= 0) {
+          skillRef.current.style.position = "fixed";
+          if (scroll <= skillRef.current.scrollWidth - window.innerWidth) {
+            skillRef.current.style.top = "0px";
+            skillRef.current.style.left = `-${Math.round(scroll)}px`;
+          }
+          if (scroll > skillRef.current.scrollWidth - window.innerWidth) {
+            skillRef.current.style.top = `-${
+              scroll - skillRef.current.scrollWidth + window.innerWidth
+            }px`;
+          }
         }
       }
     });

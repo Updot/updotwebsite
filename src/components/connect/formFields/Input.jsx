@@ -5,6 +5,9 @@ const Input = (props) => {
   const labelRef = useRef(null);
   const [inputValue, setInputValue] = useState("");
   const onChangeHandler = (e) => {
+    if (props.onFirstChange) {
+      props.onFirstChange();
+    }
     setInputValue(e.target.value);
   };
   useEffect(() => {

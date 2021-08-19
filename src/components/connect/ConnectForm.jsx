@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import ServiceData from "./serviceData.json";
 import Input from "./formFields/Input";
@@ -6,7 +7,6 @@ import Checkbox from "./formFields/Checkbox";
 import TextArea from "./formFields/TextArea";
 
 import classes from "./ConnectForm.module.css";
-import { useEffect } from "react";
 const ConnectForm = () => {
   const {
     register,
@@ -48,7 +48,7 @@ const ConnectForm = () => {
             register={register}
             fieldName="code"
             setValue={setValue}
-            data={["+91"]}
+            data={["+91", "+91", "+91", "+91", "+91"]}
             required={true}
           />
           <p className={classes["input-error"]}>

@@ -12,8 +12,10 @@ const FaqItem = (props) => {
     : `${classes["faq-ans-container"]}`;
   return (
     <li>
-      <div className={classes["faq-qn-container"]} onClick={faqClickHandler}>
-        <h4 className={classes["faq-qn"]}>{props.qn}</h4>
+      <div className={classes["faq-qn-container"]}>
+        <h4 className={classes["faq-qn"]} onClick={faqClickHandler}>
+          {props.qn}
+        </h4>
         <span className={classes["faq-arrow"]}>
           <img src={ArrowImg} alt="arrow img" />
         </span>

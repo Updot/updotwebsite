@@ -1,0 +1,12 @@
+.map-outer {
+  position: relative;
+}
+.map-outer::after {
+  content: "";
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+  height: 5rem;
+  width: 5rem;
+  background-color: var(--text-color);
+  position: absolute;
+  left: 45%;
+}

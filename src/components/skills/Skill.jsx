@@ -1,16 +1,15 @@
 import Lottie from "react-lottie";
 import classes from "./Skill.module.css";
-import animationData from "../../assets/videos/data.json";
+import appIcon from "../../assets/img/lottiefiles/ANDROID.json";
 
 const defaultOptions = {
   loop: true,
   autoplay: true,
-  animationData: animationData,
+  animationData: appIcon,
   rendererSettings: {
     preserveAspectRatio: "xMidYMid slice",
   },
 };
-
 const Skill = (props) => {
   return (
     <div className={classes.skill}>

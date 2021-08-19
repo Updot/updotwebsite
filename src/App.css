@@ -41,6 +41,7 @@ button {
 body::-webkit-scrollbar,
 textarea::-webkit-scrollbar {
   width: 5px;
+  /* display: none; */
 }
 
 /* Track */
@@ -80,16 +81,25 @@ textarea {
   padding: 10vh 7.5vw;
   margin: 0 auto;
 }
-.btn {
+.btn,
+.btn span {
   background-color: transparent;
   text-decoration: none;
   color: var(--text-color);
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: bold;
   border: none;
   outline: none;
   border-bottom: 2px solid var(--text-color);
   cursor: pointer;
+  position: relative;
+}
+.btn span {
+  border-bottom: unset;
+}
+.btn .inner-btn,
+.btn .inner-btn span {
+  position: absolute;
 }
 .mousearrow-change {
   transform: rotate(-135deg) !important;
@@ -113,4 +123,7 @@ textarea {
 }
 #root {
   position: relative;
+}
+.mask {
+  filter: url("#shadowed-goo");
 }

@@ -5,12 +5,15 @@ import instagramImg from "../../assets/img/insta-icon.svg";
 import upArrow from "../../assets/img/up-arrow.svg";
 import classes from "./Footer.module.css";
 
-const Footer = () => {
+const Footer = (props) => {
   const onUpArrowClickHandler = () => {
     window.scrollTo(0, 0);
   };
   return (
-    <section className={classes.footer}>
+    <section
+      className={classes.footer}
+      style={{ marginTop: props.height ? props.height : "10vh" }}
+    >
       <div className={classes["footer-top"]}>
         <div className={classes.inbox}>
           <h3 className={classes["footer-heading"]}>Inbox Us</h3>

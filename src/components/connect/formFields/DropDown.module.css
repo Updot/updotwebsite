@@ -22,31 +22,54 @@ fieldset {
   font-size: 2.6rem;
   color: var(--fade-black);
 }
-
-.dropdown-options {
+.dropdown-outer {
   position: absolute;
-  display: flex;
-  flex-direction: column;
+  max-height: 12.5rem;
+  overflow-y: scroll;
   top: 103%;
   left: -1%;
   width: 100%;
+  z-index: 99;
+}
+.dropdown-outer::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dropdown-outer::-webkit-scrollbar-track {
+  background: var(--bg-color) !important;
+}
+
+.dropdown-outer::-webkit-scrollbar-thumb {
+  background: var(--text-color) !important;
+}
+
+.dropdown-outer::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color) !important;
+}
+.dropdown-options {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   border-radius: 0.4rem;
-  background-color: var(--fade-black);
+  background-color: var(--bg-color);
   overflow: hidden;
   transition: all 0.2s;
-  z-index: 99;
 }
 .dropdown-options .option {
   width: 100%;
-  padding: 2rem;
-  text-align: center;
-
+  padding: 1.3rem;
+  text-align: left;
+  font-size: 2.6rem;
   transition: all 0.2s;
+  font-weight: bold;
+  color: #363636;
+  border: 1px solid var(--text-color);
 }
 .dropdown-options .option:hover {
-  background-color: #262626;
-  color: #fff;
+  /* background-color: #262626;
+  color: #fff; */
 }
-.dropdown-options-hide {
+.dropdown-outer-hide {
   height: 0px;
+  overflow: hidden;
 }

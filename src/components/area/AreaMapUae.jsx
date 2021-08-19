@@ -3,13 +3,16 @@ import classes from "./AreaMap.module.css";
 const AreaMapUae = React.forwardRef((props, ref) => {
   const mapRef = useRef(null);
   const animateMap = () => {
-    mapRef.current.classList.remove(`${classes["area-map-animate"]}`);
+    mapRef.current.classList.add(`${classes["area-map-active"]}`);
     setTimeout(() => {
       mapRef.current.classList.add(`${classes["area-map-animate"]}`);
     }, 500);
   };
+  const removeAnimation = () => {
+    mapRef.current.classList.remove(`${classes["area-map-animate"]}`);
+  };
   useImperativeHandle(ref, () => {
-    return { animateMap };
+    return { animateMap, removeAnimation };
   });
   return (
     <div>

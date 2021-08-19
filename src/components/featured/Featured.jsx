@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SectionHeading from "../ui/SectionHeading";
-import FeaturedNav from "./featuredNav/FeaturedNav";
+import SmallNav from "../ui/smallNav/SmallNav";
 import FeaturedInfo from "./featuredInfo/FeaturedInfo";
 
 import remaxLogo from "../../assets/img/featured/remax.svg";
@@ -25,7 +25,10 @@ const Featured = () => {
     <div data-section="Featured" className={classes.featured}>
       <div className={classes["featured-header"]}>
         <SectionHeading>Featured</SectionHeading>
-        <FeaturedNav onNavClick={showFeaturedItem} />
+        <SmallNav
+          navData={["Website", "Apps", "Branding", "Marketing"]}
+          onNavClick={showFeaturedItem}
+        />
       </div>
       <div className={classes["featured-main"]}>
         {showFeatured === "website" && (

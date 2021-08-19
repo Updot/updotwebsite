@@ -21,6 +21,10 @@ const Area = () => {
           if (window.map === "ind") {
             indiaMapRef.current.animateMap();
           } else uaeMapRef.current.animateMap();
+        } else {
+          if (window.map === "ind") {
+            indiaMapRef.current.removeAnimation();
+          } else uaeMapRef.current.removeAnimation();
         }
       });
     };
@@ -42,6 +46,11 @@ const Area = () => {
         <div ref={mapContainerRef} className={classes["area-states-container"]}>
           <AreaSwitch current={currMap} />
         </div>
+      </div>
+      <div data-type="indicator" className={classes["state-indicator"]}>
+        <p className={classes["state-name"]}>Kerla</p>
+        <span className={classes["h-line"]}></span>
+        <span className={classes["angle-line"]}></span>
       </div>
     </div>
   );

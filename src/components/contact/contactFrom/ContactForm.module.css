@@ -1,0 +1,229 @@
+.form {
+  width: 100%;
+  margin-top: 5rem;
+}
+.form-container {
+  transform: translateY(0);
+  transition: all 0.2s linear;
+}
+.form-container-change {
+  transform: translateY(22vh);
+}
+
+.FormOptionHeading {
+  font-size: 3.7rem;
+  font-weight: bold;
+  color: #363636;
+  margin: 4rem 0;
+}
+.form-field {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  opacity: 0;
+  animation: animateField 0.2s linear;
+  animation-fill-mode: forwards;
+}
+.form-field:nth-of-type(1) {
+  opacity: 1;
+}
+.field-container {
+  display: flex;
+  flex-direction: column;
+}
+.form-field label {
+  top: 20%;
+  left: 2%;
+}
+.input-error {
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--text-color);
+  margin-top: 1rem;
+}
+.form-field:not(:last-of-type) {
+  margin-bottom: 5rem;
+}
+.form-field-1 {
+  grid-template-columns: 100%;
+}
+.form-field-5 {
+  grid-template-columns: 50%;
+}
+.form-field-2 {
+  grid-template-columns: 10% 85%;
+  grid-auto-flow: row;
+}
+.form-field-3 {
+  grid-template-columns: 15% 30% 45%;
+}
+.form-field-4 {
+  display: flex;
+  flex-direction: column;
+}
+.message-field {
+  margin-top: 10rem !important;
+}
+.logo-container {
+  margin-top: 6rem;
+  display: grid;
+  place-content: center;
+  position: relative;
+}
+.logo-container .updot-img {
+  width: auto;
+  height: 60rem;
+  object-fit: cover;
+}
+.logo-container .updot-magnet-img {
+  position: absolute;
+  width: auto;
+  height: 55.6rem;
+  object-fit: cover;
+  bottom: 0;
+  left: 49.95%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  user-select: none;
+}
+.updot-img:hover ~ .updot-magnet-img {
+  opacity: 1;
+}
+.standby-message {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 600;
+  opacity: 1;
+  transition: all 0.6s linear;
+  margin-top: 2rem;
+}
+.hide {
+  display: none;
+}
+.btn-submit {
+  width: 10rem;
+}
+.animate-btn {
+  border-bottom: unset;
+}
+.animate-btn div {
+  animation: animateLetterOuter 4s linear;
+  animation-fill-mode: forwards;
+}
+.animate-btn div span {
+  animation: animateLetter 4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.btn-inner-1 {
+  top: 0;
+  left: 0;
+  animation-delay: 4s !important;
+}
+.btn-inner-2 {
+  top: 0;
+  left: 18%;
+  animation-delay: 4.65s !important;
+}
+.btn-inner-3 {
+  top: 0;
+  left: 36%;
+  animation-delay: 5.3s !important;
+}
+.btn-inner-4 {
+  top: 0;
+  left: 54%;
+  animation-delay: 5.95s !important;
+}
+.btn-inner-5 {
+  top: 0;
+  left: 82%;
+  animation-delay: 6.6s !important;
+}
+
+.btn-inner-6 {
+  top: 0;
+  left: 92%;
+  animation-delay: 7.25s !important;
+}
+.btn-inner-1 span {
+  animation-delay: 4s !important;
+}
+.btn-inner-2 span {
+  animation-delay: 4.65s !important;
+}
+.btn-inner-3 span {
+  animation-delay: 5.3s !important;
+}
+.btn-inner-4 span {
+  animation-delay: 5.95s !important;
+}
+.btn-inner-5 span {
+  animation-delay: 6.6s !important;
+}
+
+.btn-inner-6 span {
+  animation-delay: 7.25s !important;
+}
+@keyframes animateLetter {
+  0% {
+    transform: translateY(0);
+  }
+
+  33% {
+    transform: translateY(20vh);
+  }
+  66% {
+    transform: translateY(0vh);
+  }
+
+  100% {
+    transform: translateY(15vh);
+  }
+}
+@keyframes animateLetterOuter {
+  0% {
+    transform: translateX(0);
+  }
+  5% {
+    transform: translateX(1vw);
+  }
+  100% {
+    transform: translateX(48vw);
+  }
+}
+
+.animate-field-1 {
+  animation-delay: 0;
+}
+.animate-field-2 {
+  animation-delay: 0.4s;
+}
+.animate-field-3 {
+  animation-delay: 0.6s;
+}
+.animate-field-4 {
+  animation-delay: 0.8s;
+}
+.animate-field-5 {
+  animation-delay: 1s;
+}
+.animate-field-6 {
+  animation-delay: 1.2s;
+}
+.animate-field-7 {
+  animation-delay: 1.4s;
+}
+.animate-field-8 {
+  animation-delay: 1.6s;
+}
+@keyframes animateField {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

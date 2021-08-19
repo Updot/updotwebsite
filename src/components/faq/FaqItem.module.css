@@ -1,7 +1,6 @@
 .faq-qn-container {
   display: flex;
   justify-content: flex-start;
-  cursor: pointer;
 }
 .faq-qn-container:not(:last-of-type) {
   margin-bottom: 2rem;
@@ -11,7 +10,7 @@
   font-weight: bold;
   color: var(--text-color);
   flex-basis: max-content;
-  pointer-events: none;
+  cursor: pointer;
 }
 .faq-arrow {
   min-height: 100%;
@@ -31,13 +30,15 @@
   filter: var(--filter);
 }
 .faq-ans {
-  font-size: 4rem;
+  display: inline-block;
+  font-size: 3.5rem;
   color: var(--text-color);
   font-weight: bold;
   width: 90%;
   height: 100%;
 }
 .faq-ans-container {
+  width: 100%;
   overflow: hidden;
   max-height: 0px;
   transition: all 0.2s;
@@ -45,4 +46,5 @@
 }
 .faq-ans-expend {
   max-height: 160px;
+  padding-bottom: 2rem;
 }

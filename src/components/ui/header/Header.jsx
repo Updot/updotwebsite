@@ -2,12 +2,14 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { mouseLocationAction } from "../../store/mouseLocation";
+import { themeStateAction } from "../../../store/themeState";
 import classes from "./Header.module.css";
 import logo from "../../../assets/img/updot-logo.svg";
 const Header = React.forwardRef((props, ref) => {
   const isNavActive = useSelector((state) => state.navState.isActive);
   const navUpRef = useRef();
   const navBottomRef = useRef();
+  const toogleRef = useRef(null);
   const navBtn = useRef();
 
   const arrowCurrCords = useSelector(
@@ -38,6 +40,33 @@ const Header = React.forwardRef((props, ref) => {
       document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
     }
   }, [dispatch, arrowCurrCords, props.navRef, isNavActive]);
+
+  useEffect(() => {
+    const x = arrowCurrCords.x;
+    const y = arrowCurrCords.y;
+    const { x: togglerX, y: togglerY } =
+      toogleRef.current.getBoundingClientRect();
+    const el = document.querySelector("[data-arrow='mousearrow']");
+    if (toogleRef.current) {
+      if (
+        x > togglerX - 20 &&
+        x < togglerX + 20 &&
+        y > togglerY - 20 &&
+        y < togglerY + 20
+      ) {
+        el.style.left = `${togglerX + 2.5}px`;
+        el.style.top = `${togglerY + 2}px`;
+        if (window.innerWidth < 1300) {
+          el.style.left = `${togglerX + 2}px`;
+          el.style.top = `${togglerY + 2}px`;
+        }
+      } else {
+        el.style.left = `${x}px`;
+        el.style.top = `${y}px`;
+      }
+    }
+  }, [arrowCurrCords]);
+
   const onClickHandler = (event) => {
     navUpRef.current.classList.toggle(`${classes["nav-btn-up-active"]}`);
     navBottomRef.current.classList.toggle(
@@ -62,6 +91,9 @@ const Header = React.forwardRef((props, ref) => {
         top: `${arrowCurrCords.y}px`,
       }
     : {};
+  const toggleThemeHandler = () => {
+    dispatch(themeStateAction.toggleTheme());
+  };
   return (
     <div className={classes.header}>
       <div className={classes["logo-container"]} onClick={onHomeClickHandler}>
@@ -70,6 +102,13 @@ const Header = React.forwardRef((props, ref) => {
         </Link>
         {isNavActive && <p>Home</p>}
       </div>
+      <div
+        data-type="toggle-btn"
+        ref={toogleRef}
+        className={classes["rest-dark-toggle"]}
+        onClick={toggleThemeHandler}
+        style={isNavActive ? { opacity: 0 } : {}}
+      ></div>
       {props.showNavBtn && (
         <div
           ref={navBtn}

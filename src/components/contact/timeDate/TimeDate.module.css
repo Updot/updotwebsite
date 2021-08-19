@@ -1,0 +1,55 @@
+.timedate-container {
+  padding: 10vh 0;
+  display: flex;
+  column-gap: 5vw;
+  margin-bottom: 20vh;
+  overflow: hidden;
+}
+.clock {
+  height: 69.6rem;
+  width: 69.6rem;
+  border: 4px solid var(--text-color);
+  border-radius: 50%;
+  position: relative;
+  transform: translateX(-10%);
+}
+.pin {
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  background-color: var(--text-color);
+  transform: rotate(90deg);
+  height: 0.5rem;
+}
+.pin-hour {
+  width: 20%;
+  transform-origin: 250%;
+  transform: rotate(90deg) translateX(150%);
+}
+.pin-minute {
+  width: 40%;
+  transform-origin: 125%;
+  transform: rotate(90deg) translateX(25%);
+}
+
+.text-info-container {
+  padding: 10vh 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.time,
+.date,
+.weather-text {
+  font-size: 4.5rem;
+  font-weight: bold;
+}
+.time {
+  margin-bottom: 2rem;
+}
+.weather img {
+  width: auto;
+  height: 5.5rem;
+}

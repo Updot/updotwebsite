@@ -21,14 +21,16 @@ const Landing = () => {
     if (isLoaded) {
       const setDot = () => {
         const toggleBtn = document.querySelector(`[data-type="toggle-btn"]`);
-        const { x, y } = toggleBtn.getBoundingClientRect();
-        if (!isLoaderHidden) {
-          dispatch(
-            mouseLocationAction.setCurrLocation({ x: x + 1.3, y: y + 1.55 })
-          );
-          dispatch(
-            mouseLocationAction.setRestLocation({ x: x + 1.3, y: y + 1.55 })
-          );
+        if (toggleBtn) {
+          const { x, y } = toggleBtn.getBoundingClientRect();
+          if (!isLoaderHidden) {
+            dispatch(
+              mouseLocationAction.setCurrLocation({ x: x + 1.3, y: y + 1.55 })
+            );
+            dispatch(
+              mouseLocationAction.setRestLocation({ x: x + 1.3, y: y + 1.55 })
+            );
+          }
         }
         document.querySelector("[data-arrow='mousearrow']").style.transition =
           "all 0.1s linear";

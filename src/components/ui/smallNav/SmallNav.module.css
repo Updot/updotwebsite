@@ -1,0 +1,13 @@
+.featured-nav ul {
+  list-style: none;
+  display: flex;
+  column-gap: 3rem;
+}
+.featured-nav-btn {
+  color: var(--fade-black);
+  border-color: var(--fade-black);
+}
+.featured-nav-btn-active {
+  color: var(--input-color);
+  border-color: var(--text-color);
+}

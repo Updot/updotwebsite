@@ -3,10 +3,15 @@
   width: 80%;
   filter: var(--filter);
 }
+/* .area-map-active {
+} */
+.area-map path {
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  transform: translateY(-10%);
+}
 
 .area-map-animate path {
-  transform: translateY(-10%);
-  opacity: 0;
   animation: animatePath 0.1s ease-in-out;
   animation-fill-mode: forwards;
 }
@@ -107,7 +112,6 @@
 @keyframes animatePath {
   from {
     transform: translateY(-10%);
-    opacity: 0;
   }
   to {
     transform: translateY(0%);

@@ -13,7 +13,12 @@ const Checkbox = (props) => {
             {...props.register(`${props.name}`)}
             hidden
           />
-          <label htmlFor={checkboxData}>{checkboxData}</label>
+          <label
+            htmlFor={checkboxData}
+            style={{ fontSize: props.size ? `${props.size}rem` : "2.6rem" }}
+          >
+            {checkboxData}
+          </label>
         </div>
       ))}
     </div>

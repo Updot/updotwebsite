@@ -1,0 +1,12 @@
+.insight-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100vw;
+  padding: 0 7.5vw;
+  margin: 0 auto;
+}
+.insight-header form {
+  flex-basis: 40%;
+}

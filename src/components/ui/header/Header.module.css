@@ -12,7 +12,6 @@
 }
 .logo-container {
   position: relative;
-  height: 100%;
 }
 .logo-container p {
   text-decoration: none;
@@ -90,4 +89,17 @@
   width: 4rem !important;
   margin-top: 2.3rem;
   transform: rotate(43deg);
+}
+
+.rest-dark-toggle {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 1px solid var(--text-color);
+  transform: translateY(50%);
+  z-index: 999999;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%, -50%);
 }
