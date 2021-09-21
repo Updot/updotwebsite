@@ -12,7 +12,23 @@
 .newsletter-container {
   flex-basis: 50%;
 }
-.newsletter-heading {
+.connect-btn {
+  margin-top: 20vh;
+  padding: 0 7.5vw;
+}
+.connect-btn a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.connect-btn a img {
+  filter: var(--filter);
+  height: 4rem;
+  width: auto;
+  margin-left: 6rem;
+}
+.newsletter-heading,
+.connect-btn a {
   font-size: 4rem;
   font-weight: bold;
   margin-bottom: 4rem;
@@ -48,4 +64,38 @@
   outline: none;
   border-bottom: 2px solid #fff;
   cursor: none;
+}
+@media only screen and (max-width: 800px) {
+  .newsletter-container {
+    flex-basis: 100%;
+    width: 100%;
+  }
+  .newsletter-heading,
+  .connect-btn a {
+    font-size: 2rem;
+  }
+  .connect-btn a img {
+    height: 2rem;
+    margin-left: 2.5rem;
+  }
+  .newsletter {
+    flex-direction: column;
+    height: unset;
+    align-items: center;
+  }
+  .newsletter-info {
+    display: none;
+  }
+  .newsletter-logo {
+    flex-basis: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+  }
+
+  .newsletter-logo img {
+    transform: unset;
+    height: 19rem;
+    width: auto;
+  }
 }

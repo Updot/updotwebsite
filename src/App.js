@@ -1,75 +1,89 @@
 import { Route, Switch } from "react-router";
-
+import { useSelector } from "react-redux";
 import "./App.css";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Landing from "./components/landing/Landing";
 import About from "./pages/About";
 import Insights from "./pages/Insights";
+import WorkPage from "./pages/WorkPage";
 import ContactPage from "./pages/ContactPage";
+import Cookies from "./components/cookies/Cookies";
+import TermPage from "./pages/TermPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import ServicesPage from "./pages/ServicesPage";
+import CareersPage from "./pages/CareersPage";
+import Loader from "./components/ui/loader/Loader";
+
+const Loading = () => {
+  const isLoaded = useSelector((state) => state.pageState.isLoaded);
+  if (window.innerWidth > 800) {
+    return <Landing />;
+  } else {
+    return !isLoaded && <Loader />;
+  }
+};
 
 function App() {
   return (
     <div className="App">
+      {/* <Cookies /> */}
       <Switch>
         <Route path="/" exact>
-          <Landing />
+          <Loading />
           <Home />
         </Route>
         <Route path="/about-us" exact>
-          <Landing />
+          <Loading />
           <About />
         </Route>
         <Route path="/insight">
-          <Landing />
+          <Loading />
           <Insights />
         </Route>
+        <Route path="/work">
+          <Loading />
+          <WorkPage />
+        </Route>
         <Route path="/contact">
-          <Landing />
+          <Loading />
           <ContactPage />
+        </Route>
+        <Route path="/services">
+          <Loading />
+          <ServicesPage />
+        </Route>
+        <Route path="/careers">
+          <Loading />
+          <CareersPage />
+        </Route>
+        <Route path="/term-and-conditions">
+          <Loading />
+          <TermPage />
+        </Route>
+        <Route path="/privacy-policy">
+          <Loading />
+          <PrivacyPage />
         </Route>
         <Route path="*">
           <NotFound />
         </Route>
       </Switch>
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <svg style={{ display: "none" }}>
         <defs>
-          <filter id="shadowed-goo">
+          <filter id="filter">
             <feGaussianBlur
               in="SourceGraphic"
-              result="blur"
               stdDeviation="10"
+              result="blur"
             />
             <feColorMatrix
               in="blur"
               mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-              result="goo"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+              result="filter"
             />
-            <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
-            <feColorMatrix
-              in="shadow"
-              mode="matrix"
-              values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2"
-              result="shadow"
-            />
-            <feOffset in="shadow" dx="1" dy="1" result="shadow" />
-            <feBlend in2="shadow" in="goo" result="goo" />
-            <feBlend in2="goo" in="SourceGraphic" result="mix" />
-          </filter>
-          <filter id="goo">
-            <feGaussianBlur
-              in="SourceGraphic"
-              result="blur"
-              stdDeviation="10"
-            />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-              result="goo"
-            />
-            <feBlend in2="goo" in="SourceGraphic" result="mix" />
+            <feComposite in="SourceGraphic" in2="filter" operator="atop" />
           </filter>
         </defs>
       </svg>

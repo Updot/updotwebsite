@@ -11,21 +11,23 @@ const TimeDate = () => {
   const hourPinRef = useRef(null);
   useEffect(() => {
     const setClock = () => {
-      const now = new Date();
-      const localTime = now.getTime();
-      const localOffset = now.getTimezoneOffset() * 60000;
-      const utc = localTime + localOffset;
-      const indiaOffset = 5.5;
-      const indiaTime = utc + 3600000 * indiaOffset;
-      const homeNow = new Date(indiaTime);
-      const seconds = homeNow.getSeconds();
-      const mins = homeNow.getMinutes();
-      const minuteAngle = (mins / 60) * 360 + (seconds / 60) * 6 + 90;
-      minutePinRef.current.style.transform = `rotate(${minuteAngle}deg) translateX(26%)`;
-      const hour = homeNow.getHours();
-      const hourAngle = (hour / 12) * 360 + (mins / 60) * 30 + 90;
-      hourPinRef.current.style.transform = `rotate(${hourAngle}deg) translateX(151%)`;
-      setTime({ hour, mins, seconds });
+      if (minutePinRef.current) {
+        const now = new Date();
+        const localTime = now.getTime();
+        const localOffset = now.getTimezoneOffset() * 60000;
+        const utc = localTime + localOffset;
+        const indiaOffset = 5.5;
+        const indiaTime = utc + 3600000 * indiaOffset;
+        const homeNow = new Date(indiaTime);
+        const seconds = homeNow.getSeconds();
+        const mins = homeNow.getMinutes();
+        const minuteAngle = (mins / 60) * 360 + (seconds / 60) * 6 + 90;
+        minutePinRef.current.style.transform = `rotate(${minuteAngle}deg) translateX(26%)`;
+        const hour = homeNow.getHours();
+        const hourAngle = (hour / 12) * 360 + (mins / 60) * 30 + 90;
+        hourPinRef.current.style.transform = `rotate(${hourAngle}deg) translateX(151%)`;
+        setTime({ hour, mins, seconds });
+      }
     };
     setInterval(setClock, 1000);
   }, []);

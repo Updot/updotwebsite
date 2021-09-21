@@ -1,0 +1,145 @@
+.service-container {
+  margin: 30vh 0;
+}
+.process {
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0 7.5vw;
+  margin: 0 auto;
+}
+.process-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15vh;
+  position: relative;
+}
+.process-timeline {
+  background-color: #fff;
+  width: 3px;
+}
+.process-timeline-animate {
+  animation: animatePath 6s linear;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+  margin-bottom: 30vh;
+}
+@keyframes animatePath {
+  from {
+    height: 0;
+  }
+  to {
+    height: 200rem;
+  }
+}
+.process-timeline-dot {
+  position: absolute;
+  left: 49.25%;
+  transform: translateX(-50%);
+  min-height: 4.8rem;
+  min-width: 4.8rem;
+  border: 1rem solid #fff;
+  border-radius: 50%;
+  opacity: 0;
+}
+.process-timeline-dot-animate {
+  animation: animateDot 2s ease-in-out;
+}
+@keyframes animateDot {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.sub-process {
+  position: absolute;
+  left: 49.25%;
+  display: flex;
+  align-items: flex-start;
+  width: 40vw;
+}
+.sub-process-animate {
+  animation: animateProcess 1s linear;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes animateProcess {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.timeline-dot {
+  min-height: 2.4rem;
+  min-width: 2.4rem;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  margin-right: 4rem;
+}
+.path-info h4 {
+  font-size: 4.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.path-info p {
+  font-size: 3.5rem;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+.left-side {
+  flex-direction: row-reverse;
+  right: 49.25%;
+  left: unset;
+  text-align: right;
+}
+.left-side .timeline-dot {
+  margin-right: unset;
+  margin-left: 4rem;
+}
+.right-side-1 {
+  top: 0;
+  animation-delay: 2.5s;
+}
+.right-side-2 {
+  top: 80rem;
+  animation-delay: 4.5s;
+}
+.right-side-3 {
+  top: 160rem;
+  animation-delay: 7s;
+}
+.left-side-1 {
+  top: 40rem;
+  animation-delay: 3.5s;
+}
+.left-side-2 {
+  top: 120rem;
+  animation-delay: 5.5s;
+}
+.left-side-3 {
+  top: 200rem;
+  animation-delay: 8s;
+}
+.show {
+  opacity: 1 !important;
+}

@@ -20,7 +20,7 @@ const Insights = () => {
           <InsightBlog />
         </Route>
       </Switch>
-      <Connect />
+      {/* <Connect /> */}
       <Newsletter />
       <Footer />
     </Fragment>

@@ -12,7 +12,12 @@ const Footer = (props) => {
   return (
     <section
       className={classes.footer}
-      style={{ marginTop: props.height ? props.height : "10vh" }}
+      style={{
+        marginTop:
+          window.innerWidth < 800
+            ? "0vh"
+            : `${props.height ? props.height : "10vh"}`,
+      }}
     >
       <div className={classes["footer-top"]}>
         <div className={classes.inbox}>
@@ -77,8 +82,9 @@ const Footer = (props) => {
           © Copyright 2021 UPDOT. All rights reserverd
         </p>
         <div className={classes["footer-tp"]}>
-          <NavLink to="/">Terms and Conditions</NavLink> <span>|</span>
-          <NavLink to="/">Privacy Policy</NavLink>
+          <NavLink to="/term-and-conditions">Terms and Conditions</NavLink>{" "}
+          <span>|</span>
+          <NavLink to="/privacy-policy">Privacy Policy</NavLink>
         </div>
       </div>
     </section>

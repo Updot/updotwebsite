@@ -81,3 +81,48 @@ span {
   width: 4rem;
   filter: var(--filter);
 }
+@media only screen and (max-width: 800px) {
+  .footer {
+    padding: 2vh 5vw;
+  }
+  .footer-top {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 60% 40%;
+    width: 100%;
+    padding-bottom: 5vh;
+    column-gap: 0%;
+    row-gap: 2rem;
+  }
+  .footer-heading {
+    margin-bottom: 0.5rem;
+  }
+  .footer-link-container {
+    flex-wrap: wrap;
+  }
+  .follow {
+    padding: 0;
+  }
+  .footer-link img {
+    width: 5rem;
+    height: auto;
+  }
+  .footer-top a,
+  .footer-top h3,
+  .footer-top p {
+    font-size: 1.1rem;
+  }
+  .footer-bottom p,
+  .footer-bottom a,
+  span {
+    font-size: 0.7rem;
+  }
+  .up-arrow {
+    grid-column: 2 / 3;
+  }
+  .up-arrow img {
+    width: auto;
+    height: 1rem;
+    margin-top: 4rem;
+  }
+}

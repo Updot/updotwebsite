@@ -14,3 +14,12 @@
   height: 100vh;
   padding: 10vh 7.5vw;
 }
+
+@media only screen and (max-width: 800px) {
+  .skill-inner {
+    height: unset;
+    padding: 3vh 7.5vw;
+    min-height: unset;
+    min-width: 100vw;
+  }
+}

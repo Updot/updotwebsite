@@ -1,15 +1,21 @@
 {
   "dark": {
-    "bgColor": "#000",
+    "bgColor1": "#000",
+    "bgColor2": "#fff",
+    "bgColor3": "rgba(64, 64, 64, 0.6)",
     "textColor": "#fff",
+    "textColor2": "#000",
     "inputBorderFade": "rgba(255, 255, 255, 0.2)",
     "inputBorderDark": " rgba(255, 255, 255, 0.9)",
     "fadeBlack": "#363636",
     "filter": "invert(0)"
   },
   "light": {
-    "bgColor": "#fff",
+    "bgColor1": "#fff",
+    "bgColor2": "#ECECEC",
+    "bgColor3": "rgba(236, 236, 236, .6)",
     "textColor": "#000",
+    "textColor2": "#000",
     "inputBorderFade": "rgba(0, 0, 0, 0.2)",
     "inputBorderDark": " rgba(0, 0, 0, 0.9)",
     "fadeBlack": "#dedede",

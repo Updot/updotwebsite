@@ -7,13 +7,15 @@ const DropDown = (props) => {
   const dropdownOptionsRef = useRef(null);
 
   useEffect(() => {
-    document.addEventListener("click", (e) => {
+    const eventHandler = (e) => {
       if (!e.target.classList.contains(`${classes["dropdown-info"]}`)) {
         if (isExpended) {
           setIsExpended(false);
         }
       }
-    });
+    };
+    document.addEventListener("click", eventHandler);
+    return () => document.removeEventListener("click", eventHandler);
   }, [isExpended]);
   const onDropDownClickHandler = () => {
     setIsExpended((prevState) => !prevState);

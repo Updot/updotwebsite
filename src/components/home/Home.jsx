@@ -9,6 +9,8 @@ import { navStateAction } from "../../store/NavState";
 // import { mouseLocationAction } from "../../store/mouseLocation";
 import colorTheme from "./colorTheme.json";
 import classes from "./Home.module.css";
+import { Link } from "react-router-dom";
+import { useCallback } from "react";
 
 const Home = (props) => {
   const isNavActive = useSelector((state) => state.navState.isActive);
@@ -18,18 +20,20 @@ const Home = (props) => {
   const [headerDisplayed, setHeaderDisplayed] = useState(true);
   const sectionRef = useRef(null);
   const navRef = useRef(null);
+  const headerRef = useRef(null);
   const dispatch = useDispatch();
-
   useEffect(() => {
     let theme;
     if (isLightThemeActive) {
       theme = colorTheme["light"];
-      console.log(theme);
     } else {
       theme = colorTheme["dark"];
     }
-    document.body.style.setProperty("--bg-color", theme.bgColor);
+    document.body.style.setProperty("--bg-color", theme.bgColor1);
+    document.body.style.setProperty("--bg-color-2", theme.bgColor2);
+    document.body.style.setProperty("--bg-color-3", theme.bgColor3);
     document.body.style.setProperty("--text-color", theme.textColor);
+    document.body.style.setProperty("--text-color-2", theme.textColor2);
     document.body.style.setProperty(
       "--input-border-dark",
       theme.inputBorderDark
@@ -80,6 +84,13 @@ const Home = (props) => {
     dispatch(navStateAction.setClose());
   };
 
+  const showDot = useCallback(() => {
+    headerRef.current.showDot();
+  }, []);
+  const hideDot = useCallback(() => {
+    headerRef.current.hideDot();
+  }, []);
+
   return (
     <Fragment>
       {headerDisplayed && (
@@ -88,9 +99,17 @@ const Home = (props) => {
           onNavCloseBtnClick={navCloseHandler}
           showNavBtn={true}
           navRef={navRef}
+          ref={headerRef}
         />
       )}
-      {isNavActive && <Nav onNavBtnClick={navClickHandler} ref={navRef} />}
+      {isNavActive && (
+        <Nav
+          onNavBtnClick={navClickHandler}
+          ref={navRef}
+          showDot={showDot}
+          hideDot={hideDot}
+        />
+      )}
 
       <div
         ref={sectionRef}
@@ -120,9 +139,36 @@ const Home = (props) => {
         ) : (
           <h1 className={classes.heading}>{props.heading}</h1>
         )}
-        <div className={classes.scroll}>
-          <span className={classes["scroll-text"]}>Scroll</span>
-        </div>
+        {!props.isNotScroll && (
+          <div className={classes.scroll}>
+            <span className={classes["scroll-text"]}>Scroll</span>
+            <span
+              className={`${classes["scroll-text"]} ${classes["swipe-text"]}`}
+            >
+              Swipe
+            </span>
+          </div>
+        )}
+        {props.isNotScroll && (
+          <div className={classes["services"]}>
+            <Link to="/services/web-development">Web Development</Link>
+            <Link to="/services/app-development">App Development</Link>
+            <Link to="/services/chatbot-development">Chatbot Development</Link>
+            <Link to="/services/devops-cloud">DevOps & Cloud</Link>
+            <Link to="/services/ui-ux">UI/UX Design</Link>
+            <Link to="/services/seo">SEO</Link>
+            <Link to="/services/branding">Branding</Link>
+            <Link to="/services/digital-marketing">Digital Marketing</Link>
+            <Link to="/services/maintenance-and-upgrade">
+              Maintenance and Upgrade
+            </Link>
+          </div>
+        )}
+        {props.service && (
+          <div className={classes["service"]}>
+            <h3>{props.service}</h3>
+          </div>
+        )}
       </div>
     </Fragment>
   );

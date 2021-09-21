@@ -1,14 +1,23 @@
 .client {
   height: 25rem;
   width: 25rem;
-  background-color: #fff;
+  background-color: var(--bg-color-2);
   border-radius: 50%;
   display: grid;
   place-content: center;
   position: absolute;
-  filter: var(--filter);
 }
 .client img {
   height: auto;
   width: 13rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .client {
+    height: 13rem;
+    width: 13rem;
+  }
+  .client img {
+    width: 8rem;
+  }
 }

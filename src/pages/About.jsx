@@ -19,7 +19,7 @@ const About = () => {
       <MasteredSkills />
       <Area />
       <Team />
-      <Connect />
+      {/* <Connect /> */}
       <Newsletter />
       <Footer />
     </Fragment>

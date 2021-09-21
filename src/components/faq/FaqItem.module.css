@@ -11,6 +11,8 @@
   color: var(--text-color);
   flex-basis: max-content;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 .faq-arrow {
   min-height: 100%;

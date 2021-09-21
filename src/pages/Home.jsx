@@ -7,7 +7,7 @@ import Skills from "./../components/skills/Skills";
 import Clients from "../components/clients/Clients";
 // import Faq from "./../components/faq/Faq";
 // import Testimonial from "./../components/testimonial/Testimonial";
-import Connect from "./../components/connect/Connect";
+// import Connect from "./../components/connect/Connect";
 import Newsletter from "./../components/newsletter/Newsletter";
 import Footer from "../components/footer/Footer";
 
@@ -17,14 +17,14 @@ const Home = () => {
       <MouseArrow />
       <HomeComponent
         isShowVideoHeading={true}
-        heading="Lorem ipsum dolor sit"
+        heading="We do things better at"
       />
       <Featured />
       <Skills />
       <Clients />
       {/* <Faq /> */}
       {/* <Testimonial /> */}
-      <Connect />
+      {/* <Connect /> */}
       <Newsletter />
       <Footer />
     </Fragment>

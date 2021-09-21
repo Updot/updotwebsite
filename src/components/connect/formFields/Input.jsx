@@ -28,7 +28,11 @@ const Input = (props) => {
         value={inputValue}
       />
       <span className={classes["input-span"]}></span>
-      <label ref={labelRef} htmlFor={props.fieldName}>
+      <label
+        ref={labelRef}
+        htmlFor={props.fieldName}
+        style={{ left: props.left ? props.left : "4%" }}
+      >
         {props.placeholder}
       </label>
     </div>

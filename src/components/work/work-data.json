@@ -1,0 +1,36 @@
+[
+  {
+    "key": "i1",
+    "heading": "Fortune Avenue",
+    "navigateLink": {
+      "next": {
+        "heading": "Wolf Wizard",
+        "link": "i2"
+      }
+    }
+  },
+  {
+    "key": "i2",
+    "heading": "Wolf Wizard",
+    "navigateLink": {
+      "prev": {
+        "heading": "Fortune Avenue",
+        "link": "i1"
+      },
+      "next": {
+        "heading": "Loream Ipsum",
+        "link": "i3"
+      }
+    }
+  },
+  {
+    "key": "i3",
+    "heading": "Lorem Ipsum",
+    "navigateLink": {
+      "prev": {
+        "heading": "Wolf Wizard",
+        "link": "i2"
+      }
+    }
+  }
+]

@@ -15,10 +15,10 @@ const FaqItem = (props) => {
       <div className={classes["faq-qn-container"]}>
         <h4 className={classes["faq-qn"]} onClick={faqClickHandler}>
           {props.qn}
+          <span className={classes["faq-arrow"]}>
+            <img src={ArrowImg} alt="arrow img" />
+          </span>
         </h4>
-        <span className={classes["faq-arrow"]}>
-          <img src={ArrowImg} alt="arrow img" />
-        </span>
       </div>
       <div className={faqAnsClass}>
         <p className={classes["faq-ans"]}>{props.ans}</p>

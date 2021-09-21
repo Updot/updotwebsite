@@ -1,14 +1,21 @@
-import React, { useEffect, useRef } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useImperativeHandle,
+} from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { mouseLocationAction } from "../../store/mouseLocation";
 import { themeStateAction } from "../../../store/themeState";
 import classes from "./Header.module.css";
 import logo from "../../../assets/img/updot-logo.svg";
+
 const Header = React.forwardRef((props, ref) => {
   const isNavActive = useSelector((state) => state.navState.isActive);
   const navUpRef = useRef();
   const navBottomRef = useRef();
+  const logoRef = useRef();
   const toogleRef = useRef(null);
   const navBtn = useRef();
 
@@ -17,29 +24,56 @@ const Header = React.forwardRef((props, ref) => {
   );
 
   const dispatch = useDispatch();
+  const toggleDot = useCallback(() => {
+    navBtn.current.classList.add(`${classes["nav-btn-hidden"]}`);
+    document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
+  }, []);
+  const toggleCross = useCallback(() => {
+    navBtn.current.classList.remove(`${classes["nav-btn-hidden"]}`);
+    document.querySelector("[data-arrow='mousearrow']").style.opacity = 0;
+  }, []);
   useEffect(() => {
     if (isNavActive) {
-      const navEl = props.navRef.current.getNav();
-      const navCord = navEl.getBoundingClientRect();
-      const leftLoc = navCord.left;
-      const topLoc = navCord.top - 50;
-      const x = arrowCurrCords.x;
-      const y = arrowCurrCords.y;
-      if (
-        (y > topLoc && x > leftLoc) ||
-        (x < 150 && y < 300) ||
-        (x > window.innerWidth - 400 && y > window.innerHeight - 100)
-      ) {
-        navBtn.current.classList.add(`${classes["nav-btn-hidden"]}`);
-        document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
-      } else {
-        navBtn.current.classList.remove(`${classes["nav-btn-hidden"]}`);
-        document.querySelector("[data-arrow='mousearrow']").style.opacity = 0;
-      }
+      // const navEl = props.navRef.current.getNav();
+      // const navCord = navEl.getBoundingClientRect();
+      // const leftLoc = navCord.left;
+      // const topLoc = navCord.top - 50;
+      // const rightLoc = navCord.right;
+      // const bottomLoc = navCord.bottom;
+      // const x = arrowCurrCords.x;
+      // const y = arrowCurrCords.y;
+      // if (
+      //   (y > topLoc && x > leftLoc && x <= rightLoc && y <= bottomLoc) ||
+      //   (x < 150 && y < 300) ||
+      //   (x > window.innerWidth - 400 && y > window.innerHeight - 100)
+      // ) {
+      //   toggleDot();
+      // } else {
+      //   toggleCross();
+      // }
+      toggleCross();
     } else {
       document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
     }
-  }, [dispatch, arrowCurrCords, props.navRef, isNavActive]);
+  }, [
+    // dispatch,
+    // arrowCurrCords,
+    // props.navRef,
+    isNavActive,
+    toggleCross,
+    // toggleDot,
+  ]);
+
+  useEffect(() => {
+    if (isNavActive && props.navRef.current != null) {
+      props.navRef.current.addEventListener("mouseover", (e) => {
+        toggleDot();
+      });
+      props.navRef.current.addEventListener("mouseout", (e) => {
+        toggleCross();
+      });
+    }
+  }, [toggleCross, toggleDot, props.navRef, isNavActive]);
 
   useEffect(() => {
     const x = arrowCurrCords.x;
@@ -94,11 +128,28 @@ const Header = React.forwardRef((props, ref) => {
   const toggleThemeHandler = () => {
     dispatch(themeStateAction.toggleTheme());
   };
+
+  const getLogo = () => {
+    return logoRef.current;
+  };
+
+  useImperativeHandle(ref, () => {
+    return { showDot: toggleDot, hideDot: toggleCross, getLogo };
+  });
   return (
     <div className={classes.header}>
-      <div className={classes["logo-container"]} onClick={onHomeClickHandler}>
+      <div
+        className={classes["logo-container"]}
+        onClick={onHomeClickHandler}
+        onMouseOver={() => {
+          toggleDot();
+        }}
+        onMouseOut={() => {
+          toggleCross();
+        }}
+      >
         <Link to="/" className={classes["logo-inner"]}>
-          <img ref={ref} className={classes.logo} src={logo} alt="Logo" />
+          <img ref={logoRef} className={classes.logo} src={logo} alt="Logo" />
         </Link>
         {isNavActive && <p>Home</p>}
       </div>

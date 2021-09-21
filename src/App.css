@@ -6,7 +6,10 @@ html {
 
 :root {
   --bg-color: #000;
+  --bg-color-2: #fff;
+  --bg-color-3: rgba(64, 64, 64, 0.6);
   --text-color: #fff;
+  --text-color-2: #000;
   --input-border-fade: rgba(255, 255, 255, 0.2);
   --input-border-dark: rgba(255, 255, 255, 0.9);
   --fade-black: #363636;
@@ -81,6 +84,11 @@ textarea {
   padding: 10vh 7.5vw;
   margin: 0 auto;
 }
+.container-2 {
+  width: 100vw;
+  padding: 0 7.5vw;
+  margin: 0 auto;
+}
 .btn,
 .btn span {
   background-color: transparent;
@@ -93,10 +101,15 @@ textarea {
   border-bottom: 2px solid var(--text-color);
   cursor: pointer;
   position: relative;
+  transition: all 0.2s ease-in-out;
 }
 .btn span {
   border-bottom: unset;
 }
+.btn-active {
+  border-bottom: 2px solid var(--bg-color);
+}
+
 .btn .inner-btn,
 .btn .inner-btn span {
   position: absolute;
@@ -121,9 +134,18 @@ textarea {
     font-size: 40%;
   }
 }
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 62.5%;
+  }
+  .btn,
+  .btn span {
+    font-size: 1.4rem;
+  }
+}
 #root {
   position: relative;
 }
 .mask {
-  filter: url("#shadowed-goo");
+  filter: url(#filter);
 }

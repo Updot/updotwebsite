@@ -1,0 +1,86 @@
+.loader {
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  position: relative;
+  padding: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+}
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  width: 8.2rem;
+  filter: var(--filter);
+}
+.loader-dot-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  column-gap: 10px;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+}
+.loader-dot {
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  opacity: 0.1;
+}
+.loader-dot:not(:last-child) {
+  margin-right: 1rem;
+}
+.loader-dot-1 {
+  animation: animateDot 2s linear infinite;
+  animation-fill-mode: backwards;
+}
+.loader-dot-2 {
+  animation: animateDot 2s linear -0.4s infinite;
+  animation-fill-mode: backwards;
+}
+.loader-dot-3 {
+  animation: animateDot 2s linear -0.8s infinite;
+  animation-fill-mode: backwards;
+}
+.loader-dot-4 {
+  animation: animateDot 2s linear -1.2s infinite;
+  animation-fill-mode: backwards;
+}
+
+.loader-dot-5 {
+  animation: animateDot 2s linear -1.5s infinite;
+  animation-fill-mode: backwards;
+}
+
+.loader-dot-6 {
+  animation: animateDot 2s linear -1.8s infinite;
+  animation-fill-mode: backwards;
+}
+
+@keyframes animateDot {
+  0%,
+  16%,
+  33%,
+  48%,
+  65%,
+  80%,
+  100% {
+    /* transform: initial; */
+    opacity: 0.1;
+  }
+
+  20% {
+    /* transform: translateY(-15px); */
+    opacity: 1;
+  }
+}

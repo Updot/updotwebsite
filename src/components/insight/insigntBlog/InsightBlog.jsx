@@ -1,12 +1,12 @@
 import { Fragment, useEffect } from "react";
 import { useHistory } from "react-router";
 import Home from "../../home/Home";
-import InsightCard from "../insightCard/InsightCard";
+import BlogCard from "../../ui/blogCard/BlogCard";
 import leftArrow from "./../../../assets/img/down-arrow.svg";
 import emptyRect1 from "./../../../assets/img/empty-rect-1.svg";
 import emptyRect2 from "./../../../assets/img/empty-rect-2.svg";
 import bar from "./../../../assets/img/bar.svg";
-import BlogContainer from "./blogContainer/BlogContainer";
+import BlogContainer from "../../ui/blogContainer/BlogContainer";
 import classes from "./InsightBlog.module.css";
 
 const InsightBlog = () => {
@@ -26,7 +26,7 @@ const InsightBlog = () => {
       <div className={`${classes["blog"]}`}>
         <div className={classes["blog-container"]}>
           <div className={classes["blog-info"]}>
-            <InsightCard hideDefault={true}>
+            <BlogCard hideDefault={true}>
               <div className={classes["blog-info-inner"]}>
                 <div className={classes["blog-header"]}>
                   <h1>Insight</h1>
@@ -63,7 +63,7 @@ const InsightBlog = () => {
                   amet, consecteturadip iscing elit.
                 </p>
               </div>
-            </InsightCard>
+            </BlogCard>
           </div>
           <BlogContainer paraOnly={true}>
             Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do

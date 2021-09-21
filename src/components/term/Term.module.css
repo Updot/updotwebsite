@@ -1,0 +1,11 @@
+.term {
+  padding-top: 25vh;
+}
+.term h2 {
+  margin-bottom: 10vh;
+}
+.para-container p {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 4rem 0;
+}

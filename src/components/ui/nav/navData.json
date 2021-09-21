@@ -1,7 +1,7 @@
 [
   {
     "name": "work",
-    "link": "#",
+    "link": "/work",
     "subNav": [
       { "name": "Loream Ipsum", "link": "#" },
       { "name": "Loream Ipsum1", "link": "#" },
@@ -10,7 +10,7 @@
   },
   {
     "name": "Services",
-    "link": "#",
+    "link": "/services",
     "subNav": [
       { "name": "Web Development", "link": "#" },
       { "name": "App Development", "link": "#" },
@@ -23,8 +23,8 @@
     ]
   },
   {
-    "name": "Carrer",
-    "link": "#",
+    "name": "Career",
+    "link": "/careers",
     "subNav": []
   },
   {

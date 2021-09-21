@@ -9,11 +9,14 @@ import UpdotLogo from "../../../assets/img/updot-big.svg";
 import UpdotMagnet from "../../../assets/img/updot-magnet.svg";
 
 import classes from "./ContactForm.module.css";
+import InputFile from "../../connect/formFields/InputFile";
 const ContactForm = () => {
   const [isStandby, setIsStandby] = useState(false);
   const [isFormTouched, setIsFormTouched] = useState(false);
+  const [showFileInput, setShowFileInput] = useState(false);
   const formOuterRef = useRef(null);
   const submitBtnRef = useRef(null);
+  const newsletterBtnRef = useRef(null);
   const {
     register,
     handleSubmit,
@@ -29,15 +32,21 @@ const ContactForm = () => {
     if (isSubmitSuccessful) {
       reset({ something: "" });
     }
-    window.addEventListener("scroll", (e) => {
+    let timeout,
+      timerActive = false;
+    document.addEventListener("scroll", (e) => {
       function onEntry(entry) {
         entry.forEach((change) => {
           if (change.isIntersecting) {
-            if (!isStandby) {
-              setTimeout(() => {
+            if (!isStandby && !timerActive) {
+              timerActive = true;
+              timeout = setTimeout(() => {
                 setIsStandby(true);
-              }, 4000);
+              }, 6000);
             }
+          } else {
+            clearTimeout(timeout);
+            timerActive = false;
           }
         });
       }
@@ -52,6 +61,8 @@ const ContactForm = () => {
 
       observer.observe(elements);
     });
+
+    return () => document.removeEventListener("click");
   }, [isSubmitSuccessful, isStandby, reset]);
   const onFirstChange = (event) => {
     if (!isFormTouched) {
@@ -61,6 +72,9 @@ const ContactForm = () => {
   };
   const onSubmitBtnClickHandler = (e) => {
     submitBtnRef.current.classList.add(`${classes["animate-btn"]}`);
+  };
+  const onNewsletterBtnClickHandler = (e) => {
+    newsletterBtnRef.current.classList.add(`${classes["animate-btn-2"]}`);
   };
   return (
     <div
@@ -80,6 +94,7 @@ const ContactForm = () => {
               error={errors}
               required={true}
               onFirstChange={onFirstChange}
+              left="1%"
             />
             <p className={classes["input-error"]}>
               {errors.name?.type === "required" && "*Name is required."}
@@ -110,6 +125,7 @@ const ContactForm = () => {
                 register={register}
                 fieldName="phoneNumber"
                 required={true}
+                left="1%"
               />
               <p className={classes["input-error"]}>
                 {errors.phoneNumber?.type === "required" &&
@@ -129,6 +145,7 @@ const ContactForm = () => {
                 register={register}
                 fieldName="emailId"
                 required={true}
+                left="1%"
               />
               <p className={classes["input-error"]}>
                 {errors.emailId?.type === "required" &&
@@ -155,6 +172,7 @@ const ContactForm = () => {
               register={register}
               fieldName="CompanyName"
               required={false}
+              left="1%"
             />
           </div>
         )}
@@ -168,6 +186,7 @@ const ContactForm = () => {
               register={register}
               fieldName="WebsiteURL"
               required={false}
+              left="1%"
             />
           </div>
         )}
@@ -200,6 +219,30 @@ const ContactForm = () => {
               </p>
             </div>
           </div>
+        )}{" "}
+        {isFormTouched && (
+          <div
+            className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-4"]} ${classes["file-container"]}`}
+          >
+            <div className={classes["btn-container"]}>
+              <button
+                className="btn"
+                onClick={() => setShowFileInput((prevState) => !prevState)}
+              >
+                Attach Files
+              </button>
+            </div>
+            {showFileInput && (
+              <div className={classes["file-input-container"]}>
+                <InputFile name="file1" />
+                <InputFile name="file2" />
+                <InputFile name="file3" />
+                <InputFile name="file4" />
+                <InputFile name="file5" />
+                <InputFile name="file6" />
+              </div>
+            )}
+          </div>
         )}
         {isFormTouched && (
           <div
@@ -230,9 +273,76 @@ const ContactForm = () => {
                 <span>t</span>
               </div>
             </button>
-            <a href="/" className="btn" type="submit">
-              Subscribe to Newsletter
-            </a>
+            <button
+              ref={newsletterBtnRef}
+              className={`btn ${classes["btn-newsletter"]}`}
+              type="submit"
+              onClick={onNewsletterBtnClickHandler}
+            >
+              <div className={`${classes["btn-newsletter-1"]} inner-btn`}>
+                <span>S</span>
+              </div>
+              <div className={`${classes["btn-newsletter-2"]} inner-btn`}>
+                <span>u</span>
+              </div>
+              <div className={`${classes["btn-newsletter-3"]} inner-btn`}>
+                <span>b</span>
+              </div>
+              <div className={`${classes["btn-newsletter-4"]} inner-btn`}>
+                <span>s</span>
+              </div>
+              <div className={`${classes["btn-newsletter-5"]} inner-btn`}>
+                <span>c</span>
+              </div>
+              <div className={`${classes["btn-newsletter-6"]} inner-btn`}>
+                <span>r</span>
+              </div>
+              <div className={`${classes["btn-newsletter-7"]} inner-btn`}>
+                <span>i</span>
+              </div>
+              <div className={`${classes["btn-newsletter-8"]} inner-btn`}>
+                <span>b</span>
+              </div>
+              <div className={`${classes["btn-newsletter-9"]} inner-btn`}>
+                <span>e</span>
+              </div>
+              <div className={`${classes["btn-newsletter-10"]} inner-btn`}>
+                <span> t</span>
+              </div>
+              <div className={`${classes["btn-newsletter-11"]} inner-btn`}>
+                <span>o </span>
+              </div>
+              <div className={`${classes["btn-newsletter-12"]} inner-btn`}>
+                <span>N</span>
+              </div>
+              <div className={`${classes["btn-newsletter-13"]} inner-btn`}>
+                <span>e</span>
+              </div>
+              <div className={`${classes["btn-newsletter-14"]} inner-btn`}>
+                <span>w</span>
+              </div>
+              <div className={`${classes["btn-newsletter-15"]} inner-btn`}>
+                <span>s</span>
+              </div>
+              <div className={`${classes["btn-newsletter-16"]} inner-btn`}>
+                <span>l</span>
+              </div>
+              <div className={`${classes["btn-newsletter-17"]} inner-btn`}>
+                <span>e</span>
+              </div>
+              <div className={`${classes["btn-newsletter-18"]} inner-btn`}>
+                <span>t</span>
+              </div>
+              <div className={`${classes["btn-newsletter-19"]} inner-btn`}>
+                <span>t</span>
+              </div>
+              <div className={`${classes["btn-newsletter-20"]} inner-btn`}>
+                <span>e</span>
+              </div>
+              <div className={`${classes["btn-newsletter-21"]} inner-btn`}>
+                <span>r</span>
+              </div>
+            </button>
           </div>
         )}
       </form>
@@ -248,8 +358,14 @@ const ContactForm = () => {
           />
         </div>
       )}
-      {isStandby && !isFormTouched && (
-        <p className={classes["standby-message"]}>Ok, then let's start!</p>
+      {!isFormTouched && (
+        <p
+          className={`${classes["standby-message"]} ${
+            isStandby && !isFormTouched ? classes["standby-message-show"] : ""
+          }`}
+        >
+          Ok, then let's start!
+        </p>
       )}
     </div>
   );

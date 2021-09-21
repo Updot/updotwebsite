@@ -23,7 +23,7 @@ const ConnectForm = () => {
     if (isSubmitSuccessful) {
       reset({ something: "" });
     }
-  });
+  }, [isSubmitSuccessful, reset]);
   return (
     <form className={classes.form} onSubmit={handleSubmit(formSubmitHandler)}>
       <div className={`${classes["form-field"]} ${classes["form-field-1"]}`}>

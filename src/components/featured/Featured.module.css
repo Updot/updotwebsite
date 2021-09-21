@@ -27,3 +27,19 @@
   position: absolute;
   z-index: 11;
 }
+@media only screen and (max-width: 800px) {
+  .featured {
+    padding-right: unset;
+    width: 85vw;
+    margin: 0 auto;
+  }
+  .featured-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: unset;
+  }
+  .featured-main {
+    height: unset;
+    min-height: 75vh;
+  }
+}

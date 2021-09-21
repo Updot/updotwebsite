@@ -27,7 +27,7 @@ fieldset {
   max-height: 12.5rem;
   overflow-y: scroll;
   top: 103%;
-  left: -1%;
+  left: 0%;
   width: 100%;
   z-index: 99;
 }

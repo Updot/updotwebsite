@@ -1,0 +1,41 @@
+.input-file-container {
+  position: relative;
+}
+.file-label {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--input-border-fade);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9;
+}
+.input-file-container span {
+  font-size: 4rem;
+  display: inline-block;
+  color: var(--input-border-fade);
+}
+.input-file-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  pointer-events: none;
+  cursor: auto;
+}
+.remove {
+  display: inline-block;
+  position: absolute;
+  color: var(--bg-color) !important;
+  z-index: 999;
+  top: 2%;
+  right: 2%;
+  font-weight: 800;
+  font-size: 1.6rem !important;
+  cursor: pointer;
+}

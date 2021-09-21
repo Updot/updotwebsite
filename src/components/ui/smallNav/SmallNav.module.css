@@ -11,3 +11,12 @@
   color: var(--input-color);
   border-color: var(--text-color);
 }
+@media only screen and (max-width: 800px) {
+  .featured-nav-btn {
+    font-size: 1.3rem !important;
+  }
+  .featured-nav ul {
+    margin-top: 1rem;
+    column-gap: 1.5rem;
+  }
+}

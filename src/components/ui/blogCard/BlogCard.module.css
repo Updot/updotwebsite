@@ -1,0 +1,128 @@
+.blog-card,
+.blog-card-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* overflow: hidden; */
+}
+.blog-card-2 {
+  justify-content: unset;
+  column-gap: 8vw;
+}
+.blog-img-container {
+  position: relative;
+  padding: 5rem 0;
+}
+.blog-img-inner {
+  transform: rotate(0deg);
+}
+.blog-img-inner img {
+  height: auto;
+  width: 66rem;
+  border-radius: 50%;
+  transform: rotate(0deg);
+}
+
+.blog-dot-animate-odd {
+  animation: animateClockWise 8s linear infinite;
+}
+.blog-dot-animate-odd img {
+  animation: animateAntiClockWise 8s linear infinite;
+}
+.blog-dot-animate-even {
+  animation: animateAntiClockWise 8s linear infinite;
+}
+.blog-dot-animate-even img {
+  animation: animateClockWise 8s linear infinite;
+}
+.blog-heading-container {
+  flex-basis: 50%;
+  text-decoration: none;
+}
+.blog-heading-container h1,
+.blog-heading-container-2 h1 {
+  font-size: 5.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: left !important;
+  display: flex;
+  align-items: center;
+}
+.blog-heading-container-2 h1 {
+  display: flex;
+  align-items: center;
+}
+.blog-heading-container h1 img,
+.blog-heading-container img .blog-heading-container-2 h1 img,
+.blog-heading-container-2 img {
+  filter: var(--filter);
+  width: auto;
+  height: 2.2rem;
+}
+.blog-heading-container-2 {
+  flex-basis: auto;
+  text-decoration: none;
+}
+.blog-heading-container-2 a {
+  width: auto;
+  display: flex;
+}
+.blog-heading-container img {
+  /* margin-left: 2rem; */
+  transform: rotate(-90deg);
+}
+.dot {
+  height: 5.6rem;
+  width: 5.6rem;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 0%;
+  right: -5%;
+  transition: all 2s ease;
+  z-index: -1;
+}
+.blog-img-inner:hover {
+  animation-play-state: paused;
+}
+.blog-img-inner img:hover {
+  filter: brightness(50%);
+}
+.blog-img-inner img:hover + .dot {
+  animation-play-state: paused;
+  right: 40%;
+  top: 40%;
+  /* height: 0rem; */
+}
+
+.blog-img-inner:hover img {
+  animation-play-state: paused;
+}
+.sub-text {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+.left-heading img {
+  transform: rotate(90deg);
+  margin-right: 1rem;
+}
+.right-heading img {
+  transform: rotate(-90deg);
+  margin-right: 1rem;
+}
+@keyframes animateClockWise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animateAntiClockWise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
