@@ -62,7 +62,7 @@ textarea ~ .input-span::before {
 }
 .input:focus ~ label,
 .input-container .change-label {
-  top: -45%;
+  top: -30%;
   left: 2%;
   font-size: 2rem;
 }
@@ -76,9 +76,21 @@ textarea ~ .change-label {
 @media only screen and (max-width: 800px) {
   .input {
     font-size: 1.3rem;
-    padding: 1rem;
+    padding: 0.7rem 1rem;
   }
   .input-container label {
     font-size: 1.3rem;
+    top: 15%;
+  }
+  .input:focus ~ label,
+  .input-container .change-label {
+    font-size: 1.2rem;
+  }
+  textarea:focus ~ label,
+  textarea ~ .change-label {
+    font-size: 1.2rem;
+  }
+  textarea ~ label {
+    top: 5% !important;
   }
 }

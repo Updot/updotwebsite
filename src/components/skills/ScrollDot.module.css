@@ -1,0 +1,11 @@
+.dot {
+  height: 13px;
+  width: 13px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  transition: border 0.3s ease-in-out;
+  border: 3px solid #000;
+}
+.dot-active {
+  border-color: #fff;
+}

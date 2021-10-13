@@ -61,9 +61,6 @@
   transform: translateY(-20%);
   margin-bottom: -5%;
 }
-.nav-item-active {
-  transform: translateY(-20%) !important;
-}
 /* .nav-item-container:hover .sub-nav {
     height: max-content;
   } */
@@ -105,4 +102,24 @@
 }
 .contact {
   grid-column: -2/-1;
+}
+@media only screen and (max-width: 800px) {
+  .nav {
+    height: 45vh;
+    padding-right: 10%;
+  }
+  .nav-item-container .nav-item {
+    font-size: 5.5rem;
+  }
+  .nav-item-container {
+    text-align: right;
+  }
+  .socials img {
+    width: 8rem;
+  }
+
+  .nav-item-active {
+    display: inline-block;
+    transform: translateX(-25%);
+  }
 }

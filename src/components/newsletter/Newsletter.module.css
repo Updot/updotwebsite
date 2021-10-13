@@ -15,6 +15,7 @@
 .connect-btn {
   margin-top: 20vh;
   padding: 0 7.5vw;
+  margin-bottom: -15vh;
 }
 .connect-btn a {
   text-decoration: none;
@@ -66,13 +67,24 @@
   cursor: none;
 }
 @media only screen and (max-width: 800px) {
+  .newsletter {
+    padding: 0 7.5vw 0vh;
+    margin-top: unset;
+  }
   .newsletter-container {
     flex-basis: 100%;
     width: 100%;
   }
+  .connect-btn {
+    margin-top: 15vh;
+    margin-bottom: unset;
+  }
   .newsletter-heading,
   .connect-btn a {
     font-size: 2rem;
+  }
+  .newsletter-heading {
+    margin-bottom: 2rem;
   }
   .connect-btn a img {
     height: 2rem;
@@ -95,7 +107,10 @@
 
   .newsletter-logo img {
     transform: unset;
-    height: 19rem;
+    height: 19.5rem;
     width: auto;
+  }
+  .newsletter-btn-container {
+    margin-top: 1.5rem;
   }
 }

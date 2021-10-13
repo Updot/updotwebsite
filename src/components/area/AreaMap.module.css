@@ -131,3 +131,9 @@
   z-index: 9999;
   opacity: 1;
 }
+
+@media only screen and (max-width: 800px) {
+  .area-map {
+    width: 100%;
+  }
+}

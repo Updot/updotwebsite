@@ -16,6 +16,7 @@ import featuredData from "./featuredData.json";
 import classes from "./Featured.module.css";
 
 const Featured = () => {
+  const [isAnimated, setIsAnimated] = useState(false);
   const [showFeatured, setShowFeatured] = useState("website");
 
   const showFeaturedItem = (secName) => {
@@ -35,6 +36,8 @@ const Featured = () => {
           <FeaturedInfo
             logo={remaxLogo}
             ui={remaxWeb}
+            isAnimated={isAnimated}
+            setIsAnimated={setIsAnimated}
             description={featuredData[`website`].description}
             btnText={featuredData[`website`].btnText}
             btnColor={featuredData[`website`].btnColor}
@@ -44,6 +47,8 @@ const Featured = () => {
           <FeaturedInfo
             logo={virtuselLogo}
             ui={virtuselWeb}
+            isAnimated={true}
+            setIsAnimated={setIsAnimated}
             description={featuredData[`apps`].description}
             btnText={featuredData[`apps`].btnText}
             btnColor={featuredData[`apps`].btnColor}
@@ -53,6 +58,8 @@ const Featured = () => {
           <FeaturedInfo
             logo={wolfwizardLogo}
             ui={wolfwizardWeb}
+            isAnimated={true}
+            setIsAnimated={setIsAnimated}
             description={featuredData[`branding`].description}
             btnText={featuredData[`branding`].btnText}
             btnColor={featuredData[`branding`].btnColor}
@@ -62,6 +69,8 @@ const Featured = () => {
           <FeaturedInfo
             logo={fortuneLogo}
             ui={fortuneWeb}
+            isAnimated={true}
+            setIsAnimated={setIsAnimated}
             description={featuredData[`marketing`].description}
             btnText={featuredData[`marketing`].btnText}
             btnColor={featuredData[`marketing`].btnColor}

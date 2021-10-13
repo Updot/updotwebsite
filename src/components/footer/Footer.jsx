@@ -50,21 +50,36 @@ const Footer = (props) => {
         <div className={classes.follow}>
           <h3 className={classes["footer-heading"]}>Follow Us</h3>
           <div className={classes["footer-link-container"]}>
-            <a className={classes["footer-link"]} href="/">
+            <a
+              className={classes["footer-link"]}
+              href="https://www.linkedin.com/company/updot/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 className={classes["fb-icon"]}
                 src={linkedinImg}
                 alt="linkedin"
               />
             </a>
-            <a className={classes["footer-link"]} href="/">
+            <a
+              className={classes["footer-link"]}
+              href="https://www.instagram.com/updotofficial/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 className={classes["insta-icon"]}
                 src={instagramImg}
                 alt="instagram"
               />
             </a>
-            <a className={classes["footer-link"]} href="/">
+            <a
+              className={classes["footer-link"]}
+              href="https://www.facebook.com/updotofficial"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 className={classes["fb-icon"]}
                 src={facebookImg}

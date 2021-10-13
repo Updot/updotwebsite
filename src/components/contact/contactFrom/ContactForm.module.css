@@ -107,8 +107,18 @@
   display: none;
 }
 .btn-submit {
+  border: unset;
+  position: relative;
+}
+.btn-submit::after {
+  content: "";
+  display: inline-block;
+  background-color: var(--text-color);
   width: 10rem;
-  height: 3.3rem;
+  height: 1.5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 .btn-newsletter {
   width: 35.5rem;
@@ -117,14 +127,39 @@
 .animate-btn {
   border-bottom: unset;
 }
-.animate-btn div {
+.animate-btn::after {
+  animation: animateBtn 4s linear;
+  transform-origin: left;
+  animation-fill-mode: forwards;
+}
+@keyframes animateBtn {
+  0% {
+    left: 0;
+  }
+  60% {
+    left: 48vw;
+    transform: rotate(0deg);
+    bottom: 0;
+  }
+  80% {
+    left: 62vw;
+    bottom: -15vh;
+    transform: rotate(180deg);
+  }
+  100% {
+    left: 52vw;
+    bottom: -15vh;
+    transform: rotate(180deg);
+  }
+}
+/* .animate-btn div {
   animation: animateLetterOuter 4s linear;
   animation-fill-mode: forwards;
 }
 .animate-btn div span {
   animation: animateLetter 4s ease-in-out;
   animation-fill-mode: forwards;
-}
+} */
 .animate-btn-2 {
   border-bottom: unset;
 }
@@ -464,4 +499,126 @@
 .btn-container button {
   color: var(--fade-black) !important;
   border-color: var(--fade-black) !important;
+}
+@media only screen and (max-width: 800px) {
+  .form-container-change {
+    transform: translateY(5vh);
+  }
+  .btn-submit {
+    width: 6rem;
+    height: 2.3rem;
+  }
+  .btn-newsletter {
+    width: 16rem;
+    height: 2.3rem;
+  }
+  .form-field-2 {
+    grid-template-columns: 25% 70%;
+  }
+  .FormOptionHeading {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 1rem 0;
+  }
+  .file-container {
+    flex-direction: column;
+  }
+  .file-container button {
+    margin-bottom: 1.5rem;
+  }
+  .file-input-container {
+    width: 100%;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+    column-gap: 2rem;
+  }
+  .input-error {
+    font-size: 1rem;
+  }
+  .form-field-9 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+  }
+  .standby-message {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+  }
+  .form-field:not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
+  .logo-container .updot-img {
+    width: auto;
+    height: 23.5rem;
+    filter: var(--filter);
+    object-fit: cover;
+  }
+  .logo-container .updot-magnet-img {
+    position: absolute;
+    width: auto;
+    height: 22rem;
+    object-fit: cover;
+    bottom: 0;
+    left: 48.99%;
+    transform: translateX(-48.5%);
+    opacity: 0;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    user-select: none;
+  }
+  @keyframes animateLetter {
+    0% {
+      transform: translateY(0);
+    }
+
+    33% {
+      transform: translateY(5vh);
+    }
+    66% {
+      transform: translateY(0vh);
+    }
+
+    100% {
+      transform: translateY(14vh);
+    }
+  }
+  @keyframes animateLetter2 {
+    0% {
+      transform: translateY(0);
+    }
+
+    33% {
+      transform: translateY(10vh);
+    }
+    66% {
+      transform: translateY(0vh);
+    }
+
+    100% {
+      transform: translateY(15vh);
+    }
+  }
+  @keyframes animateLetterOuter {
+    0% {
+      transform: translateX(0);
+    }
+    5% {
+      transform: translateX(1vw);
+    }
+    100% {
+      transform: translateX(48vw);
+    }
+  }
+  @keyframes animateLetterOuter2 {
+    0% {
+      transform: translateX(0);
+    }
+    5% {
+      transform: translateX(-1vw);
+    }
+    100% {
+      left: 0;
+      transform: translateX(10vw);
+    }
+  }
 }

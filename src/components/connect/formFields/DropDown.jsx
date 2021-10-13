@@ -1,10 +1,16 @@
 import { useEffect, useRef, useState } from "react";
+import dArrowWhite from "../../../assets/img/d-arrow-white.svg";
+import dArrowDark from "../../../assets/img/d-arrow-dark.svg";
 import classes from "./DropDown.module.css";
+import { useSelector } from "react-redux";
 
 const DropDown = (props) => {
   const [isExpended, setIsExpended] = useState(false);
   const [dropdownValue, setDropdownValue] = useState("");
   const dropdownOptionsRef = useRef(null);
+  const isLightThemeActive = useSelector(
+    (state) => state.themeState.isLightThemeActive
+  );
 
   useEffect(() => {
     const eventHandler = (e) => {
@@ -28,6 +34,7 @@ const DropDown = (props) => {
     ? `${classes["dropdown-options"]}`
     : `${classes["dropdown-options"]} ${classes["dropdown-outer-hide"]}`;
 
+  const dArrow = isLightThemeActive ? dArrowWhite : dArrowDark;
   return (
     <div className={classes.dropdown} onClick={onDropDownClickHandler}>
       <fieldset disabled>
@@ -39,6 +46,7 @@ const DropDown = (props) => {
             required: props.required,
           })}
         />
+        <img src={dArrow} alt="down arrow" />
       </fieldset>
       <div ref={dropdownOptionsRef} className={classes["dropdown-outer"]}>
         <div className={dropdownOptionClass}>

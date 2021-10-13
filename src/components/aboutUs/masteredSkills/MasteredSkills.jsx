@@ -28,6 +28,9 @@ const MasteredSkills = () => {
           Branding
         </Link>
         <Link className={classes["skills-link"]} to="/">
+          Business Analysis
+        </Link>
+        <Link className={classes["skills-link"]} to="/">
           Digital Marketing
         </Link>
         <Link className={classes["skills-link"]} to="/">

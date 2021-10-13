@@ -9,7 +9,11 @@ const PrivacyPage = () => {
   return (
     <Fragment>
       <MouseArrow />
-      <HomeComponent isShowVideoHeading={false} heading="Privacy Policy" />
+      <HomeComponent
+        isShowVideoHeading={false}
+        heading="Privacy Policy"
+        fontSize="5.3rem"
+      />
       <Privacy />
       <Newsletter />
       <Footer />

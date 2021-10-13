@@ -1,27 +1,45 @@
-import { Fragment, useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import SectionHeading from "../ui/SectionHeading";
+import ScrollDot from "./ScrollDot";
 import SkillContainer from "./SkillContainer";
 
 import classes from "./Skills.module.css";
 
+let count = 0;
 const Skills = () => {
+  const [scrollDir, setScrollDir] = useState("bottom");
+  const [scrollDotCount, setScrollDotCount] = useState(0);
   const skillRef = useRef(null);
   const ghostRef = useRef(null);
+  const scrollTop = () => {
+    window.scrollTo(0, window.innerHeight * 1);
+    count = 0;
+    const el = document.querySelector(`[data-type="skill-container"]`);
+    skillRef.current.style.transition = `all 0.8s linear`;
+    skillRef.current.style.left = `-${Math.round(el.clientWidth * count)}px`;
+  };
+  const scrollBottom = () => {
+    const el = document.querySelector(`[data-type="skill-container"]`);
+    const scroll = el.clientWidth * 9.4 + window.innerHeight * 2;
+    window.scrollTo(0, scroll);
+    count = 9;
+    skillRef.current.style.transition = `all 0.8s linear`;
+    skillRef.current.style.left = `-${Math.round(el.clientWidth * count)}px`;
+  };
   useEffect(() => {
     let timeout;
-    let count = 0;
     window.addEventListener("wheel", (e) => {
       if (window.innerWidth > 800) {
         clearTimeout(timeout);
         let scroll = window.scrollY - window.innerHeight * 2;
         if (skillRef.current) {
           if (window.scrollY < window.innerHeight * 2) {
-            skillRef.current.style.position = "unset";
+            // skillRef.current.style.position = "unset";
           }
           if (scroll >= 0) {
-            skillRef.current.style.position = "fixed";
+            // skillRef.current.style.position = "fixed";
             if (scroll <= skillRef.current.scrollWidth - window.innerWidth) {
-              skillRef.current.style.top = "0px";
+              // skillRef.current.style.top = "0px";
               // document.querySelector("body").style.overflowY = "hidden";
               const el = document.querySelector(
                 `[data-type="skill-container"]`
@@ -31,6 +49,7 @@ const Skills = () => {
               // skillRef.current.style.scrollBehavior = `smooth`;
               timeout = setTimeout(() => {
                 if (e.deltaY > 0) {
+                  setScrollDir("bottom");
                   if (count < 9) {
                     // skillRef.current.style.transition = `all 0.8s linear`;
                     count += 1;
@@ -42,6 +61,7 @@ const Skills = () => {
                     // skillRef.current.style.transition = `unset`;
                   }
                 } else {
+                  setScrollDir("up");
                   if (count > 0) {
                     count -= 1;
                     const scroll =
@@ -52,9 +72,12 @@ const Skills = () => {
                   }
                 }
                 skillRef.current.style.transition = `all 0.8s linear`;
-                skillRef.current.style.left = `-${Math.round(
+                skillRef.current.style.transform = `translateX(-${Math.round(
                   el.clientWidth * count
-                )}px`;
+                )}px)`;
+                // skillRef.current.style.left = `-${Math.round(
+                //   el.clientWidth * count
+                // )}px`;
               }, 100);
             }
             if (scroll > skillRef.current.scrollWidth - window.innerWidth) {
@@ -68,6 +91,11 @@ const Skills = () => {
       }
     });
   }, []);
+
+  const setScrollDot = (skillNum) => {
+    setScrollDotCount(skillNum);
+  };
+
   return (
     <Fragment>
       <div className={classes["heading-container-mobile"]}>
@@ -75,24 +103,23 @@ const Skills = () => {
           <SectionHeading>Our Mastered Skills</SectionHeading>
         )}
       </div>
-      <div className={classes.skills}>
-        <div ref={skillRef} className={classes["skills-outer"]}>
-          <SkillContainer />
+      <div ref={ghostRef} className={classes["ghost"]}>
+        <div className={classes.skills}>
+          <div ref={skillRef} className={classes["skills-outer"]}>
+            <SkillContainer
+              scrollDir={scrollDir}
+              scrollTop={scrollTop}
+              scrollBottom={scrollBottom}
+              setScrollDot={setScrollDot}
+            />
+          </div>
         </div>
+        {window.innerWidth < 800 && (
+          <div className={classes["navigator"]}>
+            <ScrollDot scrollDotCount={scrollDotCount} />
+          </div>
+        )}
       </div>
-      {window.innerWidth < 800 && (
-        <div className={classes["navigator"]}>
-          <div className={`${classes["dot"]} ${classes["dot-active"]}`}></div>
-          <div className={classes["dot"]}></div>
-          <div className={classes["dot"]}></div>
-          <div className={classes["dot"]}></div>
-          <div className={classes["dot"]}></div>
-          <div className={classes["dot"]}></div>
-          <div className={classes["dot"]}></div>
-          <div className={classes["dot"]}></div>
-        </div>
-      )}
-      <div ref={ghostRef} className={classes["ghost"]}></div>
     </Fragment>
   );
 };

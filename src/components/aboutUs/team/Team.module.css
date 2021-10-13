@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-decoration: none;
   align-items: center;
 }
 
@@ -53,4 +54,26 @@
   font-size: 2.2rem !important;
   font-weight: bold;
   text-transform: capitalize;
+}
+@media only screen and (max-width: 800px) {
+  .team-container {
+    margin-top: 6rem;
+    grid-template-columns: repeat(2, 45%);
+    justify-content: center;
+    row-gap: 5.8rem;
+  }
+  .join-team-container .join-img-bg {
+    height: 8.4rem;
+    width: 8.4rem;
+  }
+  .join-team-container img {
+    height: auto;
+    width: 8.1rem;
+    filter: grayscale(100%);
+    z-index: 1;
+  }
+  .join {
+    transform: translateY(-80%);
+    font-size: 1.2rem !important;
+  }
 }

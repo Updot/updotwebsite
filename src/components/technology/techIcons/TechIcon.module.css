@@ -16,7 +16,7 @@
 }
 .icon svg path,
 .icon svg rect {
-  transition: all 0.2s linear;
+  transition: all 0.4s linear;
 }
 
 .react-icon {
@@ -67,5 +67,43 @@
   }
   100% {
     transform: translateY(2%);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .icon {
+    height: 11.5rem;
+    width: 11.5rem;
+  }
+  .icon svg {
+    height: 8rem;
+    width: auto;
+  }
+  .react-icon {
+    top: 5rem;
+    left: 0;
+  }
+  .angular-icon {
+    top: 8rem;
+    left: unset;
+    right: 5%;
+  }
+  .html-icon {
+    top: 30rem;
+    left: 0%;
+  }
+  .css-icon {
+    top: 33rem;
+    left: 58%;
+  }
+  .js-icon {
+    top: 18rem;
+    height: 10.1rem;
+    width: 10.1rem;
+    left: 30%;
+  }
+  .js-icon svg {
+    width: auto;
+    height: 5.5rem;
   }
 }

@@ -24,3 +24,17 @@
   transform: translateY(-10%);
   filter: var(--filter);
 }
+@media only screen and (max-width: 800px) {
+  .insight-load-more span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 5rem;
+  }
+  .insight-load-more img {
+    width: 1.3rem;
+    margin-left: 0.5rem;
+  }
+  .insight-container {
+    padding: 20vh 0 15vh;
+  }
+}

@@ -44,6 +44,7 @@
   left: 50%;
   bottom: 5%;
   transform: translate(-50%, -5%);
+  transition: all 0.2s linear;
 }
 .scroll-text {
   color: currentColor;
@@ -55,38 +56,52 @@
   font-size: 4rem;
   display: inline-block;
   transform: rotateZ(90deg);
-  margin-left: 1rem;
+  margin-left: 2rem;
   margin-top: 5px;
-  animation: animateArrow 1s linear infinite;
+  animation: animateArrow 3s linear infinite;
+}
+
+.scroll-fade {
+  opacity: 0;
 }
 
 @keyframes animateArrow {
-  0% {
-    transform: translateY(0px) rotateZ(90deg);
+  0%,
+  30%,
+  60% {
+    transform: translateY(1px) rotateZ(90deg);
   }
-  50% {
-    transform: translateY(5px) rotateZ(90deg);
+  15%,
+  45% {
+    transform: translateY(8px) rotateZ(90deg);
   }
-  1000% {
-    transform: translateY(0px) rotateZ(90deg);
+  100% {
+    transform: translateY(1px) rotateZ(90deg);
   }
 }
 .services {
   position: absolute;
   width: 100%;
   bottom: 5%;
+}
+.services-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
-  column-gap: 2vw;
-  row-gap: 2rem;
+}
+
+.services-container:first-of-type {
+  margin-bottom: 3rem;
 }
 
 .services a {
   text-decoration: none;
   font-size: 3.5rem;
   font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+.services a:hover {
+  transform: translateY(-10%);
 }
 
 .service {
@@ -105,12 +120,10 @@
 @media only screen and (max-width: 800px) {
   .heading {
     flex-direction: column;
-    width: 60%;
     transform: translateY(5%);
     align-items: flex-start;
-    padding-left: 5%;
-    font-size: 6.4rem;
-    line-height: 1.1;
+    font-size: 5.8rem;
+    line-height: 1.25;
   }
   .heading-video {
     transform: translateY(-20%);
@@ -118,6 +131,9 @@
   }
   .heading-video video {
     height: 13rem;
+  }
+  .scroll {
+    bottom: 10%;
   }
   .scroll-text {
     display: none;
@@ -131,6 +147,44 @@
 
   .scroll-text::after {
     font-size: 2rem;
-    animation: unset;
+    margin-left: 1rem;
+  }
+  @keyframes animateArrow {
+    0%,
+    30%,
+    60% {
+      transform: translateY(1px) rotateZ(90deg);
+    }
+    15%,
+    45% {
+      transform: translateY(5px) rotateZ(90deg);
+    }
+    100% {
+      transform: translateY(1px) rotateZ(90deg);
+    }
+  }
+  .services {
+    position: unset;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    column-gap: 2vw;
+    /* row-gap: 2rem; */
+    align-self: flex-end;
+    padding: 3rem 0 6rem;
+  }
+  .services-container {
+    flex-direction: column;
+    margin-bottom: unset !important;
+  }
+  .service h3 {
+    font-size: 2.3rem;
+    font-weight: bold;
+  }
+  .services a {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
   }
 }

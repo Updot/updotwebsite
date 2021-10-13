@@ -20,3 +20,20 @@
 .tech-nav button.tech-nav-active {
   font-size: 4.5rem !important;
 }
+
+@media only screen and (max-width: 800px) {
+  .tech-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .tech-nav button {
+    font-size: 1.2rem;
+  }
+  .tech-nav button.tech-nav-active {
+    font-size: 1.8rem !important;
+  }
+  .tech-nav li:not(:last-of-type) {
+    margin-bottom: unset;
+  }
+}

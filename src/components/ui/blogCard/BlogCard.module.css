@@ -24,27 +24,39 @@
 }
 
 .blog-dot-animate-odd {
-  animation: animateClockWise 8s linear infinite;
+  animation: animateClockWise 16s linear infinite;
 }
 .blog-dot-animate-odd img {
-  animation: animateAntiClockWise 8s linear infinite;
+  animation: animateAntiClockWise 16s linear infinite;
 }
 .blog-dot-animate-even {
-  animation: animateAntiClockWise 8s linear infinite;
+  animation: animateAntiClockWise 16s linear infinite;
 }
 .blog-dot-animate-even img {
-  animation: animateClockWise 8s linear infinite;
+  animation: animateClockWise 16s linear infinite;
 }
 .blog-heading-container {
   flex-basis: 50%;
   text-decoration: none;
+}
+.arrow-inline {
+  transition: all 0.2s ease-in-out;
+}
+.blog-heading-container h1:hover .arrow-inline {
+  transform: rotate(-90deg) translateY(30%);
+}
+.blog-heading-container h1 ~ img {
+  transition: all 0.2s ease-in-out;
+}
+.blog-heading-container h1:hover ~ img {
+  transform: rotate(-90deg) translateY(30%);
 }
 .blog-heading-container h1,
 .blog-heading-container-2 h1 {
   font-size: 5.5rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
-  text-align: left !important;
+  text-align: left;
   display: flex;
   align-items: center;
 }
@@ -102,6 +114,12 @@
   font-size: 3.5rem;
   font-weight: bold;
 }
+.left-heading {
+  text-align: left;
+}
+.right-heading {
+  text-align: right !important;
+}
 .left-heading img {
   transform: rotate(90deg);
   margin-right: 1rem;
@@ -124,5 +142,47 @@
   }
   to {
     transform: rotate(-360deg);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .blog-img-inner img {
+    width: 45vw;
+  }
+  .blog-img-container {
+    padding: 1rem 0;
+  }
+  .blog-heading-container h1,
+  .blog-heading-container-2 h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-heading-container h1 img,
+  .blog-heading-container img .blog-heading-container-2 h1 img,
+  .blog-heading-container-2 img {
+    height: 0.8rem;
+  }
+  .blog-heading-container h1 ~ img {
+    width: auto;
+    height: 0.9rem;
+  }
+  .dot {
+    height: 4vw;
+    width: 4vw;
+    right: 0%;
+  }
+  .sub-text {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  .left-heading img {
+    margin-right: 0.5rem;
+  }
+  .right-heading img {
+    margin-left: 0.5rem;
+  }
+  .blog-heading-container {
+    flex-basis: 60%;
   }
 }

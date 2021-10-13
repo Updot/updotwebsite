@@ -1,26 +1,33 @@
 import React from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import classes from "./FeaturedInfo.module.css";
 const FeaturedInfo = (props) => {
-  // const [featuredBoundary, setFeatureBoundary] = useState();
   const wrapperRef = useRef(null);
   const fiRef = useRef(null);
   // const bubbleRef = useRef(null);
   useEffect(() => {
     let onEntry = (entries) => {
       entries.forEach((change) => {
-        if (fiRef.current) {
-          if (change.isIntersecting) {
-            fiRef.current.classList.add(
-              `${classes["featured-info-outer-animate"]}`
-            );
-          } else {
-            fiRef.current.classList.remove(
-              `${classes["featured-info-outer-animate"]}`
-            );
+        if (!props.isAnimated) {
+          if (fiRef.current) {
+            if (change.isIntersecting) {
+              fiRef.current.classList.add(
+                `${classes["featured-info-outer-animate"]}`
+              );
+              props.setIsAnimated(false);
+            } else {
+              // fiRef.current.classList.remove(
+              //   `${classes["featured-info-outer-animate"]}`
+              // );
+            }
           }
+        } else {
+          fiRef.current.classList.add(
+            `${classes["featured-info-outer-open"]}`,
+            `${classes["featured-info-outer-expand"]}`
+          );
         }
       });
     };
@@ -31,7 +38,8 @@ const FeaturedInfo = (props) => {
     let observer = new IntersectionObserver(onEntry, options);
     const el = document.querySelector(`[data-section="Featured"]`);
     observer.observe(el);
-  }, []);
+    return () => observer.disconnect();
+  }, [props]);
   // useEffect(() => {
   //   const el = document.querySelector("[data-arrow='mousearrow']");
   //   window.addEventListener("scroll", (e) => {

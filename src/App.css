@@ -123,6 +123,13 @@ textarea {
   border-radius: 100% 100% 30% 100% !important;
 }
 
+.mt-3 {
+  margin-top: 3vh;
+}
+.mt-5 {
+  margin-top: 5vh;
+}
+
 @media screen and (max-width: 1600px) {
   html {
     font-size: 50%;
@@ -142,10 +149,14 @@ textarea {
   .btn span {
     font-size: 1.4rem;
   }
+  .h-unset-mobile {
+    min-height: unset !important;
+    height: unset !important;
+  }
 }
 #root {
   position: relative;
 }
 .mask {
-  filter: url(#filter);
+  /* filter: url(#filter); */
 }

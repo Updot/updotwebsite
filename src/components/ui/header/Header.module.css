@@ -73,9 +73,9 @@
   margin-left: auto;
 }
 
-.nav-btn-container:hover .nav-btn-up {
+/* .nav-btn-container:hover .nav-btn-up {
   width: 3rem;
-}
+} */
 .nav-btn-container:hover .nav-btn-bottom {
   width: 4rem;
 }
@@ -92,6 +92,7 @@
 }
 
 .rest-dark-toggle {
+  display: none;
   height: 15px;
   width: 15px;
   border-radius: 50%;
@@ -122,5 +123,13 @@
   .rest-dark-toggle {
     display: none;
     transform: unset;
+  }
+  .nav-btn-container-fixed {
+    position: unset;
+    /* transition: all 0.1s linear; */
+    margin-right: 5%;
+    left: unset !important;
+    right: unset !important;
+    top: unset !important;
   }
 }

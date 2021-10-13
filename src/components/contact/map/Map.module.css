@@ -1,12 +1,18 @@
 .map-outer {
-  position: relative;
+  background-color: #fff;
+  padding-bottom: 2vh;
 }
 .map-outer::after {
   content: "";
   clip-path: polygon(0 0, 0% 100%, 100% 0);
-  height: 5rem;
-  width: 5rem;
+  height: 6rem;
+  width: 6rem;
   background-color: var(--text-color);
   position: absolute;
-  left: 45%;
+  left: 43%;
+}
+@media only screen and (max-width: 800px) {
+  .map-outer::after {
+    left: 15%;
+  }
 }

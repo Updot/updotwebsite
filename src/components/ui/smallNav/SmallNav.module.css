@@ -14,9 +14,13 @@
 @media only screen and (max-width: 800px) {
   .featured-nav-btn {
     font-size: 1.3rem !important;
+    padding-bottom: 0.5rem;
   }
   .featured-nav ul {
     margin-top: 1rem;
     column-gap: 1.5rem;
+  }
+  .featured-nav ul li {
+    width: max-content;
   }
 }

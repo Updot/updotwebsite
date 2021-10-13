@@ -10,11 +10,11 @@ const BlogNavigateCard = (props) => {
   const style = isTrue
     ? {
         flexDirection: "row-reverse",
-        paddingLeft: "7.5vw",
+        paddingLeft: window.innerWidth > 800 ? "7.5vw" : "5vw",
       }
     : {
         flexDirection: "row",
-        paddingRight: "7.5vw",
+        paddingRight: window.innerWidth > 800 ? "7.5vw" : "5vw",
       };
   const imageStyle = isTrue
     ? {

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import classes from "./Map.module.css";
 
 const Map = () => {
   const mapRef = useRef(null);
@@ -40,7 +41,11 @@ const Map = () => {
     }
     setBasemap("DarkGray");
   }, []);
-  return <div ref={mapRef} style={{ height: "70vh", width: "100vw" }}></div>;
+  return (
+    <div className={classes["map-outer"]}>
+      <div ref={mapRef} style={{ height: "80vh", width: "100vw" }}></div>
+    </div>
+  );
 };
 
 export default Map;

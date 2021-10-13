@@ -9,3 +9,17 @@
   font-weight: bold;
   width: 63vw;
 }
+@media only screen and (max-width: 800px) {
+  .career-container {
+    margin-bottom: unset;
+    min-height: unset;
+    padding: 10vh 6vw 0;
+  }
+  .career-para {
+    margin-top: 2rem;
+    font-size: 1.65rem;
+    line-height: 1.35;
+    font-weight: bold;
+    width: unset;
+  }
+}

@@ -15,6 +15,7 @@
 .footer-top h3,
 .footer-top p {
   font-size: 2.2rem;
+  line-height: 1.4;
 }
 .footer-heading {
   font-weight: 600 !important;
@@ -25,7 +26,7 @@
   grid-auto-flow: column;
   grid-template-columns: 20% 15% 25% 20% 15%;
   width: 100%;
-  padding-bottom: 20vh;
+  padding-bottom: 17vh;
   column-gap: 2%;
 }
 .footer-bottom {
@@ -83,7 +84,7 @@ span {
 }
 @media only screen and (max-width: 800px) {
   .footer {
-    padding: 2vh 5vw;
+    padding: 6rem 5vw 2vh;
   }
   .footer-top {
     display: grid;
@@ -92,10 +93,10 @@ span {
     width: 100%;
     padding-bottom: 5vh;
     column-gap: 0%;
-    row-gap: 2rem;
+    row-gap: 3rem;
   }
   .footer-heading {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
   .footer-link-container {
     flex-wrap: wrap;
@@ -112,17 +113,34 @@ span {
   .footer-top p {
     font-size: 1.1rem;
   }
+  .footer-bottom {
+    margin-bottom: 1vh;
+  }
   .footer-bottom p,
   .footer-bottom a,
   span {
     font-size: 0.7rem;
+  }
+  .footer-bottom p {
+    margin-top: 0.5rem;
+  }
+  .spot {
+    grid-column: 1 / 2;
+    grid-row: 1/ 2;
+  }
+  .ring {
+    grid-column: 2/3;
+    grid-row: 1 /2;
   }
   .up-arrow {
     grid-column: 2 / 3;
   }
   .up-arrow img {
     width: auto;
-    height: 1rem;
+    height: 1.5rem;
     margin-top: 4rem;
+  }
+  .footer-bottom {
+    align-items: center;
   }
 }

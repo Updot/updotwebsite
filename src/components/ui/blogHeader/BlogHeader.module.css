@@ -8,5 +8,11 @@
   margin: 0 auto;
 }
 .blog-header form {
-  flex-basis: 40%;
+  /* flex-basis: 48%; */
+}
+
+@media only screen and (max-width: 800px) {
+  .blog-nav {
+    margin-left: 3rem;
+  }
 }

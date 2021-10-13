@@ -6,7 +6,7 @@ import { pageStateAction } from "../../../store/pageState";
 const Loader = () => {
   const dispatch = useDispatch();
   window.onload = (e) => {
-    // dispatch(pageStateAction.setLoaded());
+    dispatch(pageStateAction.setLoaded());
   };
   return (
     <div className={classes["loader"]}>

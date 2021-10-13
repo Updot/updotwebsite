@@ -2,16 +2,24 @@
   border-left: 1px solid var(--input-border-fade);
   border-bottom: 1px solid var(--input-border-fade);
   position: relative;
-  font-size: 2.6rem;
 }
 fieldset {
   border: none;
+  position: relative;
+}
+fieldset img {
+  height: auto;
+  width: 2.4rem;
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translate(-3%, -50%);
 }
 .dropdown-info {
   background-color: transparent;
   outline: none;
   border: none;
-  padding: 2rem;
+  padding: 2rem 1rem;
   color: var(--fade-black);
   width: 100%;
   font-size: 2.6rem;
@@ -72,4 +80,22 @@ fieldset {
 .dropdown-outer-hide {
   height: 0px;
   overflow: hidden;
+}
+@media only screen and (max-width: 800px) {
+  .dropdown-info {
+    font-size: 1.3rem;
+    padding: 0.7rem 1rem;
+  }
+  .dropdown-info::placeholder {
+    font-size: 1.3rem;
+  }
+  .dropdown-options .option {
+    font-size: 1.3rem;
+  }
+  fieldset img {
+    width: 1.1rem;
+    top: 50%;
+    right: 3%;
+    transform: translate(-3%, -50%);
+  }
 }

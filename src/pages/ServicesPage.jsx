@@ -17,6 +17,9 @@ const ServicesPage = () => {
             isShowVideoHeading={false}
             heading="Services"
             isNotScroll={true}
+            isPadding={true}
+            fontSize="5.3rem"
+            textCenter={true}
           />
         </Route>
         <Route path="/services/:serviceId" exact>
@@ -24,6 +27,7 @@ const ServicesPage = () => {
             isShowVideoHeading={false}
             heading="Services"
             service="Web Development"
+            fontSize="5.5rem"
           />
           <Services />
           <Newsletter />

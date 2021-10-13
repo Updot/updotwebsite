@@ -43,3 +43,29 @@
   transform: rotate(-90deg);
   margin-left: 2rem;
 }
+
+@media only screen and (max-width: 800px) {
+  .work-card-container {
+    padding: 5rem 0 0rem;
+    row-gap: 2vh;
+  }
+  .work-container {
+    padding: 10vh 0;
+  }
+  .nav-btn span {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  .nav-btn img {
+    height: 0.8rem;
+    width: auto;
+  }
+  .prev-btn img {
+    margin-right: 0.8rem;
+    transform: translateY(5%) rotate(90deg);
+  }
+  .nxt-btn img {
+    margin-left: 0.8rem;
+    transform: translateY(5%) rotate(-90deg);
+  }
+}

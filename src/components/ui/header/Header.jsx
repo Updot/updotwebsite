@@ -24,14 +24,19 @@ const Header = React.forwardRef((props, ref) => {
   );
 
   const dispatch = useDispatch();
+
   const toggleDot = useCallback(() => {
-    navBtn.current.classList.add(`${classes["nav-btn-hidden"]}`);
-    document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
-  }, []);
+    if (isNavActive) {
+      navBtn.current.classList.add(`${classes["nav-btn-hidden"]}`);
+      document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
+    }
+  }, [isNavActive]);
   const toggleCross = useCallback(() => {
-    navBtn.current.classList.remove(`${classes["nav-btn-hidden"]}`);
-    document.querySelector("[data-arrow='mousearrow']").style.opacity = 0;
-  }, []);
+    if (isNavActive) {
+      navBtn.current.classList.remove(`${classes["nav-btn-hidden"]}`);
+      document.querySelector("[data-arrow='mousearrow']").style.opacity = 0;
+    }
+  }, [isNavActive]);
   useEffect(() => {
     if (isNavActive) {
       // const navEl = props.navRef.current.getNav();

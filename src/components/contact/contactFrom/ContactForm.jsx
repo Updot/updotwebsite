@@ -34,7 +34,7 @@ const ContactForm = () => {
     }
     let timeout,
       timerActive = false;
-    document.addEventListener("scroll", (e) => {
+    const scrollHandler = (e) => {
       function onEntry(entry) {
         entry.forEach((change) => {
           if (change.isIntersecting) {
@@ -60,9 +60,10 @@ const ContactForm = () => {
       let elements = formOuterRef.current;
 
       observer.observe(elements);
-    });
+    };
+    document.addEventListener("scroll", scrollHandler);
 
-    return () => document.removeEventListener("click");
+    return () => document.removeEventListener("scroll", scrollHandler);
   }, [isSubmitSuccessful, isStandby, reset]);
   const onFirstChange = (event) => {
     if (!isFormTouched) {
@@ -94,7 +95,7 @@ const ContactForm = () => {
               error={errors}
               required={true}
               onFirstChange={onFirstChange}
-              left="1%"
+              left={window.innerWidth > 800 ? "1%" : "4%"}
             />
             <p className={classes["input-error"]}>
               {errors.name?.type === "required" && "*Name is required."}
@@ -125,7 +126,7 @@ const ContactForm = () => {
                 register={register}
                 fieldName="phoneNumber"
                 required={true}
-                left="1%"
+                left={window.innerWidth > 800 ? "1%" : "4%"}
               />
               <p className={classes["input-error"]}>
                 {errors.phoneNumber?.type === "required" &&
@@ -145,7 +146,7 @@ const ContactForm = () => {
                 register={register}
                 fieldName="emailId"
                 required={true}
-                left="1%"
+                left={window.innerWidth > 800 ? "1%" : "4%"}
               />
               <p className={classes["input-error"]}>
                 {errors.emailId?.type === "required" &&
@@ -156,7 +157,11 @@ const ContactForm = () => {
         )}
         {isFormTouched && (
           <div
-            className={`${classes["form-field"]} ${classes["form-field-2"]} ${classes["animate-field-3"]}`}
+            className={`${classes["form-field"]} ${
+              window.innerWidth > 800
+                ? classes["form-field-2"]
+                : classes["form-field-9"]
+            } ${classes["animate-field-3"]}`}
           >
             <DropDown
               placeholder="Industry"
@@ -172,7 +177,7 @@ const ContactForm = () => {
               register={register}
               fieldName="CompanyName"
               required={false}
-              left="1%"
+              left={window.innerWidth > 800 ? "1%" : "4%"}
             />
           </div>
         )}
@@ -186,7 +191,7 @@ const ContactForm = () => {
               register={register}
               fieldName="WebsiteURL"
               required={false}
-              left="1%"
+              left={window.innerWidth > 800 ? "1%" : "4%"}
             />
           </div>
         )}
@@ -197,7 +202,7 @@ const ContactForm = () => {
             <h3 className={classes.FormOptionHeading}>Services Required</h3>
             <Checkbox
               name="ServicesRequired"
-              size={3.7}
+              size={window.innerWidth > 800 ? 3.7 : 1.3}
               data={ServiceData}
               register={register}
             />
@@ -234,12 +239,36 @@ const ContactForm = () => {
             </div>
             {showFileInput && (
               <div className={classes["file-input-container"]}>
-                <InputFile name="file1" />
-                <InputFile name="file2" />
-                <InputFile name="file3" />
-                <InputFile name="file4" />
-                <InputFile name="file5" />
-                <InputFile name="file6" />
+                <InputFile
+                  name="file1"
+                  height={window.innerWidth < 800 && "8rem"}
+                  width={window.innerWidth < 800 && "8rem"}
+                />
+                <InputFile
+                  name="file2"
+                  height={window.innerWidth < 800 && "8rem"}
+                  width={window.innerWidth < 800 && "8rem"}
+                />
+                <InputFile
+                  name="file3"
+                  height={window.innerWidth < 800 && "8rem"}
+                  width={window.innerWidth < 800 && "8rem"}
+                />
+                <InputFile
+                  name="file4"
+                  height={window.innerWidth < 800 && "8rem"}
+                  width={window.innerWidth < 800 && "8rem"}
+                />
+                <InputFile
+                  name="file5"
+                  height={window.innerWidth < 800 && "8rem"}
+                  width={window.innerWidth < 800 && "8rem"}
+                />
+                <InputFile
+                  name="file6"
+                  height={window.innerWidth < 800 && "8rem"}
+                  width={window.innerWidth < 800 && "8rem"}
+                />
               </div>
             )}
           </div>
@@ -254,24 +283,7 @@ const ContactForm = () => {
               type="submit"
               onClick={onSubmitBtnClickHandler}
             >
-              <div className={`${classes["btn-inner-1"]} inner-btn`}>
-                <span>S</span>
-              </div>
-              <div className={`${classes["btn-inner-2"]} inner-btn`}>
-                <span>u</span>
-              </div>
-              <div className={`${classes["btn-inner-3"]} inner-btn`}>
-                <span>b</span>
-              </div>
-              <div className={`${classes["btn-inner-4"]} inner-btn`}>
-                <span>m</span>
-              </div>
-              <div className={`${classes["btn-inner-5"]} inner-btn`}>
-                <span>i</span>
-              </div>
-              <div className={`${classes["btn-inner-6"]} inner-btn`}>
-                <span>t</span>
-              </div>
+              Submit
             </button>
             <button
               ref={newsletterBtnRef}

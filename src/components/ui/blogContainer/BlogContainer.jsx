@@ -31,7 +31,10 @@ const BlogContainer = (props) => {
         <div className={classes["container-text"]}>
           <p>{props.children}</p>
         </div>
-        <div className={classes["container-img"]}>
+        <div
+          className={classes["container-img"]}
+          style={{ margin: props.margin }}
+        >
           <img src={props.img} alt="ima" />
         </div>
       </div>

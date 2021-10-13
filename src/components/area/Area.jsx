@@ -13,7 +13,12 @@ const Area = () => {
   const mapContainerRef = useRef(null);
   const indiaMapRef = useRef(null);
   const uaeMapRef = useRef(null);
+  const stateIndicatorRef = useRef(null);
   useEffect(() => {
+    const scrollHandler = (e) => {
+      stateIndicatorRef.current.style.opacity = "0";
+    };
+    window.addEventListener("scroll", scrollHandler);
     window.map = currMap;
     let onEntry = (entries) => {
       entries.forEach((change) => {
@@ -34,20 +39,25 @@ const Area = () => {
 
     let observer = new IntersectionObserver(onEntry, options);
     observer.observe(mapContainerRef.current);
+    return () => window.removeEventListener("scroll", scrollHandler);
   }, [currMap]);
   return (
-    <div className="container">
+    <div className={`container ${classes["area-container"]}`}>
       <SectionHeading>Covered Area</SectionHeading>
       <div className={classes["area-inner"]}>
         <div className={classes["area-map-container"]}>
           {currMap === "ind" && <AreaMapIndia ref={indiaMapRef} />}
           {currMap === "uae" && <AreaMapUae ref={uaeMapRef} />}
         </div>
-        <div ref={mapContainerRef} className={classes["area-states-container"]}>
+        <div ref={mapContainerRef} className={classes["area-switch-container"]}>
           <AreaSwitch current={currMap} />
         </div>
       </div>
-      <div data-type="indicator" className={classes["state-indicator"]}>
+      <div
+        ref={stateIndicatorRef}
+        data-type="indicator"
+        className={classes["state-indicator"]}
+      >
         <p className={classes["state-name"]}>Kerla</p>
         <span className={classes["h-line"]}></span>
         <span className={classes["angle-line"]}></span>

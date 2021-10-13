@@ -5,15 +5,15 @@
   overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  position: relative;
+  position: sticky;
+  top: 0;
   /* scroll-behavior: smooth; */
   /* overflow-x: scroll; */
 
   /* pointer-events: none; */
 }
 .skills-outer {
-  width: 800vw;
-  position: relative;
+  width: 1100vw;
   top: 0;
   left: 0;
   /* scroll-behavior: smooth; */
@@ -25,7 +25,8 @@
 .ghost {
   display: block;
   width: 100vw;
-  height: 890vw;
+  height: 950vw;
+  position: relative;
 }
 
 .skills-inner {
@@ -43,7 +44,10 @@
 }
 @media only screen and (max-width: 800px) {
   .ghost {
-    display: none;
+    height: unset;
+  }
+  .skills-outer {
+    width: unset;
   }
   .skills {
     height: unset;
@@ -56,15 +60,5 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-  }
-  .dot {
-    height: 7px;
-    width: 7px;
-    background-color: var(--text-color);
-    border-radius: 50%;
-  }
-  .dot-active {
-    height: 13px;
-    width: 13px;
   }
 }

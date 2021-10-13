@@ -5,7 +5,7 @@
   height: 100%;
   width: 100%;
   border-radius: 0.5rem;
-  border: 1px solid var(--input-border-fade);
+  border: 1px solid var(--fade-black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,7 @@
 .input-file-container span {
   font-size: 4rem;
   display: inline-block;
-  color: var(--input-border-fade);
+  color: var(--fade-black);
 }
 .input-file-container img {
   height: 100%;
@@ -38,4 +38,11 @@
   font-weight: 800;
   font-size: 1.6rem !important;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .file-label {
+    border-radius: unset;
+    border-width: 3px;
+  }
 }

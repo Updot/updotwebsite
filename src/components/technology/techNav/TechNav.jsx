@@ -2,7 +2,10 @@ import classes from "./TechNav.module.css";
 
 const TechNav = (props) => {
   const techNavClickHandler = (navItem, event) => {
-    // event.target.classList.add(`${classes["tech-nav-active"]}`);
+    document
+      .querySelectorAll(`.${classes["tech-nav"]} li button`)
+      .forEach((el) => el.classList.remove(`${classes["tech-nav-active"]}`));
+    event.target.classList.add(`${classes["tech-nav-active"]}`);
     props.onNavClick(navItem);
   };
   return (

@@ -18,6 +18,7 @@ const Work = () => {
             workId={data.key}
             arrowInline={true}
             isArrowLeftMargin={true}
+            // image={} have to enable
           />
         ))}
         <div className={classes["nav-btn-container"]}>

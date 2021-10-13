@@ -4,7 +4,7 @@ import MouseArrow from "./../components/ui/MouseArrow";
 import HomeComponent from "./../components/home/Home";
 import Insight from "../components/insight/Insight";
 import InsightBlog from "../components/insight/insigntBlog/InsightBlog";
-import Connect from "./../components/connect/Connect";
+// import Connect from "./../components/connect/Connect";
 import Newsletter from "./../components/newsletter/Newsletter";
 import Footer from "../components/footer/Footer";
 const Insights = () => {
@@ -13,7 +13,11 @@ const Insights = () => {
       <MouseArrow />
       <Switch>
         <Route path="/insight" exact>
-          <HomeComponent isShowVideoHeading={false} heading="Insight" />
+          <HomeComponent
+            isShowVideoHeading={false}
+            heading="Insight"
+            fontSize="5.3rem"
+          />
           <Insight />
         </Route>
         <Route path="/insight/:insightId">

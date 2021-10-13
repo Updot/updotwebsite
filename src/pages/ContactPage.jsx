@@ -7,7 +7,11 @@ const ContactPage = () => {
   return (
     <Fragment>
       <MouseArrow />
-      <HomeComponent isShowVideoHeading={false} heading="Contact" />
+      <HomeComponent
+        isShowVideoHeading={false}
+        heading="Contact"
+        fontSize="5.3rem"
+      />
       <Contact />
     </Fragment>
   );

@@ -37,6 +37,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding-left: unset;
+    margin-bottom: 4vh;
   }
   .featured-main {
     height: unset;

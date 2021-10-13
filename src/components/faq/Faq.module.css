@@ -10,8 +10,19 @@
 .faq ul {
   list-style: none;
 }
-.faq ul li {
-}
 .faq-container {
-  margin-top: 4rem;
+  margin-top: 8rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .faq {
+    min-height: unset;
+    padding: 10vh 5vw 8rem;
+  }
+  .faq-container {
+    margin-top: 4rem;
+  }
+  .faq h2 {
+    width: 90%;
+  }
 }

@@ -29,14 +29,16 @@ const MouseArrow = () => {
   }, [dispatch, isLoaderHidden, arrowRestCords]);
 
   useEffect(() => {
-    let timeout = setTimeout(() => {
-      document.querySelector("[data-arrow='mousearrow']").style.transition =
-        "all 0.2s linear";
-      dispatch(mouseLocationAction.setCurrLocation(arrowRestCords));
-    }, 3000);
-    return () => {
-      clearTimeout(timeout);
-    };
+    // let timeout = setTimeout(() => {
+    //   document.querySelector("[data-arrow='mousearrow']").style.transition =
+    //     "all 0.2s linear";
+    //   if (window.scrollY < 200) {
+    //     dispatch(mouseLocationAction.setCurrLocation(arrowRestCords));
+    //   }
+    // }, 3000);
+    // return () => {
+    //   clearTimeout(timeout);
+    // };
   }, [arrowRestCords, dispatch, arrowCurrCords]);
 
   const arrowLocation = {

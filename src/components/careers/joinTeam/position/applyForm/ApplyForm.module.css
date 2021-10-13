@@ -18,7 +18,7 @@
   font-size: 2.6rem;
   font-weight: 600;
   display: inline-block;
-  color: var(--input-border-fade);
+  color: var(--fade-black);
   margin-bottom: 1.5rem;
 }
 .field-container {
@@ -32,7 +32,7 @@
   margin-top: 1rem;
 }
 .form-field:not(:last-of-type) {
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
 }
 .form-field-1,
 .form-field-5 {
@@ -50,4 +50,44 @@
 }
 .file-input-container {
   display: flex;
+}
+.protfolio-container {
+  margin-top: 2.3rem;
+}
+.protfolio-container h3 {
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .form {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .form-field-3 {
+    grid-template-columns: 100%;
+    row-gap: 1.55rem;
+  }
+  .form-field-2 {
+    grid-template-columns: 20% 75%;
+  }
+  .form-field {
+    grid-auto-flow: row;
+  }
+  .form-field:not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
+  .form-field h3 {
+    font-size: 1.3rem;
+  }
+  .protfolio-container {
+    margin-bottom: 3rem;
+  }
+  .protfolio-container-2 {
+    margin-top: 0.5rem;
+    margin-bottom: 1.7rem;
+  }
+  .protfolio-container h3 {
+    margin-bottom: 1.5rem;
+  }
 }

@@ -11,7 +11,7 @@
 }
 .member-img-container img {
   height: auto;
-  width: 20rem;
+  width: 19.8rem;
   filter: brightness(0) invert(1);
   z-index: 1;
   transition: all 0.4s ease-in-out;
@@ -40,12 +40,26 @@
   text-align: center;
 }
 
+.name {
+  animation: animateText 4s linear infinite;
+  animation-fill-mode: forwards;
+}
+
 .name a {
   display: flex;
   align-items: center;
   text-decoration: none;
   position: relative;
 }
+@keyframes animateText {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15%);
+  }
+}
+
 .name a span {
   font-size: 2.2rem !important;
   font-weight: bold;
@@ -65,7 +79,18 @@
 .position {
   font-size: 1.6rem;
   font-weight: bold;
+  animation: animateText2 4s linear infinite;
+  animation-fill-mode: forwards;
   margin-top: 0.5rem;
+}
+@keyframes animateText2 {
+  0%,
+  100% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(15%);
+  }
 }
 
 .member:hover img {
@@ -80,4 +105,41 @@
 .member:hover .name a img {
   left: -2rem;
   opacity: 1;
+}
+@media only screen and (max-width: 800px) {
+  .member-img-container .member-img-bg {
+    height: 8.4rem;
+    width: 8.4rem;
+  }
+  .member-img-container {
+    margin-bottom: 0.7rem;
+  }
+  .member-img-container img {
+    height: auto;
+    width: 8.1rem;
+    z-index: 1;
+  }
+  .name a span {
+    font-size: 1.2rem !important;
+  }
+  .name a img {
+    height: auto;
+    width: 1.4rem;
+    margin-top: -0.3rem;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+  .member:hover .name a span {
+    transform: translateX(1rem);
+  }
+  .member:hover .name a img {
+    left: -1rem;
+  }
+  .position {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 0rem;
+  }
 }

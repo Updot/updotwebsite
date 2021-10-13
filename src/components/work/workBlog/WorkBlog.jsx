@@ -9,6 +9,7 @@ import BlogContainer from "../../ui/blogContainer/BlogContainer";
 import classes from "./WorkBlog.module.css";
 import BlogNavigateCard from "../../ui/blogCard/BlogNavigateCard";
 import blogData from "../work-data.json";
+import BlogImage from "../../ui/blogCard/BlogImage";
 
 const WorkBlog = () => {
   const history = useHistory();
@@ -30,9 +31,51 @@ const WorkBlog = () => {
       <Home hideInner={true} />
       <div className={`${classes["blog"]}`}>
         <div className={classes["blog-container"]}>
-          <div className={classes["blog-info"]}>
-            <BlogCard hideDefault={true}>
-              <div className={classes["blog-info-inner"]}>
+          {window.innerWidth > 800 ? (
+            <div className={classes["blog-info"]}>
+              <BlogCard
+                hideDefault={true}
+                isColumn={window.innerWidth < 800 ? true : false}
+              >
+                <div className={classes["blog-info-inner"]}>
+                  <div className={classes["blog-header"]}>
+                    <h1>{workBlog[0].heading}</h1>
+                    <button
+                      className={classes["back"]}
+                      onClick={onBackClickHandler}
+                    >
+                      <img src={leftArrow} alt="arrow" />
+                    </button>
+                  </div>
+
+                  <p>
+                    Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed
+                    do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem
+                    ipsum dolor sit amet, consecteturadip iscing elit, sed do
+                    eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum
+                    dolor sit amet, consecteturadip iscing elit, sed do eiusmod
+                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
+                    sit amet, consecteturadip iscing elit, sed do eiusmod
+                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
+                    sit amet, consecteturadip iscing elit, sed do eiusmod
+                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
+                    sit amet, consecteturadip iscing elit, sed do eiusmod
+                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
+                    sit amet, consecteturadip iscing elit, sed do eiusmod
+                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
+                    sit amet, consecteturadip iscing elit, sed do eiusmod
+                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
+                    sit amet, consecteturadip iscing elit.
+                  </p>
+                </div>
+              </BlogCard>
+            </div>
+          ) : (
+            <div>
+              <div className={classes["mobile-header"]}>
+                <div className={classes["mobile-header-image"]}>
+                  <BlogImage isTrue={false} />
+                </div>
                 <div className={classes["blog-header"]}>
                   <h1>{workBlog[0].heading}</h1>
                   <button
@@ -42,31 +85,27 @@ const WorkBlog = () => {
                     <img src={leftArrow} alt="arrow" />
                   </button>
                 </div>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed
-                  do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum
-                  dolor sit amet, consecteturadip iscing elit, sed do eiusmod
-                  temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit
-                  amet, consecteturadip iscing elit, sed do eiusmod
-                  temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit
-                  amet, consecteturadip iscing elit, sed do eiusmod
-                  temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit
-                  amet, consecteturadip iscing elit, sed do eiusmod
-                  temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit
-                  amet, consecteturadip iscing elit, sed do eiusmod
-                  temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit
-                  amet, consecteturadip iscing elit, sed do eiusmod
-                  temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit
-                  amet, consecteturadip iscing elit, sed do eiusmod
-                  temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit
-                  amet, consecteturadip iscing elit.
-                </p>
               </div>
-            </BlogCard>
-          </div>
+              <BlogContainer paraOnly={true}>
+                Lorem ipsum dolor sit amet, consect eturadip iscing elit, sed do
+                eiusmod temporincididunt na aliqua. Lorem Lorem ipsum dolor sit
+                amet, consect eturadip iscing elit, sed do eiusmod
+                temporincididunt na aliqua. Lorem Lorem ipsum dolor sit amet,
+                consect eturadip iscing elit, sed do eiusmod temporincididunt na
+                aliqua. Lorem Lorem ipsum dolor sit amet, consect eturadip
+                iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem
+                Lorem ipsum dolor sit amet, consect eturadip iscing elit, sed do
+                eiusmod temporincididunt na aliqua. Lorem Lorem ipsum dolor sit
+                amet, consect eturadip iscing elit, sed do eiusmod
+                temporincididunt na aliqua. Lorem Lorem ipsum dolor sit amet,
+                consect eturadip iscing elit, sed do eiusmod temporincididunt na
+                aliqua. Lorem Lorem ipsum dolor sit amet, consect eturadip
+                iscing elit, sed do eiusmod temporincididunt na aliqua,
+              </BlogContainer>
+            </div>
+          )}
           <BlogContainer imageOnly={true} imageCount={1}>
-            <img src={imageBigSample} alt="" />
+            <img className="mt-5" src={imageBigSample} alt="" />
           </BlogContainer>
           <BlogContainer paraOnly={true}>
             Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do
@@ -90,7 +129,7 @@ const WorkBlog = () => {
           <BlogContainer imageOnly={true} imageCount={1}>
             <img src={imageBigSample} alt="" />
           </BlogContainer>
-          <div className="container-2">
+          <div className={`${classes["vb-btn"]} container-2`}>
             <button className="btn">Visit Website</button>
           </div>
         </div>

@@ -12,6 +12,7 @@ const TermPage = () => {
       <HomeComponent
         isShowVideoHeading={false}
         heading="Terms and Conditions"
+        fontSize="5.3rem"
       />
       <Term />
       <Newsletter />

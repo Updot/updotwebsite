@@ -6,13 +6,15 @@
   margin-bottom: 2rem;
 }
 .faq-qn {
-  font-size: 4.5rem;
-  font-weight: bold;
   color: var(--text-color);
   flex-basis: max-content;
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+.faq-qn span {
+  font-size: 4.5rem;
+  font-weight: bold;
 }
 .faq-arrow {
   min-height: 100%;
@@ -30,6 +32,7 @@
   height: auto;
   width: 4rem;
   filter: var(--filter);
+  transition: all 0.2s ease-in-out;
 }
 .faq-ans {
   display: inline-block;
@@ -49,4 +52,39 @@
 .faq-ans-expend {
   max-height: 160px;
   padding-bottom: 2rem;
+}
+@media only screen and (max-width: 800px) {
+  .faq-qn-container:not(:last-of-type) {
+    margin-bottom: 1rem;
+  }
+  .faq-qn {
+    justify-content: flex-start;
+  }
+  .faq-qn span:nth-of-type(1) {
+    font-size: 1.8rem;
+  }
+  .faq-arrow {
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: unset;
+  }
+  .faq-arrow img {
+    height: auto;
+    width: 2rem;
+    margin-left: 0.7rem;
+    filter: var(--filter);
+  }
+  .faq-ans-container {
+    margin-bottom: 1.5rem;
+  }
+  .faq-ans {
+    font-size: 1.8rem;
+    width: 100%;
+    height: 100%;
+    padding-right: 5vw;
+  }
+  .faq-ans-expend {
+    max-height: 200px;
+    padding-bottom: 2rem;
+  }
 }

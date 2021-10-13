@@ -5,7 +5,7 @@ const OurStory = () => {
     <div className={`${classes["stroy-container"]} container`}>
       <SectionHeading>Our Origin Story</SectionHeading>
       <p className={classes["story-para"]}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod
         temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit
         amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut
         labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur

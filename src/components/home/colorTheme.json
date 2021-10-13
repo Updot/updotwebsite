@@ -5,9 +5,9 @@
     "bgColor3": "rgba(64, 64, 64, 0.6)",
     "textColor": "#fff",
     "textColor2": "#000",
-    "inputBorderFade": "rgba(255, 255, 255, 0.2)",
+    "inputBorderFade": "rgba(255, 255, 255, 0.7)",
     "inputBorderDark": " rgba(255, 255, 255, 0.9)",
-    "fadeBlack": "#363636",
+    "fadeBlack": "#404040",
     "filter": "invert(0)"
   },
   "light": {

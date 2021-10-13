@@ -8,7 +8,7 @@ import BlogCard from "../ui/blogCard/BlogCard";
 const Insight = () => {
   return (
     <div className={`${classes["insight-container"]}`}>
-      <BlogHeader navData={["Latest", "Most Popular"]} />
+      <BlogHeader navData={["Latest", "Most Viewed"]} />
       <div className={classes["insight-card-container"]}>
         {insightData.map((data, i) => (
           <BlogCard key={data.key} index={i} heading={data.heading} />

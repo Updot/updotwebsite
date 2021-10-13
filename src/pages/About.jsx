@@ -13,7 +13,11 @@ const About = () => {
   return (
     <Fragment>
       <MouseArrow />
-      <HomeComponent isShowVideoHeading={false} heading="About Us" />
+      <HomeComponent
+        isShowVideoHeading={false}
+        heading="About"
+        fontSize="5.3rem"
+      />
       <OurStory />
       <OurValues />
       <MasteredSkills />

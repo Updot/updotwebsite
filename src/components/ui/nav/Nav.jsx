@@ -47,6 +47,7 @@ const Nav = React.forwardRef((props, ref) => {
               <NavLink
                 to={data.link}
                 className={classes["nav-item"]}
+                activeClassName={classes["nav-item-active"]}
                 onClick={props.onNavBtnClick}
                 // onMouseOver={() => props.showDot()}
                 // onMouseOut={() => props.hideDot()}
@@ -61,21 +62,27 @@ const Nav = React.forwardRef((props, ref) => {
 
       <div className={classes.socials}>
         <a
-          href="#1"
+          href="https://www.linkedin.com/company/updot/"
           onMouseOver={() => props.showDot()}
           onMouseOut={() => props.hideDot()}
+          target="_blank"
+          rel="noreferrer"
         >
           <img src={linkedinIcon} alt="linkedin icon" />
         </a>
         <a
-          href="#1"
+          href="https://www.instagram.com/updotofficial/"
           onMouseOver={() => props.showDot()}
           onMouseOut={() => props.hideDot()}
+          target="_blank"
+          rel="noreferrer"
         >
           <img src={instaIcon} alt="instagram icon" />
         </a>
         <a
-          href="#1"
+          href="https://www.facebook.com/updotofficial"
+          target="_blank"
+          rel="noreferrer"
           onMouseOver={() => props.showDot()}
           onMouseOut={() => props.hideDot()}
         >

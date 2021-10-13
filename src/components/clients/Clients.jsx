@@ -29,14 +29,14 @@ const Clients = () => {
 
   return (
     <div ref={sectionRef} className={`${classes.clients}`}>
-      <SectionHeading>Client</SectionHeading>
+      <SectionHeading>Clients</SectionHeading>
       <div className={classes["clients-container"]}>
         <Client
           className={`${classes["client-loc-1"]} ${classes["big"]}`}
           img={vp}
         />
         <Client
-          className={`${classes["client-loc-2"]} ${classes["big"]}`}
+          className={`${classes["client-loc-2"]} ${classes["mid"]}`}
           img={ww}
         />
         <Client

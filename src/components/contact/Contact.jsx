@@ -15,7 +15,7 @@ const Contact = () => {
 
   return (
     <Fragment>
-      <div className="container">
+      <div className="container h-unset-mobile">
         <SectionHeading size="7rem">Let's Connect</SectionHeading>
         <ContactForm />
       </div>
@@ -23,7 +23,7 @@ const Contact = () => {
       <ContactSocial />
       <TimeDate />
       <Map />
-      <Footer height="8vh" />
+      <Footer height="5vh" />
     </Fragment>
   );
 };

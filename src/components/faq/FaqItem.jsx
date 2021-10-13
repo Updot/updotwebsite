@@ -14,9 +14,15 @@ const FaqItem = (props) => {
     <li>
       <div className={classes["faq-qn-container"]}>
         <h4 className={classes["faq-qn"]} onClick={faqClickHandler}>
-          {props.qn}
+          <span>{props.qn}</span>
           <span className={classes["faq-arrow"]}>
-            <img src={ArrowImg} alt="arrow img" />
+            <img
+              src={ArrowImg}
+              alt="arrow img"
+              style={{
+                transform: isExpended ? "rotate(-180deg)" : "",
+              }}
+            />
           </span>
         </h4>
       </div>

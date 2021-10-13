@@ -8,8 +8,12 @@
   display: grid;
   place-content: center;
 }
-.area-states-container {
+.area-switch-container {
   flex-basis: 20%;
+}
+.area-switch-container img {
+  width: auto;
+  height: 16.3rem;
 }
 .state-indicator {
   display: inline-block;
@@ -23,6 +27,7 @@
   font-size: 2.8rem;
   font-weight: bold;
   padding-right: 2rem;
+  text-transform: capitalize;
 }
 .h-line,
 .angle-line {
@@ -40,4 +45,42 @@
   bottom: 4.5%;
   transform-origin: right;
   transform: rotate(-135deg);
+}
+
+@media only screen and (max-width: 800px) {
+  .area-inner {
+    flex-direction: column-reverse;
+    margin-top: 3.5rem;
+  }
+  .area-container {
+    padding-top: 0rem;
+    min-height: unset;
+  }
+  .area-map-container {
+    width: 85%;
+    align-self: center;
+  }
+  .area-switch-container {
+    flex-basis: 100%;
+    margin-bottom: 5rem;
+    text-align: right;
+  }
+  .area-switch-container img {
+    height: auto;
+    width: 6rem;
+    align-self: flex-end;
+    opacity: 0.7;
+  }
+  .state-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding-right: unset;
+  }
+
+  .angle-line {
+    height: 1.3px;
+    width: 1.5rem;
+    bottom: 8%;
+    right: 0.5%;
+  }
 }

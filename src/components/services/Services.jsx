@@ -9,7 +9,7 @@ const Services = () => {
   const animateDotRef = useRef(null);
   const animateTimelineRef = useRef(null);
   const desc =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporinci didunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.";
+    "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.";
   useEffect(() => {
     let onEntry = (entries) => {
       entries.forEach((change) => {
@@ -60,7 +60,7 @@ const Services = () => {
   return (
     <Fragment>
       <div className={classes["service-container"]}>
-        <Skill img={webDevIcon} skillData={{ desc }} />
+        <Skill img={webDevIcon} skillData={{ desc }} isPadding={true} />
       </div>
       <div className={classes["service-container"]}>
         <Technology />

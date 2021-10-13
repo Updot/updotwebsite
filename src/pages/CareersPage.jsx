@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import Careers from "../components/careers/Careers";
 // import { Route, Switch } from "react-router-dom";
 
@@ -8,10 +8,14 @@ import Newsletter from "../components/newsletter/Newsletter";
 import MouseArrow from "../components/ui/MouseArrow";
 
 const CareersPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Fragment>
       <MouseArrow />
-      <Home isShowVideoHeading={false} heading="Careers" />
+      <Home isShowVideoHeading={false} heading="Career" fontSize="5.3rem" />
       <Careers />
       <Newsletter />
       <Footer />

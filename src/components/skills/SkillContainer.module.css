@@ -12,7 +12,22 @@
 .skill-inner {
   width: 100vw;
   height: 100vh;
-  padding: 10vh 7.5vw;
+  padding: 20vh 7.5vw 10vh;
+}
+.arrow .down-arrow {
+  transform: rotate(180deg);
+}
+
+.arrow {
+  padding-top: 20vh;
+  padding-right: 3vw;
+  display: flex;
+  justify-content: flex-end;
+}
+.arrow img {
+  height: auto;
+  z-index: 999;
+  width: 3rem;
 }
 
 @media only screen and (max-width: 800px) {
@@ -21,5 +36,11 @@
     padding: 3vh 7.5vw;
     min-height: unset;
     min-width: 100vw;
+  }
+  .skills-inner-cotnainer {
+    overflow: scroll;
+  }
+  .skills-inner-cotnainer::-webkit-scrollbar {
+    display: none;
   }
 }
