@@ -2,6 +2,10 @@
   background-color: #fff;
   padding-bottom: 2vh;
 }
+.map {
+  height: 80vh;
+  width: 100vw;
+}
 .map-outer::after {
   content: "";
   clip-path: polygon(0 0, 0% 100%, 100% 0);
@@ -12,7 +16,16 @@
   left: 43%;
 }
 @media only screen and (max-width: 800px) {
+  .map-outer {
+    padding-bottom: 0.8rem;
+    margin-bottom: -2rem;
+  }
   .map-outer::after {
     left: 15%;
+    height: 3rem;
+    width: 3rem;
+  }
+  .map {
+    height: 51.5rem;
   }
 }

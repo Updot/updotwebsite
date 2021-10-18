@@ -3,3 +3,10 @@
   color: var(--text-color);
   font-weight: bold;
 }
+
+@media only screen and (max-width: 800px) {
+  .heading,
+  .heading span {
+    line-height: 1.14;
+  }
+}

@@ -24,6 +24,7 @@ const ContactForm = () => {
     formState: { errors, isSubmitSuccessful },
     reset,
   } = useForm();
+  const [fileUploadFields, setFileUploadFields] = useState([]);
 
   const formSubmitHandler = (formData) => {
     alert(`Hey, ${formData.name}!, Thankyou for Submitting form`);
@@ -77,6 +78,22 @@ const ContactForm = () => {
   const onNewsletterBtnClickHandler = (e) => {
     newsletterBtnRef.current.classList.add(`${classes["animate-btn-2"]}`);
   };
+
+  useEffect(() => {
+    const arr = [];
+    const itrCount = window.innerWidth > 800 ? 6 : 3;
+    for (let i = 0; i < itrCount; i++) {
+      arr.push(
+        <InputFile
+          key={i}
+          name={`file${i + 1}`}
+          height={window.innerWidth < 800 && "8rem"}
+          width={window.innerWidth < 800 && "8rem"}
+        />
+      );
+    }
+    setFileUploadFields(arr);
+  }, []);
   return (
     <div
       ref={formOuterRef}
@@ -163,22 +180,28 @@ const ContactForm = () => {
                 : classes["form-field-9"]
             } ${classes["animate-field-3"]}`}
           >
-            <DropDown
-              placeholder="Industry"
-              register={register}
-              fieldName="Industry"
-              setValue={setValue}
-              data={["IT", "Services"]}
-              required={false}
-            />
-            <Input
-              type="text"
-              placeholder="Company Name"
-              register={register}
-              fieldName="CompanyName"
-              required={false}
-              left={window.innerWidth > 800 ? "1%" : "4%"}
-            />
+            <div>
+              <DropDown
+                placeholder="Industry"
+                register={register}
+                fieldName="Industry"
+                setValue={setValue}
+                data={["IT", "Services"]}
+                required={false}
+              />
+              <p className={classes["input-error"]}></p>
+            </div>
+            <div>
+              <Input
+                type="text"
+                placeholder="Company Name"
+                register={register}
+                fieldName="CompanyName"
+                required={false}
+                left={window.innerWidth > 800 ? "1%" : "4%"}
+              />
+              <p className={classes["input-error"]}></p>
+            </div>
           </div>
         )}
         {isFormTouched && (
@@ -202,7 +225,7 @@ const ContactForm = () => {
             <h3 className={classes.FormOptionHeading}>Services Required</h3>
             <Checkbox
               name="ServicesRequired"
-              size={window.innerWidth > 800 ? 3.7 : 1.3}
+              size={window.innerWidth > 800 ? 3.7 : 1.2}
               data={ServiceData}
               register={register}
             />
@@ -217,14 +240,14 @@ const ContactForm = () => {
                 placeholder="Message*"
                 register={register}
                 fieldName="message"
-                height={15}
+                height={window.innerWidth > 800 ? 15 : 11.5}
               />
               <p className={classes["input-error"]}>
                 {errors.message?.type === "required" && "*Message is required."}
               </p>
             </div>
           </div>
-        )}{" "}
+        )}
         {isFormTouched && (
           <div
             className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-4"]} ${classes["file-container"]}`}
@@ -232,43 +255,22 @@ const ContactForm = () => {
             <div className={classes["btn-container"]}>
               <button
                 className="btn"
-                onClick={() => setShowFileInput((prevState) => !prevState)}
+                onClick={(e) => {
+                  setShowFileInput((prevState) => !prevState);
+                  e.target.classList.toggle(`${classes["hide-border-bottom"]}`);
+                }}
               >
                 Attach Files
               </button>
             </div>
             {showFileInput && (
-              <div className={classes["file-input-container"]}>
-                <InputFile
-                  name="file1"
-                  height={window.innerWidth < 800 && "8rem"}
-                  width={window.innerWidth < 800 && "8rem"}
-                />
-                <InputFile
-                  name="file2"
-                  height={window.innerWidth < 800 && "8rem"}
-                  width={window.innerWidth < 800 && "8rem"}
-                />
-                <InputFile
-                  name="file3"
-                  height={window.innerWidth < 800 && "8rem"}
-                  width={window.innerWidth < 800 && "8rem"}
-                />
-                <InputFile
-                  name="file4"
-                  height={window.innerWidth < 800 && "8rem"}
-                  width={window.innerWidth < 800 && "8rem"}
-                />
-                <InputFile
-                  name="file5"
-                  height={window.innerWidth < 800 && "8rem"}
-                  width={window.innerWidth < 800 && "8rem"}
-                />
-                <InputFile
-                  name="file6"
-                  height={window.innerWidth < 800 && "8rem"}
-                  width={window.innerWidth < 800 && "8rem"}
-                />
+              <div
+                className={classes["file-input-container"]}
+                style={{
+                  marginBottom: window.innerWidth < 800 ? "1rem" : "0rem",
+                }}
+              >
+                {fileUploadFields}
               </div>
             )}
           </div>

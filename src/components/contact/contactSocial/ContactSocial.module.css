@@ -29,22 +29,21 @@
 }
 @media only screen and (max-width: 800px) {
   .social-outer {
-    margin-top: 10vh;
-    margin-bottom: 5vh;
+    margin-top: 4rem;
+    margin-bottom: 0rem;
   }
   .social-container {
-    display: flex;
     column-gap: 2rem;
-    row-gap: 2rem;
+    row-gap: 1.5rem;
     flex-wrap: wrap;
-    padding-right: 20vw;
-    margin-top: 5rem;
+    padding-right: 25vw;
+    margin-top: 4rem;
   }
   .social-container a {
     font-size: 1.6rem;
   }
   .social-container a img {
-    height: 2rem;
+    height: 1.6rem;
     width: auto;
   }
 }

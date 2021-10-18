@@ -103,6 +103,9 @@ textarea {
   position: relative;
   transition: all 0.2s ease-in-out;
 }
+.hide-btn-underline {
+  border-bottom-color: transparent !important;
+}
 .btn span {
   border-bottom: unset;
 }

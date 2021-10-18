@@ -12,7 +12,7 @@ const BlogImage = (props) => {
     >
       <div className={`${classes["blog-img-inner"]} ${animateClass}`}>
         <img
-          src={blogPlaceholder}
+          src={props.image || blogPlaceholder}
           alt="blogperson"
           onMouseOver={props.onMouseOverHandler}
         />

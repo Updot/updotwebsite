@@ -8,6 +8,9 @@ import emptyRect2 from "./../../../assets/img/empty-rect-2.svg";
 import bar from "./../../../assets/img/bar.svg";
 import BlogContainer from "../../ui/blogContainer/BlogContainer";
 import BlogImage from "../../ui/blogCard/BlogImage";
+
+import blogData from "./data.json";
+
 import classes from "./InsightBlog.module.css";
 
 const InsightBlog = () => {
@@ -24,6 +27,40 @@ const InsightBlog = () => {
   const flow = window.innerWidth > 800 ? "row" : "column-reverse";
   const flowReverse =
     window.innerWidth > 800 ? "row-reverse" : "column-reverse";
+
+  const blogContent = blogData.content.map((data) => {
+    if (data.para_only) {
+      return (
+        <BlogContainer paraOnly={data.para_only}>{data.para}</BlogContainer>
+      );
+    } else {
+      if (data.para.length > 250) {
+        return (
+          <BlogContainer
+            img={data.image}
+            paraOnly={data.para_only}
+            flow={data.image_left ? flowReverse : flow}
+            margin="0 0 1rem"
+          >
+            {data.para}
+          </BlogContainer>
+        );
+      } else {
+        return (
+          <BlogContainer
+            img={data.image}
+            paraOnly={data.para_only}
+            flow={data.image_left ? flowReverse : flow}
+            margin="0 0 1rem"
+            align="end"
+            marginBottom={window.innerWidth > 800 ? 70 : 20}
+          >
+            {data.para}
+          </BlogContainer>
+        );
+      }
+    }
+  });
   return (
     <Fragment>
       <Home hideInner={true} />
@@ -43,29 +80,15 @@ const InsightBlog = () => {
                     </button>
                   </div>
                   <div className={classes["blog-meta"]}>
-                    <h3>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                    </h3>
-                    <h5>by Lorem Ipsum, XX-XX-20XX</h5>
+                    <h3>{blogData.title}</h3>
+                    <h5>
+                      by {blogData.author}, {blogData.date}
+                    </h5>
                   </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed
-                    do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem
-                    ipsum dolor sit amet, consecteturadip iscing elit, sed do
-                    eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum
-                    dolor sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit.
+                  <p
+                    style={{ width: `${window.innerWidth > 800 ? "98%" : ""}` }}
+                  >
+                    {blogData.intro_para}
                   </p>
                 </div>
               </BlogCard>
@@ -74,7 +97,7 @@ const InsightBlog = () => {
             <div>
               <div className={classes["mobile-header"]}>
                 <div className={classes["mobile-header-image"]}>
-                  <BlogImage isTrue={false} />
+                  <BlogImage image={blogData.intro_image} isTrue={false} />
                 </div>
                 <div className={classes["blog-header"]}>
                   <div className={classes["blog-header-top"]}>
@@ -87,150 +110,20 @@ const InsightBlog = () => {
                     </button>
                   </div>
                   <div className={classes["blog-meta"]}>
-                    <h3>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                    </h3>
-                    <h5>by Lorem Ipsum, XX-XX-20XX</h5>
+                    <h3>{blogData.title}</h3>
+                    <h5>
+                      by {blogData.author}, {blogData.date}
+                    </h5>
                   </div>
                 </div>
               </div>
               <BlogContainer paraOnly={true}>
-                Lorem ipsum dolor sit amet, consect eturadip iscing elit, sed do
-                eiusmod temporincididunt na aliqua. Lorem Lorem ipsum dolor sit
-                amet, consect eturadip iscing elit, sed do eiusmod
-                temporincididunt na aliqua. Lorem Lorem ipsum dolor sit amet,
-                consect eturadip iscing elit, sed do eiusmod temporincididunt na
-                aliqua. Lorem Lorem ipsum dolor sit amet, consect eturadip
-                iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem
-                Lorem ipsum dolor sit amet, consect eturadip iscing elit, sed do
-                eiusmod temporincididunt na aliqua. Lorem Lorem ipsum dolor sit
-                amet, consect eturadip iscing elit, sed do eiusmod
-                temporincididunt na aliqua. Lorem Lorem ipsum dolor sit amet,
-                consect eturadip iscing elit, sed do eiusmod temporincididunt na
-                aliqua. Lorem Lorem ipsum dolor sit amet, consect eturadip
-                iscing elit, sed do eiusmod temporincididunt na aliqua,
+                {blogData.intro_para}
               </BlogContainer>
             </div>
           )}
-          <BlogContainer paraOnly={true}>
-            Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do
-            eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua.
-          </BlogContainer>
-          <BlogContainer
-            img={emptyRect1}
-            paraOnly={false}
-            flow={flow}
-            margin="0 0 1rem"
-          >
-            Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do
-            eiusmod temporincididunt na aliqua. Lorem ips Lorem ipsum dolor sit
-            amet, consecteturadip iscing elit, sed do eiusmod temporincididunt
-            na aliqua. Lorem ips Lorem ipsum dolor sit amet, consecteturadip
-            iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ips
-            Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do
-            eiusmod temporincididunt na aliqua. Lorem ips Lorem ipsum dolor sit
-            amet, consecteturadip iscing elit, sed do eiusmod temporincididunt
-            na aliqua. Lorem ips Lorem ipsum dolor sit amet, consecteturadip
-            iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ips
-            Lorem ipsum dolor sit amet, consecteturadip iscing elit, Lorem ipsum
-            dolor sit amet, consecteturadip iscing elit, sed do eiusmod
-            temporincididunt na aliqua. Lorem ips Lorem ipsum dolor sit amet,
-            consecteturadip iscing elit, sed do eiusmod temporincididunt na
-            aliqua. Lorem ips Lorem ipsum dolor sit amet, consecteturadip iscing
-            elit, sed do eiusmod temporincididunt na aliqua. Lorem ips Lorem
-            ipsum dolor sit amet, consecteturadip iscing elit, sed do eiusmod
-            temporincididunt na aliqua. Lorem ips Lorem ipsum dolor sit amet,
-            consecteturadip iscing elit, sed do eiusmod temporincididunt na
-            aliqua. Lorem ips Lorem ipsum dolor sit amet, consecteturadip iscing
-            elit, sed do eiusmod temporincididunt na aliqua. Lorem ip.
-          </BlogContainer>
-          <BlogContainer paraOnly={true}>
-            Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do
-            eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua.
-          </BlogContainer>
-          <BlogContainer
-            img={emptyRect2}
-            paraOnly={false}
-            flow={flowReverse}
-            margin="0 0 1rem"
-          >
-            Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do
-            eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-            sit amet, consecteturadip iscing elit, sed do eiusmod
-            temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit amet,
-            consecteturadip iscing elit, sed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum Lorem ipsum dolor sit amet, consecteturadip
-            iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ipsum
-            Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do
-            eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-            sit amet, consecteturadip iscing elit, sed do eiusmod
-            temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit amet,
-            consecteturadip iscing elit, sed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum Lorem ipsum dolor sit amet, consecteturadip
-            iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ipsum
-            Lorem ipsum dolor sit amet, consecteturadip iscing elit.
-          </BlogContainer>
-          <BlogContainer paraOnly={true}>
-            Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do
-            eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua.
-          </BlogContainer>
-          <BlogContainer
-            img={bar}
-            paraOnly={false}
-            flow={flowReverse}
-            align="end"
-            marginBottom={window.innerWidth > 800 ? 70 : 20}
-            margin="0 0 1rem"
-          >
-            Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do
-            eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-            sit amet, consecteturadip iscing elit,
-          </BlogContainer>
-          <BlogContainer paraOnly={true}>
-            Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do
-            eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua.
-          </BlogContainer>
+
+          {blogContent}
         </div>
       </div>
     </Fragment>

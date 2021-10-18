@@ -117,7 +117,8 @@ const Home = (props) => {
   }
   if (props.textCenter) headingStyle["textAlign"] = "center";
   if (props.textCenter) headingStyle["alignItems"] = "center";
-  if (props.fontSize) headingStyle["fontSize"] = props.fontSize;
+  if (props.fontSize && window.innerWidth < 800)
+    headingStyle["fontSize"] = props.fontSize;
   if (window.innerWidth < 800 && props.fontSize)
     headingStyle["transform"] = "unset";
 

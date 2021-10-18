@@ -62,14 +62,14 @@
     margin-bottom: 3vh;
   }
   .clock {
-    height: 87vw;
-    width: 87vw;
+    height: 80vw;
+    width: 80vw;
     transform: translateX(-25%);
   }
   .time,
   .date,
   .weather-text {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   .time {
     margin-bottom: 1rem;
@@ -81,5 +81,8 @@
     width: auto;
     height: 2.3rem;
     margin-bottom: 1rem;
+  }
+  .text-info-container {
+    padding-top: 4rem;
   }
 }

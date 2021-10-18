@@ -27,7 +27,7 @@ const Loading = () => {
 function App() {
   return (
     <div className="App">
-      {/* <Cookies /> */}
+      <Cookies />
       <Switch>
         <Route path="/" exact>
           <Loading />

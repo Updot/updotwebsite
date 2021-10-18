@@ -1,6 +1,8 @@
-// import { useRef } from "react";
+import { useState } from "react";
 import classes from "./Client.module.css";
 const Client = (props) => {
+  const [isHover, setIsHover] = useState(false);
+
   // const svgRef = useRef(null);
   // const circleRef = useRef(null);
   // useEffect(() => {
@@ -23,7 +25,11 @@ const Client = (props) => {
   //   });
   // }, []);
   return (
-    <div className={`${classes.client} ${props.className}`}>
+    <div
+      className={`${classes.client} ${props.className}`}
+      onMouseOver={() => setIsHover(true)}
+      onMouseOut={() => setIsHover(false)}
+    >
       {/* <svg
         class="svg"
         viewBox="0 0 600 600"
@@ -41,7 +47,8 @@ const Client = (props) => {
           <path transform="translate(-60,-60)" id="js-connector" d="" />
         </g>
       </svg> */}
-      <img src={props.img} alt="client" />
+      {!isHover && <img src={props.img} alt="client" />}
+      {isHover && <img src={props.imgColor} alt="client" />}
     </div>
   );
 };

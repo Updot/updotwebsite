@@ -18,6 +18,8 @@ const BlogCard = (props) => {
     : {
         flexDirection: "row",
         paddingRight: window.innerWidth > 800 ? "7.5vw" : "5vw",
+        justifyContent: window.innerWidth < 800 && "space-between",
+        columnGap: "20rem",
       };
   const imageStyle = isTrue
     ? {
@@ -50,7 +52,10 @@ const BlogCard = (props) => {
       : "50%"
     : "60%";
   linkStyle["marginRight"] =
-    isTrue && location.pathname.includes("work") && "-20%";
+    isTrue &&
+    location.pathname.includes("work") &&
+    window.innerWidth < 800 &&
+    "-20%";
 
   let headingStyle = isTrue ? { textAlign: "right" } : {};
 
@@ -71,7 +76,7 @@ const BlogCard = (props) => {
       />
       {!props.hideDefault && (
         <Link
-          to={`${location.pathname}/${props.workId}`}
+          to={`${location.pathname}/${props.workId || props.insightId}`}
           className={classes["blog-heading-container"]}
           style={linkStyle}
         >

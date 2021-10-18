@@ -32,3 +32,26 @@
 .cookie button:nth-of-type(1) {
   margin-right: 1rem;
 }
+@media only screen and (max-width: 800px) {
+  .cookie {
+    height: 20rem;
+    width: 85vw;
+    bottom: 2vh;
+    right: 0;
+    border-top-left-radius: 85vw;
+    border-bottom-left-radius: 85vw;
+    padding-left: 5rem;
+    display: grid;
+    place-content: center;
+  }
+  .cookie h4 {
+    font-size: 2rem;
+  }
+  .cookie p {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+  .cookie button {
+    font-size: 1rem;
+  }
+}

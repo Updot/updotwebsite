@@ -9,7 +9,13 @@ import classes from "./ContactSocial.module.css";
 const ContactSocial = () => {
   return (
     <div className={classes["social-outer"]}>
-      <SectionHeading>Let's Get A Little More Closer</SectionHeading>
+      {window.innerWidth > 800 ? (
+        <SectionHeading>Let's Get A Little More Closer</SectionHeading>
+      ) : (
+        <SectionHeading>
+          Let's Get <br /> A Little More Closer
+        </SectionHeading>
+      )}
       <div className={classes["social-container"]}>
         <a href="/">
           <img src={gmailIcon} alt="gmail icon" />

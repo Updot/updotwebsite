@@ -500,13 +500,22 @@
   color: var(--fade-black) !important;
   border-color: var(--fade-black) !important;
 }
+.hide-border-bottom {
+  border: unset !important;
+}
 @media only screen and (max-width: 800px) {
+  .form {
+    margin-top: 1.5rem;
+  }
   .form-container-change {
     transform: translateY(5vh);
   }
   .btn-submit {
     width: 6rem;
     height: 2.3rem;
+  }
+  .btn-submit::after {
+    width: 6rem;
   }
   .btn-newsletter {
     width: 16rem;
@@ -538,14 +547,14 @@
   .form-field-9 {
     display: flex;
     flex-direction: column;
-    row-gap: 3rem;
+    row-gap: 2.5rem;
   }
   .standby-message {
     font-size: 1.3rem;
     margin-top: 2rem;
   }
   .form-field:not(:last-of-type) {
-    margin-bottom: 2rem;
+    margin-bottom: 1.55rem;
   }
   .logo-container .updot-img {
     width: auto;
@@ -620,5 +629,15 @@
       left: 0;
       transform: translateX(10vw);
     }
+  }
+  .file-container {
+    margin-bottom: 1rem !important;
+  }
+  .file-container button {
+    margin-bottom: 1rem;
+  }
+  .message-field {
+    margin-top: 5rem !important;
+    margin-bottom: 0.5rem !important;
   }
 }

@@ -43,7 +43,7 @@ const Map = () => {
   }, []);
   return (
     <div className={classes["map-outer"]}>
-      <div ref={mapRef} style={{ height: "80vh", width: "100vw" }}></div>
+      <div className={classes["map"]} ref={mapRef}></div>
     </div>
   );
 };

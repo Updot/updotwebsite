@@ -29,7 +29,7 @@ const BlogHeader = (props) => {
           register={register}
           fieldName="search"
           error={errors}
-          left={window.innerWidth > 800 ? "1%" : "10%"}
+          left={window.innerWidth > 800 ? "4%" : "10%"}
           required={true}
         />
       </form>

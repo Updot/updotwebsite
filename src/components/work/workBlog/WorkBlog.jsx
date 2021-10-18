@@ -8,15 +8,14 @@ import imageSmallSample from "./../../../assets/img/image-small-sample.png";
 import BlogContainer from "../../ui/blogContainer/BlogContainer";
 import classes from "./WorkBlog.module.css";
 import BlogNavigateCard from "../../ui/blogCard/BlogNavigateCard";
-import blogData from "../work-data.json";
+import blogData from "./data.json";
 import BlogImage from "../../ui/blogCard/BlogImage";
 
 const WorkBlog = () => {
   const history = useHistory();
   const match = useRouteMatch();
-  const workBlog = blogData.filter((blog) => blog.key === match.params.workId);
 
-  const navigateLink = workBlog[0].navigateLink;
+  const navigateLink = blogData.navigateLink;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,7 +24,22 @@ const WorkBlog = () => {
   const onBackClickHandler = () => {
     history.push("/work");
   };
-
+  const blogContent = blogData.content.map((data) => {
+    if (data.para_only) {
+      return <BlogContainer paraOnly={true}>{data.para}</BlogContainer>;
+    } else if (data.image_only) {
+      return (
+        <BlogContainer
+          imageOnly={data.image_only}
+          imageCount={data.image_count}
+        >
+          {data.images.map((image) => (
+            <img className="mt-5" src={image} alt="" />
+          ))}
+        </BlogContainer>
+      );
+    }
+  });
   return (
     <Fragment>
       <Home hideInner={true} />
@@ -39,7 +53,7 @@ const WorkBlog = () => {
               >
                 <div className={classes["blog-info-inner"]}>
                   <div className={classes["blog-header"]}>
-                    <h1>{workBlog[0].heading}</h1>
+                    <h1>{blogData.title}</h1>
                     <button
                       className={classes["back"]}
                       onClick={onBackClickHandler}
@@ -48,25 +62,7 @@ const WorkBlog = () => {
                     </button>
                   </div>
 
-                  <p>
-                    Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed
-                    do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem
-                    ipsum dolor sit amet, consecteturadip iscing elit, sed do
-                    eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum
-                    dolor sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit, sed do eiusmod
-                    temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor
-                    sit amet, consecteturadip iscing elit.
-                  </p>
+                  <p>{blogData.intro_para}</p>
                 </div>
               </BlogCard>
             </div>
@@ -77,7 +73,7 @@ const WorkBlog = () => {
                   <BlogImage isTrue={false} />
                 </div>
                 <div className={classes["blog-header"]}>
-                  <h1>{workBlog[0].heading}</h1>
+                  <h1>{blogData.title}</h1>
                   <button
                     className={classes["back"]}
                     onClick={onBackClickHandler}
@@ -87,48 +83,11 @@ const WorkBlog = () => {
                 </div>
               </div>
               <BlogContainer paraOnly={true}>
-                Lorem ipsum dolor sit amet, consect eturadip iscing elit, sed do
-                eiusmod temporincididunt na aliqua. Lorem Lorem ipsum dolor sit
-                amet, consect eturadip iscing elit, sed do eiusmod
-                temporincididunt na aliqua. Lorem Lorem ipsum dolor sit amet,
-                consect eturadip iscing elit, sed do eiusmod temporincididunt na
-                aliqua. Lorem Lorem ipsum dolor sit amet, consect eturadip
-                iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem
-                Lorem ipsum dolor sit amet, consect eturadip iscing elit, sed do
-                eiusmod temporincididunt na aliqua. Lorem Lorem ipsum dolor sit
-                amet, consect eturadip iscing elit, sed do eiusmod
-                temporincididunt na aliqua. Lorem Lorem ipsum dolor sit amet,
-                consect eturadip iscing elit, sed do eiusmod temporincididunt na
-                aliqua. Lorem Lorem ipsum dolor sit amet, consect eturadip
-                iscing elit, sed do eiusmod temporincididunt na aliqua,
+                {blogData.intro_para}
               </BlogContainer>
             </div>
           )}
-          <BlogContainer imageOnly={true} imageCount={1}>
-            <img className="mt-5" src={imageBigSample} alt="" />
-          </BlogContainer>
-          <BlogContainer paraOnly={true}>
-            Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do
-            eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed
-            do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet,
-            consecteturadip iscing elitsed do eiusmod temporincididunt na
-            aliqua.
-          </BlogContainer>
-          <BlogContainer imageOnly={true} imageCount={2}>
-            <img src={imageSmallSample} alt="" />
-            <img src={imageSmallSample} alt="" />
-          </BlogContainer>
-          <BlogContainer imageOnly={true} imageCount={1}>
-            <img src={imageBigSample} alt="" />
-          </BlogContainer>
-          <BlogContainer imageOnly={true} imageCount={1}>
-            <img src={imageBigSample} alt="" />
-          </BlogContainer>
+          {blogContent}
           <div className={`${classes["vb-btn"]} container-2`}>
             <button className="btn">Visit Website</button>
           </div>

@@ -11,7 +11,12 @@ const Insight = () => {
       <BlogHeader navData={["Latest", "Most Viewed"]} />
       <div className={classes["insight-card-container"]}>
         {insightData.map((data, i) => (
-          <BlogCard key={data.key} index={i} heading={data.heading} />
+          <BlogCard
+            key={data.key}
+            index={i}
+            insightId={`i${i + 1}`}
+            heading={data.heading}
+          />
         ))}
         <a className={classes["insight-load-more"]} href="/">
           <span>Load More</span> <img src={downArrow} alt="down arrow" />
