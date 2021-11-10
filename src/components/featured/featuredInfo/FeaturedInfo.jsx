@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import classes from "./FeaturedInfo.module.css";
 const FeaturedInfo = (props) => {
   const wrapperRef = useRef(null);
+  const featuredInfoContainerRef = useRef(null);
   const fiRef = useRef(null);
   // const bubbleRef = useRef(null);
   useEffect(() => {
@@ -16,17 +17,33 @@ const FeaturedInfo = (props) => {
               fiRef.current.classList.add(
                 `${classes["featured-info-outer-animate"]}`
               );
+              if (window.innerWidth < 800)
+                featuredInfoContainerRef.current.classList.add(
+                  `${classes["featured-info-container-animate"]}`
+                );
               props.setIsAnimated(false);
-            } else {
-              // fiRef.current.classList.remove(
-              //   `${classes["featured-info-outer-animate"]}`
-              // );
             }
           }
         } else {
           fiRef.current.classList.add(
             `${classes["featured-info-outer-open"]}`,
             `${classes["featured-info-outer-expand"]}`
+          );
+          if (window.innerWidth < 800)
+            featuredInfoContainerRef.current.classList.add(
+              `${classes["featured-info-container-animate-sec"]}`
+            );
+        }
+        if (!change.isIntersecting && window.innerWidth < 800) {
+          // fiRef.current.classList.remove(
+          //   `${classes["featured-info-outer-animate"]}`
+          // );
+          console.log("out");
+          featuredInfoContainerRef.current.classList.remove(
+            `${classes["featured-info-container-animate-sec"]}`
+          );
+          featuredInfoContainerRef.current.classList.remove(
+            `${classes["featured-info-container-animate"]}`
           );
         }
       });
@@ -86,6 +103,7 @@ const FeaturedInfo = (props) => {
           className={classes["featured-sunction-bubble"]}
         ></div> */}
         <div
+          ref={featuredInfoContainerRef}
           className={classes["featured-info-container"]}
           onMouseOver={onMouseOverHandler}
           onMouseOut={onMouseOutHandler}

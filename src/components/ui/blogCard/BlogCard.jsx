@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import downArrow from "./../../../assets/img/down-arrow.svg";
 import classes from "./BlogCard.module.css";
@@ -13,13 +12,13 @@ const BlogCard = (props) => {
         flexDirection: "row-reverse",
         paddingLeft: window.innerWidth > 800 ? "7.5vw" : "5vw",
         justifyContent: "flex-start",
-        columnGap: "5vw",
+        columnGap: "6vw",
       }
     : {
         flexDirection: "row",
         paddingRight: window.innerWidth > 800 ? "7.5vw" : "5vw",
         justifyContent: window.innerWidth < 800 && "space-between",
-        columnGap: "20rem",
+        columnGap: window.innerWidth > 800 ? "20rem" : "5vw",
       };
   const imageStyle = isTrue
     ? {
@@ -33,7 +32,7 @@ const BlogCard = (props) => {
 
   const arrowStyle = {};
   const arrowOuterStyle = {};
-  if (isTrue)
+  if (isTrue && location.pathname.includes("work"))
     arrowStyle["marginRight"] = window.innerWidth > 800 ? "12%" : "0%";
   if (isTrue && window.innerWidth < 800)
     arrowOuterStyle["transform"] = "rotate(90deg)";

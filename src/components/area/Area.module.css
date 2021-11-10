@@ -32,9 +32,9 @@
 .h-line,
 .angle-line {
   display: inline-block;
-  height: 1px;
+  height: 2.5px;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--text-color);
 }
 
 .angle-line {
@@ -42,7 +42,7 @@
   position: absolute;
   height: 2px;
   right: 1.5%;
-  bottom: 4.5%;
+  bottom: 7.5%;
   transform-origin: right;
   transform: rotate(-135deg);
 }

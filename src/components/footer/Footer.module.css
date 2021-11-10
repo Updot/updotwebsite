@@ -1,8 +1,10 @@
 .footer {
+  position: relative;
   min-height: 30vh;
   width: 100vw;
   padding: 2vh 7.5vw;
-  margin-top: 10vh;
+  padding-top: 10vh;
+  background-color: var(--bg-color);
 }
 .footer a,
 .footer h5,
@@ -22,6 +24,7 @@
   margin-bottom: 2rem;
 }
 .footer-top {
+  margin-top: 7vh;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 20% 15% 25% 20% 15%;
@@ -107,6 +110,14 @@ span {
   .footer-link img {
     width: 5rem;
     height: auto;
+  }
+  .follow .footer-link-container {
+    row-gap: 0.5rem;
+  }
+  .footer-link img.insta-icon {
+    height: auto;
+    width: 6rem;
+    transform: translateY(5%);
   }
   .footer-top a,
   .footer-top h3,

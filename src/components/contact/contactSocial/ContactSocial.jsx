@@ -17,12 +17,12 @@ const ContactSocial = () => {
         </SectionHeading>
       )}
       <div className={classes["social-container"]}>
-        <a href="/">
+        {/* <a href="/">
           <img src={gmailIcon} alt="gmail icon" />
-        </a>
-        <a href="/">
+        </a> */}
+        {/* <a href="/">
           <img src={outlookIcon} alt="outlook icon" />
-        </a>
+        </a> */}
         <a href="/" style={{ transform: "translateY(10px)" }}>
           <img src={whatsappIcon} alt="" />
         </a>

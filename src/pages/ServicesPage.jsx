@@ -1,10 +1,8 @@
 import { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Footer from "../components/footer/Footer";
 import Home from "../components/home/Home";
-import Newsletter from "../components/newsletter/Newsletter";
-import Services from "../components/services/Services";
+import Service from "../components/services/Service";
 import MouseArrow from "../components/ui/MouseArrow";
 
 const ServicesPage = () => {
@@ -23,15 +21,7 @@ const ServicesPage = () => {
           />
         </Route>
         <Route path="/services/:serviceId" exact>
-          <Home
-            isShowVideoHeading={false}
-            heading="Services"
-            service="Web Development"
-            fontSize="5.5rem"
-          />
-          <Services />
-          <Newsletter />
-          <Footer />
+          <Service />
         </Route>
       </Switch>
     </Fragment>

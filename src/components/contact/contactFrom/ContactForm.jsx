@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import ServiceData from "../../connect/serviceData.json";
 import Input from "../../connect/formFields/Input";
 import DropDown from "../../connect/formFields/DropDown";
@@ -10,13 +11,18 @@ import UpdotMagnet from "../../../assets/img/updot-magnet.svg";
 
 import classes from "./ContactForm.module.css";
 import InputFile from "../../connect/formFields/InputFile";
+import { useSelector } from "react-redux";
 const ContactForm = () => {
   const [isStandby, setIsStandby] = useState(false);
   const [isFormTouched, setIsFormTouched] = useState(false);
   const [showFileInput, setShowFileInput] = useState(false);
+  const [attachments, setAttachments] = useState({});
   const formOuterRef = useRef(null);
   const submitBtnRef = useRef(null);
   const newsletterBtnRef = useRef(null);
+  const [fileUploadFields, setFileUploadFields] = useState([]);
+  const [hCaptchaData, setHCaptchaData] = useState();
+
   const {
     register,
     handleSubmit,
@@ -24,10 +30,41 @@ const ContactForm = () => {
     formState: { errors, isSubmitSuccessful },
     reset,
   } = useForm();
-  const [fileUploadFields, setFileUploadFields] = useState([]);
 
-  const formSubmitHandler = (formData) => {
-    alert(`Hey, ${formData.name}!, Thankyou for Submitting form`);
+  const isLightThemeActive = useSelector(
+    (state) => state.themeState.isLightThemeActive
+  );
+
+  const formSubmitHandler = async (formData) => {
+    if (!hCaptchaData) {
+      return alert("Please verify captcha!!");
+    }
+    submitBtnRef.current.classList.add(`${classes["animate-btn"]}`);
+    const form = new FormData();
+    Object.keys(attachments).forEach((key) => {
+      form.append(key, attachments[key]);
+    });
+    for (var key in formData) {
+      form.append(key, formData[key]);
+    }
+    form.append("h-captcha-token", hCaptchaData.token);
+    const response = await fetch(
+      "http://localhost:8080/api/data-submission/contact",
+      {
+        method: "POST",
+        headers: {
+          // "Content-Type": "multipart/form-data",
+        },
+        body: form,
+      }
+    );
+
+    // const data = await response.json();
+    if (response.ok) {
+      alert(`Hey, ${formData.name}!, Thankyou for Submitting form`);
+    } else {
+      alert(`Error occured while submitting form!!`);
+    }
   };
   useEffect(() => {
     if (isSubmitSuccessful) {
@@ -72,13 +109,15 @@ const ContactForm = () => {
       setIsStandby(true);
     }
   };
-  const onSubmitBtnClickHandler = (e) => {
-    submitBtnRef.current.classList.add(`${classes["animate-btn"]}`);
-  };
+
   const onNewsletterBtnClickHandler = (e) => {
     newsletterBtnRef.current.classList.add(`${classes["animate-btn-2"]}`);
   };
-
+  const setAttechment = (fieldName, result) => {
+    setAttachments((prevState) => {
+      return { ...prevState, [fieldName]: result };
+    });
+  };
   useEffect(() => {
     const arr = [];
     const itrCount = window.innerWidth > 800 ? 6 : 3;
@@ -89,11 +128,16 @@ const ContactForm = () => {
           name={`file${i + 1}`}
           height={window.innerWidth < 800 && "8rem"}
           width={window.innerWidth < 800 && "8rem"}
+          setAttachment={setAttechment}
         />
       );
     }
     setFileUploadFields(arr);
   }, []);
+
+  const handleVerificationSuccess = (token, ekey) => {
+    setHCaptchaData({ token, ekey });
+  };
   return (
     <div
       ref={formOuterRef}
@@ -184,7 +228,7 @@ const ContactForm = () => {
               <DropDown
                 placeholder="Industry"
                 register={register}
-                fieldName="Industry"
+                fieldName="industry"
                 setValue={setValue}
                 data={["IT", "Services"]}
                 required={false}
@@ -196,7 +240,7 @@ const ContactForm = () => {
                 type="text"
                 placeholder="Company Name"
                 register={register}
-                fieldName="CompanyName"
+                fieldName="companyName"
                 required={false}
                 left={window.innerWidth > 800 ? "1%" : "4%"}
               />
@@ -212,7 +256,7 @@ const ContactForm = () => {
               type="url"
               placeholder="Website URL"
               register={register}
-              fieldName="WebsiteURL"
+              fieldName="websiteURL"
               required={false}
               left={window.innerWidth > 800 ? "1%" : "4%"}
             />
@@ -224,8 +268,8 @@ const ContactForm = () => {
           >
             <h3 className={classes.FormOptionHeading}>Services Required</h3>
             <Checkbox
-              name="ServicesRequired"
-              size={window.innerWidth > 800 ? 3.7 : 1.2}
+              name="servicesRequired"
+              size={window.innerWidth > 800 ? 3.4 : 1.2}
               data={ServiceData}
               register={register}
             />
@@ -241,6 +285,7 @@ const ContactForm = () => {
                 register={register}
                 fieldName="message"
                 height={window.innerWidth > 800 ? 15 : 11.5}
+                left="2%"
               />
               <p className={classes["input-error"]}>
                 {errors.message?.type === "required" && "*Message is required."}
@@ -254,6 +299,7 @@ const ContactForm = () => {
           >
             <div className={classes["btn-container"]}>
               <button
+                type="button"
                 className="btn"
                 onClick={(e) => {
                   setShowFileInput((prevState) => !prevState);
@@ -276,6 +322,15 @@ const ContactForm = () => {
           </div>
         )}
         {isFormTouched && (
+          <div className={classes["h-captcha"]}>
+            <HCaptcha
+              sitekey="a8476602-b2d6-44ba-b8b8-5ae90461b4c3"
+              theme={isLightThemeActive ? "light" : "dark"}
+              onVerify={(token, ekey) => handleVerificationSuccess(token, ekey)}
+            />
+          </div>
+        )}
+        {isFormTouched && (
           <div
             className={`${classes["form-field"]} ${classes["form-field-6"]} ${classes["animate-field-7"]}`}
           >
@@ -283,7 +338,6 @@ const ContactForm = () => {
               ref={submitBtnRef}
               className={`btn ${classes["btn-submit"]}`}
               type="submit"
-              onClick={onSubmitBtnClickHandler}
             >
               Submit
             </button>

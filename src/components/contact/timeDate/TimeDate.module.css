@@ -52,6 +52,7 @@
 .weather img {
   width: auto;
   height: 5.5rem;
+  filter: var(--filter);
 }
 
 @media only screen and (max-width: 800px) {

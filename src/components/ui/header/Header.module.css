@@ -1,135 +1,134 @@
 .header {
-  height: 15vh;
   width: 90vw;
+  top: 10%;
+  left: 5vw;
   margin: 0 auto;
   position: fixed;
-  top: 8vh;
-  left: 5vw;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   z-index: 99999;
+  transition: all 0.2s ease-in-out;
 }
-.logo-container {
-  position: relative;
-}
-.logo-container p {
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 7rem;
-  position: absolute;
-  top: 0;
-  left: 0%;
-  opacity: 0;
-  transition: all 0.4s ease;
-  z-index: 90;
+.header-hide {
   pointer-events: none;
+  opacity: 0;
 }
-.logo-container:hover p {
-  opacity: 1;
-  left: 140%;
-}
-.logo-inner {
-  display: inline-block;
-  position: relative;
-  background-color: var(--bg-color);
-  z-index: 99;
-  padding-right: 2rem;
-  height: 100%;
-}
-.logo {
+
+.logo-container img {
   height: auto;
-  width: 7rem;
+  width: 7.3rem;
   filter: var(--filter);
 }
-.nav-btn-container {
-  text-align: right;
-  /* cursor: pointer; */
-}
-.nav-btn-container-fixed {
+
+.nav-btn {
+  background-color: transparent;
+  display: inline-block;
+  border: none;
   position: fixed;
-  /* transition: all 0.1s linear; */
-}
-.nav-btn-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-.nav-btn-up,
-.nav-btn-bottom {
-  display: block;
-  background-color: var(--text-color);
-  height: 3px;
   width: 4rem;
+  height: 3rem;
+  right: 5vw;
+  z-index: 999;
+}
+.nav-button-bg {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 11vh;
+  right: 4vw;
+  justify-content: center;
+  height: 8rem;
+  width: 8rem;
+  z-index: 100;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  border-radius: 50%;
+}
+.nav-button-bg-active {
+  transform: scale(80);
+  animation: animateColor 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+.nav-button-bg-hide {
+  transform: scale(1);
+  animation: animateColorRev 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes animateColor {
+  0% {
+    background-color: var(--nav-bg);
+  }
+  90% {
+    background-color: var(--nav-bg);
+  }
+  100% {
+    background-color: var(--bg-color);
+  }
+}
+@keyframes animateColorRev {
+  0% {
+    background-color: var(--nav-bg);
+  }
+  90% {
+    background-color: var(--nav-bg);
+  }
+  100% {
+    background-color: var(--bg-color);
+  }
+}
+.nav-btn span {
+  display: inline-block;
+  height: 2.3px;
+  background-color: var(--text-color);
+  position: absolute;
+  right: 0;
+  transition: all 0.2s ease-in-out;
   pointer-events: none;
-  transition: all 0.4s;
-  margin-left: auto;
   transform-origin: right;
 }
-
-.nav-btn-bottom {
-  width: 3rem;
-  height: 2.8px;
-  margin-top: 1rem;
-  margin-left: auto;
+.nav-btn span:nth-of-type(1) {
+  width: 100%;
+  top: 0;
 }
-
-/* .nav-btn-container:hover .nav-btn-up {
-  width: 3rem;
-} */
-.nav-btn-container:hover .nav-btn-bottom {
-  width: 4rem;
+.nav-btn span:nth-of-type(2) {
+  height: 2.5px;
+  width: 65%;
+  top: 45%;
 }
-
-.nav-btn-up-active {
-  width: 4rem !important;
-  transform: rotate(-43deg);
+.nav-btn:hover span:nth-of-type(2) {
+  width: 100%;
 }
-.nav-btn-bottom-active {
-  height: 3px;
-  width: 4rem !important;
-  margin-top: 2.3rem;
-  transform: rotate(43deg);
+.rotate-top {
+  transform: rotate(-45deg);
 }
-
-.rest-dark-toggle {
-  display: none;
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  border: 1px solid var(--text-color);
-  transform: translateY(50%);
-  z-index: 999999;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%, -50%);
+.rotate-up {
+  transform: translateY(1.4rem) rotate(45deg);
+  width: 100% !important;
 }
 
 @media only screen and (max-width: 800px) {
   .header {
-    top: 0;
+    top: 5%;
   }
-  .logo {
-    width: 4.5rem;
+
+  .logo-container img {
+    height: auto;
+    width: 4.8rem;
   }
-  .nav-btn-up {
-    height: 3px;
-    width: 3.8rem;
+  .nav-btn {
+    width: 4rem;
+    height: 2.5rem;
+    right: 5vw;
+    top: 7.5vh;
   }
-  .nav-btn-bottom {
-    height: 3px;
-    width: 2rem;
+  .nav-btn:hover span:nth-of-type(2) {
+    width: 65%;
   }
-  .rest-dark-toggle {
-    display: none;
-    transform: unset;
+  .rotate-top {
+    transform: rotate(-40deg);
   }
-  .nav-btn-container-fixed {
-    position: unset;
-    /* transition: all 0.1s linear; */
-    margin-right: 5%;
-    left: unset !important;
-    right: unset !important;
-    top: unset !important;
+  .rotate-up {
+    transform: translateY(1.4rem) rotate(40deg);
+    width: 100% !important;
   }
 }

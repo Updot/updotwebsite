@@ -1,45 +1,72 @@
 import { useEffect, useRef } from "react";
+import mapboxgl from "mapbox-gl";
 import classes from "./Map.module.css";
-
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass =
+  // eslint-disable-next-line import/no-webpack-loader-syntax
+  require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 const Map = () => {
   const mapRef = useRef(null);
   useEffect(() => {
-    var map = window.L.map(mapRef.current).setView([37.837, -122.479], 10);
-    var layer = window.L.esri.basemapLayer("Topographic").addTo(map);
-    var layerLabels;
-    window.L.esri
-      .featureLayer({
-        url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Earthquakes_Since1970/MapServer/0",
-      })
+    mapboxgl.accessToken =
+      "pk.eyJ1Ijoid2VidGVzdC1wYSIsImEiOiJja2U4bDIxamoxbnViMnJsNnpmYWNlbG8zIn0.WCCUuSN7nebAujC9T6cZMA";
+    const map = new mapboxgl.Map({
+      container: mapRef.current,
+      style: "mapbox://styles/webtest-pa/ckv3qzmbr0fst14nzi5b2pja9",
+      center: [77.52238497381373, 13.094603078358213],
+      zoom: 12,
+      attributionControl: false,
+    });
+    new mapboxgl.Marker({ color: "white" })
+      .setLngLat([77.52238497381373, 13.094603078358213])
       .addTo(map);
-    function setBasemap(basemap) {
-      if (layer) {
-        map.removeLayer(layer);
-      }
-
-      layer = window.L.esri.basemapLayer(basemap);
-
-      map.addLayer(layer);
-
-      if (layerLabels) {
-        map.removeLayer(layerLabels);
-      }
-
-      if (
-        basemap === "ShadedRelief" ||
-        basemap === "Oceans" ||
-        basemap === "Gray" ||
-        basemap === "DarkGray" ||
-        basemap === "Terrain"
-      ) {
-        layerLabels = window.L.esri.basemapLayer(basemap + "Labels");
-        map.addLayer(layerLabels);
-      } else if (basemap.includes("Imagery")) {
-        layerLabels = window.L.esri.basemapLayer("ImageryLabels");
-        map.addLayer(layerLabels);
-      }
+    map.flyTo({ center: [77.52238497381373, 13.094603078358213], zoom: 10 });
+    map.scrollZoom.disable();
+    if (window.innerWidth < 800) {
+      map.dragPan.disable();
     }
-    setBasemap("DarkGray");
+
+    // map.on("load", () => {
+    //   // Load an image from an external URL.
+    //   map.loadImage(
+    //     "https://docs.mapbox.com/mapbox-gl-js/assets/cat.png",
+    //     (error, image) => {
+    //       if (error) throw error;
+
+    //       // Add the image to the map style.
+    //       map.addImage("pin", image);
+
+    //       // Add a data source containing one point feature.
+    //       map.addSource("point", {
+    //         type: "geojson",
+    //         data: {
+    //           type: "FeatureCollection",
+    //           features: [
+    //             {
+    //               type: "Feature",
+    //               geometry: {
+    //                 type: "Point",
+    //                 coordinates: [77.52238497381373, 13.094603078358213],
+    //               },
+    //             },
+    //           ],
+    //         },
+    //       });
+
+    //       // Add a layer to use the image to represent the data.
+    //       map.addLayer({
+    //         id: "points",
+    //         type: "symbol",
+    //         source: "point", // reference the data source
+    //         layout: {
+    //           "icon-image": "pin", // reference the image
+    //           "icon-size": 0.25,
+    //         },
+    //       });
+    //     }
+    //   );
+    // });
   }, []);
   return (
     <div className={classes["map-outer"]}>

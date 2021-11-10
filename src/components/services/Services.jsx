@@ -5,11 +5,12 @@ import webDevIcon from "../../assets/img/skills/webdev-icon.svg";
 import classes from "./Services.module.css";
 import SectionHeading from "../ui/SectionHeading";
 
-const Services = () => {
+const Services = (props) => {
   const animateDotRef = useRef(null);
+  const processContainerRef = useRef(null);
   const animateTimelineRef = useRef(null);
-  const desc =
-    "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.";
+  console.log(props.data);
+  const desc = props.data.desc;
   useEffect(() => {
     let onEntry = (entries) => {
       entries.forEach((change) => {
@@ -25,6 +26,9 @@ const Services = () => {
               );
               animateTimelineRef.current.classList.add(
                 `${classes["process-timeline-animate"]}`
+              );
+              processContainerRef.current.classList.add(
+                `${classes["process-container-animate"]}`
               );
               document
                 .querySelectorAll(`.${classes["sub-process"]}`)
@@ -60,14 +64,14 @@ const Services = () => {
   return (
     <Fragment>
       <div className={classes["service-container"]}>
-        <Skill img={webDevIcon} skillData={{ desc }} isPadding={true} />
+        <Skill img={webDevIcon} skillData={{ desc }} isPadding={window < 800} />
       </div>
       <div className={classes["service-container"]}>
-        <Technology />
+        <Technology services={props.data.services} />
       </div>
       <div className={classes.process}>
         <SectionHeading>Process</SectionHeading>
-        <div className={classes["process-container"]}>
+        <div ref={processContainerRef} className={classes["process-container"]}>
           <div
             ref={animateTimelineRef}
             className={classes["process-timeline"]}

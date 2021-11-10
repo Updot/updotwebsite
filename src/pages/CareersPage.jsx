@@ -15,7 +15,7 @@ const CareersPage = () => {
   return (
     <Fragment>
       <MouseArrow />
-      <Home isShowVideoHeading={false} heading="Career" fontSize="5.3rem" />
+      <Home isShowVideoHeading={false} heading="Careers" fontSize="5.3rem" />
       <Careers />
       <Newsletter />
       <Footer />

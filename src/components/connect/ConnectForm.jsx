@@ -119,7 +119,7 @@ const ConnectForm = () => {
             placeholder="Message*"
             register={register}
             fieldName="message"
-          />{" "}
+          />
           <p className={classes["input-error"]}>
             {errors.message?.type === "required" && "*Message is required."}
           </p>

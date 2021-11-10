@@ -1,5 +1,5 @@
 .map-outer {
-  background-color: #fff;
+  background-color: var(--text-color);
   padding-bottom: 2vh;
 }
 .map {
@@ -14,6 +14,7 @@
   background-color: var(--text-color);
   position: absolute;
   left: 43%;
+  z-index: 9;
 }
 @media only screen and (max-width: 800px) {
   .map-outer {

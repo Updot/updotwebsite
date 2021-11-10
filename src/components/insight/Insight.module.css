@@ -11,6 +11,7 @@
 .insight-load-more {
   align-self: center;
   text-decoration: none;
+  border: none;
 }
 .insight-load-more span {
   font-size: 2.3rem;

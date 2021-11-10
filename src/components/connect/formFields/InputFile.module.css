@@ -17,27 +17,32 @@
   display: inline-block;
   color: var(--fade-black);
 }
-.input-file-container img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 99;
-  pointer-events: none;
-  cursor: auto;
-}
+
 .remove {
   display: inline-block;
   position: absolute;
-  color: var(--bg-color) !important;
+  color: var(--text-color) !important;
   z-index: 999;
   top: 2%;
   right: 2%;
   font-weight: 800;
   font-size: 1.6rem !important;
   cursor: pointer;
+}
+
+.file-icon {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  z-index: 99;
+  pointer-events: none;
+  cursor: auto;
+  height: auto;
+  width: 70%;
+  filter: var(--filter);
 }
 
 @media only screen and (max-width: 800px) {

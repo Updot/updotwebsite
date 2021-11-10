@@ -503,6 +503,9 @@
 .hide-border-bottom {
   border: unset !important;
 }
+.h-captcha {
+  margin-bottom: 3rem;
+}
 @media only screen and (max-width: 800px) {
   .form {
     margin-top: 1.5rem;

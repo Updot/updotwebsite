@@ -4,7 +4,7 @@ import Position from "./position/Position";
 const JoinTeam = () => {
   return (
     <div className={`container ${classes["join"]}`}>
-      <SectionHeading>Join Our Team?</SectionHeading>
+      <SectionHeading>Join Updot</SectionHeading>
       <Position />
     </div>
   );

@@ -82,6 +82,7 @@
 .blog-heading-container img {
   /* margin-left: 2rem; */
   transform: rotate(-90deg);
+  filter: var(--filter);
 }
 .dot {
   height: 5.6rem;
@@ -147,7 +148,7 @@
 
 @media only screen and (max-width: 800px) {
   .blog-img-inner img {
-    width: 45vw;
+    width: 40vw;
   }
   .blog-img-container {
     padding: 1rem 0;

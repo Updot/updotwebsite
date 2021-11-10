@@ -1,6 +1,6 @@
+import { useEffect } from "react";
 import { Route, Switch } from "react-router";
-import { useSelector } from "react-redux";
-import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Landing from "./components/landing/Landing";
@@ -14,6 +14,8 @@ import PrivacyPage from "./pages/PrivacyPage";
 import ServicesPage from "./pages/ServicesPage";
 import CareersPage from "./pages/CareersPage";
 import Loader from "./components/ui/loader/Loader";
+import "./App.css";
+import { themeStateAction } from "./store/themeState";
 
 const Loading = () => {
   const isLoaded = useSelector((state) => state.pageState.isLoaded);
@@ -25,9 +27,16 @@ const Loading = () => {
 };
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const theme = localStorage.getItem("updotThemePreference");
+    if (theme === "Light") {
+      dispatch(themeStateAction.toggleTheme());
+    }
+  }, [dispatch]);
   return (
     <div className="App">
-      <Cookies />
+      {/* <Cookies /> */}
       <Switch>
         <Route path="/" exact>
           <Loading />
@@ -37,7 +46,7 @@ function App() {
           <Loading />
           <About />
         </Route>
-        <Route path="/insight">
+        <Route path="/insights">
           <Loading />
           <Insights />
         </Route>

@@ -7,7 +7,7 @@ const navStateSlice = createSlice({
   name: "navState",
   initialState,
   reducers: {
-    setIsActive(state) {
+    toggleNav(state) {
       state.isActive = !state.isActive;
     },
     setClose(state) {

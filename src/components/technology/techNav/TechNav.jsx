@@ -10,32 +10,17 @@ const TechNav = (props) => {
   };
   return (
     <ul className={classes["tech-nav"]}>
-      <li>
-        <button
-          className={classes["tech-nav-active"]}
-          onClick={techNavClickHandler.bind(null, "frontend")}
-        >
-          Front End
-        </button>
-      </li>
-      <li>
-        <button onClick={techNavClickHandler.bind(null, "backend")}>
-          Back End
-        </button>
-      </li>
-      <li>
-        <button onClick={techNavClickHandler.bind(null, "mobile")}>
-          Mobile
-        </button>
-      </li>
-      <li>
-        <button onClick={techNavClickHandler.bind(null, "cms")}>CMS</button>
-      </li>
-      <li>
-        <button onClick={techNavClickHandler.bind(null, "database")}>
-          Database
-        </button>
-      </li>
+      {props.navData &&
+        props.navData.map((navItem, i) => (
+          <li key={i}>
+            <button
+              className={`${i === 0 && classes["tech-nav-active"]}`}
+              onClick={techNavClickHandler.bind(null, navItem.slug)}
+            >
+              {navItem.name}
+            </button>
+          </li>
+        ))}
     </ul>
   );
 };

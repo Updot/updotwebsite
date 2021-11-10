@@ -13,7 +13,7 @@ const Footer = (props) => {
     <section
       className={classes.footer}
       style={{
-        marginTop:
+        paddingTop:
           window.innerWidth < 800
             ? "0vh"
             : `${props.height ? props.height : "10vh"}`,
@@ -22,18 +22,15 @@ const Footer = (props) => {
       <div className={classes["footer-top"]}>
         <div className={classes.inbox}>
           <h3 className={classes["footer-heading"]}>Inbox Us</h3>
-          <a
-            className={classes["footer-link"]}
-            href="mailto:updotofficial@gmail.com"
-          >
-            updotofficial@gmail.com
+          <a className={classes["footer-link"]} href="mailto:hello@updot.in">
+            hello@updot.in
           </a>
         </div>
         <div className={classes.ring}>
           <h3 className={classes["footer-heading"]}>Ring Us Up</h3>
           <div className={classes["footer-link-container"]}>
-            <a className={classes["footer-link"]} href="tel:+918549827162">
-              +91 85498 27162
+            <a className={classes["footer-link"]} href="tel:+916362070745">
+              +91 63620 70745
             </a>
             <a className={classes["footer-link"]} href="tel:+919074490845">
               +91 90744 90845
@@ -43,7 +40,7 @@ const Footer = (props) => {
         <div className={classes.spot}>
           <h3 className={classes["footer-heading"]}>Spot Us</h3>
           <p className={classes["footer-address"]}>
-            No.8, next to Spring Valley Club,
+            No.32, next to Spring Valley Club,
             <br /> Bengaluru, Karnataka 560090
           </p>
         </div>

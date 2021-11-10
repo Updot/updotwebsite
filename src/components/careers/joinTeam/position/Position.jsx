@@ -18,7 +18,11 @@ const Position = () => {
     const timeStamp = window.innerWidth > 800 ? 1000 : 2000;
     const interval = setInterval(() => {
       const x =
-        window.innerWidth > 800 ? Math.random() * 100 : Math.random() * 200;
+        window.innerWidth > 800
+          ? Math.random() * 100
+          : window.innerWidth > 600
+          ? Math.random() * 500
+          : Math.random() * 200;
       const y = Math.random() * 50;
       mouseRef.current.style.top = `-${y}px`;
       mouseRef.current.style.left = `${x}px`;
@@ -68,7 +72,7 @@ const Position = () => {
               </div>
             )}
             <p>
-              We need an expert with designing software like Illustrator,
+              We need an expert who is versed in softwares such as Illustrator,
               Photoshop or even Corel Draw with enough experience to handle our
               work pressure.. lol! Just Kiddin' XD.
             </p>
@@ -117,8 +121,8 @@ const Position = () => {
               </div>
             )}
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod temporinc ididunt ut labore et dolore magna aliqua.
+              Can you even sell air if given the right platform? We’ve got a
+              seat to fill if you can
             </p>
             <div className={classes["position-bottom"]}>
               {!isShowForm && (
@@ -167,8 +171,9 @@ const Position = () => {
               </div>
             )}
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod temporinc ididunt ut labore et dolore magna aliqua.
+              We always have a place for proficient and top-notch web and app
+              developers. Do you speak code? If you do, then you my friend, are
+              at the place.
             </p>
             <div className={classes["position-bottom"]}>
               {!isShowForm && (

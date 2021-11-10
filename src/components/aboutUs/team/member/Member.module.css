@@ -41,13 +41,19 @@
 }
 
 .name {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   animation: animateText 4s linear infinite;
   animation-fill-mode: forwards;
 }
 
 .name a {
+  width: max-content;
   display: flex;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   position: relative;
 }

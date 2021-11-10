@@ -5,6 +5,8 @@
   display: grid;
   place-content: center;
   position: relative;
+  background-color: var(--bg-color);
+  z-index: 10;
 }
 
 .heading {
@@ -117,6 +119,11 @@
 .swipe-text {
   display: none;
 }
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
+  .services a {
+    font-size: 3.1rem;
+  }
+}
 @media only screen and (max-width: 800px) {
   .heading {
     flex-direction: column;
@@ -187,4 +194,7 @@
     font-weight: bold;
     margin-bottom: 1.2rem;
   }
+}
+
+@media only screen and (min-width: 660px) and (max-width: 860px) {
 }

@@ -1,8 +1,30 @@
 import { useState } from "react";
+import pdfIcon from "../../../assets/img/pdf.svg";
+import imageIcon from "../../../assets/img/image.svg";
 import classes from "./InputFile.module.css";
 
 const InputFile = (props) => {
   const [file, setFile] = useState(null);
+  const [base64File, setBase64File] = useState(null);
+
+  const inputChangeHandler = (fieldName, data) => {
+    // function getBase64(file, cb) {
+    //   let reader = new FileReader();
+    //   reader.readAsDataURL(file);
+    //   reader.onload = function () {
+    //     cb(reader.result);
+    //   };
+    //   reader.onerror = function (error) {
+    //     console.log("Error: ", error);
+    //   };
+    // }
+    // getBase64(data, (result) => {
+    //   setBase64File((prevData) => {
+    //     return { ...prevData, [fieldName]: result };
+    //   });
+    // });
+    props.setAttachment(fieldName, data);
+  };
   return (
     <div
       className={classes["input-file-container"]}
@@ -17,7 +39,8 @@ const InputFile = (props) => {
         id={props.name}
         hidden
         onChange={(e) => {
-          setFile(URL.createObjectURL(e.target.files[0]));
+          setFile(e.target.files[0]);
+          inputChangeHandler(`attechment-${props.name}`, e.target.files[0]);
         }}
       />
       {!file && (
@@ -25,7 +48,13 @@ const InputFile = (props) => {
           <span>+</span>
         </label>
       )}
-      {file && <img src={file} alt="" />}
+      {file && (
+        <img
+          src={file.type.includes("image") ? imageIcon : pdfIcon}
+          alt=""
+          className={classes["file-icon"]}
+        />
+      )}
       {file && (
         <span
           className={classes.remove}

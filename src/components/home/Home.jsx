@@ -5,12 +5,12 @@ import Header from "../ui/header/Header";
 import Nav from "../ui/nav/Nav";
 import updot from "../../assets/img/updot.svg";
 import maskVideo from "../../assets/videos/mask-video.mp4";
-import { navStateAction } from "../../store/NavState";
+// import { navStateAction } from "../../store/NavState";
 // import { mouseLocationAction } from "../../store/mouseLocation";
 import colorTheme from "./colorTheme.json";
 import classes from "./Home.module.css";
 import { Link } from "react-router-dom";
-import { useCallback } from "react";
+// import { useCallback } from "react";
 
 const Home = (props) => {
   const isNavActive = useSelector((state) => state.navState.isActive);
@@ -19,8 +19,6 @@ const Home = (props) => {
   );
   const [headerDisplayed, setHeaderDisplayed] = useState(true);
   const sectionRef = useRef(null);
-  const navRef = useRef(null);
-  const headerRef = useRef(null);
   const scrollRef = useRef(null);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -43,6 +41,9 @@ const Home = (props) => {
       "--input-border-fade",
       theme.inputBorderFade
     );
+    document.body.style.setProperty("--box-shadow-light", theme.boxShadowLight);
+    document.body.style.setProperty("--nav-bg", theme.navBg);
+    document.body.style.setProperty("--box-shadow-dark", theme.boxShadowDark);
     document.body.style.setProperty("--fade-black", theme.fadeBlack);
     document.body.style.setProperty("--filter", theme.filter);
   }, [isLightThemeActive]);
@@ -80,26 +81,6 @@ const Home = (props) => {
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, [dispatch]);
-  const navClickHandler = () => {
-    if (!isNavActive) {
-      document.querySelector("body").style.overflowY = "hidden";
-    } else {
-      document.querySelector("body").style.overflowY = "scroll";
-    }
-    dispatch(navStateAction.setIsActive());
-    // setRestrictedBounding(bounding);
-  };
-  const navCloseHandler = () => {
-    document.querySelector("body").style.overflowY = "scroll";
-    dispatch(navStateAction.setClose());
-  };
-
-  const showDot = useCallback(() => {
-    headerRef.current.showDot();
-  }, []);
-  const hideDot = useCallback(() => {
-    headerRef.current.hideDot();
-  }, []);
 
   let style = {};
   if (props.hideInner) {
@@ -110,9 +91,11 @@ const Home = (props) => {
   }
 
   let headingStyle = {};
-  headingStyle = props.isPadding ? { paddingLeft: "5%" } : {};
+  if (!(window.innerWidth > 600) && !(window.innerWidth < 800)) {
+    headingStyle = props.isPadding ? { paddingLeft: "5%" } : {};
+  }
   if (props.isShowVideoHeading && window.innerWidth < 800) {
-    headingStyle["width"] = "50%";
+    headingStyle["width"] = window.innerWidth >= 600 ? "30%" : "50%";
     headingStyle["paddingLeft"] = "2.5rem";
   }
   if (props.textCenter) headingStyle["textAlign"] = "center";
@@ -124,23 +107,8 @@ const Home = (props) => {
 
   return (
     <Fragment>
-      {headerDisplayed && (
-        <Header
-          onNavBtnClick={navClickHandler}
-          onNavCloseBtnClick={navCloseHandler}
-          showNavBtn={true}
-          navRef={navRef}
-          ref={headerRef}
-        />
-      )}
-      {isNavActive && (
-        <Nav
-          onNavBtnClick={navClickHandler}
-          ref={navRef}
-          showDot={showDot}
-          hideDot={hideDot}
-        />
-      )}
+      <Header showNavBtn={true} headerDisplayed={headerDisplayed} />
+      <Nav />
 
       <div ref={sectionRef} className={classes.home} style={style}>
         {props.isShowVideoHeading ? (

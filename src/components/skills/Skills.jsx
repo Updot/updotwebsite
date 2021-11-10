@@ -27,64 +27,68 @@ const Skills = () => {
     skillRef.current.style.left = `-${Math.round(el.clientWidth * count)}px`;
   };
   useEffect(() => {
-    let timeout;
+    // let timeout;
     window.addEventListener("wheel", (e) => {
       if (window.innerWidth > 800) {
-        clearTimeout(timeout);
+        // clearTimeout(timeout);
         let scroll = window.scrollY - window.innerHeight * 2;
+
         if (skillRef.current) {
           if (window.scrollY < window.innerHeight * 2) {
             // skillRef.current.style.position = "unset";
           }
           if (scroll >= 0) {
             // skillRef.current.style.position = "fixed";
-            if (scroll <= skillRef.current.scrollWidth - window.innerWidth) {
+            if (
+              scroll <=
+              skillRef.current.scrollWidth - window.innerWidth * 2
+            ) {
               // skillRef.current.style.top = "0px";
               // document.querySelector("body").style.overflowY = "hidden";
-              const el = document.querySelector(
-                `[data-type="skill-container"]`
-              );
+              // const el = document.querySelector(
+              //   `[data-type="skill-container"]`
+              // );
               // skillRef.current.style.left = `-${Math.round(scroll)}px`;
 
               // skillRef.current.style.scrollBehavior = `smooth`;
-              timeout = setTimeout(() => {
-                if (e.deltaY > 0) {
-                  setScrollDir("bottom");
-                  if (count < 9) {
-                    // skillRef.current.style.transition = `all 0.8s linear`;
-                    count += 1;
-                    window.scrollTo(
-                      0,
-                      el.clientWidth * count + window.innerHeight * 2
-                    );
-                  } else {
-                    // skillRef.current.style.transition = `unset`;
-                  }
-                } else {
-                  setScrollDir("up");
-                  if (count > 0) {
-                    count -= 1;
-                    const scroll =
-                      el.clientWidth * count + window.innerHeight * 2;
-                    window.scrollTo(0, scroll);
-                  } else {
-                    // skillRef.current.style.transition = `unset`;
-                  }
-                }
-                skillRef.current.style.transition = `all 0.8s linear`;
-                skillRef.current.style.transform = `translateX(-${Math.round(
-                  el.clientWidth * count
-                )}px)`;
-                // skillRef.current.style.left = `-${Math.round(
-                //   el.clientWidth * count
-                // )}px`;
-              }, 100);
+              // skillRef.current.style.transform = `translateX(-${scroll}px)`;
+
+              skillRef.current.style.left = `-${scroll}px`;
+              // timeout = setTimeout(() => {
+              if (e.deltaY > 0) {
+                setScrollDir("bottom");
+                //     if (count < 9) {
+                //       // skillRef.current.style.transition = `all 0.8s linear`;
+                //       count += 1;
+                //       // window.scrollTo(
+                //       //   0,
+                //       //   el.clientWidth * count + window.innerHeight * 2
+                //       // );
+                //     } else {
+                //       // skillRef.current.style.transition = `unset`;
+                //     }
+              } else {
+                setScrollDir("up");
+                //     if (count > 0) {
+                //       count -= 1;
+                //       // const scroll =
+                //       //   el.clientWidth * count + window.innerHeight * 2;
+                //       // window.scrollTo(0, scroll);
+                //     } else {
+                //       // skillRef.current.style.transition = `unset`;
+                //     }
+              }
+              //   skillRef.current.style.transition = `all 0.2s linear`;
+              //   // console.log(scroll);
+              //   skillRef.current.style.transform = `translateX(-${scroll}px)`;
+              //   // skillRef.current.style.left = `-${Math.round(scroll)}px`;
+              // }, 100);
             }
             if (scroll > skillRef.current.scrollWidth - window.innerWidth) {
-              skillRef.current.style.top = `-${
-                scroll - skillRef.current.scrollWidth + window.innerWidth
-              }px`;
-              skillRef.current.style.transition = `unset`;
+              // skillRef.current.style.top = `-${
+              //   scroll - skillRef.current.scrollWidth + window.innerWidth
+              // }px`;
+              // skillRef.current.style.transition = `unset`;
             }
           }
         }
@@ -103,23 +107,22 @@ const Skills = () => {
           <SectionHeading>Our Mastered Skills</SectionHeading>
         )}
       </div>
-      <div ref={ghostRef} className={classes["ghost"]}>
-        <div className={classes.skills}>
-          <div ref={skillRef} className={classes["skills-outer"]}>
-            <SkillContainer
-              scrollDir={scrollDir}
-              scrollTop={scrollTop}
-              scrollBottom={scrollBottom}
-              setScrollDot={setScrollDot}
-            />
-          </div>
+      <div className={classes.skills}>
+        <div ref={skillRef} className={classes["skills-outer"]}>
+          <SkillContainer
+            scrollDir={scrollDir}
+            scrollTop={scrollTop}
+            scrollBottom={scrollBottom}
+            setScrollDot={setScrollDot}
+          />
         </div>
-        {window.innerWidth < 800 && (
-          <div className={classes["navigator"]}>
-            <ScrollDot scrollDotCount={scrollDotCount} />
-          </div>
-        )}
       </div>
+      {window.innerWidth < 800 && (
+        <div className={classes["navigator"]}>
+          <ScrollDot scrollDotCount={scrollDotCount} />
+        </div>
+      )}
+      <div ref={ghostRef} className={classes["ghost"]}></div>
     </Fragment>
   );
 };

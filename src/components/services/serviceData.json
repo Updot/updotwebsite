@@ -1,0 +1,151 @@
+{
+  "web-development": {
+    "name": "Web Development",
+    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "services": [
+      {
+        "name": "Front End",
+        "slug": "frontend",
+        "techs": ["html", "css", "js", "bootstrap", "react"]
+      },
+      {
+        "name": "Back End",
+        "slug": "backend",
+        "techs": ["php", "node", "python"]
+      },
+      {
+        "name": "CMS",
+        "slug": "cms",
+        "techs": ["wordpress", "drupal", "ghost", "webflow"]
+      },
+      {
+        "name": "Ecommerce",
+        "slug": "ecommerce",
+        "techs": ["woo", "magento", "shopify"]
+      },
+      {
+        "name": "Database",
+        "slug": "database",
+        "techs": ["mysql", "mongodb", "firebase", "oracle"]
+      }
+    ]
+  },
+  "app-development": {
+    "name": "App Development",
+    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "services": [
+      {
+        "name": "Technologies",
+        "slug": "",
+        "techs": ["flutter", "native", "swift", "kotlin"]
+      }
+    ]
+  },
+  "chatbot-development": {
+    "name": "chatbot development",
+    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "services": [
+      {
+        "name": "Framework",
+        "slug": "framework",
+        "techs": ["diagflow", "watson"]
+      },
+      {
+        "name": "Platforms",
+        "slug": "platforms",
+        "techs": ["intercom", "botsify"]
+      }
+    ]
+  },
+  "devops-cloud": {
+    "name": "DevOps & Cloud",
+    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "services": [
+      {
+        "name": "DevOps",
+        "slug": "devops",
+        "techs": ["github", "docker", "dynamics", "selenium", "slack"]
+      },
+      {
+        "name": "Cloud",
+        "slug": "cloud",
+        "techs": ["aws", "azure", "do"]
+      }
+    ]
+  },
+  "ui-ux": {
+    "name": "UI/UX",
+    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "services": [
+      {
+        "name": "Tools",
+        "slug": "tools",
+        "techs": ["xd", "photoshop", "ai", "figma"]
+      }
+    ]
+  },
+  "seo": {
+    "name": "Seo",
+    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "services": [
+      {
+        "name": "Tools",
+        "slug": "tools",
+        "techs": ["semrush", "woorank", "spyfu", "search", "trends"]
+      }
+    ]
+  },
+  "branding": {
+    "name": "Branding",
+    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "services": [
+      {
+        "name": "Channels",
+        "slug": "chaanels",
+        "techs": ["audio", "visual", "content"]
+      }
+    ]
+  },
+  "digital-marketing": {
+    "name": "Digital marketing",
+    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "services": [
+      {
+        "name": "Front End",
+        "slug": "frontend",
+        "techs": ["html", "css", "js", "bootstrap", "react"]
+      },
+      {
+        "name": "Back End",
+        "slug": "backend",
+        "techs": ["php", "node", "python"]
+      },
+      {
+        "name": "CMS",
+        "slug": "cms",
+        "techs": ["wordpress", "drupal", "ghost", "webflow"]
+      },
+      {
+        "name": "Ecommerce",
+        "slug": "ecommerce",
+        "techs": ["woo", "magento", "shopify"]
+      },
+      {
+        "name": "Database",
+        "slug": "database",
+        "techs": ["mysql", "mongodb", "firebase", "oracle"]
+      }
+    ]
+  },
+  "maintenance-and-upgrade": {
+    "name": "Maintenance and upgrade",
+    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "services": [
+      {
+        "name": "Tools",
+        "slug": "tools",
+        "techs": ["site", "webmaster", "asana", "analytics", "gt"]
+      }
+    ]
+  }
+}

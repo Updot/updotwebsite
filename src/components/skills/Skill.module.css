@@ -31,6 +31,17 @@
 .skill-icon img {
   width: auto;
   height: 22rem;
+  filter: var(--filter);
+}
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
+  .skill {
+    width: 100vw;
+  }
+  .skill-icon {
+    transform: translateY(-20%);
+    margin-left: 2%;
+    align-items: center;
+  }
 }
 @media only screen and (max-width: 800px) {
   .skill {
@@ -63,7 +74,7 @@
   }
   .skill-icon img {
     width: auto;
-    height: 12rem;
+    height: 10.5rem;
     object-fit: cover;
   }
 }

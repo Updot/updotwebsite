@@ -3,15 +3,20 @@
   margin-bottom: 5vh;
 }
 .story-para {
-  margin-top: 5rem;
   line-height: 1.5;
   font-size: 3.5rem;
   font-weight: bold;
   width: 63vw;
 }
+.story-para:first-of-type {
+  margin-top: 5rem;
+}
+.story-para:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
 @media only screen and (max-width: 800px) {
   .stroy-container {
-    padding: 10vh 8vw 0;
+    padding: 10vh 7.5vw 0;
     min-height: unset;
   }
   .stroy-container h2 {

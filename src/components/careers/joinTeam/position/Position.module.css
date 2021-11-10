@@ -24,6 +24,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  filter: var(--filter);
 }
 .position-container-right img {
   height: 29rem;
@@ -44,6 +45,7 @@
 .btn-container img {
   height: 4rem;
   width: auto;
+  filter: var(--filter);
 }
 .btn-container h4 {
   font-size: 3rem;
@@ -81,12 +83,12 @@
     scroll-behavior: smooth;
   }
   .position-container {
-    min-width: 100vw;
+    width: 100%;
     margin-top: 3.3rem;
     display: unset;
     flex-wrap: unset;
     justify-content: space-between;
-    padding: 0 1rem;
+    padding: 0 2vw;
   }
   .position-container-left {
     flex-basis: 100%;

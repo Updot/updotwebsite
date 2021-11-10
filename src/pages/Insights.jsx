@@ -12,15 +12,15 @@ const Insights = () => {
     <Fragment>
       <MouseArrow />
       <Switch>
-        <Route path="/insight" exact>
+        <Route path="/insights" exact>
           <HomeComponent
             isShowVideoHeading={false}
-            heading="Insight"
+            heading="Insights"
             fontSize="5.3rem"
           />
           <Insight />
         </Route>
-        <Route path="/insight/:insightId">
+        <Route path="/insights/:insightId">
           <InsightBlog />
         </Route>
       </Switch>

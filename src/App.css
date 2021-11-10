@@ -12,7 +12,10 @@ html {
   --text-color-2: #000;
   --input-border-fade: rgba(255, 255, 255, 0.2);
   --input-border-dark: rgba(255, 255, 255, 0.9);
+  --box-shadow-light: rgba(255, 255, 255, 0.8);
+  --box-shadow-dark: rgba(255, 255, 255, 0);
   --fade-black: #363636;
+  --nav-bg: rgb(235, 235, 235);
   --filter: invert(0);
 }
 
@@ -132,7 +135,12 @@ textarea {
 .mt-5 {
   margin-top: 5vh;
 }
-
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+.hide {
+  display: none !important;
+}
 @media screen and (max-width: 1600px) {
   html {
     font-size: 50%;
@@ -155,6 +163,11 @@ textarea {
   .h-unset-mobile {
     min-height: unset !important;
     height: unset !important;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  html {
+    font-size: 82.5%;
   }
 }
 #root {

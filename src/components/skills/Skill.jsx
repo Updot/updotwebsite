@@ -13,7 +13,7 @@ const Skill = (props) => {
   return (
     <div
       className={classes.skill}
-      style={props.isPadding ? { padding: "0 4rem" } : {}}
+      style={props.isPadding ? { padding: "0 7.5vw" } : {}}
     >
       <div className={classes["skill-text"]}>
         {props.skillData.name && (
@@ -26,8 +26,20 @@ const Skill = (props) => {
           {!props.img && (
             <Lottie
               options={defaultOptions}
-              height={window.innerWidth > 800 ? 500 : 250}
-              width={window.innerWidth > 800 ? 500 : 400}
+              height={
+                window.innerWidth > 800
+                  ? window.innerWidth < 1200
+                    ? 250
+                    : 500
+                  : 250
+              }
+              width={
+                window.innerWidth > 800
+                  ? window.innerWidth < 1200
+                    ? 250
+                    : 500
+                  : 400
+              }
               style={{
                 filter: "var(--filter)",
                 transform: `${

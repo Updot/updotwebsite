@@ -1,0 +1,127 @@
+.icon {
+  background-color: var(--text-color);
+  display: inline-block;
+  height: 20rem;
+  width: 20rem;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  position: absolute;
+}
+.icon img {
+  height: auto;
+  width: 17rem;
+  /* filter: var(--filter); */
+  pointer-events: none;
+}
+.icon img {
+  transition: all 0.4s linear;
+}
+
+.icon-1 {
+  top: 0;
+  left: 0;
+  animation: animateClient1 4s ease-in-out infinite alternate;
+}
+.icon-2 {
+  top: 30%;
+  left: 20%;
+  animation: animateClient2 4s ease-in-out infinite alternate;
+}
+.icon-3 {
+  top: 0;
+  left: 40%;
+  animation: animateClient1 4s ease-in-out infinite alternate;
+}
+.icon-4 {
+  top: 30%;
+  left: 60%;
+  animation: animateClient2 4s ease-in-out infinite alternate;
+}
+.icon-5 {
+  top: 0;
+  left: 80%;
+  animation: animateClient1 4s ease-in-out infinite alternate;
+}
+@keyframes animateClient1 {
+  0% {
+    transform: translateY(5%);
+  }
+  100% {
+    transform: translateY(-5%);
+  }
+}
+
+@keyframes animateClient2 {
+  0% {
+    transform: translateY(-5%);
+  }
+  100% {
+    transform: translateY(5%);
+  }
+}
+@keyframes animateClient3 {
+  0% {
+    transform: translateY(-2%);
+  }
+  100% {
+    transform: translateY(2%);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .icon {
+    height: 11.5rem;
+    width: 11.5rem;
+  }
+  .icon svg {
+    height: 8rem;
+    width: auto;
+  }
+  .icon-1 {
+    top: 5rem;
+    left: 0;
+  }
+  .icon-2 {
+    top: 8rem;
+    left: unset;
+    right: 5%;
+  }
+  .icon-3 {
+    top: 30rem;
+    left: 0%;
+  }
+  .icon-4 {
+    top: 33rem;
+    left: 58%;
+  }
+  .icon-5 {
+    top: 18rem;
+    height: 10.1rem;
+    width: 10.1rem;
+    left: 30%;
+  }
+  .icon-5svg {
+    width: auto;
+    height: 5.5rem;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .icon-1 {
+    left: 10%;
+  }
+  .icon-3 {
+    left: 10%;
+  }
+  .icon-2 {
+    right: 15%;
+  }
+  .icon-4 {
+    left: 52%;
+  }
+  .icon-5 {
+    left: 35%;
+  }
+}

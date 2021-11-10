@@ -2,11 +2,7 @@
   {
     "name": "work",
     "link": "/work",
-    "subNav": [
-      { "name": "Loream Ipsum", "link": "#" },
-      { "name": "Loream Ipsum1", "link": "#" },
-      { "name": "Loream Ipsum2", "link": "#" }
-    ]
+    "subNav": []
   },
   {
     "name": "Services",
@@ -19,7 +15,9 @@
       { "name": "UI & UX Design", "link": "#" },
       { "name": "SEO", "link": "#" },
       { "name": "Branding", "link": "#" },
-      { "name": "Digital Marketing", "link": "#" }
+      { "name": "Business Analysis", "link": "#" },
+      { "name": "Digital Marketing", "link": "#" },
+      { "name": "Maintenance and Upgrade", "link": "#" }
     ]
   },
   {
@@ -28,8 +26,8 @@
     "subNav": []
   },
   {
-    "name": "Insight",
-    "link": "/insight",
+    "name": "Insights",
+    "link": "/insights",
     "subNav": []
   },
   {
