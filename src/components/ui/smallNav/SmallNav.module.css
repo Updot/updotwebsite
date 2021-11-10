@@ -4,12 +4,12 @@
   column-gap: 3rem;
 }
 .featured-nav-btn {
-  color: var(--fade-black);
-  border-color: var(--fade-black);
+  color: var(--fade-black) !important;
+  border-color: var(--fade-black) !important;
 }
 .featured-nav-btn-active {
-  color: var(--input-color);
-  border-color: var(--text-color);
+  color: var(--text-color) !important;
+  border-color: var(--text-color) !important;
 }
 @media only screen and (max-width: 800px) {
   .featured-nav-btn {

@@ -111,29 +111,15 @@
     "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
     "services": [
       {
-        "name": "Front End",
-        "slug": "frontend",
-        "techs": ["html", "css", "js", "bootstrap", "react"]
-      },
-      {
-        "name": "Back End",
-        "slug": "backend",
-        "techs": ["php", "node", "python"]
-      },
-      {
-        "name": "CMS",
-        "slug": "cms",
-        "techs": ["wordpress", "drupal", "ghost", "webflow"]
-      },
-      {
-        "name": "Ecommerce",
-        "slug": "ecommerce",
-        "techs": ["woo", "magento", "shopify"]
-      },
-      {
-        "name": "Database",
-        "slug": "database",
-        "techs": ["mysql", "mongodb", "firebase", "oracle"]
+        "name": "Tools",
+        "slug": "tools",
+        "techs": [
+          "hubspot",
+          "mailchimp",
+          "hootsuite",
+          "semrush-2",
+          "ganalytics"
+        ]
       }
     ]
   },
