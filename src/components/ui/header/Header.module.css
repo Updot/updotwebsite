@@ -27,7 +27,7 @@
   border: none;
   position: fixed;
   width: 4rem;
-  height: 3rem;
+  height: 4rem;
   right: 5vw;
   z-index: 999;
 }
@@ -78,7 +78,7 @@
 }
 .nav-btn span {
   display: inline-block;
-  height: 2.3px;
+  height: 2.5px;
   background-color: var(--text-color);
   position: absolute;
   right: 0;
@@ -88,12 +88,11 @@
 }
 .nav-btn span:nth-of-type(1) {
   width: 100%;
-  top: 0;
+  top: 20%;
 }
 .nav-btn span:nth-of-type(2) {
-  height: 2.5px;
   width: 65%;
-  top: 45%;
+  top: 60%;
 }
 .nav-btn:hover span:nth-of-type(2) {
   width: 100%;
@@ -102,7 +101,7 @@
   transform: rotate(-45deg);
 }
 .rotate-up {
-  transform: translateY(1.4rem) rotate(45deg);
+  transform: translateY(1.25rem) rotate(45deg);
   width: 100% !important;
 }
 
