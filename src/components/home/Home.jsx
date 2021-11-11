@@ -1,8 +1,8 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import mouseLocation from "../../util/mouseLocation";
-import Header from "../ui/header/Header";
-import Nav from "../ui/nav/Nav";
+// import Header from "../ui/header/Header";
+// import Nav from "../ui/nav/Nav";
 import updot from "../../assets/img/updot.svg";
 import maskVideo from "../../assets/videos/mask-video.mp4";
 // import { navStateAction } from "../../store/NavState";
@@ -13,14 +13,28 @@ import { Link } from "react-router-dom";
 // import { useCallback } from "react";
 
 const Home = (props) => {
-  const isNavActive = useSelector((state) => state.navState.isActive);
+  // const isNavActive = useSelector((state) => state.navState.isActive);
   const isLightThemeActive = useSelector(
     (state) => state.themeState.isLightThemeActive
   );
-  const [headerDisplayed, setHeaderDisplayed] = useState(true);
+
   const sectionRef = useRef(null);
   const scrollRef = useRef(null);
   const dispatch = useDispatch();
+  useEffect(() => {
+    const handler = (event) => {
+      if (scrollRef) {
+        if (window.scrollY > 80) {
+          scrollRef.current.classList.add(`${classes["scroll-fade"]}`);
+        } else {
+          scrollRef.current.classList.remove(`${classes["scroll-fade"]}`);
+        }
+      }
+    };
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, [dispatch]);
+
   useEffect(() => {
     let theme;
     if (isLightThemeActive) {
@@ -48,40 +62,6 @@ const Home = (props) => {
     document.body.style.setProperty("--filter", theme.filter);
   }, [isLightThemeActive]);
 
-  useEffect(() => {
-    // const { x, y } = toogleRef.current.getBoundingClientRect();
-    const handler = (event) => {
-      if (window.scrollY > 100) {
-        setHeaderDisplayed(false);
-      } else {
-        setHeaderDisplayed(true);
-      }
-      if (scrollRef) {
-        if (window.scrollY > 80) {
-          scrollRef.current.classList.add(`${classes["scroll-fade"]}`);
-        } else {
-          scrollRef.current.classList.remove(`${classes["scroll-fade"]}`);
-        }
-      }
-      // mouseLocation(
-      //   {
-      //     default: true,
-      //     RestCoords: {
-      //       x,
-      //       y,
-      //     },
-      //   },
-      //   {
-      //     el: sectionRef.current,
-      //   },
-      //   dispatch
-      // );
-      // dispatch(mouseLocationAction.setCurrLocation({ x, y }));
-    };
-    window.addEventListener("scroll", handler);
-    return () => window.removeEventListener("scroll", handler);
-  }, [dispatch]);
-
   let style = {};
   if (props.hideInner) {
     style = { display: "none" };
@@ -107,9 +87,6 @@ const Home = (props) => {
 
   return (
     <Fragment>
-      <Header showNavBtn={true} headerDisplayed={headerDisplayed} />
-      <Nav />
-
       <div ref={sectionRef} className={classes.home} style={style}>
         {props.isShowVideoHeading ? (
           <h1 className={classes.heading} style={headingStyle}>

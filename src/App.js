@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import Home from "./pages/Home";
@@ -16,6 +16,8 @@ import CareersPage from "./pages/CareersPage";
 import Loader from "./components/ui/loader/Loader";
 import "./App.css";
 import { themeStateAction } from "./store/themeState";
+import Header from "./components/ui/header/Header";
+import Nav from "./components/ui/nav/Nav";
 
 const Loading = () => {
   const isLoaded = useSelector((state) => state.pageState.isLoaded);
@@ -28,6 +30,18 @@ const Loading = () => {
 
 function App() {
   const dispatch = useDispatch();
+  const [headerDisplayed, setHeaderDisplayed] = useState(true);
+  useEffect(() => {
+    const handler = (event) => {
+      if (window.scrollY > 100) {
+        setHeaderDisplayed(false);
+      } else {
+        setHeaderDisplayed(true);
+      }
+    };
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, [dispatch]);
   useEffect(() => {
     const theme = localStorage.getItem("updotThemePreference");
     if (theme === "Light") {
@@ -36,6 +50,8 @@ function App() {
   }, [dispatch]);
   return (
     <div className="App">
+      <Header showNavBtn={true} headerDisplayed={headerDisplayed} />
+      <Nav />
       {/* <Cookies /> */}
       <Switch>
         <Route path="/" exact>

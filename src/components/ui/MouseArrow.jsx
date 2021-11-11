@@ -13,7 +13,13 @@ const MouseArrow = () => {
   const isLoaderHidden = useSelector(
     (state) => state.pageState.isLoaderRemoved
   );
+  const isNavActive = useSelector((state) => state.navState.isActive);
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (!isNavActive) {
+      document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
+    }
+  }, [isNavActive]);
   useEffect(() => {
     window.onmousemove = (event) => {
       const x = event.clientX;
