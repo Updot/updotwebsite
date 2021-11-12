@@ -3,12 +3,10 @@ import { Route, Switch } from "react-router-dom";
 
 import Home from "../components/home/Home";
 import Service from "../components/services/Service";
-import MouseArrow from "../components/ui/MouseArrow";
 
 const ServicesPage = () => {
   return (
     <Fragment>
-      <MouseArrow />
       <Switch>
         <Route path="/services" exact>
           <Home

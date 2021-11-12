@@ -32,8 +32,8 @@ const Landing = () => {
             );
           }
         }
-        document.querySelector("[data-arrow='mousearrow']").style.transition =
-          "all 0.1s linear";
+        // document.querySelector("[data-arrow='mousearrow']").style.transition =
+        //   "all 0.1s linear";
       };
       document.onkeyup = (e) => {
         landingRef.current.style.display = "none";

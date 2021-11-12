@@ -15,6 +15,7 @@ import ServicesPage from "./pages/ServicesPage";
 import CareersPage from "./pages/CareersPage";
 import ThankYouPage from "./pages/ThankYouPage";
 import Loader from "./components/ui/loader/Loader";
+import MouseArrow from "./components/ui/MouseArrow";
 import "./App.css";
 import { themeStateAction } from "./store/themeState";
 import Header from "./components/ui/header/Header";
@@ -51,6 +52,7 @@ function App() {
   }, [dispatch]);
   return (
     <div className="App">
+      <MouseArrow />
       <Header showNavBtn={true} headerDisplayed={headerDisplayed} />
       <Nav />
       {/* <Cookies /> */}

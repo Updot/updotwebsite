@@ -5,7 +5,6 @@ import Careers from "../components/careers/Careers";
 import Footer from "../components/footer/Footer";
 import Home from "../components/home/Home";
 import Newsletter from "../components/newsletter/Newsletter";
-import MouseArrow from "../components/ui/MouseArrow";
 
 const CareersPage = () => {
   useEffect(() => {
@@ -14,7 +13,6 @@ const CareersPage = () => {
 
   return (
     <Fragment>
-      <MouseArrow />
       <Home isShowVideoHeading={false} heading="Careers" fontSize="5.3rem" />
       <Careers />
       <Newsletter />
