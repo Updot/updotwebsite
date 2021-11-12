@@ -5,7 +5,7 @@
   background-color: var(--text-color);
   position: fixed;
   transition: all 0.1s linear;
-  z-index: 999999;
+  z-index: 9999999;
   pointer-events: none;
 }
 /* .arrow::after {
