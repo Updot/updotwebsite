@@ -13,6 +13,7 @@ import TermPage from "./pages/TermPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import ServicesPage from "./pages/ServicesPage";
 import CareersPage from "./pages/CareersPage";
+import ThankYouPage from "./pages/ThankYouPage";
 import Loader from "./components/ui/loader/Loader";
 import "./App.css";
 import { themeStateAction } from "./store/themeState";
@@ -81,6 +82,10 @@ function App() {
         <Route path="/careers">
           <Loading />
           <CareersPage />
+        </Route>
+        <Route path="/thankyou">
+          <Loading />
+          <ThankYouPage />
         </Route>
         <Route path="/term-and-conditions">
           <Loading />
