@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/img/updot-logo.svg";
@@ -11,6 +11,7 @@ const Header = (props) => {
   const arrowCurrCords = useSelector(
     (state) => state.mouseLocation.currLocation
   );
+  const navButtonRef = useRef();
   const [showBg, setShowBg] = useState(true);
   const isNavActive = useSelector((state) => state.navState.isActive);
   let navStyle = {};

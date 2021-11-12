@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import classes from "./Nav.module.css";
-import SubNav from "./subNav/SubNav";
+// import SubNav from "./subNav/SubNav";
 import instaIcon from "../../../assets/img/insta-icon.svg";
 import fbIcon from "../../../assets/img/fb-icon.svg";
 import linkedinIcon from "../../../assets/img/linkedin.svg";
@@ -107,7 +107,8 @@ const Nav = () => {
   const mouseOutHandler = () => {
     const navBtn = document.querySelector('[data-name="nav-btn"]');
     navBtn.classList.remove("hide");
-    document.querySelector("[data-arrow='mousearrow']").style.opacity = 0;
+    if (isNavActive)
+      document.querySelector("[data-arrow='mousearrow']").style.opacity = 0;
   };
   const desktopThemeTogglerHandler = () => {
     dispatch(themeStateAction.toggleTheme());
