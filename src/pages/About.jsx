@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import MouseArrow from "./../components/ui/MouseArrow";
 import HomeComponent from "./../components/home/Home";
 import OurStory from "../components/aboutUs/ourStory/OurStory";
 import OurValues from "../components/aboutUs/ourValues/OurValues";
@@ -12,7 +11,6 @@ import Footer from "../components/footer/Footer";
 const About = () => {
   return (
     <Fragment>
-      <MouseArrow />
       <HomeComponent
         isShowVideoHeading={false}
         heading="About"

@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
-import MouseArrow from "./../components/ui/MouseArrow";
 import HomeComponent from "./../components/home/Home";
 import Work from "../components/work/Work";
 
@@ -10,7 +9,6 @@ import WorkBlog from "../components/work/workBlog/WorkBlog";
 const WorkPage = () => {
   return (
     <Fragment>
-      <MouseArrow />
       <Switch>
         <Route path="/work" exact>
           <HomeComponent
