@@ -49,6 +49,7 @@
     height: unset;
     min-height: 60%;
     width: 100%;
+    padding: 0 7.5vw;
   }
   .skill-text {
     display: grid;

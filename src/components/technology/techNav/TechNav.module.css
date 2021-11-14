@@ -29,10 +29,10 @@
     justify-content: space-between;
   }
   .tech-nav button {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
   .tech-nav button.tech-nav-active {
-    font-size: 1.8rem !important;
+    font-size: 1.6rem !important;
   }
   .tech-nav li:not(:last-of-type) {
     margin-bottom: unset;
