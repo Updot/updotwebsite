@@ -1,22 +1,33 @@
 .icon {
-  background-color: var(--text-color);
+  background-color: var(--tech-icon-bg-color);
   display: inline-block;
   height: 20rem;
   width: 20rem;
   border-radius: 50%;
   display: grid;
   place-content: center;
-  cursor: pointer;
+  /* cursor: pointer; */
   position: absolute;
 }
 .icon img {
   height: auto;
   width: 17rem;
   /* filter: var(--filter); */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   pointer-events: none;
 }
+.icon img:nth-of-type(1) {
+  z-index: 1;
+}
 .icon img {
-  transition: all 0.4s linear;
+  transition: all 0.2s ease-in-out;
+}
+
+.icon:hover img:nth-of-type(1) {
+  opacity: 0;
 }
 
 .icon-1 {
