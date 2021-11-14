@@ -46,6 +46,10 @@ const Home = (props) => {
     document.body.style.setProperty("--bg-color-2", theme.bgColor2);
     document.body.style.setProperty("--bg-color-3", theme.bgColor3);
     document.body.style.setProperty("--text-color", theme.textColor);
+    document.body.style.setProperty(
+      "--tech-icon-bg-color",
+      theme.techIconBgColor
+    );
     document.body.style.setProperty("--text-color-2", theme.textColor2);
     document.body.style.setProperty(
       "--input-border-dark",
