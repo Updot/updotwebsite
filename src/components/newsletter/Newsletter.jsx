@@ -5,10 +5,13 @@ import { Link } from "react-router-dom";
 import UpdotLogo from "../../assets/img/updot-big.svg";
 import rightArrow from "../../assets/img/right-arrow.svg";
 import Input from "../connect/formFields/Input";
+import Modal from "../ui/modal/Modal";
 import classes from "./Newsletter.module.css";
 
 const Newsletter = () => {
   const [isFormTouched, setIsFormTouched] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const {
     register,
@@ -17,7 +20,8 @@ const Newsletter = () => {
     reset,
   } = useForm();
   const formSubmitHandler = (formData) => {
-    alert(`Hey, ${formData.name}!, Thankyou for Submitting form`);
+    setEmail(formData.email);
+    setIsModalOpen(true);
   };
   useEffect(() => {
     if (isSubmitSuccessful) {
@@ -31,6 +35,9 @@ const Newsletter = () => {
   };
   return (
     <Fragment>
+      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+        Hi {email}! Thank you for subscribing to our newsletter.
+      </Modal>
       <div className={classes["connect-btn"]}>
         <Link to="/contact">
           Let's Connect <img src={rightArrow} alt="right arrows" />
