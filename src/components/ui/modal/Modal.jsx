@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
 
@@ -10,6 +10,14 @@ export default function Modal({ isModalOpen, setIsModalOpen, children }) {
     )
       setIsModalOpen(false);
   };
+
+  useEffect(() => {
+    if (isModalOpen) document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isModalOpen]);
 
   return ReactDOM.createPortal(
     <>
