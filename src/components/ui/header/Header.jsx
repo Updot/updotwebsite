@@ -11,8 +11,11 @@ const Header = (props) => {
   const arrowCurrCords = useSelector(
     (state) => state.mouseLocation.currLocation
   );
-  const navButtonRef = useRef();
+  const isLightThemeActive = useSelector(
+    (state) => state.themeState.isLightThemeActive
+  );
   const [showBg, setShowBg] = useState(true);
+  const [bgColor, setBgColor] = useState("");
   const isNavActive = useSelector((state) => state.navState.isActive);
   let navStyle = {};
   if (isNavActive && window.innerWidth > 800) {
@@ -30,6 +33,37 @@ const Header = (props) => {
       }
     });
   }, []);
+  useEffect(() => {
+    if (isNavActive) {
+      // if (isLightThemeActive) {
+      //   setBgColor("var(--text-color)");
+      // } else {
+      //   setBgColor("var(--bg-color)");
+      // }
+
+      setTimeout(() => {
+        setBgColor("#000");
+      }, 1000);
+    } else {
+      setBgColor("");
+    }
+  }, [isNavActive, isLightThemeActive]);
+
+  const mouseHoverHandler = () => {
+    if (isNavActive) {
+      const navBtn = document.querySelector('[data-name="nav-btn"]');
+      navBtn.classList.add("hide");
+      document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
+    }
+  };
+  const mouseOutHandler = () => {
+    if (isNavActive) {
+      const navBtn = document.querySelector('[data-name="nav-btn"]');
+      navBtn.classList.remove("hide");
+      document.querySelector("[data-arrow='mousearrow']").style.opacity = 0;
+    }
+  };
+
   return (
     <Fragment>
       <div
@@ -43,8 +77,15 @@ const Header = (props) => {
           onClick={() => {
             isNavActive && dispatch(navStateAction.toggleNav());
           }}
+          onMouseOver={mouseHoverHandler}
+          onMouseOut={mouseOutHandler}
         >
-          <img src={logo} alt="updot logo" />
+          <img
+            src={logo}
+            alt="updot logo"
+            style={{ backgroundColor: bgColor }}
+          />
+          {isNavActive && <p>Home</p>}
         </Link>
         <div className={classes["nav-button-wrapper"]}>
           <div

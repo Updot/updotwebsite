@@ -15,10 +15,34 @@
   opacity: 0;
 }
 
+.logo-container {
+  position: relative;
+  width: 7.3rem;
+}
 .logo-container img {
   height: auto;
   width: 7.3rem;
   filter: var(--filter);
+}
+
+.image-bg {
+  background-color: var(--bg-color);
+}
+
+.logo-container p {
+  color: var(--text-color);
+  font-size: 7rem;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+}
+.logo-container:hover p {
+  transform: translateX(40%);
+  opacity: 1;
 }
 
 .nav-btn {
