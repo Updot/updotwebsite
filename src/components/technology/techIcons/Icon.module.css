@@ -86,7 +86,7 @@
     height: 11.5rem;
     width: 11.5rem;
   }
-  .icon svg {
+  .icon img {
     height: 8rem;
     width: auto;
   }
@@ -113,10 +113,10 @@
     width: 10.1rem;
     left: 30%;
   }
-  .icon-5svg {
+  /* .icon-5 svg {
     width: auto;
     height: 5.5rem;
-  }
+  } */
 }
 
 @media only screen and (min-width: 600px) and (max-width: 800px) {

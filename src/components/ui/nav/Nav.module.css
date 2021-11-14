@@ -50,7 +50,7 @@
 .nav-container li {
   transition: all 0.2s ease-in-out;
   text-align: right;
-  margin: 10px 0;
+  /* margin: 10px 0; */
 }
 
 .nav-container li:hover {
@@ -105,7 +105,7 @@
   transition: all 0.2s ease-in-out;
 }
 .nav-container li:hover .sub-nav {
-  height: 220px;
+  height: 270px;
 }
 .sub-nav a {
   display: inline-block;
@@ -201,7 +201,7 @@
     bottom: 5vh;
   }
   .social-container li:not(:last-of-type) {
-    margin-right: 2rem;
+    margin-right: 0.8rem;
   }
   .active-nav {
     display: inline-block;
@@ -209,7 +209,7 @@
   }
   .social-container li a img {
     width: auto;
-    height: 2rem;
+    height: 1.6rem;
   }
   .swipe-text-container {
     display: block;
