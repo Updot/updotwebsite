@@ -27,10 +27,9 @@ export default function Modal({ isModalOpen, setIsModalOpen, children }) {
           key={Math.random()}
           className={`modal-container`}
         >
-          <div className={classes["overlay"]}></div>
           <div className={classes["modal"]}>
             <div className={classes["close"]}>X</div>
-            {children}
+            <p>{children}</p>
           </div>
         </div>
       )}

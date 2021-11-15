@@ -29,10 +29,11 @@
   z-index: 99999;
 }
 .modal {
-  position: fixed;
+  /* position: fixed;
   top: 30%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  position: relative;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-size: 3rem;
@@ -40,13 +41,13 @@
   box-shadow: 0 0 10px var(--box-shadow-light);
   border-radius: 20px;
   border: none;
-  animation: modal-animation 0.2s ease forwards;
-  z-index: 99999;
+  /* animation: modal-animation 0.2s ease forwards; */
+  /* z-index: 99999; */
   user-select: none;
 }
 .close {
   position: absolute;
-  top: 2rem;
-  right: 3rem;
+  top: -2rem;
+  right: -3rem;
   cursor: pointer;
 }

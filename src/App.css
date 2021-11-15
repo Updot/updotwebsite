@@ -7,7 +7,7 @@ html {
 :root {
   --bg-color: #000;
   --bg-color-2: #fff;
-  --bg-color-3: rgba(64, 64, 64, 0.6);
+  --bg-color-3: rgba(64, 64, 64, 0.5);
   --text-color: #fff;
   --tech-icon-bg-color: #fff;
   --text-color-2: #000;
@@ -174,6 +174,17 @@ textarea {
 #root {
   position: relative;
 }
-.mask {
-  /* filter: url(#filter); */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 990000;
+  background: var(--bg-color-3);
+  display: grid;
+  place-content: center;
+  padding: 1rem;
+  overflow-y: scroll;
+  overflow: hidden;
 }
