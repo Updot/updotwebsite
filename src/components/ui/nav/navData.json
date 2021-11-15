@@ -8,16 +8,22 @@
     "name": "Services",
     "link": "/services",
     "subNav": [
-      { "name": "Web Development", "link": "#" },
-      { "name": "App Development", "link": "#" },
-      { "name": "Chatbot Development", "link": "#" },
-      { "name": "DevOps & Cloud", "link": "#" },
-      { "name": "UI & UX Design", "link": "#" },
-      { "name": "SEO", "link": "#" },
-      { "name": "Branding", "link": "#" },
+      { "name": "Web Development", "link": "/services/web-development" },
+      { "name": "App Development", "link": "/services/app-development" },
+      {
+        "name": "Chatbot Development",
+        "link": "/services/chatbot-development"
+      },
+      { "name": "DevOps & Cloud", "link": "/services/devops-cloud" },
+      { "name": "UI & UX Design", "link": "/services/ui-ux" },
+      { "name": "SEO", "link": "/services/seo" },
+      { "name": "Branding", "link": "/services/branding" },
       { "name": "Business Analysis", "link": "#" },
-      { "name": "Digital Marketing", "link": "#" },
-      { "name": "Maintenance and Upgrade", "link": "#" }
+      { "name": "Digital Marketing", "link": "/services/digital-marketing" },
+      {
+        "name": "Maintenance and Upgrade",
+        "link": "/services/maintenance-and-upgrade"
+      }
     ]
   },
   {
