@@ -137,7 +137,11 @@ const Nav = () => {
             {navItem.subNav.length > 0 && (
               <div className={classes["sub-nav"]}>
                 {navItem.subNav.map((el, i) => (
-                  <Link key={i} to={`${el.link}`}>
+                  <Link
+                    key={i}
+                    to={`${el.link}`}
+                    onClick={() => dispatch(navStateAction.toggleNav())}
+                  >
                     {el.name}
                   </Link>
                 ))}
