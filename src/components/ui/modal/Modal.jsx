@@ -12,10 +12,10 @@ export default function Modal({ isModalOpen, setIsModalOpen, children }) {
   };
 
   useEffect(() => {
-    if (isModalOpen) document.body.style.overflow = "hidden";
+    if (isModalOpen) document.body.style.overflowY = "hidden";
 
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflowY = "unset";
     };
   }, [isModalOpen]);
 
