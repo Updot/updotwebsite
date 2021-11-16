@@ -1,5 +1,5 @@
-import React from "react";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import classes from "./FeaturedInfo.module.css";
@@ -8,6 +8,13 @@ const FeaturedInfo = (props) => {
   const featuredInfoContainerRef = useRef(null);
   const fiRef = useRef(null);
   // const bubbleRef = useRef(null);
+
+  const isLightThemeActive = useSelector(
+    (state) => state.themeState.isLightThemeActive
+  );
+
+  console.log(isLightThemeActive);
+
   useEffect(() => {
     let onEntry = (entries) => {
       entries.forEach((change) => {
@@ -79,8 +86,9 @@ const FeaturedInfo = (props) => {
   //   });
   // }, [featuredBoundary]);
   const onMouseOverOuterHandler = (event) => {
-    document.querySelector("[data-arrow='mousearrow']").style.filter =
-      "invert(100%)";
+    if (!isLightThemeActive)
+      document.querySelector("[data-arrow='mousearrow']").style.filter =
+        "invert(100%)";
   };
   const onMouseOutOuterHandler = () => {
     document.querySelector("[data-arrow='mousearrow']").style.filter = "unset";

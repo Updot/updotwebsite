@@ -1,5 +1,6 @@
 .featured-info-wrapper {
   /* padding-top: 2rem; */
+  border-radius: 0 500px 500px 0;
 }
 
 .featured-info-outer {
