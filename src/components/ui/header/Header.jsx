@@ -17,8 +17,8 @@ const Header = (props) => {
   let navStyle = {};
   if (isNavActive && window.innerWidth > 800) {
     navStyle["right"] = "unset";
-    navStyle["left"] = arrowCurrCords.x;
-    navStyle["top"] = arrowCurrCords.y;
+    navStyle["left"] = arrowCurrCords.x - 19;
+    navStyle["top"] = arrowCurrCords.y - 17;
   }
 
   useEffect(() => {

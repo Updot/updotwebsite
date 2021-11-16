@@ -37,8 +37,8 @@ const Nav = () => {
     document.addEventListener("touchstart", handleTouchStart, false);
     document.addEventListener("touchmove", handleTouchMove, false);
 
-    var xDown = null;
-    var yDown = null;
+    let xDown = null;
+    let yDown = null;
 
     function getTouches(evt) {
       return evt.touches || evt.originalEvent.touches;
@@ -55,11 +55,11 @@ const Nav = () => {
         return;
       }
 
-      var xUp = evt.touches[0].clientX;
-      var yUp = evt.touches[0].clientY;
+      let xUp = evt.touches[0].clientX;
+      let yUp = evt.touches[0].clientY;
 
-      var xDiff = xDown - xUp;
-      var yDiff = yDown - yUp;
+      let xDiff = xDown - xUp;
+      let yDiff = yDown - yUp;
 
       if (Math.abs(xDiff) > Math.abs(yDiff)) {
         /*most significant*/
@@ -70,7 +70,7 @@ const Nav = () => {
               if (isLightThemeActive) {
                 swipwTextRef.current.innerText = "Swipe for Dark mode";
               } else {
-                swipwTextRef.current.innerText = "Swipe for light mode";
+                swipwTextRef.current.innerText = "Swipe for Light mode";
               }
               swipeCount = 1;
             } else {
@@ -110,9 +110,11 @@ const Nav = () => {
     if (isNavActive)
       document.querySelector("[data-arrow='mousearrow']").style.opacity = 0;
   };
+
   const desktopThemeTogglerHandler = () => {
     dispatch(themeStateAction.toggleTheme());
   };
+
   return (
     <div
       ref={navRef}
