@@ -47,8 +47,10 @@ const Client = (props) => {
           <path transform="translate(-60,-60)" id="js-connector" d="" />
         </g>
       </svg> */}
-      {!isHover && <img src={props.img} alt="client" />}
-      {isHover && <img src={props.imgColor} alt="client" />}
+      <img src={props.img} alt="client" />
+      {/* {!isHover && } */}
+      {/* {isHover && } */}
+      <img src={props.imgColor} alt="client" />
     </div>
   );
 };

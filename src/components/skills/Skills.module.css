@@ -5,7 +5,7 @@
   overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  position: fixed;
+  position: sticky;
   top: 0;
   /* scroll-behavior: smooth; */
   /* overflow-x: scroll; */
@@ -16,7 +16,6 @@
   width: 1100vw;
   top: 0;
   left: 0;
-  position: absolute;
   /* scroll-behavior: smooth; */
   /* transition: all 0.8s linear; */
 }
@@ -26,7 +25,7 @@
 .ghost {
   display: block;
   width: 100vw;
-  height: 980vw;
+  height: 950vw;
   position: relative;
 }
 
@@ -52,7 +51,6 @@
   }
   .skills {
     height: unset;
-    position: sticky;
   }
   .heading-container-mobile {
     padding: 0 7.5vw;

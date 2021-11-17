@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import HomeComponent from "./../components/home/Home";
 import Featured from "../components/featured/Featured";
 import Skills from "./../components/skills/Skills";
-// import Clients from "../components/clients/Clients" ;
+import Clients from "../components/clients/Clients";
 // import Faq from "./../components/faq/Faq";
 // import Testimonial from "./../components/testimonial/Testimonial";
 // import Connect from "./../components/connect/Connect";
@@ -19,7 +19,7 @@ const Home = () => {
       />
       <Featured />
       <Skills />
-      {/* <Clients /> */}
+      <Clients />
       {/* <Faq /> */}
       {/* <Testimonial /> */}
       {/* <Connect /> */}

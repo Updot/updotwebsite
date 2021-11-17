@@ -9,7 +9,11 @@
 }
 .client img {
   height: auto;
-  width: 13rem;
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media only screen and (max-width: 800px) {

@@ -7,18 +7,12 @@ import Client from "./Client";
 
 import classes from "./Clients.module.css";
 
-import ww from "../../assets/img/clients/ww-logo.svg";
-import vp from "../../assets/img/clients/virtusel-post.svg";
-import abBlack from "../../assets/img/clients/ABGROUP logo - black.png";
-import abColor from "../../assets/img/clients/ABGROUP logo - with bg.jpg";
-import createXBlack from "../../assets/img/clients/CreateX logo - black.png";
-import createXColor from "../../assets/img/clients/CreateX logo.png";
-import fGrillBlack from "../../assets/img/clients/f grill logo - black.png";
-import fGrillColor from "../../assets/img/clients/f grill logo.png";
-import FABlack from "../../assets/img/clients/Fortune Avenue logo - black.png";
-import FAColor from "../../assets/img/clients/Fortune Avenue logo.png";
-import ggBlack from "../../assets/img/clients/Georges Ganden logo - black.png";
-import ggColor from "../../assets/img/clients/Georges Ganden logo.png";
+import ab from "../../assets/img/clients/AB-logo.svg";
+import abBlack from "../../assets/img/clients/AB-logo-black.svg";
+import fortune from "../../assets/img/clients/Fortune-Avenue-Logo.svg";
+import fortuneBlack from "../../assets/img/clients/Fortune-Avenue-Logo-black.svg";
+import yottahawk from "../../assets/img/clients/Yottahawk-Logo.svg";
+import yottahawkBlack from "../../assets/img/clients/Yottahawk-Logo-black.svg";
 
 const Clients = () => {
   const sectionRef = useRef(null);
@@ -44,37 +38,37 @@ const Clients = () => {
         <Client
           className={`${classes["client-loc-1"]} ${classes["big"]}`}
           img={abBlack}
-          imgColor={abColor}
+          imgColor={ab}
         />
         <Client
           className={`${classes["client-loc-2"]} ${classes["mid"]}`}
-          img={createXBlack}
-          imgColor={createXColor}
+          img={fortuneBlack}
+          imgColor={fortune}
         />
         <Client
           className={`${classes["client-loc-3"]} ${classes["small"]}`}
-          img={fGrillBlack}
-          imgColor={fGrillColor}
+          img={yottahawkBlack}
+          imgColor={yottahawk}
         />
         <Client
           className={`${classes["client-loc-4"]} ${classes["big"]}`}
-          img={FABlack}
-          imgColor={FAColor}
+          img={abBlack}
+          imgColor={ab}
         />
         <Client
           className={`${classes["client-loc-5"]} ${classes["big"]}`}
-          img={ggBlack}
-          imgColor={ggColor}
+          img={abBlack}
+          imgColor={ab}
         />
         <Client
           className={`${classes["client-loc-6"]} ${classes["small"]}`}
-          img={ww}
-          imgColor={ww}
+          img={fortuneBlack}
+          imgColor={fortune}
         />
         <Client
           className={`${classes["client-loc-7"]} ${classes["big"]}`}
-          img={vp}
-          imgColor={vp}
+          img={yottahawkBlack}
+          imgColor={yottahawk}
         />
       </div>
     </div>
