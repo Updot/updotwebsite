@@ -16,6 +16,7 @@
 }
 .arrow .down-arrow {
   transform: rotate(180deg);
+  filter: var(--filter);
 }
 
 .arrow {

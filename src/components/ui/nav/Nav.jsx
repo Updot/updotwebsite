@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import classes from "./Nav.module.css";
@@ -65,7 +65,6 @@ const Nav = () => {
         /*most significant*/
         if (isNavActive) {
           if (xDiff > 0) {
-            console.log(swipeCount);
             if (swipeCount === 0) {
               if (isLightThemeActive) {
                 swipwTextRef.current.innerText = "Swipe for Dark mode";
