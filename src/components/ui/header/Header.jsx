@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/img/updot-logo.svg";
@@ -20,8 +20,8 @@ const Header = (props) => {
   let navStyle = {};
   if (isNavActive && window.innerWidth > 800) {
     navStyle["right"] = "unset";
-    navStyle["left"] = arrowCurrCords.x - 17;
-    navStyle["top"] = arrowCurrCords.y - 17;
+    navStyle["left"] = arrowCurrCords.x;
+    navStyle["top"] = arrowCurrCords.y;
   }
 
   useEffect(() => {
