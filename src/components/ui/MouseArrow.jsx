@@ -48,8 +48,8 @@ const MouseArrow = () => {
   }, [arrowRestCords, dispatch, arrowCurrCords]);
 
   const arrowLocation = {
-    left: `${arrowCurrCords.x}px`,
-    top: `${arrowCurrCords.y}px`,
+    left: `${arrowCurrCords.x - 5}px`,
+    top: `${arrowCurrCords.y - 5}px`,
   };
   return (
     <div
