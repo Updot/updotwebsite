@@ -1,7 +1,15 @@
 {
   "web-development": {
     "name": "Web Development",
-    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "desc": "We are developers by profession and artists by passion. Leveraging the use latest tech and trends in the field, we offer the best solutions for any business needs. Looking to understand more about us and our expertise? Scroll down till the end and you shall discover.",
+    "process": [
+      "Research and analysis",
+      "Planning, strategy and Designing",
+      "Content allocation",
+      "Development",
+      "Testing and debugging",
+      "Launch/Maintenance"
+    ],
     "services": [
       {
         "name": "Front End",
@@ -32,7 +40,15 @@
   },
   "app-development": {
     "name": "App Development",
-    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "desc": "We always figured apps would be the future and so far, the belief has not faded. From wireframes to the final output, Updot will have you covered with ease. ",
+    "process": [
+      "Research and Analysis",
+      "Wireframes",
+      "UI Design",
+      "Functional Development",
+      "Unit Testing",
+      "Launch/Maintenance"
+    ],
     "services": [
       {
         "name": "Technologies",
@@ -43,7 +59,15 @@
   },
   "chatbot-development": {
     "name": "chatbot development",
-    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "desc": "Sometimes you need more than just a platform to get your desired goals up and running, and that is exactly why a chatbot may be your next best friend. Friendly engagements, aiding guide and an aura of support, a chatbot we build for you would be best of different worlds. ",
+    "process": [
+      "Requirements",
+      "Specifications",
+      "Conversational flow and Architecture",
+      "Development",
+      "Automated Testing",
+      "Deployment"
+    ],
     "services": [
       {
         "name": "Framework",
@@ -59,7 +83,15 @@
   },
   "devops-cloud": {
     "name": "DevOps & Cloud",
-    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "desc": "We offer the most solid experience for those who prefer having everything under one roof. From development to deployment and testing, we have with us the most experienced personnel to handle operations. ",
+    "process": [
+      "Planning",
+      "Monitoring",
+      "Collaborative Development",
+      "Continuous Testing",
+      "Continuous Release and Deployment",
+      "Collaborative Customer, Feedback & Optimization"
+    ],
     "services": [
       {
         "name": "DevOps",
@@ -75,7 +107,8 @@
   },
   "ui-ux": {
     "name": "UI/UX",
-    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "desc": "Percetion and visual appeal sets the highest standard in the world of design. That is why we cater to what the user would like the most while working with websites and apps. ",
+    "process": ["Research & Analysis", "Wireframe", "Design", "Validation"],
     "services": [
       {
         "name": "Tools",
@@ -86,7 +119,15 @@
   },
   "seo": {
     "name": "Seo",
-    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "desc": "The competition keeps growing bigger each day and we understand why its essential to be on top of search. With a smooth little plan and the right tools, our team will help you reach your goals and maybe even more. ",
+    "process": [
+      "Analysis",
+      "Optimizations",
+      "Usability Check",
+      "Content updates",
+      "Content additions",
+      "Link Building"
+    ],
     "services": [
       {
         "name": "Tools",
@@ -97,7 +138,15 @@
   },
   "branding": {
     "name": "Branding",
-    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "desc": "We help brands elevate their presence and help build their empire from scratch. Offering the best of services, Updot is dedicated to making a name well-known. ",
+    "process": [
+      "Market research",
+      "Building brand strategy",
+      "Develop brand identity",
+      "Brand awareness",
+      "Monitor",
+      "update"
+    ],
     "services": [
       {
         "name": "Channels",
@@ -108,7 +157,14 @@
   },
   "digital-marketing": {
     "name": "Digital marketing",
-    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "desc": "A wise person once said “The biggest brains bring out the most creativity”. We aren’t sure who said it, but we are confident that we can bring your business to the limelight. ",
+    "process": [
+      "Setting up strategy",
+      "Campaign planning",
+      "Platform setup",
+      "Implementation",
+      "traction"
+    ],
     "services": [
       {
         "name": "Tools",
@@ -125,7 +181,15 @@
   },
   "maintenance-and-upgrade": {
     "name": "Maintenance and upgrade",
-    "desc": "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincid idunt ut labore et dolore magna aliqua.",
+    "desc": "Any piece of art requires proper care and love for sustainability. We believe the same principle applies to the tech world as well. Running short of IT staff? We are here for the rescue.",
+    "process": [
+      "Planning",
+      "Monitoring",
+      "Security check",
+      "Security Updates",
+      "Backups",
+      "implementations"
+    ],
     "services": [
       {
         "name": "Tools",

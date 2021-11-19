@@ -9,8 +9,8 @@ const Services = (props) => {
   const animateDotRef = useRef(null);
   const processContainerRef = useRef(null);
   const animateTimelineRef = useRef(null);
-  console.log(props.data);
   const desc = props.data.desc;
+  const process = props.data.process;
   useEffect(() => {
     let onEntry = (entries) => {
       entries.forEach((change) => {
@@ -80,7 +80,39 @@ const Services = (props) => {
             ref={animateDotRef}
             className={classes["process-timeline-dot"]}
           ></div>
-          <div
+          {process &&
+            process.map((processName, i) => {
+              return (
+                <div
+                  key={i}
+                  className={`${classes["sub-process"]} ${
+                    classes[`${i % 2 === 0 ? "right" : "left"}-side`]
+                  } ${
+                    classes[
+                      `${i % 2 === 0 ? "right" : "left"}-side-${
+                        i + 1 <= 3 ? i + 1 : i + 1 - 3
+                      }`
+                    ]
+                  }`}
+                >
+                  <div className={classes["timeline-dot"]}></div>
+                  <div className={classes["path-info"]}>
+                    <h4
+                      onMouseOver={onMouseOverHandler}
+                      onMouseOut={onMouseOutHandler}
+                    >
+                      {processName}
+                    </h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod temporincididunt ut labore et dolore magna
+                      aliqua.
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          {/* <div
             className={`${classes["sub-process"]} ${classes["right-side"]} ${classes["right-side-1"]}`}
           >
             <div className={classes["timeline-dot"]}></div>
@@ -181,7 +213,7 @@ const Services = (props) => {
                 eiusmod temporincididunt ut labore et dolore magna aliqua.
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </Fragment>
