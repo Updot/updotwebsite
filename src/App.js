@@ -1,24 +1,26 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
+
 import Landing from "./components/landing/Landing";
-import About from "./pages/About";
-import Insights from "./pages/Insights";
-import WorkPage from "./pages/WorkPage";
-import ContactPage from "./pages/ContactPage";
 import Cookies from "./components/cookies/Cookies";
-import TermPage from "./pages/TermPage";
-import PrivacyPage from "./pages/PrivacyPage";
-import ServicesPage from "./pages/ServicesPage";
-import CareersPage from "./pages/CareersPage";
 import Loader from "./components/ui/loader/Loader";
 import MouseArrow from "./components/ui/MouseArrow";
 import "./App.css";
 import { themeStateAction } from "./store/themeState";
 import Header from "./components/ui/header/Header";
 import Nav from "./components/ui/nav/Nav";
+
+const Home = React.lazy(() => import("./pages/Home"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+const About = React.lazy(() => import("./pages/About"));
+const WorkPage = React.lazy(() => import("./pages/WorkPage"));
+const ContactPage = React.lazy(() => import("./pages/ContactPage"));
+const TermPage = React.lazy(() => import("./pages/TermPage"));
+const PrivacyPage = React.lazy(() => import("./pages/PrivacyPage"));
+const ServicesPage = React.lazy(() => import("./pages/ServicesPage"));
+const CareersPage = React.lazy(() => import("./pages/CareersPage"));
+const Insights = React.lazy(() => import("./pages/Insights"));
 
 const Loading = () => {
   const isLoaded = useSelector((state) => state.pageState.isLoaded);
@@ -56,45 +58,47 @@ function App() {
       <Nav />
       {/* <Cookies /> */}
       <Switch>
-        <Route path="/" exact>
-          <Loading />
-          <Home />
-        </Route>
-        <Route path="/about-us" exact>
-          <Loading />
-          <About />
-        </Route>
-        <Route path="/insights">
-          <Loading />
-          <Insights />
-        </Route>
-        <Route path="/work">
-          <Loading />
-          <WorkPage />
-        </Route>
-        <Route path="/contact">
-          <Loading />
-          <ContactPage />
-        </Route>
-        <Route path="/services">
-          <Loading />
-          <ServicesPage />
-        </Route>
-        <Route path="/careers">
-          <Loading />
-          <CareersPage />
-        </Route>
-        <Route path="/term-and-conditions">
-          <Loading />
-          <TermPage />
-        </Route>
-        <Route path="/privacy-policy">
-          <Loading />
-          <PrivacyPage />
-        </Route>
-        <Route path="*">
-          <NotFound />
-        </Route>
+        <React.Suspense fallback={<Loader />}>
+          <Route path="/" exact>
+            <Loading />
+            <Home />
+          </Route>
+          <Route path="/about-us" exact>
+            <Loading />
+            <About />
+          </Route>
+          <Route path="/insights">
+            <Loading />
+            <Insights />
+          </Route>
+          <Route path="/work">
+            <Loading />
+            <WorkPage />
+          </Route>
+          <Route path="/contact">
+            <Loading />
+            <ContactPage />
+          </Route>
+          <Route path="/services">
+            <Loading />
+            <ServicesPage />
+          </Route>
+          <Route path="/careers">
+            <Loading />
+            <CareersPage />
+          </Route>
+          <Route path="/term-and-conditions">
+            <Loading />
+            <TermPage />
+          </Route>
+          <Route path="/privacy-policy">
+            <Loading />
+            <PrivacyPage />
+          </Route>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </React.Suspense>
       </Switch>
       <svg style={{ display: "none" }}>
         <defs>
