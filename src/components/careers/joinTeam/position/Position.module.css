@@ -83,7 +83,7 @@
     scroll-behavior: smooth;
   }
   .position-container {
-    width: 100%;
+    min-width: 95vw;
     margin-top: 3.3rem;
     display: unset;
     flex-wrap: unset;
