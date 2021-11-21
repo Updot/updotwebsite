@@ -93,9 +93,9 @@ function App() {
             <Loading />
             <PrivacyPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="*">
+          {/* <Route path="*">
             <NotFound />
-          </Route>
+          </Route> */}
         </React.Suspense>
       </Switch>
       <svg style={{ display: "none" }}>
