@@ -78,7 +78,7 @@ const Skills = () => {
                 // skillRef.current.style.left = `-${Math.round(
                 //   el.clientWidth * count
                 // )}px`;
-              }, 100);
+              }, 50);
             }
             if (scroll > skillRef.current.scrollWidth - window.innerWidth) {
               skillRef.current.style.top = `-${

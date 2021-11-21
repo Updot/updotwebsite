@@ -6,9 +6,14 @@ import InsightBlog from "../components/insight/insigntBlog/InsightBlog";
 // import Connect from "./../components/connect/Connect";
 import Newsletter from "./../components/newsletter/Newsletter";
 import Footer from "../components/footer/Footer";
-const Insights = () => {
+import Header from "../components/ui/header/Header";
+import Nav from "../components/ui/nav/Nav";
+const Insights = (props) => {
   return (
     <Fragment>
+      {" "}
+      <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
+      <Nav />
       <Switch>
         <Route path="/insights" exact>
           <HomeComponent

@@ -8,8 +8,8 @@ import Loader from "./components/ui/loader/Loader";
 import MouseArrow from "./components/ui/MouseArrow";
 import "./App.css";
 import { themeStateAction } from "./store/themeState";
-import Header from "./components/ui/header/Header";
-import Nav from "./components/ui/nav/Nav";
+// import Header from "./components/ui/header/Header";
+// import Nav from "./components/ui/nav/Nav";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
@@ -54,46 +54,44 @@ function App() {
   return (
     <div className="App">
       <MouseArrow />
-      <Header showNavBtn={true} headerDisplayed={headerDisplayed} />
-      <Nav />
       {/* <Cookies /> */}
       <Switch>
         <React.Suspense fallback={<Loader />}>
           <Route path="/" exact>
             <Loading />
-            <Home />
+            <Home headerDisplayed={headerDisplayed} />
           </Route>
           <Route path="/about-us" exact>
             <Loading />
-            <About />
+            <About headerDisplayed={headerDisplayed} />
           </Route>
           <Route path="/insights">
             <Loading />
-            <Insights />
+            <Insights headerDisplayed={headerDisplayed} />
           </Route>
           <Route path="/work">
             <Loading />
-            <WorkPage />
+            <WorkPage headerDisplayed={headerDisplayed} />
           </Route>
           <Route path="/contact">
             <Loading />
-            <ContactPage />
+            <ContactPage headerDisplayed={headerDisplayed} />
           </Route>
           <Route path="/services">
             <Loading />
-            <ServicesPage />
+            <ServicesPage headerDisplayed={headerDisplayed} />
           </Route>
           <Route path="/careers">
             <Loading />
-            <CareersPage />
+            <CareersPage headerDisplayed={headerDisplayed} />
           </Route>
           <Route path="/term-and-conditions">
             <Loading />
-            <TermPage />
+            <TermPage headerDisplayed={headerDisplayed} />
           </Route>
           <Route path="/privacy-policy">
             <Loading />
-            <PrivacyPage />
+            <PrivacyPage headerDisplayed={headerDisplayed} />
           </Route>
           <Route path="*">
             <NotFound />

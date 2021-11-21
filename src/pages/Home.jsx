@@ -9,10 +9,14 @@ import Clients from "../components/clients/Clients";
 // import Connect from "./../components/connect/Connect";
 import Newsletter from "./../components/newsletter/Newsletter";
 import Footer from "../components/footer/Footer";
+import Header from "../components/ui/header/Header";
+import Nav from "../components/ui/nav/Nav";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <Fragment>
+      <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
+      <Nav />
       <HomeComponent
         isShowVideoHeading={true}
         heading="We do things better at"

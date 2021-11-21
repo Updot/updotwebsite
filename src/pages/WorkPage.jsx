@@ -6,9 +6,14 @@ import Work from "../components/work/Work";
 import Newsletter from "./../components/newsletter/Newsletter";
 import Footer from "../components/footer/Footer";
 import WorkBlog from "../components/work/workBlog/WorkBlog";
-const WorkPage = () => {
+import Header from "../components/ui/header/Header";
+import Nav from "../components/ui/nav/Nav";
+const WorkPage = (props) => {
   return (
     <Fragment>
+      <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
+      <Nav />
+
       <Switch>
         <Route path="/work" exact>
           <HomeComponent

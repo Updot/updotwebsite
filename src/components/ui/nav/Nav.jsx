@@ -34,12 +34,14 @@ const Nav = () => {
     };
   }, [isNavActive]);
   useEffect(() => {
-    document.addEventListener("touchstart", handleTouchStart, false);
-    document.addEventListener("touchmove", handleTouchMove, false);
+    navRef.current.addEventListener("touchstart", handleTouchStart, false);
+    navRef.current.addEventListener("touchmove", handleTouchMove, false);
 
     var xDown = null;
     var yDown = null;
 
+    console.log("here");
+    console.log(swipeCount);
     function getTouches(evt) {
       return evt.touches || evt.originalEvent.touches;
     }
@@ -63,33 +65,30 @@ const Nav = () => {
 
       if (Math.abs(xDiff) > Math.abs(yDiff)) {
         /*most significant*/
-        if (isNavActive) {
-          if (xDiff > 0) {
-            if (swipeCount === 0) {
-              if (isLightThemeActive) {
-                swipwTextRef.current.innerText = "Swipe for Dark mode";
-              } else {
-                swipwTextRef.current.innerText = "Swipe for light mode";
-              }
-              swipeCount = 1;
+
+        if (xDiff > 0) {
+          if (swipeCount === 0) {
+            if (isLightThemeActive) {
+              swipwTextRef.current.innerText = "Swipe for Dark mode";
             } else {
-              if (swipeCount === 1) {
-                swipwTextRef.current.innerText = "Swipe";
-                // navRef.current.classList.add(`${}`);
-                dispatch(themeStateAction.toggleTheme());
-                swipeCount = 0;
-              }
+              swipwTextRef.current.innerText = "Swipe for light mode";
             }
-          } else {
-            /* left swipe */
-            // alert("right");
+            swipeCount = 1;
+          } else if (swipeCount === 1) {
+            swipwTextRef.current.innerText = "Swipe";
+            // navRef.current.classList.add(`${}`);
+            dispatch(themeStateAction.toggleTheme());
+            swipeCount = 0;
           }
+        } else {
+          /* left swipe */
+          // alert("right");
         }
       }
       xDown = null;
       yDown = null;
     }
-  }, [dispatch, isNavActive, isLightThemeActive]);
+  }, [dispatch, isLightThemeActive]);
   useEffect(() => {
     if (isLightThemeActive) {
       localStorage.setItem("updotThemePreference", "Light");

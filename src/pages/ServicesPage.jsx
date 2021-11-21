@@ -3,10 +3,15 @@ import { Route, Switch } from "react-router-dom";
 
 import Home from "../components/home/Home";
 import Service from "../components/services/Service";
+import Header from "../components/ui/header/Header";
+import Nav from "../components/ui/nav/Nav";
 
-const ServicesPage = () => {
+const ServicesPage = (props) => {
   return (
     <Fragment>
+      {" "}
+      <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
+      <Nav />
       <Switch>
         <Route path="/services" exact>
           <Home

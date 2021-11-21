@@ -103,7 +103,7 @@ const Header = (props) => {
           </div>
         </div>
       </div>
-      {window.innerWidth > 800 && (
+      {/* {window.innerWidth > 800 && (
         <div
           className={`${classes["nav-button-bg"]} ${
             isNavActive
@@ -115,7 +115,7 @@ const Header = (props) => {
         >
           &nbsp;
         </div>
-      )}
+      )} */}
     </Fragment>
   );
 };
