@@ -213,11 +213,11 @@ const Position = () => {
       </div>
       {window.innerWidth > 800 && (
         <div
-          className={`${
+          className={
             isShowForm
               ? `${classes["btn-container"]} ${classes["btn-container-animate"]}`
               : classes["btn-container"]
-          }`}
+          }
           onClick={() => isShowForm && setIsShowForm(false)}
         >
           <img onClick={onLeftClickHandler} src={arrowLeft} alt="arrow left" />
