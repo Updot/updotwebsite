@@ -11,16 +11,27 @@ import { themeStateAction } from "./store/themeState";
 // import Header from "./components/ui/header/Header";
 // import Nav from "./components/ui/nav/Nav";
 
-const Home = React.lazy(() => import("./pages/Home"));
-const NotFound = React.lazy(() => import("./pages/NotFound"));
-const About = React.lazy(() => import("./pages/About"));
-const WorkPage = React.lazy(() => import("./pages/WorkPage"));
-const ContactPage = React.lazy(() => import("./pages/ContactPage"));
-const TermPage = React.lazy(() => import("./pages/TermPage"));
-const PrivacyPage = React.lazy(() => import("./pages/PrivacyPage"));
-const ServicesPage = React.lazy(() => import("./pages/ServicesPage"));
-const CareersPage = React.lazy(() => import("./pages/CareersPage"));
-const Insights = React.lazy(() => import("./pages/Insights"));
+// const Home = React.lazy(() => import("./pages/Home"));
+// const NotFound = React.lazy(() => import("./pages/NotFound"));
+// const About = React.lazy(() => import("./pages/About"));
+// const WorkPage = React.lazy(() => import("./pages/WorkPage"));
+// const ContactPage = React.lazy(() => import("./pages/ContactPage"));
+// const TermPage = React.lazy(() => import("./pages/TermPage"));
+// const PrivacyPage = React.lazy(() => import("./pages/PrivacyPage"));
+// const ServicesPage = React.lazy(() => import("./pages/ServicesPage"));
+// const CareersPage = React.lazy(() => import("./pages/CareersPage"));
+// const Insights = React.lazy(() => import("./pages/Insights"));
+
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import About from "./pages/About";
+import WorkPage from "./pages/WorkPage";
+import ContactPage from "./pages/ContactPage";
+import TermPage from "./pages/TermPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import ServicesPage from "./pages/ServicesPage";
+import CareersPage from "./pages/CareersPage";
+import Insights from "./pages/Insights";
 
 const Loading = () => {
   const isLoaded = useSelector((state) => state.pageState.isLoaded);
@@ -55,8 +66,8 @@ function App() {
     <div className="App">
       <MouseArrow />
       {/* <Cookies /> */}
-      <Switch>
-        <React.Suspense fallback={<Loader />}>
+      <React.Suspense fallback={<Loader />}>
+        <Switch>
           <Route path="/" exact>
             <Loading />
             <Home headerDisplayed={headerDisplayed} />
@@ -65,39 +76,39 @@ function App() {
             <Loading />
             <About headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/insights">
+          <Route path="/insights" exact>
             <Loading />
             <Insights headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/work">
+          <Route path="/work" exact>
             <Loading />
             <WorkPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/contact">
+          <Route path="/contact" exact>
             <Loading />
             <ContactPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/services">
+          <Route path="/services" exact>
             <Loading />
             <ServicesPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/careers">
+          <Route path="/careers" exact>
             <Loading />
             <CareersPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/term-and-conditions">
+          <Route path="/term-and-conditions" exact>
             <Loading />
             <TermPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/privacy-policy">
+          <Route path="/privacy-policy" exact>
             <Loading />
             <PrivacyPage headerDisplayed={headerDisplayed} />
           </Route>
-          {/* <Route path="*">
+          <Route path="*">
             <NotFound />
-          </Route> */}
-        </React.Suspense>
-      </Switch>
+          </Route>
+        </Switch>
+      </React.Suspense>
       <svg style={{ display: "none" }}>
         <defs>
           <filter id="filter">
