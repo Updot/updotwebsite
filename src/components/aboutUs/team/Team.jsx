@@ -13,10 +13,10 @@ const Team = () => {
     <div className="container">
       <SectionHeading>Our Team</SectionHeading>
       <div className={classes["team-container"]}>
-        {teamData.map((data, index) => (
+        {teamData.map((data) => (
           <Member
-            key={index}
-            memberImg={memberImg}
+            key={Math.random() * 10000}
+            isImage={data.img ? true : false}
             img={data.img || "hritik"}
             linkedinIcon={linkedinIcon}
             data={data}
