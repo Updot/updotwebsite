@@ -14,9 +14,9 @@ const Team = () => {
     <div className="container">
       <SectionHeading>Our Team</SectionHeading>
       <div className={classes["team-container"]}>
-        {teamData.map((data) => (
+        {teamData.map((data, index) => (
           <Member
-            key={Math.random() * 10000}
+            key={index}
             memberImg={memberImg}
             linkedinIcon={linkedinIcon}
             data={data}
