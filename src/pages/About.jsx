@@ -10,11 +10,13 @@ import Nav from "./../components/ui/nav/Nav";
 import Header from "../components/ui/header/Header";
 import Newsletter from "./../components/newsletter/Newsletter";
 import Footer from "../components/footer/Footer";
+import { useSelector } from "react-redux";
 const About = (props) => {
+  const isNavActive = useSelector((state) => state.navState.isActive);
   return (
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
-      <Nav />
+      {isNavActive && <Nav />}
       <HomeComponent
         isShowVideoHeading={false}
         heading="About"

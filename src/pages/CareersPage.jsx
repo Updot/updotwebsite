@@ -1,4 +1,5 @@
 import { Fragment, useEffect } from "react";
+import { useSelector } from "react-redux";
 import Careers from "../components/careers/Careers";
 // import { Route, Switch } from "react-router-dom";
 
@@ -13,10 +14,11 @@ const CareersPage = (props) => {
     window.scrollTo(0, 0);
   }, []);
 
+  const isNavActive = useSelector((state) => state.navState.isActive);
   return (
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
-      <Nav />
+      {isNavActive && <Nav />}
       <Home isShowVideoHeading={false} heading="Careers" fontSize="5.3rem" />
       <Careers />
       <Newsletter />

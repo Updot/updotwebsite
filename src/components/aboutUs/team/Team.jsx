@@ -2,7 +2,6 @@ import SectionHeading from "../../ui/SectionHeading";
 import Member from "./member/Member";
 
 import teamData from "./teamData.json";
-import memberImg from "../../../assets/img/team-member.svg";
 import joinTeamImg from "../../../assets/img/join-team.svg";
 import linkedinIcon from "../../../assets/img/linkedin-icon-color.svg";
 
@@ -17,7 +16,8 @@ const Team = () => {
         {teamData.map((data) => (
           <Member
             key={Math.random() * 10000}
-            memberImg={memberImg}
+            isImage={data.img ? true : false}
+            img={data.img || "hritik"}
             linkedinIcon={linkedinIcon}
             data={data}
           />

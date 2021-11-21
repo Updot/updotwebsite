@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
 import Home from "../components/home/Home";
@@ -7,11 +8,11 @@ import Header from "../components/ui/header/Header";
 import Nav from "../components/ui/nav/Nav";
 
 const ServicesPage = (props) => {
+  const isNavActive = useSelector((state) => state.navState.isActive);
   return (
     <Fragment>
-      {" "}
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
-      <Nav />
+      {isNavActive && <Nav />}
       <Switch>
         <Route path="/services" exact>
           <Home
