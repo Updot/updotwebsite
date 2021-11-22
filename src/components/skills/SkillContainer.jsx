@@ -19,52 +19,52 @@ import { useEffect, useRef } from "react";
 const SKILLS_DATA = [
   {
     name: "Web Development",
-    desc: "We design and develop top-notch websites according to your requirements and ideas. Take your idea across all top platforms the web has to offer.",
+    desc: "Your business is ready to go places with Updot’s top-notch web designs. Take your idea across all the top platforms the web has to offer.",
     img: webIcon,
   },
   {
     name: "App Development",
-    desc: "Looking ahead to the future? Apps might be your best bet. Get your app developed on the latest technology with our team.",
+    desc: "Go from zero to the finest app you can have, in no time with our team. While we build the app, you just be ready to kick ass on the app store.",
     img: appIcon,
   },
   {
     name: "Chatbot Development",
-    desc: "Need an additional route for leads and acquisition? Why not invest in a customized chatbot for your business.",
+    desc: "We have your back if you need an additional route for leads and acquisition. An all customised chatbot is no biggie at Updot.",
     img: chatBotIcon,
   },
   {
     name: "DevOps & Cloud",
-    desc: "Need an additional route for leads and acquisition? Why not invest in a customized chatbot for your business.",
+    desc: "Tech made easy just for you. Experience the best DevOps and Cloud services like nowhere else with our team",
     img: cloudIcon,
   },
   {
     name: "UI/UX Design",
-    desc: "Need an additional route for leads and acquisition? Why not invest in a customized chatbot for your business.",
+    desc: "Our designs are between business and art. Meet the best UI/UX designers at Updot to experience the most exceptional designs in the market.",
     img: uiIcon,
   },
   {
     name: "SEO",
-    desc: "We know how tough it is to rank for keywords you wish for. With our dedicated team, get your website amongst the top in Google rankings.",
+    desc: "Turn the hectic process of ranking into a piece of cake with Updot. With our dedicated team, increase your visibility online and get your website amongst the top in the Google rankings.",
     img: seoIcon,
   },
   {
     name: "Branding",
-    desc: "Started off a new business and need to let people know of your presence? We are the right team for the job as we cover everything from Logo, Graphics and brochures.",
+    desc: "Let the world know your business presence with our team. Big ideas and creative designs for a lasting impression, exclusively for your brand",
     img: brandingIcon,
   },
   {
     name: "Business Analysis",
-    desc: "Looking to promote your brand across the nation? We have you covered. After extensive research and planning, we’ll present the best possible strategy to boost your digital presence.",
+    desc: "Business analysis done right with Updot.We promise precise business data analysis and interpretation because your information needs impression.",
     img: puzzleIcon,
   },
   {
     name: "Digital Marketing",
-    desc: "Looking to promote your brand across the nation? We have you covered. After extensive research and planning, we’ll present the best possible strategy to boost your digital presence.",
+    desc: "Turn clicks into customers with Updot. We deliver the marketing results you desire post an extensive research and planning. Come on, let’s pull the digital trigger together.",
     img: thumbIcon,
   },
   {
     name: "Maintenance and Upgrade",
-    desc: "Looking to promote your brand across the nation? We have you covered. After extensive research and planning, we’ll present the best possible strategy to boost your digital presence.",
+    desc: "We drive profit to your doors. Maintain and upgrade your website like a pro with Updot.",
     img: loadingIcon,
   },
 ];
