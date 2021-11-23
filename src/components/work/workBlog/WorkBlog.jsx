@@ -1,5 +1,5 @@
 import { Fragment, useEffect } from "react";
-import { useHistory, useRouteMatch } from "react-router";
+import { useHistory, useRouteMatch, useParams } from "react-router";
 import Home from "../../home/Home";
 import BlogCard from "../../ui/blogCard/BlogCard";
 import leftArrow from "./../../../assets/img/down-arrow.svg";
@@ -16,6 +16,9 @@ const WorkBlog = () => {
   const match = useRouteMatch();
 
   const navigateLink = blogData.navigateLink;
+
+  const workId = useParams();
+  console.log(workId);
 
   useEffect(() => {
     window.scrollTo(0, 0);
