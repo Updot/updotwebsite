@@ -82,6 +82,9 @@
     justify-content: center;
     row-gap: 5.8rem;
   }
+  .join-team-container {
+    margin-bottom: 1rem;
+  }
   .join-team-container .join-img-bg {
     height: 8.4rem;
     width: 8.4rem;

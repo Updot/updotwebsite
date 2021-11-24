@@ -124,7 +124,11 @@
   opacity: 1;
 }
 @media only screen and (max-width: 800px) {
-  .member-img-container .member-img-bg {
+  .member-img-container {
+    height: 10rem;
+    width: 10rem;
+  }
+  /* .member-img-container .member-img-bg {
     height: 8.4rem;
     width: 8.4rem;
   }
@@ -135,7 +139,7 @@
     height: auto;
     width: 8.1rem;
     z-index: 1;
-  }
+  } */
   .name a span {
     font-size: 1.2rem !important;
   }
