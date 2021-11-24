@@ -9,11 +9,11 @@
   margin-bottom: 2rem;
   height: 20rem;
   width: 20rem;
-  bottom: 0;
-  animation: floating-animation 2s ease-in-out infinite;
-  animation-fill-mode: forwards;
+  top: 0;
   border-radius: 50%;
   overflow: hidden;
+  animation: floating-animation 2s ease-in-out infinite;
+  animation-fill-mode: forwards;
 }
 .member-img-container .member-img-bg {
   display: inline-block;
@@ -37,15 +37,6 @@
   filter: grayscale(100%);
 }
 
-@keyframes floating-animation {
-  0% {
-    bottom: 0;
-  }
-  50% {
-    bottom: 5%;
-  }
-}
-
 .member-text {
   text-align: center;
 }
@@ -55,25 +46,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: animateText 4s linear infinite;
+  animation: text-animation 2s ease-in-out infinite;
   animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
 
 .name a {
-  width: max-content;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: max-content;
   text-decoration: none;
-  position: relative;
-}
-@keyframes animateText {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(15%);
-  }
 }
 
 .name a span {
@@ -84,35 +68,32 @@
   text-transform: capitalize;
 }
 .name a img {
+  position: absolute;
   height: auto;
   width: 2.6rem;
   margin-top: -0.3rem;
   left: 0;
-  position: absolute;
   opacity: 0;
   transition: all 0.4s ease;
 }
 .position {
   font-size: 1.6rem;
   font-weight: bold;
-  animation: animateText2 4s linear infinite;
-  animation-fill-mode: forwards;
   margin-top: 0.5rem;
+  animation: text-animation 2s ease-in-out infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
-@keyframes animateText2 {
-  0%,
-  100% {
-    transform: translateY(0%);
-  }
-  50% {
-    transform: translateY(15%);
-  }
-}
-
 .member:hover img {
   filter: grayscale(0);
 }
 .member:hover .member-img-container {
+  animation-play-state: paused;
+}
+.member:hover .member-text .name {
+  animation-play-state: paused;
+}
+.member:hover .member-text .position {
   animation-play-state: paused;
 }
 .member:hover .name a span {
@@ -139,8 +120,8 @@
     font-size: 1.2rem !important;
   }
   .name a img {
-    height: auto;
     width: 1.4rem;
+    height: auto;
     margin-top: -0.3rem;
     left: 0;
     position: absolute;
@@ -157,5 +138,21 @@
     font-size: 0.9rem;
     font-weight: bold;
     margin-top: 0rem;
+  }
+}
+@keyframes floating-animation {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 5%;
+  }
+}
+@keyframes text-animation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(100%);
   }
 }
