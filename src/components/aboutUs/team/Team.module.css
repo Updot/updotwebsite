@@ -1,3 +1,20 @@
+@keyframes floating-animation {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 5%;
+  }
+}
+@keyframes text-animation {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
 .team-container {
   margin-top: 10rem;
   width: 100%;
@@ -17,7 +34,9 @@
 
 .join-team-container {
   position: relative;
-  margin-bottom: 2rem;
+  bottom: 0;
+  animation: floating-animation 2s ease-in-out infinite;
+  animation-fill-mode: forwards;
 }
 .join-team-container img {
   height: auto;
@@ -34,19 +53,13 @@
   position: absolute;
   z-index: -1;
   bottom: 0;
-  animation: animateBg 4s linear infinite;
-  animation-fill-mode: forwards;
-}
-@keyframes animateBg {
-  0% {
-    bottom: 0;
-  }
-  50% {
-    bottom: 5%;
-  }
 }
 .join-text {
   text-align: center;
+  transform: translateY(100%);
+  animation: text-animation 2s ease-in-out infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
 
 .join {
@@ -54,6 +67,14 @@
   font-weight: bold;
   text-transform: capitalize;
 }
+
+.join-team:hover .join-team-container {
+  animation-play-state: paused;
+}
+.join-team:hover .join-text {
+  animation-play-state: paused;
+}
+
 @media only screen and (max-width: 800px) {
   .team-container {
     margin-top: 6rem;

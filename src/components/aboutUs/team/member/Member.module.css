@@ -1,15 +1,32 @@
+@keyframes floating-animation {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 5%;
+  }
+}
+@keyframes text-animation {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
 .member {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 .member-img-container {
   position: relative;
-  margin-bottom: 2rem;
   height: 20rem;
   width: 20rem;
-  top: 0;
+  bottom: 0;
   border-radius: 50%;
   overflow: hidden;
   animation: floating-animation 2s ease-in-out infinite;
@@ -46,6 +63,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateY(100%);
   animation: text-animation 2s ease-in-out infinite;
   animation-fill-mode: forwards;
   animation-delay: 0.3s;
@@ -80,6 +98,8 @@
   font-size: 1.6rem;
   font-weight: bold;
   margin-top: 0.5rem;
+  transform: translateY(100%);
+
   animation: text-animation 2s ease-in-out infinite;
   animation-fill-mode: forwards;
   animation-delay: 0.3s;
@@ -138,21 +158,5 @@
     font-size: 0.9rem;
     font-weight: bold;
     margin-top: 0rem;
-  }
-}
-@keyframes floating-animation {
-  0% {
-    top: 0;
-  }
-  50% {
-    top: 5%;
-  }
-}
-@keyframes text-animation {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(100%);
   }
 }
