@@ -1,49 +1,4 @@
-.member {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.member-img-container {
-  position: relative;
-  margin-bottom: 2rem;
-  height: 21rem;
-  width: 19.8rem;
-}
-.member-img-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: auto;
-  width: 19.8rem;
-  /* filter: brightness(0) invert(1); */
-  border-bottom-left-radius: 20rem;
-  border-bottom-right-radius: 20rem;
-  transition: all 0.4s ease-in-out;
-}
-.member-img-container .member-img-bg {
-  display: inline-block;
-  width: 20rem;
-  height: 20rem;
-  border-radius: 50%;
-  background-color: #363636;
-  position: absolute;
-  z-index: -1;
-  bottom: 0;
-  animation: animateBg 4s linear infinite;
-  animation-fill-mode: forwards;
-}
-.bnw-img {
-  z-index: 9;
-}
-.color-img {
-  z-index: 5;
-}
-.member-img-container:hover .bnw-img {
-  opacity: 0;
-}
-@keyframes animateBg {
+@keyframes floating-animation {
   0% {
     bottom: 0;
   }
@@ -51,6 +6,54 @@
     bottom: 5%;
   }
 }
+@keyframes text-animation {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.member-img-container {
+  position: relative;
+  height: 20rem;
+  width: 20rem;
+  bottom: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: floating-animation 2s ease-in-out infinite;
+  animation-fill-mode: forwards;
+}
+.member-img-container .member-img-bg {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: #363636;
+  position: absolute;
+  z-index: -1;
+}
+.member-img-container .img-wrapper {
+  margin: auto;
+  height: 20rem;
+  width: auto;
+}
+.member-img-container .img-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.4s ease-in-out;
+  filter: grayscale(100%);
+}
+
 .member-text {
   text-align: center;
 }
@@ -60,25 +63,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: animateText 4s linear infinite;
+  transform: translateY(100%);
+  animation: text-animation 2s ease-in-out infinite;
   animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
 
 .name a {
-  width: max-content;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: max-content;
   text-decoration: none;
-  position: relative;
-}
-@keyframes animateText {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(15%);
-  }
 }
 
 .name a span {
@@ -89,35 +86,34 @@
   text-transform: capitalize;
 }
 .name a img {
+  position: absolute;
   height: auto;
   width: 2.6rem;
   margin-top: -0.3rem;
   left: 0;
-  position: absolute;
   opacity: 0;
   transition: all 0.4s ease;
 }
 .position {
   font-size: 1.6rem;
   font-weight: bold;
-  animation: animateText2 4s linear infinite;
-  animation-fill-mode: forwards;
   margin-top: 0.5rem;
-}
-@keyframes animateText2 {
-  0%,
-  100% {
-    transform: translateY(0%);
-  }
-  50% {
-    transform: translateY(15%);
-  }
-}
+  transform: translateY(100%);
 
-.member:hover img {
-  filter: brightness(100%) invert(0);
+  animation: text-animation 2s ease-in-out infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
-.member:hover .member-img-bg {
+.member:hover img {
+  filter: grayscale(0);
+}
+.member:hover .member-img-container {
+  animation-play-state: paused;
+}
+.member:hover .member-text .name {
+  animation-play-state: paused;
+}
+.member:hover .member-text .position {
   animation-play-state: paused;
 }
 .member:hover .name a span {
@@ -128,7 +124,11 @@
   opacity: 1;
 }
 @media only screen and (max-width: 800px) {
-  .member-img-container .member-img-bg {
+  .member-img-container {
+    height: 10rem;
+    width: 10rem;
+  }
+  /* .member-img-container .member-img-bg {
     height: 8.4rem;
     width: 8.4rem;
   }
@@ -139,13 +139,13 @@
     height: auto;
     width: 8.1rem;
     z-index: 1;
-  }
+  } */
   .name a span {
     font-size: 1.2rem !important;
   }
   .name a img {
-    height: auto;
     width: 1.4rem;
+    height: auto;
     margin-top: -0.3rem;
     left: 0;
     position: absolute;

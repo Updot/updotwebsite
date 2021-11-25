@@ -3,24 +3,18 @@ import Member from "./member/Member";
 
 import teamData from "./teamData.json";
 import joinTeamImg from "../../../assets/img/join-team.svg";
-import linkedinIcon from "../../../assets/img/linkedin-icon-color.svg";
 
 import classes from "./Team.module.css";
 import { Link } from "react-router-dom";
 
 const Team = () => {
+  console.log(teamData);
   return (
     <div className="container">
       <SectionHeading>Our Team</SectionHeading>
       <div className={classes["team-container"]}>
-        {teamData.map((data) => (
-          <Member
-            key={Math.random() * 10000}
-            isImage={data.img ? true : false}
-            img={data.img || "hritik"}
-            linkedinIcon={linkedinIcon}
-            data={data}
-          />
+        {teamData.map((data, index) => (
+          <Member key={index} img={data.img || "hritik"} data={data} />
         ))}
         <Link to="/careers" className={classes["join-team"]}>
           <div className={classes["join-team-container"]}>
