@@ -24,7 +24,7 @@ const Insights = (props) => {
           />
           <Insight />
         </Route>
-        <Route path="/insights/:insightId">
+        <Route path="/insights/:insightId" exact>
           <InsightBlog />
         </Route>
       </Switch>
