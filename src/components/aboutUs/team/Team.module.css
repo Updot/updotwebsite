@@ -3,14 +3,14 @@
     bottom: 0;
   }
   50% {
-    bottom: 5%;
+    bottom: 7%;
   }
 }
 @keyframes text-animation {
   0% {
-    transform: translateY(100%);
+    transform: translateY(50%);
   }
-  50% {
+  53% {
     transform: translateY(0);
   }
 }
@@ -30,36 +30,35 @@
   flex-direction: column;
   text-decoration: none;
   align-items: center;
+  transform: translateY(-2rem);
 }
 
 .join-team-container {
   position: relative;
   bottom: 0;
-  animation: floating-animation 2s ease-in-out infinite;
-  animation-fill-mode: forwards;
 }
 .join-team-container img {
   height: auto;
   width: 20rem;
-  filter: grayscale(100%);
   z-index: 1;
 }
 .join-team-container .join-img-bg {
+  position: absolute;
   display: inline-block;
   width: 20rem;
   height: 20rem;
+  bottom: 0;
   border-radius: 50%;
   background-color: #363636;
-  position: absolute;
+  animation: floating-animation 3s ease-in-out infinite;
+  animation-fill-mode: forwards;
   z-index: -1;
-  bottom: 0;
 }
 .join-text {
   text-align: center;
-  transform: translateY(100%);
-  animation: text-animation 2s ease-in-out infinite;
+  transform: translateY(50%);
+  animation: text-animation 3s ease-in-out infinite;
   animation-fill-mode: forwards;
-  animation-delay: 0.3s;
 }
 
 .join {
@@ -68,7 +67,7 @@
   text-transform: capitalize;
 }
 
-.join-team:hover .join-team-container {
+.join-team:hover .join-team-container .join-img-bg {
   animation-play-state: paused;
 }
 .join-team:hover .join-text {
@@ -76,6 +75,9 @@
 }
 
 @media only screen and (max-width: 800px) {
+  .join-team {
+    transform: translateY(-1rem);
+  }
   .team-container {
     margin-top: 6rem;
     grid-template-columns: repeat(2, 45%);
@@ -83,15 +85,15 @@
     row-gap: 5.8rem;
   }
   .join-team-container {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
   .join-team-container .join-img-bg {
-    height: 8.4rem;
-    width: 8.4rem;
+    height: 10rem;
+    width: 10rem;
   }
   .join-team-container img {
+    width: 10rem;
     height: auto;
-    width: 8.1rem;
     filter: grayscale(100%);
     z-index: 1;
   }
