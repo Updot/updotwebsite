@@ -50,14 +50,14 @@
   bottom: 0;
   border-radius: 50%;
   background-color: #363636;
-  animation: floating-animation 3s ease-in-out infinite;
+  animation: floating-animation 4s ease-in-out infinite;
   animation-fill-mode: forwards;
   z-index: -1;
 }
 .join-text {
   text-align: center;
   transform: translateY(50%);
-  animation: text-animation 3s ease-in-out infinite;
+  animation: text-animation 4s ease-in-out infinite;
   animation-fill-mode: forwards;
 }
 

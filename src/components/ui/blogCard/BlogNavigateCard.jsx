@@ -4,6 +4,7 @@ import blogPlaceholder from "./../../../assets/img/insight-placeholder.png";
 import rightArrow from "./../../../assets/img/right-arrow.svg";
 import leftArrow from "./../../../assets/img/down-arrow.svg";
 import classes from "./BlogCard.module.css";
+
 const BlogNavigateCard = (props) => {
   const dotRef = useRef(null);
   const isTrue = props.isLeft;
@@ -31,6 +32,7 @@ const BlogNavigateCard = (props) => {
   const onMouseOverHandler = () => {
     // console.log(dotRef.current.getBoundingClientRect());
   };
+
   return (
     <div className={classes["blog-card-2"]} mask="true" style={style}>
       <div

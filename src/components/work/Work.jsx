@@ -6,10 +6,13 @@ import downArrow from "./../../assets/img/down-arrow.svg";
 
 import classes from "./Work.module.css";
 import { useEffect, useState } from "react";
+
 let cardCount = 0;
+
 const Work = () => {
   const [workCards, setWorkCards] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+
   useEffect(() => {
     const cards = workData.map((data, i) => {
       cardCount += 1;
@@ -27,6 +30,7 @@ const Work = () => {
     });
     setWorkCards(cards);
   }, [pageNumber]);
+
   return (
     <div className={`${classes["work-container"]}`}>
       <BlogHeader navData={["A-Z", "Date"]} />
