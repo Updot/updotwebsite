@@ -6,7 +6,7 @@
   /* overflow: hidden; */
 }
 .blog-card:nth-child(even) .blog-heading-container {
-  padding-right: 7rem;
+  padding-right: 10rem;
 }
 .blog-card-2 {
   justify-content: unset;
@@ -21,7 +21,7 @@
 }
 .blog-img-inner img {
   height: auto;
-  width: 66rem;
+  width: 60rem;
   border-radius: 50%;
   transform: rotate(0deg);
 }
@@ -92,8 +92,8 @@
   margin-right: 0;
 }
 .dot {
-  height: 4rem;
-  width: 4rem;
+  height: 5.6rem;
+  width: 5.6rem;
   background-color: var(--text-color);
   border-radius: 50%;
   position: absolute;
