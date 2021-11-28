@@ -6,7 +6,7 @@
   /* overflow: hidden; */
 }
 .blog-card:nth-child(even) .blog-heading-container {
-  margin-right: 3rem;
+  padding-right: 7rem;
 }
 .blog-card-2 {
   justify-content: unset;
