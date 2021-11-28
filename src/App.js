@@ -11,27 +11,16 @@ import { themeStateAction } from "./store/themeState";
 // import Header from "./components/ui/header/Header";
 // import Nav from "./components/ui/nav/Nav";
 
-// const Home = React.lazy(() => import("./pages/Home"));
-// const NotFound = React.lazy(() => import("./pages/NotFound"));
-// const About = React.lazy(() => import("./pages/About"));
-// const WorkPage = React.lazy(() => import("./pages/WorkPage"));
-// const ContactPage = React.lazy(() => import("./pages/ContactPage"));
-// const TermPage = React.lazy(() => import("./pages/TermPage"));
-// const PrivacyPage = React.lazy(() => import("./pages/PrivacyPage"));
-// const ServicesPage = React.lazy(() => import("./pages/ServicesPage"));
-// const CareersPage = React.lazy(() => import("./pages/CareersPage"));
-// const Insights = React.lazy(() => import("./pages/Insights"));
-
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import About from "./pages/About";
-import WorkPage from "./pages/WorkPage";
-import ContactPage from "./pages/ContactPage";
-import TermPage from "./pages/TermPage";
-import PrivacyPage from "./pages/PrivacyPage";
-import ServicesPage from "./pages/ServicesPage";
-import CareersPage from "./pages/CareersPage";
-import Insights from "./pages/Insights";
+const Home = React.lazy(() => import("./pages/Home"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+const About = React.lazy(() => import("./pages/About"));
+const WorkPage = React.lazy(() => import("./pages/WorkPage"));
+const ContactPage = React.lazy(() => import("./pages/ContactPage"));
+const TermPage = React.lazy(() => import("./pages/TermPage"));
+const PrivacyPage = React.lazy(() => import("./pages/PrivacyPage"));
+const ServicesPage = React.lazy(() => import("./pages/ServicesPage"));
+const CareersPage = React.lazy(() => import("./pages/CareersPage"));
+const Insights = React.lazy(() => import("./pages/Insights"));
 
 const Loading = () => {
   const isLoaded = useSelector((state) => state.pageState.isLoaded);

@@ -35,7 +35,7 @@
   width: 100%;
   height: 100%;
   border-radius: 500px;
-  animation: floating-animation 3s ease-in-out infinite;
+  animation: floating-animation 4s ease-in-out infinite;
   animation-fill-mode: forwards;
   z-index: -1;
 }
@@ -65,7 +65,7 @@
   justify-content: center;
   margin-top: 1rem;
   transform: translateY(50%);
-  animation: text-animation 3s ease-in-out infinite;
+  animation: text-animation 4s ease-in-out infinite;
   animation-fill-mode: forwards;
 }
 
@@ -100,7 +100,7 @@
   margin-top: 0.5rem;
   transform: translateY(50%);
 
-  animation: text-animation 3s ease-in-out infinite;
+  animation: text-animation 4s ease-in-out infinite;
   animation-fill-mode: forwards;
 }
 .member:hover img {

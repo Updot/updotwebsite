@@ -6,10 +6,13 @@ import downArrow from "./../../assets/img/down-arrow.svg";
 
 import classes from "./Insight.module.css";
 import BlogCard from "../ui/blogCard/BlogCard";
+
 let insightCount = 0;
+
 const Insight = () => {
   const [insightCards, setInsightCards] = useState([]);
   const [loadMoreCount, setLoadMoreCount] = useState(1);
+
   useEffect(() => {
     let els = insightData.map((data, i) => {
       insightCount++;
@@ -24,6 +27,7 @@ const Insight = () => {
     });
     setInsightCards((prevState) => [...prevState, ...els]);
   }, [loadMoreCount]);
+
   return (
     <div className={`${classes["insight-container"]}`}>
       <BlogHeader navData={["Latest", "Most Viewed"]} />
