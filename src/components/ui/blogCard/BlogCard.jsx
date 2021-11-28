@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import downArrow from "./../../../assets/img/down-arrow.svg";
 import classes from "./BlogCard.module.css";
 import BlogImage from "./BlogImage";
+
 const BlogCard = (props) => {
   // const dotRef = useRef(null);
   const isTrue =
@@ -10,13 +11,13 @@ const BlogCard = (props) => {
   const style = isTrue
     ? {
         flexDirection: "row-reverse",
-        paddingLeft: window.innerWidth > 800 ? "7.5vw" : "5vw",
+        paddingLeft: "5vw",
         justifyContent: "flex-start",
         columnGap: "6vw",
       }
     : {
         flexDirection: "row",
-        paddingRight: window.innerWidth > 800 ? "7.5vw" : "5vw",
+        paddingRight: "5vw",
         justifyContent: window.innerWidth < 800 && "space-between",
         columnGap: window.innerWidth > 800 ? "20rem" : "5vw",
       };
@@ -29,8 +30,8 @@ const BlogCard = (props) => {
         transform:
           window.innerWidth > 800 ? "translateX(-1%)" : "translateX(-15%)",
       };
-
   const arrowStyle = {};
+
   const arrowOuterStyle = {};
   if (isTrue && location.pathname.includes("work"))
     arrowStyle["marginRight"] = window.innerWidth > 800 ? "12%" : "0%";
@@ -61,6 +62,7 @@ const BlogCard = (props) => {
   const onMouseOverHandler = () => {
     // console.log(dotRef.current.getBoundingClientRect());
   };
+
   return (
     <div
       id={props.workId}
