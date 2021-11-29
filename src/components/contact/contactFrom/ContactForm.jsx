@@ -12,10 +12,13 @@ import UpdotMagnet from "../../../assets/img/updot-magnet.svg";
 import classes from "./ContactForm.module.css";
 import InputFile from "../../connect/formFields/InputFile";
 import { useSelector } from "react-redux";
+import Modal from "../../ui/modal/Modal";
 const ContactForm = () => {
   const [isStandby, setIsStandby] = useState(false);
   const [isFormTouched, setIsFormTouched] = useState(false);
   const [showFileInput, setShowFileInput] = useState(false);
+  const [submissionMessage, setSubmissionMessage] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [attachments, setAttachments] = useState({});
   const formOuterRef = useRef(null);
   const submitBtnRef = useRef(null);
@@ -61,10 +64,13 @@ const ContactForm = () => {
 
     // const data = await response.json();
     if (response.ok) {
-      alert(`Hey, ${formData.name}!, Thankyou for Submitting form`);
+      setSubmissionMessage(
+        `Hey, ${formData.name}!, Thankyou for Submitting form`
+      );
     } else {
-      alert(`Error occured while submitting form!!`);
+      setSubmissionMessage(`Error occured while submitting form!!`);
     }
+    setIsModalOpen(true);
   };
   useEffect(() => {
     if (isSubmitSuccessful) {
@@ -139,241 +145,256 @@ const ContactForm = () => {
     setHCaptchaData({ token, ekey });
   };
   return (
-    <div
-      ref={formOuterRef}
-      className={`${classes["form-container"]} ${
-        isFormTouched ? "" : classes["form-container-change"]
-      }`}
-    >
-      <form className={classes.form} onSubmit={handleSubmit(formSubmitHandler)}>
-        <div className={`${classes["form-field"]} ${classes["form-field-1"]}`}>
-          <div className={classes["field-container"]}>
-            <Input
-              type="text"
-              placeholder="Name*"
-              register={register}
-              fieldName="name"
-              error={errors}
-              required={true}
-              onFirstChange={onFirstChange}
-              left={window.innerWidth > 800 ? "1%" : "4%"}
-            />
-            <p className={classes["input-error"]}>
-              {errors.name?.type === "required" && "*Name is required."}
-            </p>
-          </div>
-        </div>
-        {isFormTouched && (
+    <>
+      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+        {submissionMessage}
+      </Modal>
+      <div
+        ref={formOuterRef}
+        className={`${classes["form-container"]} ${
+          isFormTouched ? "" : classes["form-container-change"]
+        }`}
+      >
+        <form
+          className={classes.form}
+          onSubmit={handleSubmit(formSubmitHandler)}
+        >
           <div
-            className={`${classes["form-field"]} ${classes["form-field-2"]} ${classes["animate-field-1"]}`}
-          >
-            <div className={classes["field-container"]}>
-              <DropDown
-                placeholder="Code*"
-                register={register}
-                fieldName="code"
-                setValue={setValue}
-                data={["+91", "+91", "+91", "+91", "+91"]}
-                required={true}
-              />
-              <p className={classes["input-error"]}>
-                {errors.code?.type === "required" && "*Code is required."}
-              </p>
-            </div>
-            <div className={classes["field-container"]}>
-              <Input
-                type="tel"
-                placeholder="Phone Number*"
-                register={register}
-                fieldName="phoneNumber"
-                required={true}
-                left={window.innerWidth > 800 ? "1%" : "4%"}
-              />
-              <p className={classes["input-error"]}>
-                {errors.phoneNumber?.type === "required" &&
-                  "*Phone Number is required."}
-              </p>
-            </div>
-          </div>
-        )}
-        {isFormTouched && (
-          <div
-            className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-2"]}`}
+            className={`${classes["form-field"]} ${classes["form-field-1"]}`}
           >
             <div className={classes["field-container"]}>
               <Input
                 type="text"
-                placeholder="Email ID*"
+                placeholder="Name*"
                 register={register}
-                fieldName="emailId"
+                fieldName="name"
+                error={errors}
                 required={true}
+                onFirstChange={onFirstChange}
                 left={window.innerWidth > 800 ? "1%" : "4%"}
               />
               <p className={classes["input-error"]}>
-                {errors.emailId?.type === "required" &&
-                  "*Email ID is required."}
+                {errors.name?.type === "required" && "*Name is required."}
               </p>
             </div>
           </div>
-        )}
-        {isFormTouched && (
-          <div
-            className={`${classes["form-field"]} ${
-              window.innerWidth > 800
-                ? classes["form-field-2"]
-                : classes["form-field-9"]
-            } ${classes["animate-field-3"]}`}
-          >
-            <div>
-              <DropDown
-                placeholder="Industry"
-                register={register}
-                fieldName="industry"
-                setValue={setValue}
-                data={["IT", "Services"]}
-                required={false}
-              />
-              <p className={classes["input-error"]}></p>
+          {isFormTouched && (
+            <div
+              className={`${classes["form-field"]} ${classes["form-field-2"]} ${classes["animate-field-1"]}`}
+            >
+              <div className={classes["field-container"]}>
+                <DropDown
+                  placeholder="Code*"
+                  register={register}
+                  fieldName="code"
+                  setValue={setValue}
+                  data={["+91", "+91", "+91", "+91", "+91"]}
+                  required={true}
+                />
+                <p className={classes["input-error"]}>
+                  {errors.code?.type === "required" && "*Code is required."}
+                </p>
+              </div>
+              <div className={classes["field-container"]}>
+                <Input
+                  type="tel"
+                  placeholder="Phone Number*"
+                  register={register}
+                  fieldName="phoneNumber"
+                  required={true}
+                  left={window.innerWidth > 800 ? "1%" : "4%"}
+                />
+                <p className={classes["input-error"]}>
+                  {errors.phoneNumber?.type === "required" &&
+                    "*Phone Number is required."}
+                </p>
+              </div>
             </div>
-            <div>
+          )}
+          {isFormTouched && (
+            <div
+              className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-2"]}`}
+            >
+              <div className={classes["field-container"]}>
+                <Input
+                  type="text"
+                  placeholder="Email ID*"
+                  register={register}
+                  fieldName="emailId"
+                  required={true}
+                  left={window.innerWidth > 800 ? "1%" : "4%"}
+                />
+                <p className={classes["input-error"]}>
+                  {errors.emailId?.type === "required" &&
+                    "*Email ID is required."}
+                </p>
+              </div>
+            </div>
+          )}
+          {isFormTouched && (
+            <div
+              className={`${classes["form-field"]} ${
+                window.innerWidth > 800
+                  ? classes["form-field-2"]
+                  : classes["form-field-9"]
+              } ${classes["animate-field-3"]}`}
+            >
+              <div>
+                <DropDown
+                  placeholder="Industry"
+                  register={register}
+                  fieldName="industry"
+                  setValue={setValue}
+                  data={["IT", "Services"]}
+                  required={false}
+                />
+                <p className={classes["input-error"]}></p>
+              </div>
+              <div>
+                <Input
+                  type="text"
+                  placeholder="Company Name"
+                  register={register}
+                  fieldName="companyName"
+                  required={false}
+                  left={window.innerWidth > 800 ? "1%" : "4%"}
+                />
+                <p className={classes["input-error"]}></p>
+              </div>
+            </div>
+          )}
+          {isFormTouched && (
+            <div
+              className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-4"]}`}
+            >
               <Input
-                type="text"
-                placeholder="Company Name"
+                type="url"
+                placeholder="Website URL"
                 register={register}
-                fieldName="companyName"
+                fieldName="websiteURL"
                 required={false}
                 left={window.innerWidth > 800 ? "1%" : "4%"}
               />
-              <p className={classes["input-error"]}></p>
             </div>
-          </div>
-        )}
-        {isFormTouched && (
-          <div
-            className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-4"]}`}
-          >
-            <Input
-              type="url"
-              placeholder="Website URL"
-              register={register}
-              fieldName="websiteURL"
-              required={false}
-              left={window.innerWidth > 800 ? "1%" : "4%"}
-            />
-          </div>
-        )}
-        {isFormTouched && (
-          <div
-            className={`${classes["form-field"]} ${classes["form-field-4"]} ${classes["animate-field-5"]}`}
-          >
-            <h3 className={classes.FormOptionHeading}>Services Required</h3>
-            <Checkbox
-              name="servicesRequired"
-              size={window.innerWidth > 800 ? 3.4 : 1.2}
-              data={ServiceData}
-              register={register}
-            />
-          </div>
-        )}
-        {isFormTouched && (
-          <div
-            className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["message-field"]} ${classes["animate-field-6"]}`}
-          >
-            <div className={classes["field-container"]}>
-              <TextArea
-                placeholder="Message*"
+          )}
+          {isFormTouched && (
+            <div
+              className={`${classes["form-field"]} ${classes["form-field-4"]} ${classes["animate-field-5"]}`}
+            >
+              <h3 className={classes.FormOptionHeading}>Services Required</h3>
+              <Checkbox
+                name="servicesRequired"
+                size={window.innerWidth > 800 ? 3.4 : 1.2}
+                data={ServiceData}
                 register={register}
-                fieldName="message"
-                height={window.innerWidth > 800 ? 15 : 11.5}
-                left="2%"
               />
-              <p className={classes["input-error"]}>
-                {errors.message?.type === "required" && "*Message is required."}
-              </p>
             </div>
-          </div>
-        )}
-        {isFormTouched && (
-          <div
-            className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-4"]} ${classes["file-container"]}`}
-          >
-            <div className={classes["btn-container"]}>
+          )}
+          {isFormTouched && (
+            <div
+              className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["message-field"]} ${classes["animate-field-6"]}`}
+            >
+              <div className={classes["field-container"]}>
+                <TextArea
+                  placeholder="Message*"
+                  register={register}
+                  fieldName="message"
+                  height={window.innerWidth > 800 ? 15 : 11.5}
+                  left="2%"
+                />
+                <p className={classes["input-error"]}>
+                  {errors.message?.type === "required" &&
+                    "*Message is required."}
+                </p>
+              </div>
+            </div>
+          )}
+          {isFormTouched && (
+            <div
+              className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-4"]} ${classes["file-container"]}`}
+            >
+              <div className={classes["btn-container"]}>
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={(e) => {
+                    setShowFileInput((prevState) => !prevState);
+                    e.target.classList.toggle(
+                      `${classes["hide-border-bottom"]}`
+                    );
+                  }}
+                >
+                  Attach Files
+                </button>
+              </div>
+              {showFileInput && (
+                <div
+                  className={classes["file-input-container"]}
+                  style={{
+                    marginBottom: window.innerWidth < 800 ? "1rem" : "0rem",
+                  }}
+                >
+                  {fileUploadFields}
+                </div>
+              )}
+            </div>
+          )}
+          {isFormTouched && (
+            <div className={classes["h-captcha"]}>
+              <HCaptcha
+                sitekey="a8476602-b2d6-44ba-b8b8-5ae90461b4c3"
+                theme={isLightThemeActive ? "light" : "dark"}
+                onVerify={(token, ekey) =>
+                  handleVerificationSuccess(token, ekey)
+                }
+              />
+            </div>
+          )}
+          {isFormTouched && (
+            <div
+              className={`${classes["form-field"]} ${classes["form-field-6"]} ${classes["animate-field-7"]}`}
+            >
               <button
-                type="button"
-                className="btn"
-                onClick={(e) => {
-                  setShowFileInput((prevState) => !prevState);
-                  e.target.classList.toggle(`${classes["hide-border-bottom"]}`);
-                }}
+                ref={submitBtnRef}
+                className={`btn ${classes["btn-submit"]}`}
+                type="submit"
               >
-                Attach Files
+                Submit
+              </button>
+              <button
+                ref={newsletterBtnRef}
+                className={`btn ${classes["btn-newsletter"]}`}
+                type="submit"
+                // onClick={onNewsletterBtnClickHandler}
+              >
+                Subscribe to newsletter
               </button>
             </div>
-            {showFileInput && (
-              <div
-                className={classes["file-input-container"]}
-                style={{
-                  marginBottom: window.innerWidth < 800 ? "1rem" : "0rem",
-                }}
-              >
-                {fileUploadFields}
-              </div>
-            )}
-          </div>
-        )}
+          )}
+        </form>
         {isFormTouched && (
-          <div className={classes["h-captcha"]}>
-            <HCaptcha
-              sitekey="a8476602-b2d6-44ba-b8b8-5ae90461b4c3"
-              theme={isLightThemeActive ? "light" : "dark"}
-              onVerify={(token, ekey) => handleVerificationSuccess(token, ekey)}
+          <div
+            className={`${classes["logo-container"]} ${classes["animate-field-8"]}`}
+          >
+            <img className={classes["updot-img"]} src={UpdotLogo} alt="updot" />
+            <img
+              className={classes["updot-magnet-img"]}
+              src={UpdotMagnet}
+              alt="updot magnet"
             />
           </div>
         )}
-        {isFormTouched && (
-          <div
-            className={`${classes["form-field"]} ${classes["form-field-6"]} ${classes["animate-field-7"]}`}
+        {!isFormTouched && (
+          <p
+            className={`${classes["standby-message"]} ${
+              isStandby && !isFormTouched ? classes["standby-message-show"] : ""
+            }`}
           >
-            <button
-              ref={submitBtnRef}
-              className={`btn ${classes["btn-submit"]}`}
-              type="submit"
-            >
-              Submit
-            </button>
-            <button
-              ref={newsletterBtnRef}
-              className={`btn ${classes["btn-newsletter"]}`}
-              type="submit"
-              // onClick={onNewsletterBtnClickHandler}
-            >
-              Subscribe to newsletter
-            </button>
-          </div>
+            Ok, then let's start!
+          </p>
         )}
-      </form>
-      {isFormTouched && (
-        <div
-          className={`${classes["logo-container"]} ${classes["animate-field-8"]}`}
-        >
-          <img className={classes["updot-img"]} src={UpdotLogo} alt="updot" />
-          <img
-            className={classes["updot-magnet-img"]}
-            src={UpdotMagnet}
-            alt="updot magnet"
-          />
-        </div>
-      )}
-      {!isFormTouched && (
-        <p
-          className={`${classes["standby-message"]} ${
-            isStandby && !isFormTouched ? classes["standby-message-show"] : ""
-          }`}
-        >
-          Ok, then let's start!
-        </p>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 
