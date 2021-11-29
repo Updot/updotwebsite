@@ -59,14 +59,14 @@ const Clients = () => {
           className={`${classes["client-loc-5"]} ${classes["big"]}`}
           imgColor={virtuselLogo}
         />
-        <Client
+        {/* <Client
           className={`${classes["client-loc-6"]} ${classes["small"]}`}
           // imgColor={abBlack}
         />
         <Client
           className={`${classes["client-loc-7"]} ${classes["big"]}`}
           // imgColor={ab}
-        />
+        /> */}
       </div>
     </div>
   );
