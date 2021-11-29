@@ -9,11 +9,12 @@
 }
 .client img {
   height: auto;
-  width: 50%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  filter: grayscale(100%);
+}
+.client:hover img {
+  filter: grayscale(0);
+  transition: all 0.2s ease-in-out;
 }
 
 @media only screen and (max-width: 800px) {

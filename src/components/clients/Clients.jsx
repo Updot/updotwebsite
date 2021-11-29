@@ -9,10 +9,14 @@ import classes from "./Clients.module.css";
 
 import ab from "../../assets/img/clients/AB-logo.svg";
 import abBlack from "../../assets/img/clients/AB-logo-black.svg";
-import fortune from "../../assets/img/clients/Fortune-Avenue-Logo.svg";
-import fortuneBlack from "../../assets/img/clients/Fortune-Avenue-Logo-black.svg";
+// import fortune from "../../assets/img/clients/Fortune-Avenue-Logo.svg";
+// import fortuneBlack from "../../assets/img/clients/Fortune-Avenue-Logo-black.svg";
 import yottahawk from "../../assets/img/clients/Yottahawk-Logo.svg";
-import yottahawkBlack from "../../assets/img/clients/Yottahawk-Logo-black.svg";
+// import yottahawkBlack from "../../assets/img/clients/Yottahawk-Logo-black.svg";
+import remaxLogo from "../../assets/img/featured/remax.svg";
+import virtuselLogo from "../../assets/img/featured/virtusel.svg";
+import wolfwizardLogo from "../../assets/img/featured/wolfwizard.svg";
+import fortuneLogo from "../../assets/img/featured/fortune.png";
 
 const Clients = () => {
   const sectionRef = useRef(null);
@@ -37,38 +41,31 @@ const Clients = () => {
       <div className={classes["clients-container"]}>
         <Client
           className={`${classes["client-loc-1"]} ${classes["big"]}`}
-          img={abBlack}
-          imgColor={ab}
+          imgColor={remaxLogo}
         />
         <Client
           className={`${classes["client-loc-2"]} ${classes["mid"]}`}
-          img={fortuneBlack}
-          imgColor={fortune}
+          imgColor={fortuneLogo}
         />
         <Client
           className={`${classes["client-loc-3"]} ${classes["small"]}`}
-          img={yottahawkBlack}
           imgColor={yottahawk}
         />
         <Client
           className={`${classes["client-loc-4"]} ${classes["big"]}`}
-          img={abBlack}
-          imgColor={ab}
+          imgColor={wolfwizardLogo}
         />
         <Client
           className={`${classes["client-loc-5"]} ${classes["big"]}`}
-          img={abBlack}
-          imgColor={ab}
+          imgColor={virtuselLogo}
         />
         <Client
           className={`${classes["client-loc-6"]} ${classes["small"]}`}
-          img={fortuneBlack}
-          imgColor={fortune}
+          // imgColor={abBlack}
         />
         <Client
           className={`${classes["client-loc-7"]} ${classes["big"]}`}
-          img={yottahawkBlack}
-          imgColor={yottahawk}
+          // imgColor={ab}
         />
       </div>
     </div>

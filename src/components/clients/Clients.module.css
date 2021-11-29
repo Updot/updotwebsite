@@ -17,6 +17,10 @@
 .client-loc-4 img,
 .client-loc-5 img {
   height: auto;
+  width: 18rem;
+}
+.client-loc-6 img {
+  height: auto;
   width: 15rem;
 }
 .client-loc-1,
