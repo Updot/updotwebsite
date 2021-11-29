@@ -46,6 +46,8 @@ const Header = (props) => {
       }, 1000);
     } else {
       setBgColor("");
+      const navBtn = document.querySelector('[data-name="nav-btn"]');
+      navBtn.classList.remove("hide");
     }
   }, [isNavActive, isLightThemeActive]);
 
