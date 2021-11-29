@@ -98,16 +98,16 @@ const Services = (props) => {
                   <div className={classes["timeline-dot"]}></div>
                   <div className={classes["path-info"]}>
                     <h4
-                      onMouseOver={onMouseOverHandler}
-                      onMouseOut={onMouseOutHandler}
+                    // onMouseOver={onMouseOverHandler}
+                    // onMouseOut={onMouseOutHandler}
                     >
                       {processName}
                     </h4>
-                    <p>
+                    {/* <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod temporincididunt ut labore et dolore magna
                       aliqua.
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               );

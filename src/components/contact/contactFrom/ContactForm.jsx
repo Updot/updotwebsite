@@ -39,7 +39,7 @@ const ContactForm = () => {
     if (!hCaptchaData) {
       return alert("Please verify captcha!!");
     }
-    submitBtnRef.current.classList.add(`${classes["animate-btn"]}`);
+    // submitBtnRef.current.classList.add(`${classes["animate-btn"]}`);
     const form = new FormData();
     Object.keys(attachments).forEach((key) => {
       form.append(key, attachments[key]);
@@ -345,71 +345,9 @@ const ContactForm = () => {
               ref={newsletterBtnRef}
               className={`btn ${classes["btn-newsletter"]}`}
               type="submit"
-              onClick={onNewsletterBtnClickHandler}
+              // onClick={onNewsletterBtnClickHandler}
             >
-              <div className={`${classes["btn-newsletter-1"]} inner-btn`}>
-                <span>S</span>
-              </div>
-              <div className={`${classes["btn-newsletter-2"]} inner-btn`}>
-                <span>u</span>
-              </div>
-              <div className={`${classes["btn-newsletter-3"]} inner-btn`}>
-                <span>b</span>
-              </div>
-              <div className={`${classes["btn-newsletter-4"]} inner-btn`}>
-                <span>s</span>
-              </div>
-              <div className={`${classes["btn-newsletter-5"]} inner-btn`}>
-                <span>c</span>
-              </div>
-              <div className={`${classes["btn-newsletter-6"]} inner-btn`}>
-                <span>r</span>
-              </div>
-              <div className={`${classes["btn-newsletter-7"]} inner-btn`}>
-                <span>i</span>
-              </div>
-              <div className={`${classes["btn-newsletter-8"]} inner-btn`}>
-                <span>b</span>
-              </div>
-              <div className={`${classes["btn-newsletter-9"]} inner-btn`}>
-                <span>e</span>
-              </div>
-              <div className={`${classes["btn-newsletter-10"]} inner-btn`}>
-                <span> t</span>
-              </div>
-              <div className={`${classes["btn-newsletter-11"]} inner-btn`}>
-                <span>o </span>
-              </div>
-              <div className={`${classes["btn-newsletter-12"]} inner-btn`}>
-                <span>N</span>
-              </div>
-              <div className={`${classes["btn-newsletter-13"]} inner-btn`}>
-                <span>e</span>
-              </div>
-              <div className={`${classes["btn-newsletter-14"]} inner-btn`}>
-                <span>w</span>
-              </div>
-              <div className={`${classes["btn-newsletter-15"]} inner-btn`}>
-                <span>s</span>
-              </div>
-              <div className={`${classes["btn-newsletter-16"]} inner-btn`}>
-                <span>l</span>
-              </div>
-              <div className={`${classes["btn-newsletter-17"]} inner-btn`}>
-                <span>e</span>
-              </div>
-              <div className={`${classes["btn-newsletter-18"]} inner-btn`}>
-                <span>t</span>
-              </div>
-              <div className={`${classes["btn-newsletter-19"]} inner-btn`}>
-                <span>t</span>
-              </div>
-              <div className={`${classes["btn-newsletter-20"]} inner-btn`}>
-                <span>e</span>
-              </div>
-              <div className={`${classes["btn-newsletter-21"]} inner-btn`}>
-                <span>r</span>
-              </div>
+              Subscribe to newsletter
             </button>
           </div>
         )}

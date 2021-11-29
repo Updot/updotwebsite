@@ -121,8 +121,8 @@
   left: 0;
 }
 .btn-newsletter {
-  width: 35.5rem;
-  height: 3.3rem;
+  /* width: 35.5rem; */
+  /* height: 3.3rem; */
 }
 .animate-btn {
   border-bottom: unset;
