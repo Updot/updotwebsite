@@ -61,28 +61,28 @@ function App() {
             <Loading />
             <Home headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/about-us" exact>
+          <Route path="/about-us">
             <About headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/insights" exact>
+          <Route path="/insights">
             <Insights headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/work" exact>
+          <Route path="/work">
             <WorkPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/contact" exact>
+          <Route path="/contact">
             <ContactPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/services" exact>
+          <Route path="/services">
             <ServicesPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/careers" exact>
+          <Route path="/careers">
             <CareersPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/term-and-conditions" exact>
+          <Route path="/term-and-conditions">
             <TermPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="/privacy-policy" exact>
+          <Route path="/privacy-policy">
             <PrivacyPage headerDisplayed={headerDisplayed} />
           </Route>
           <Route path="*">
