@@ -116,13 +116,14 @@ const FeaturedInfo = (props) => {
           <div className={classes["featured-info"]}>
             <img src={props.logo} alt="remax" />
             <p className={classes["featured-subtext"]}>{props.description}</p>
-            <Link
-              to="#"
+            <a
+              href={props.btnUrl}
+              target="_blank"
               className="btn"
               style={{ color: props.btnColor, borderColor: props.btnColor }}
             >
               {props.btnText}
-            </Link>
+            </a>
           </div>
           <div className={classes["featured-graphics"]}>
             <img src={props.ui} alt="remax web design" />
