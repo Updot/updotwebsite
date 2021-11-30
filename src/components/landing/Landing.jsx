@@ -6,7 +6,7 @@ import updotBlack from "../../assets/img/updot-black.svg";
 import { pageStateAction } from "../../store/pageState";
 import { mouseLocationAction } from "../../store/mouseLocation";
 
-const Landing = () => {
+const Landing = ({ setLandingDisplayed }) => {
   const isLoaded = useSelector((state) => state.pageState.isLoaded);
   const isLoaderHidden = useSelector(
     (state) => state.pageState.isLoaderRemoved
@@ -39,11 +39,13 @@ const Landing = () => {
         landingRef.current.style.display = "none";
         dispatch(pageStateAction.setLoadederRemoved());
         setDot();
+        setLandingDisplayed(true);
       };
       landingRef.current.addEventListener("click", (e) => {
         landingRef.current.style.display = "none";
         setDot();
         dispatch(pageStateAction.setLoadederRemoved());
+        setLandingDisplayed(true);
       });
     }
   }, [isLoaded, isLoaderHidden, dispatch]);
