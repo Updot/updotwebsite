@@ -11,7 +11,8 @@ import { themeStateAction } from "./store/themeState";
 // import Header from "./components/ui/header/Header";
 // import Nav from "./components/ui/nav/Nav";
 
-const Home = React.lazy(() => import("./pages/Home"));
+import Home from "./pages/Home";
+
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 const About = React.lazy(() => import("./pages/About"));
 const WorkPage = React.lazy(() => import("./pages/WorkPage"));
@@ -53,11 +54,11 @@ function App() {
       {!landingDisplayed && window.innerWidth > 800 && (
         <Landing setLandingDisplayed={setLandingDisplayed} />
       )}
-      <React.Suspense fallback={<Loader />}>
-        <Switch>
-          <Route path="/" exact>
-            <Home headerDisplayed={headerDisplayed} />
-          </Route>
+      <Switch>
+        <Route path="/" exact>
+          <Home headerDisplayed={headerDisplayed} />
+        </Route>
+        <React.Suspense fallback={<Loader />}>
           <Route path="/about-us">
             <About headerDisplayed={headerDisplayed} />
           </Route>
@@ -85,8 +86,8 @@ function App() {
           <Route path="*">
             <NotFound />
           </Route>
-        </Switch>
-      </React.Suspense>
+        </React.Suspense>
+      </Switch>
       <svg style={{ display: "none" }}>
         <defs>
           <filter id="filter">
