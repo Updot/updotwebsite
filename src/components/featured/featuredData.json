@@ -4,27 +4,31 @@
     "ui": "",
     "description": "We worked with Remax on their regional website providing the best of technology and reach.",
     "btnText": "View Website",
-    "btnColor": "#DB1B2D"
+    "btnColor": "#DB1B2D",
+    "btnUrl": "https://www.remaxinfinity.in/"
   },
   "apps": {
     "logo": "",
     "ui": "",
     "description": "We love working with startups and Virtusel was a breath of fresh air in the field. Covering their a-z requirements, Updot has stepped it up for them.",
     "btnText": "Updating Soon",
-    "btnColor": "#FFB000"
+    "btnColor": "#FFB000",
+    "btnUrl": "https://play.google.com/store/apps/details?id=com.virtusel.twa"
   },
   "branding": {
     "logo": "",
     "ui": "",
     "description": "Another startup that is praiseworthy catering to all the young artists out there. Wolf Wizard may be the next unicorn that gets printed.",
     "btnText": "View Website",
-    "btnColor": "#7A1514"
+    "btnColor": "#7A1514",
+    "btnUrl": "https://wolfwizard.in/"
   },
   "marketing": {
     "logo": "",
     "ui": "",
     "description": "Our very first client that led us venture out in this world. Fortune Avenue has been the staple for many hospitalities that followed. ",
     "btnText": "View Case Study",
-    "btnColor": "#DDA02E"
+    "btnColor": "#DDA02E",
+    "btnUrl": "https://www.instagram.com/fortuneavenuehotel/"
   }
 }

@@ -41,6 +41,7 @@ const Featured = () => {
             description={featuredData[`website`].description}
             btnText={featuredData[`website`].btnText}
             btnColor={featuredData[`website`].btnColor}
+            btnUrl={featuredData[`website`].btnUrl}
           />
         )}
         {showFeatured === "apps" && (
@@ -52,6 +53,7 @@ const Featured = () => {
             description={featuredData[`apps`].description}
             btnText={featuredData[`apps`].btnText}
             btnColor={featuredData[`apps`].btnColor}
+            btnUrl={featuredData[`apps`].btnUrl}
           />
         )}
         {showFeatured === "branding" && (
@@ -63,6 +65,7 @@ const Featured = () => {
             description={featuredData[`branding`].description}
             btnText={featuredData[`branding`].btnText}
             btnColor={featuredData[`branding`].btnColor}
+            btnUrl={featuredData[`branding`].btnUrl}
           />
         )}
         {showFeatured === "marketing" && (
@@ -74,6 +77,7 @@ const Featured = () => {
             description={featuredData[`marketing`].description}
             btnText={featuredData[`marketing`].btnText}
             btnColor={featuredData[`marketing`].btnColor}
+            btnUrl={featuredData[`marketing`].btnUrl}
           />
         )}
       </div>
