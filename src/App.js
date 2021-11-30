@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import Landing from "./components/landing/Landing";
 import Cookies from "./components/cookies/Cookies";
@@ -22,18 +22,11 @@ const ServicesPage = React.lazy(() => import("./pages/ServicesPage"));
 const CareersPage = React.lazy(() => import("./pages/CareersPage"));
 const Insights = React.lazy(() => import("./pages/Insights"));
 
-const Loading = () => {
-  const isLoaded = useSelector((state) => state.pageState.isLoaded);
-  if (window.innerWidth > 800) {
-    return <Landing />;
-  } else {
-    return !isLoaded && <Loader />;
-  }
-};
-
 function App() {
   const dispatch = useDispatch();
   const [headerDisplayed, setHeaderDisplayed] = useState(true);
+  const [landingDisplayed, setLandingDisplayed] = useState(false);
+
   useEffect(() => {
     const handler = (event) => {
       if (window.scrollY > 100) {
@@ -45,20 +38,26 @@ function App() {
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, [dispatch]);
+
   useEffect(() => {
     const theme = localStorage.getItem("updotThemePreference");
     if (theme === "Light") {
       dispatch(themeStateAction.toggleTheme());
     }
   }, [dispatch]);
+
+  console.log(landingDisplayed);
+
   return (
     <div className="App">
       <MouseArrow />
       {/* <Cookies /> */}
+      {!landingDisplayed && window.innerWidth > 800 && (
+        <Landing setLandingDisplayed={setLandingDisplayed} />
+      )}
       <React.Suspense fallback={<Loader />}>
         <Switch>
           <Route path="/" exact>
-            <Loading />
             <Home headerDisplayed={headerDisplayed} />
           </Route>
           <Route path="/about-us">
