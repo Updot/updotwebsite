@@ -46,8 +46,6 @@ function App() {
     }
   }, [dispatch]);
 
-  console.log(landingDisplayed);
-
   return (
     <div className="App">
       <MouseArrow />
