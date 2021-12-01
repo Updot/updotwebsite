@@ -29,9 +29,9 @@ const Skill = (props) => {
               height={
                 window.innerWidth > 800
                   ? window.innerWidth < 1200
-                    ? 250
+                    ? 300
                     : 500
-                  : 250
+                  : 300
               }
               width={
                 window.innerWidth > 800

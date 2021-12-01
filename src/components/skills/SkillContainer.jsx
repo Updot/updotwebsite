@@ -1,10 +1,11 @@
+import React, { useEffect, useRef } from "react";
+
 import Skill from "./Skill";
 import SectionHeading from "../ui/SectionHeading";
 import classes from "./SkillContainer.module.css";
 
 import webIcon from "../../assets/img/lottiefiles/Pointer.json";
 import appIcon from "../../assets/img/lottiefiles/androidapple.json";
-
 import chatBotIcon from "../../assets/img/lottiefiles/chatbot.json";
 import cloudIcon from "../../assets/img/lottiefiles/cloud.json";
 import uiIcon from "../../assets/img/lottiefiles/boxsq.json";
@@ -14,7 +15,6 @@ import puzzleIcon from "../../assets/img/lottiefiles/puzzle.json";
 import loadingIcon from "../../assets/img/lottiefiles/loading.json";
 import thumbIcon from "../../assets/img/lottiefiles/thumbsup.json";
 import upArrow from "../../assets/img/up-arrow.svg";
-import { useEffect, useRef } from "react";
 
 const SKILLS_DATA = [
   {

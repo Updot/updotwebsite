@@ -36,13 +36,13 @@ const Landing = ({ setLandingDisplayed }) => {
         //   "all 0.1s linear";
       };
       document.onkeyup = (e) => {
-        landingRef.current.style.display = "none";
+        if (landingRef.current) landingRef.current.style.display = "none";
         dispatch(pageStateAction.setLoadederRemoved());
         setDot();
         setLandingDisplayed(true);
       };
       landingRef.current.addEventListener("click", (e) => {
-        landingRef.current.style.display = "none";
+        if (landingRef.current) landingRef.current.style.display = "none";
         setDot();
         dispatch(pageStateAction.setLoadederRemoved());
         setLandingDisplayed(true);

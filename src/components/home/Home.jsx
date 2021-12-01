@@ -75,18 +75,18 @@ const Home = (props) => {
   }
 
   let headingStyle = {};
-  if (!(window.innerWidth > 600) && !(window.innerWidth < 800)) {
-    headingStyle = props.isPadding ? { paddingLeft: "5%" } : {};
-  }
-  if (props.isShowVideoHeading && window.innerWidth < 800) {
+  // if (window.innerWidth > 600 && window.innerWidth < 800) {
+  //   headingStyle = props.isPadding ? { paddingLeft: "50%" } : {};
+  // }
+  if (props.isShowVideoHeading && window.innerWidth < 1070) {
     headingStyle["width"] = window.innerWidth >= 600 ? "30%" : "50%";
     headingStyle["paddingLeft"] = "2.5rem";
   }
   if (props.textCenter) headingStyle["textAlign"] = "center";
   if (props.textCenter) headingStyle["alignItems"] = "center";
-  if (props.fontSize && window.innerWidth < 800)
+  if (props.fontSize && window.innerWidth < 1070)
     headingStyle["fontSize"] = props.fontSize;
-  if (window.innerWidth < 800 && props.fontSize)
+  if (window.innerWidth < 1070 && props.fontSize)
     headingStyle["transform"] = "unset";
 
   return (

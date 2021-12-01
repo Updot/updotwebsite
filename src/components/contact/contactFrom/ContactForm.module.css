@@ -521,8 +521,8 @@
     width: 6rem;
   }
   .btn-newsletter {
-    width: 16rem;
-    height: 2.3rem;
+    /* width: 16rem;
+    height: 2.3rem; */
   }
   .form-field-2 {
     grid-template-columns: 25% 70%;
