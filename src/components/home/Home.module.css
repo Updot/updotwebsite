@@ -125,17 +125,27 @@
     font-size: 3.1rem;
   }
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1070px) {
   .heading {
     flex-direction: column;
-    transform: translateY(5%);
+    transform: translateY(7%);
     align-items: flex-start;
-    font-size: 5.8rem;
+    font-size: 13rem;
     line-height: 1.25;
+    margin-left: 7rem;
   }
   .heading-video {
     transform: translateY(-20%);
     margin-left: unset;
+  }
+  .heading-video video {
+    height: 30rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .heading {
+    font-size: 5.8rem;
+    margin-left: 1rem;
   }
   .heading-video video {
     height: 13rem;
@@ -195,7 +205,4 @@
     font-weight: bold;
     margin-bottom: 1.2rem;
   }
-}
-
-@media only screen and (min-width: 660px) and (max-width: 860px) {
 }
