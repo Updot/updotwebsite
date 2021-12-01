@@ -54,11 +54,11 @@ function App() {
       {!landingDisplayed && window.innerWidth > 800 && (
         <Landing setLandingDisplayed={setLandingDisplayed} />
       )}
-      <Switch>
-        <Route path="/" exact>
-          <Home headerDisplayed={headerDisplayed} />
-        </Route>
-        <React.Suspense fallback={<Loader />}>
+      <Route path="/" exact>
+        <Home headerDisplayed={headerDisplayed} />
+      </Route>
+      <React.Suspense fallback={<Loader />}>
+        <Switch>
           <Route path="/about-us">
             <About headerDisplayed={headerDisplayed} />
           </Route>
@@ -86,8 +86,8 @@ function App() {
           <Route path="*">
             <NotFound />
           </Route>
-        </React.Suspense>
-      </Switch>
+        </Switch>
+      </React.Suspense>
       <svg style={{ display: "none" }}>
         <defs>
           <filter id="filter">
