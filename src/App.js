@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router";
+import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import Landing from "./components/landing/Landing";
@@ -27,6 +28,8 @@ function App() {
   const dispatch = useDispatch();
   const [headerDisplayed, setHeaderDisplayed] = useState(true);
   const [landingDisplayed, setLandingDisplayed] = useState(false);
+
+  const location = useLocation();
 
   useEffect(() => {
     const handler = (event) => {
@@ -83,9 +86,7 @@ function App() {
           <Route path="/privacy-policy">
             <PrivacyPage headerDisplayed={headerDisplayed} />
           </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
+          <Route path="*">{location.pathname !== "/" && <NotFound />}</Route>
         </Switch>
       </React.Suspense>
       <svg style={{ display: "none" }}>
