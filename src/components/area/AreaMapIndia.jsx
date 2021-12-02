@@ -1,19 +1,23 @@
 import React, { useEffect, useImperativeHandle, useRef } from "react";
 import { useSelector } from "react-redux";
 import classes from "./AreaMap.module.css";
+
 const AreaMap = React.forwardRef((props, ref) => {
   const arrowCurr = useSelector((state) => state.mouseLocation.currLocation);
   // console.log(arrowCurr);
   const mapRef = useRef(null);
+
   const animateMap = () => {
     mapRef.current.classList.add(`${classes["area-map-active"]}`);
     setTimeout(() => {
       mapRef.current.classList.add(`${classes["area-map-animate"]}`);
     }, 500);
   };
+
   const removeAnimation = () => {
     mapRef.current.classList.remove(`${classes["area-map-animate"]}`);
   };
+
   useImperativeHandle(ref, () => {
     return { animateMap, removeAnimation };
   });
@@ -21,11 +25,12 @@ const AreaMap = React.forwardRef((props, ref) => {
   useEffect(() => {
     const indicator = document.querySelector(`[data-type="indicator"]`);
     const { width, height } = indicator.getBoundingClientRect();
-    if (arrowCurr.x - width * 1.2 < 0) {
-      indicator.style.left = `${arrowCurr.x - width * 1.2}px`;
-    } else {
-      indicator.style.left = `${arrowCurr.x - width * 1.2}px`;
-    }
+    // if (arrowCurr.x - width * 1.2 < 0) {
+    //   indicator.style.left = `${arrowCurr.x - width * 1.2}px`;
+    // } else {
+    //   indicator.style.left = `${arrowCurr.x - width * 1.2}px`;
+    // }
+    indicator.style.left = `${arrowCurr.x - width * 1.2}px`;
     indicator.style.top = `${arrowCurr.y - height * 1.2}px`;
   }, [arrowCurr]);
 
@@ -41,6 +46,7 @@ const AreaMap = React.forwardRef((props, ref) => {
     const nameContainer = document.querySelector(`[data-type="indicator"] p`);
     nameContainer.innerText = stateName;
   };
+
   const onMouseOutHandler = () => {
     document.querySelectorAll(`.${classes["map-loc"]}`).forEach((el) => {
       el.style.fill = `#000`;
@@ -49,6 +55,7 @@ const AreaMap = React.forwardRef((props, ref) => {
       indicator.style.opacity = 0;
     });
   };
+
   return (
     <div>
       <svg

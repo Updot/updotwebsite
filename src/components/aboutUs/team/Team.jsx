@@ -8,13 +8,12 @@ import classes from "./Team.module.css";
 import { Link } from "react-router-dom";
 
 const Team = () => {
-  console.log(teamData);
   return (
     <div className="container">
       <SectionHeading>Our Team</SectionHeading>
       <div className={classes["team-container"]}>
         {teamData.map((data, index) => (
-          <Member key={index} img={data.img || "hritik"} data={data} />
+          <Member key={index} img={data.img || "Hritik"} data={data} />
         ))}
         <Link to="/careers" className={classes["join-team"]}>
           <div className={classes["join-team-container"]}>
