@@ -8,7 +8,6 @@ import classes from "./Team.module.css";
 import { Link } from "react-router-dom";
 
 const Team = () => {
-  console.log(teamData);
   return (
     <div className="container">
       <SectionHeading>Our Team</SectionHeading>
