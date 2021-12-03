@@ -13,20 +13,24 @@
 }
 .error-heading {
   font-weight: bold;
-  font-size: 12.7rem;
+  font-size: 81px;
 }
 .error-text {
-  font-size: 8.7rem;
+  font-size: 56px;
+}
+.error-redirect-link {
+  position: absolute;
+  right: 70px;
 }
 .error-link {
   color: #fff;
   font-weight: bold;
-  font-size: 4.3rem;
+  font-size: 27px;
   text-decoration: none;
 }
 .error-link img {
   height: auto;
-  width: 15rem;
+  width: 97px;
 }
 .error-feature {
   width: 100%;
@@ -36,91 +40,69 @@
   align-items: flex-end;
 }
 .error-image-container {
-  height: 100%;
   position: relative;
+  height: 100%;
   display: grid;
   place-content: center;
 }
 .egg {
-  transform: translateX(30px) translateY(23%);
+  transform: translate(30px, 23%);
 }
 .updot-u {
-  height: 90%;
   width: auto;
+  height: 90%;
 }
 .dot-container {
+  position: absolute;
   height: 200px;
   width: 200px;
-  position: absolute;
-  left: 15vw;
-  bottom: 45vh;
-  animation: animateEgg 3s linear 1s;
+  left: 150px;
+  bottom: 240px;
+  animation: animateEgg 2s linear 2s;
   animation-fill-mode: forwards;
+  transform: scale(85%);
 }
 
 .egg-left {
-  animation: animateEggLeft 0.5s ease-in 4s;
+  animation: animateEggLeft 0.3s ease-in 4s;
   animation-fill-mode: forwards;
   transform: rotate(0deg);
   transform-origin: bottom;
   position: absolute;
-  left: -3px;
+  left: 0;
   bottom: 10px;
 }
 .egg-right {
-  animation: animateEggRight 0.5s ease-in 4s;
+  animation: animateEggRight 0.3s ease-in 4s;
   animation-fill-mode: forwards;
   transform: rotate(0deg);
   transform-origin: bottom;
   position: absolute;
-  left: 49.5px;
+  left: 49px;
   bottom: 18px;
 }
 @keyframes animateEgg {
   0% {
-    left: 15vw;
-    bottom: 45vh;
+    left: 150px;
+    bottom: 240px;
   }
   15% {
-    left: 17vw;
-    bottom: 35.5vh;
+    left: 150px;
+    bottom: 200px;
   }
-  17% {
-    left: 17vw;
-    bottom: 35.5vh;
+  65% {
+    left: 255px;
+    bottom: 140px;
   }
-  85% {
-    left: 26vw;
-    bottom: 24vh;
+  75% {
+    left: 265px;
+    bottom: 90px;
   }
-
   100% {
-    left: 27vw;
-    bottom: 0vh;
+    left: 270px;
+    bottom: 0;
   }
 }
-/* @keyframes animateEgg {
-  0% {
-    left: 15vw;
-    bottom: 45vh;
-  }
-  40% {
-    left: 22vw;
-    bottom: 29vh;
-  }
-  50% {
-    left: 25vw;
-    bottom: 33vh;
-  }
-  60% {
-    left: 28vw;
-    bottom: 37vh;
-  }
-  100% {
-    left: 31vw;
-    bottom: 0vh;
-  }
-} */
 
 @keyframes animateEggLeft {
   0% {
@@ -140,41 +122,106 @@
     transform: rotate(70deg) translatex(-25%);
   }
 }
-@media screen and (max-width: 1300px) {
+
+@media only screen and (max-width: 1050px) {
+  .error {
+    display: flex;
+    flex-direction: column;
+  }
+  .error-text-container {
+    transform: translateY(420px);
+  }
+  .error-redirect-link {
+    padding-bottom: 100px;
+    transform: translateY(300px);
+  }
+  .error-image-container {
+    margin: auto;
+    transform: translate(-100px, -100px);
+  }
+  .updot-u {
+    width: 300px;
+    height: auto;
+  }
   .dot-container {
-    left: 19vw;
-    bottom: 45vh;
+    left: 100px;
+    bottom: 200px;
+    transform: translateX(30px) scale(80%);
   }
-  .egg-left {
-    bottom: 10.4px;
-  }
+
   @keyframes animateEgg {
     0% {
-      left: 19vw;
-      bottom: 45vh;
+      left: 100px;
+      bottom: 200px;
     }
     15% {
-      left: 21vw;
-      bottom: 36vh;
+      left: 110px;
+      bottom: 170px;
     }
-    17% {
-      left: 21vw;
-      bottom: 36vh;
+    65% {
+      left: 200px;
+      bottom: 110px;
     }
-    85% {
-      left: 29vw;
-      bottom: 24vh;
+    75% {
+      left: 220px;
+      bottom: 100px;
     }
-
     100% {
-      left: 32vw;
-      bottom: 0vh;
+      left: 250px;
+      bottom: -40px;
     }
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .error-feature {
-    flex-direction: column;
+  .error-text-container {
+    transform: translateY(250px);
+  }
+  .error-heading {
+    font-size: 70px;
+  }
+  .error-text {
+    font-size: 30px;
+  }
+  .error-redirect-link {
+    right: 7%;
+    padding-bottom: 50px;
+    transform: translateY(200px);
+  }
+
+  .error-image-container {
+    transform: translate(-70px, -100px);
+  }
+  .updot-u {
+    width: 200px;
+    height: auto;
+  }
+  .dot-container {
+    left: 30px;
+    bottom: 100px;
+    transform: translateX(30px) scale(50%);
+  }
+
+  @keyframes animateEgg {
+    0% {
+      left: 30px;
+      bottom: 100px;
+    }
+    15% {
+      left: 40px;
+      bottom: 70px;
+    }
+    65% {
+      left: 120px;
+      bottom: 20px;
+    }
+    75% {
+      left: 120px;
+      bottom: -10px;
+    }
+    100% {
+      left: 125px;
+      bottom: -70px;
+    }
   }
 }
