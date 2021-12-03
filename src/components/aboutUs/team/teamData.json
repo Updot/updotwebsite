@@ -12,9 +12,10 @@
     "img": "Athul"
   },
   {
-    "name": "Ajil Mathew",
+    "name": "Abil Mathew",
     "position": "Accounts Manager",
-    "linkedin": "/"
+    "linkedin": "/",
+    "img": "Abil"
   },
   {
     "name": "Neha J Prakash",
@@ -31,11 +32,13 @@
   {
     "name": "Karthik Ramanan",
     "position": "Director of Mobile App Development",
-    "linkedin": "/"
+    "linkedin": "/",
+    "img": "Karthik"
   },
   {
     "name": "Zaamoodri Suresh",
     "position": "Director of Creative Design ",
-    "linkedin": "/"
+    "linkedin": "/",
+    "img": "Zaamoodri"
   }
 ]

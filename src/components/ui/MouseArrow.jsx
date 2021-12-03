@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { mouseLocationAction } from "../../store/mouseLocation";
 
 import classes from "./MouseArrow.module.css";
+
 const MouseArrow = () => {
   const arrowCurrCords = useSelector(
     (state) => state.mouseLocation.currLocation
@@ -14,12 +15,18 @@ const MouseArrow = () => {
     (state) => state.pageState.isLoaderRemoved
   );
   const isNavActive = useSelector((state) => state.navState.isActive);
+  const isLightThemeActive = useSelector(
+    (state) => state.themeState.isLightThemeActive
+  );
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (!isNavActive) {
       document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
     }
   }, [isNavActive]);
+
   useEffect(() => {
     window.onmousemove = (event) => {
       const x = event.clientX;
@@ -47,10 +54,17 @@ const MouseArrow = () => {
     // };
   }, [arrowRestCords, dispatch, arrowCurrCords]);
 
+  let dotColor;
+  if (isLightThemeActive) dotColor = "#000";
+  else dotColor = "#fff";
+  console.log(dotColor);
+
   const arrowLocation = {
+    backgroundColor: `${dotColor}`,
     left: `${arrowCurrCords.x}px`,
     top: `${arrowCurrCords.y}px`,
   };
+
   return (
     <div
       data-arrow="mousearrow"
