@@ -102,9 +102,9 @@ const ApplyForm = () => {
             <DropDown
               placeholder="Are your currently employed?*"
               register={register}
-              fieldName="Industry"
+              fieldName="Employment"
               setValue={setValue}
-              data={["IT", "Services"]}
+              data={["Yes", "No"]}
               required={false}
             />
             <p className={classes["input-error"]}>
@@ -115,9 +115,9 @@ const ApplyForm = () => {
             <DropDown
               placeholder="How Did You Hear About Us*"
               register={register}
-              fieldName="Industry"
+              fieldName="HereAboutUs"
               setValue={setValue}
-              data={["IT", "Services"]}
+              data={["Search Engine", "Social Media", "Referral"]}
               required={false}
             />
             <p className={classes["input-error"]}>
@@ -130,9 +130,13 @@ const ApplyForm = () => {
             <DropDown
               placeholder="Position Applying For*"
               register={register}
-              fieldName="Industry"
+              fieldName="Position"
               setValue={setValue}
-              data={["IT", "Services"]}
+              data={[
+                "Creative designer",
+                "UI/UX designer",
+                "Product developer",
+              ]}
               required={false}
             />
             <p className={classes["input-error"]}>
@@ -143,9 +147,9 @@ const ApplyForm = () => {
             <DropDown
               placeholder="Preferred Joining Time*"
               register={register}
-              fieldName="Industry"
+              fieldName="JoiningTime"
               setValue={setValue}
-              data={["IT", "Services"]}
+              data={["Immediate", "Within a month", "More than a month"]}
               required={false}
             />
             <p className={classes["input-error"]}>
