@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import dArrowWhite from "../../../assets/img/d-arrow-white.svg";
 import dArrowDark from "../../../assets/img/d-arrow-dark.svg";
 import classes from "./DropDown.module.css";
-import { useSelector } from "react-redux";
 
 const DropDown = (props) => {
-  const [isExpended, setIsExpended] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [dropdownValue, setDropdownValue] = useState("");
   const dropdownOptionsRef = useRef(null);
   const isLightThemeActive = useSelector(
@@ -14,27 +14,27 @@ const DropDown = (props) => {
 
   useEffect(() => {
     const eventHandler = (e) => {
-      if (!e.target.classList.contains(`${classes["dropdown-info"]}`)) {
-        if (isExpended) {
-          setIsExpended(false);
-        }
-      }
+      if (isExpanded) setIsExpanded(false);
     };
     document.addEventListener("click", eventHandler);
     return () => document.removeEventListener("click", eventHandler);
-  }, [isExpended]);
+  }, [isExpanded]);
+
   const onDropDownClickHandler = () => {
-    setIsExpended((prevState) => !prevState);
+    setIsExpanded((prevState) => !prevState);
   };
+
   const onOptionClickHanlder = (val, event) => {
     setDropdownValue(val);
     props.setValue(`${props.fieldName}`, val);
   };
-  let dropdownOptionClass = isExpended
+
+  let dropdownOptionClass = isExpanded
     ? `${classes["dropdown-options"]}`
     : `${classes["dropdown-options"]} ${classes["dropdown-outer-hide"]}`;
 
   const dArrow = isLightThemeActive ? dArrowWhite : dArrowDark;
+
   return (
     <div className={classes.dropdown} onClick={onDropDownClickHandler}>
       <fieldset disabled>
