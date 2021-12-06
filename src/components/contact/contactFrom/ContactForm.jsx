@@ -13,6 +13,7 @@ import classes from "./ContactForm.module.css";
 import InputFile from "../../connect/formFields/InputFile";
 import { useSelector } from "react-redux";
 import Modal from "../../ui/modal/Modal";
+
 const ContactForm = () => {
   const [isStandby, setIsStandby] = useState(false);
   const [isFormTouched, setIsFormTouched] = useState(false);
@@ -144,6 +145,7 @@ const ContactForm = () => {
   const handleVerificationSuccess = (token, ekey) => {
     setHCaptchaData({ token, ekey });
   };
+
   return (
     <>
       <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>

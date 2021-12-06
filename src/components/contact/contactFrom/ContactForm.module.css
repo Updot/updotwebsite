@@ -20,16 +20,17 @@
   display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
-  /* opacity: 0; */
+  opacity: 0;
   animation: animateField 0.2s linear;
   animation-fill-mode: forwards;
 }
 .form-field:nth-of-type(1) {
-  /* opacity: 1; */
+  opacity: 1;
 }
 .field-container {
   display: flex;
   flex-direction: column;
+  opacity: 1 !important;
 }
 .form-field label {
   top: 20%;
@@ -84,24 +85,24 @@
   bottom: 0;
   left: 49.99%;
   transform: translateX(-50%);
-  /* opacity: 0; */
+  opacity: 0;
   transition: all 0.2s ease;
   pointer-events: none;
   user-select: none;
 }
 .updot-img:hover ~ .updot-magnet-img {
-  /* opacity: 1; */
+  opacity: 1;
 }
 .standby-message {
   text-align: center;
   font-size: 2.3rem;
   font-weight: 600;
-  /* opacity: 0; */
+  opacity: 0;
   transition: all 0.6s linear;
   margin-top: 2rem;
 }
 .standby-message-show {
-  /* opacity: 1; */
+  opacity: 1;
 }
 .hide {
   display: none;
@@ -476,12 +477,13 @@
 }
 @keyframes animateField {
   from {
-    /* opacity: 0; */
+    opacity: 0;
   }
   to {
-    /* opacity: 1; */
+    opacity: 1;
   }
 }
+
 .file-container {
   display: flex;
   justify-content: flex-start;
@@ -573,7 +575,7 @@
     bottom: 0;
     left: 48.99%;
     transform: translateX(-48.5%);
-    /* opacity: 0; */
+    opacity: 0;
     transition: all 0.2s ease;
     pointer-events: none;
     user-select: none;

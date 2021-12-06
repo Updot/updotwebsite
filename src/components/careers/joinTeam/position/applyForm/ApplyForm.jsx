@@ -8,6 +8,9 @@ import DropDown from "../../../../connect/formFields/DropDown";
 
 import classes from "./ApplyForm.module.css";
 import InputFile from "../../../../connect/formFields/InputFile";
+
+import { dialCodes } from "./InternationalDialCodes.js";
+
 const ApplyForm = () => {
   // const [showFileInput, setShowFileInput] = useState(false);
   const formOuterRef = useRef(null);
@@ -41,7 +44,7 @@ const ApplyForm = () => {
               error={errors}
               required={true}
               left={window.innerWidth > 800 ? "1%" : "3%"}
-              onFirstChange={() => {}}
+              // onFirstChange={() => {}}
             />
             <p className={classes["input-error"]}>
               {errors.name?.type === "required" && "*Name is required."}
@@ -57,7 +60,7 @@ const ApplyForm = () => {
               register={register}
               fieldName="code"
               setValue={setValue}
-              data={["+91", "+91", "+91", "+91", "+91"]}
+              data={dialCodes}
               required={true}
             />
             <p className={classes["input-error"]}>
