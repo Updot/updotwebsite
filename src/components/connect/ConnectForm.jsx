@@ -6,7 +6,7 @@ import DropDown from "./formFields/DropDown";
 import Checkbox from "./formFields/Checkbox";
 import TextArea from "./formFields/TextArea";
 
-import classes from "./ConnectForm.module.css";
+import classes from "./ConnectForm.module.scss";
 const ConnectForm = () => {
   const {
     register,

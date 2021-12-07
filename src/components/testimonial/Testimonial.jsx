@@ -1,5 +1,5 @@
 import TestimonialContainer from "./TestimonialContainer";
-import classes from "./Testimonial.module.css";
+import classes from "./Testimonial.module.scss";
 
 const Testimonial = () => {
   return (

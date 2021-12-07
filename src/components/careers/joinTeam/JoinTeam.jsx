@@ -1,5 +1,5 @@
 import SectionHeading from "../../ui/SectionHeading";
-import classes from "./JoinTeam.module.css";
+import classes from "./JoinTeam.module.scss";
 import Position from "./position/Position";
 const JoinTeam = () => {
   return (

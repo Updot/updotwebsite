@@ -1,4 +1,4 @@
-import classes from "./Loader.module.css";
+import classes from "./Loader.module.scss";
 
 import updot from "../../../assets/img/updot-logo.svg";
 import { useDispatch } from "react-redux";

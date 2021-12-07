@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import classes from "./AreaStates.module.css";
+import classes from "./AreaStates.module.scss";
 
 const AreaStates = () => {
   const areaStateRef = useRef(null);

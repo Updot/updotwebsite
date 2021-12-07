@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
-import classes from "./FeaturedInfo.module.css";
+import classes from "./FeaturedInfo.module.scss";
 const FeaturedInfo = (props) => {
   const wrapperRef = useRef(null);
   const featuredInfoContainerRef = useRef(null);

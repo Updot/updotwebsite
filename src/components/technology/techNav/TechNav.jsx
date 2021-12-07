@@ -1,4 +1,4 @@
-import classes from "./TechNav.module.css";
+import classes from "./TechNav.module.scss";
 
 const TechNav = (props) => {
   const techNavClickHandler = (navItem, event) => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import pdfIcon from "../../../assets/img/pdf.svg";
 import imageIcon from "../../../assets/img/image.svg";
-import classes from "./InputFile.module.css";
+import classes from "./InputFile.module.scss";
 
 const InputFile = (props) => {
   const [file, setFile] = useState(null);

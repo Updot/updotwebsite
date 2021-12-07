@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import SectionHeading from "../../ui/SectionHeading";
-import classes from "./MasteredSkills.module.css";
+import classes from "./MasteredSkills.module.scss";
+
 const MasteredSkills = () => {
   return (
     <div className={`container ${classes["master-container"]}`}>

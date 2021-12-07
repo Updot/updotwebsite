@@ -1,5 +1,5 @@
 import Lottie from "react-lottie";
-import classes from "./Skill.module.css";
+import classes from "./Skill.module.scss";
 
 const Skill = (props) => {
   const defaultOptions = {

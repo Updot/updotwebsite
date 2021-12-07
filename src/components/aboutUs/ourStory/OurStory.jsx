@@ -1,5 +1,6 @@
 import SectionHeading from "../../ui/SectionHeading";
-import classes from "./OurStory.module.css";
+import classes from "./OurStory.module.scss";
+
 const OurStory = () => {
   return (
     <div className={`${classes["stroy-container"]} container`}>

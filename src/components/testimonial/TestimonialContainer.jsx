@@ -3,7 +3,7 @@ import TestimonialItem from "./TestimonialItem";
 
 import TestimonialData from "./testimonialData.json";
 
-import classes from "./TestimonialContainer.module.css";
+import classes from "./TestimonialContainer.module.scss";
 
 import UserImg from "../../assets/img/testimonials/user-image.svg";
 
@@ -39,9 +39,8 @@ const TestimonialContainer = () => {
   };
   const mouseOverInnerHanlder = (event) => {
     testimonialContainerInnerRef.current.style.animationPlayState = "paused";
-};
-const mouseOutInnerHandler = (event) => {
-    
+  };
+  const mouseOutInnerHandler = (event) => {
     testimonialContainerInnerRef.current.style.animationPlayState = "running";
   };
   return (

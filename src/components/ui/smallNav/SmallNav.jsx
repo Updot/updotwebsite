@@ -1,4 +1,5 @@
-import classes from "./SmallNav.module.css";
+import classes from "./SmallNav.module.scss";
+
 const SmallNav = (props) => {
   const onButtonClickHandler = (val, e) => {
     document

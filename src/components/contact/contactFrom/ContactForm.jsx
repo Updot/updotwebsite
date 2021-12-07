@@ -9,7 +9,7 @@ import TextArea from "../../connect/formFields/TextArea";
 import UpdotLogo from "../../../assets/img/updot-big.svg";
 import UpdotMagnet from "../../../assets/img/updot-magnet.svg";
 
-import classes from "./ContactForm.module.css";
+import classes from "./ContactForm.module.scss";
 import InputFile from "../../connect/formFields/InputFile";
 import { useSelector } from "react-redux";
 import Modal from "../../ui/modal/Modal";

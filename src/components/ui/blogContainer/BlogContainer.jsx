@@ -1,4 +1,5 @@
-import classes from "./BlogContainer.module.css";
+import classes from "./BlogContainer.module.scss";
+
 const BlogContainer = (props) => {
   if (props.paraOnly)
     return (

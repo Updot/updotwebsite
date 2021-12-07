@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import classes from "./ScrollDot.module.css";
+import classes from "./ScrollDot.module.scss";
 
 const ScrollDot = (props) => {
   const dotContainer = [];

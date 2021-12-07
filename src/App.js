@@ -7,7 +7,7 @@ import Landing from "./components/landing/Landing";
 import Cookies from "./components/cookies/Cookies";
 import Loader from "./components/ui/loader/Loader";
 import MouseArrow from "./components/ui/MouseArrow";
-import "./App.css";
+import "./App.scss";
 import { themeStateAction } from "./store/themeState";
 // import Header from "./components/ui/header/Header";
 // import Nav from "./components/ui/nav/Nav";

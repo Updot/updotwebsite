@@ -1,7 +1,7 @@
 import SectionHeading from "../ui/SectionHeading";
 import FaqItem from "./FaqItem";
 
-import classes from "./Faq.module.css";
+import classes from "./Faq.module.scss";
 
 const FAQ_POINTS = [
   {

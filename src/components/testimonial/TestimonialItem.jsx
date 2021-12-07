@@ -1,7 +1,7 @@
 import UpQuote from "../../assets/img/testimonials/testimonial-quote-up.svg";
 import DownQuote from "../../assets/img/testimonials/testimonial-quote-down.svg";
 
-import classes from "./TestimonialItem.module.css";
+import classes from "./TestimonialItem.module.scss";
 
 const TestimonialItem = (props) => {
   return (

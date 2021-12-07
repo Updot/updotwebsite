@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import classes from "./Nav.module.css";
+import classes from "./Nav.module.scss";
 // import SubNav from "./subNav/SubNav";
 import instaIcon from "../../../assets/img/insta-icon.svg";
 import fbIcon from "../../../assets/img/fb-icon.svg";

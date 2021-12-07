@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import classes from "./LandingUpdot.module.css";
+import classes from "./LandingUpdot.module.scss";
 const LandingUpdot = (props) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
   const onMouseOverHandler = () => {

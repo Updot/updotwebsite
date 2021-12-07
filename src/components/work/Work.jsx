@@ -4,7 +4,7 @@ import BlogCard from "../ui/blogCard/BlogCard";
 import workData from "./work-data.json";
 import downArrow from "./../../assets/img/down-arrow.svg";
 
-import classes from "./Work.module.css";
+import classes from "./Work.module.scss";
 import { useEffect, useState } from "react";
 
 let cardCount = 0;

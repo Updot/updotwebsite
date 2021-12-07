@@ -2,7 +2,7 @@ import { Fragment, useEffect, useRef } from "react";
 import Skill from "../skills/Skill";
 import Technology from "../technology/Tech";
 import webDevIcon from "../../assets/img/skills/webdev-icon.svg";
-import classes from "./Services.module.css";
+import classes from "./Services.module.scss";
 import SectionHeading from "../ui/SectionHeading";
 
 const Services = (props) => {

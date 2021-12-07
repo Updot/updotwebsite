@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import classes from "./Icon.module.css";
+import classes from "./Icon.module.scss";
 
 const image = require.context("../../../assets/img/services-icons/");
 const Icon = (props) => {

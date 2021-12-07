@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import dArrowWhite from "../../../assets/img/d-arrow-white.svg";
 import dArrowDark from "../../../assets/img/d-arrow-dark.svg";
-import classes from "./DropDown.module.css";
+import classes from "./DropDown.module.scss";
 
 const DropDown = (props) => {
   const [isExpanded, setIsExpanded] = useState(false);

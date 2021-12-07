@@ -3,7 +3,7 @@ import SectionHeading from "../ui/SectionHeading";
 import ScrollDot from "./ScrollDot";
 import SkillContainer from "./SkillContainer";
 
-import classes from "./Skills.module.css";
+import classes from "./Skills.module.scss";
 
 let count = 0;
 const Skills = () => {
