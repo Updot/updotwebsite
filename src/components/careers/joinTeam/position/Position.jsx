@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import SectionHeading from "../../../ui/SectionHeading";
-import classes from "./Position.module.css";
+import classes from "./Position.module.scss";
 import mouse from "../../../../assets/img/mouse.svg";
 import cross from "../../../../assets/img/cross-apply-now.svg";
 import arrowLeft from "../../../../assets/img/arrow-left.svg";

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SectionHeading from "../ui/SectionHeading";
 import TechNav from "./techNav/TechNav";
 
-import classes from "./Tech.module.css";
+import classes from "./Tech.module.scss";
 import Icons from "./techIcons/Icons";
 const Tech = (props) => {
   const [servicesData, setServicesData] = useState("");

@@ -13,7 +13,7 @@ import fortuneLogo from "../../assets/img/featured/fortune.png";
 import fortuneWeb from "../../assets/img/featured/fortune-web.svg";
 
 import featuredData from "./featuredData.json";
-import classes from "./Featured.module.css";
+import classes from "./Featured.module.scss";
 
 const Featured = () => {
   const [isAnimated, setIsAnimated] = useState(false);

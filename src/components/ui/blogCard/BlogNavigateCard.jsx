@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import blogPlaceholder from "./../../../assets/img/insight-placeholder.png";
 import rightArrow from "./../../../assets/img/right-arrow.svg";
 import leftArrow from "./../../../assets/img/down-arrow.svg";
-import classes from "./BlogCard.module.css";
+import classes from "./BlogCard.module.scss";
 
 const BlogNavigateCard = (props) => {
   const dotRef = useRef(null);

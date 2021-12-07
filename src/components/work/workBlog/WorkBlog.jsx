@@ -6,7 +6,7 @@ import leftArrow from "./../../../assets/img/down-arrow.svg";
 import imageBigSample from "./../../../assets/img/image-big-sample.png";
 import imageSmallSample from "./../../../assets/img/image-small-sample.png";
 import BlogContainer from "../../ui/blogContainer/BlogContainer";
-import classes from "./WorkBlog.module.css";
+import classes from "./WorkBlog.module.scss";
 import BlogNavigateCard from "../../ui/blogCard/BlogNavigateCard";
 import blogData from "./data.json";
 import BlogImage from "../../ui/blogCard/BlogImage";

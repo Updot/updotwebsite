@@ -5,7 +5,7 @@ import { useRef } from "react";
 import SectionHeading from "../ui/SectionHeading";
 import Client from "./Client";
 
-import classes from "./Clients.module.css";
+import classes from "./Clients.module.scss";
 
 import ab from "../../assets/img/clients/AB-logo.svg";
 import abBlack from "../../assets/img/clients/AB-logo-black.svg";

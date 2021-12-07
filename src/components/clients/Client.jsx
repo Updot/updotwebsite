@@ -1,5 +1,5 @@
 import { useState } from "react";
-import classes from "./Client.module.css";
+import classes from "./Client.module.scss";
 const Client = (props) => {
   return (
     <div className={`${classes.client} ${props.className}`}>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import classes from "./Input.module.css";
+import classes from "./Input.module.scss";
 
 const TextArea = (props) => {
   const labelRef = useRef(null);

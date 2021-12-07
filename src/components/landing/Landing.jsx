@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-import classes from "./Landing.module.css";
+import classes from "./Landing.module.scss";
 import LandingUpdot from "./LandingUpdot";
 import updotBlack from "../../assets/img/updot-black.svg";
 import { pageStateAction } from "../../store/pageState";

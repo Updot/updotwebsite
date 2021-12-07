@@ -8,7 +8,7 @@ import maskVideo from "../../assets/videos/mask-video.mp4";
 // import { navStateAction } from "../../store/NavState";
 // import { mouseLocationAction } from "../../store/mouseLocation";
 import colorTheme from "./colorTheme.json";
-import classes from "./Home.module.css";
+import classes from "./Home.module.scss";
 import { Link } from "react-router-dom";
 // import { useCallback } from "react";
 

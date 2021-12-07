@@ -1,4 +1,4 @@
-import classes from "./SectionHeading.module.css";
+import classes from "./SectionHeading.module.scss";
 const SectionHeading = (props) => {
   return (
     <h2

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/img/updot-logo.svg";
 import { navStateAction } from "../../../store/NavState";
 
-import classes from "./Header.module.css";
+import classes from "./Header.module.scss";
 
 const Header = (props) => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import classes from "./Member.module.css";
+import classes from "./Member.module.scss";
 
 import linkedinIcon from "../../../../assets/img/linkedin-icon-color.svg";
 

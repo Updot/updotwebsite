@@ -1,7 +1,7 @@
 import Faq from "../../faq/Faq";
 import faqData from "./valuesData.json";
 
-import classes from "./OurValues.module.css";
+import classes from "./OurValues.module.scss";
 
 const OurValues = () => {
   return (

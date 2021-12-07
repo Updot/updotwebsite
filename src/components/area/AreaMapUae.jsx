@@ -1,6 +1,6 @@
 import React, { useImperativeHandle, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import classes from "./AreaMap.module.css";
+import classes from "./AreaMap.module.scss";
 
 const AreaMapUae = React.forwardRef((props, ref) => {
   const arrowCurr = useSelector((state) => state.mouseLocation.currLocation);

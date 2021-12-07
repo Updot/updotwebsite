@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 import Skill from "./Skill";
 import SectionHeading from "../ui/SectionHeading";
-import classes from "./SkillContainer.module.css";
+import classes from "./SkillContainer.module.scss";
 
 import webIcon from "../../assets/img/lottiefiles/Pointer.json";
 import appIcon from "../../assets/img/lottiefiles/androidapple.json";

@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import downArrow from "./../../../assets/img/down-arrow.svg";
-import classes from "./BlogCard.module.css";
+import classes from "./BlogCard.module.scss";
 import BlogImage from "./BlogImage";
 
 const BlogCard = (props) => {

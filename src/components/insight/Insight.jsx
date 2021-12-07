@@ -4,7 +4,7 @@ import BlogHeader from "../ui/blogHeader/BlogHeader";
 import insightData from "./insightData.json";
 import downArrow from "./../../assets/img/down-arrow.svg";
 
-import classes from "./Insight.module.css";
+import classes from "./Insight.module.scss";
 import BlogCard from "../ui/blogCard/BlogCard";
 
 let insightCount = 0;

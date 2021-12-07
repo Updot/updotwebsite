@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import SectionHeading from "../ui/SectionHeading";
-import classes from "./Term.module.css";
+import classes from "./Term.module.scss";
 const Term = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
