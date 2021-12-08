@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import ServiceData from "../../connect/serviceData.json";
@@ -8,11 +9,11 @@ import Checkbox from "../../connect/formFields/Checkbox";
 import TextArea from "../../connect/formFields/TextArea";
 import UpdotLogo from "../../../assets/img/updot-big.svg";
 import UpdotMagnet from "../../../assets/img/updot-magnet.svg";
-
-import classes from "./ContactForm.module.scss";
 import InputFile from "../../connect/formFields/InputFile";
-import { useSelector } from "react-redux";
 import Modal from "../../ui/modal/Modal";
+
+import { dialCodes } from "../../../util/InternationalDialCodes";
+import classes from "./ContactForm.module.scss";
 
 const ContactForm = () => {
   const [isStandby, setIsStandby] = useState(false);
@@ -190,7 +191,7 @@ const ContactForm = () => {
                   register={register}
                   fieldName="code"
                   setValue={setValue}
-                  data={["+91", "+91", "+91", "+91", "+91"]}
+                  data={dialCodes}
                   required={true}
                 />
                 <p className={classes["input-error"]}>
