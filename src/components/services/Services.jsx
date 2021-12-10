@@ -1,7 +1,6 @@
 import { Fragment, useEffect, useState, useRef } from "react";
 import Technology from "../technology/Tech";
-import webDevIcon from "../../assets/img/skills/webdev-icon.svg";
-import Skill from "../skills/Skill";
+import ServiceDescription from "./ServiceDescription";
 import classes from "./Services.module.scss";
 import SectionHeading from "../ui/SectionHeading";
 
@@ -72,8 +71,8 @@ const Services = (props) => {
               );
               document
                 .querySelectorAll(`.${classes["sub-process"]}`)
-                .forEach((el) =>
-                  el.classList.add(`${classes["sub-process-animate"]}`)
+                .forEach((e) =>
+                  e.classList.add(`${classes["sub-process-animate"]}`)
                 );
             }
           } else {
@@ -109,7 +108,7 @@ const Services = (props) => {
   return (
     <Fragment>
       <div className={classes["service-container"]}>
-        <Skill
+        <ServiceDescription
           lottie={iconsData[iconNumber]}
           skillData={{ desc }}
           isPadding={window < 800}
