@@ -57,7 +57,6 @@ const MouseArrow = () => {
   let dotColor;
   if (isLightThemeActive) dotColor = "#000";
   else dotColor = "#fff";
-  console.log(dotColor);
 
   const arrowLocation = {
     backgroundColor: `${dotColor}`,
