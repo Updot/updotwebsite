@@ -4,7 +4,7 @@ import Skill from "./Skill";
 import SectionHeading from "../ui/SectionHeading";
 import classes from "./SkillContainer.module.scss";
 
-import webIcon from "../../assets/img/lottiefiles/Pointer.json";
+import webIcon from "../../assets/img/lottiefiles/pointer.json";
 import appIcon from "../../assets/img/lottiefiles/androidapple.json";
 import chatBotIcon from "../../assets/img/lottiefiles/chatbot.json";
 import cloudIcon from "../../assets/img/lottiefiles/cloud.json";
