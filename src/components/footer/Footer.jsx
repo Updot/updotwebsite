@@ -3,7 +3,7 @@ import linkedinImg from "../../assets/img/linkedin.svg";
 import facebookImg from "../../assets/img/fb-icon.svg";
 import instagramImg from "../../assets/img/insta-icon.svg";
 import upArrow from "../../assets/img/up-arrow.svg";
-import classes from "./Footer.module.css";
+import classes from "./Footer.module.scss";
 
 const Footer = (props) => {
   const onUpArrowClickHandler = () => {

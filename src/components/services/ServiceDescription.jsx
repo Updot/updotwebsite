@@ -1,7 +1,7 @@
 import Lottie from "react-lottie";
-import classes from "./Skill.module.scss";
+import classes from "./ServiceDescription.module.scss";
 
-const Skill = (props) => {
+const ServiceDescription = (props) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -10,6 +10,7 @@ const Skill = (props) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
   return (
     <div
       className={classes.skill}
@@ -40,21 +41,19 @@ const Skill = (props) => {
                     : 500
                   : 400
               }
-              style={{
-                filter: "var(--filter)",
-                transform: `${
-                  window.innerWidth > 800 ? "translate(5vw ,20vh)" : ""
-                }`,
-              }}
+              //   style={{
+              //     filter: "var(--filter)",
+              //     transform: `${
+              //       window.innerWidth > 800 ? "translate(5vw ,20vh)" : ""
+              //     }`,
+              //   }}
             />
           )}
-          {props.img && (
-            <img src={props.img} alt="" style={{ marginTop: "6rem" }} />
-          )}
+          {props.img && <img src={props.img} alt="" />}
         </div>
       </div>
     </div>
   );
 };
 
-export default Skill;
+export default ServiceDescription;

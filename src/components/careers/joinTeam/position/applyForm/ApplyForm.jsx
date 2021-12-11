@@ -6,10 +6,10 @@ import DropDown from "../../../../connect/formFields/DropDown";
 // import Checkbox from "../../../../connect/formFields/Checkbox";
 // import TextArea from "../../../../connect/formFields/TextArea";
 
-import classes from "./ApplyForm.module.css";
+import classes from "./ApplyForm.module.scss";
 import InputFile from "../../../../connect/formFields/InputFile";
 
-import { dialCodes } from "./InternationalDialCodes.js";
+import { dialCodes } from "../../../../../util/InternationalDialCodes";
 
 const ApplyForm = () => {
   // const [showFileInput, setShowFileInput] = useState(false);

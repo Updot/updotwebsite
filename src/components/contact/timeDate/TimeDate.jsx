@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import weatherIcon from "../../../assets/img/weather-icon.svg";
 
-import classes from "./TimeDate.module.css";
+import classes from "./TimeDate.module.scss";
 
 const TimeDate = () => {
   const [time, setTime] = useState({});

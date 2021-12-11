@@ -11,7 +11,7 @@ import BlogImage from "../../ui/blogCard/BlogImage";
 
 import data from "../insightData.json";
 
-import classes from "./InsightBlog.module.css";
+import classes from "./InsightBlog.module.scss";
 
 const InsightBlog = () => {
   const history = useHistory();

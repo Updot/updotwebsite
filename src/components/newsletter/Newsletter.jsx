@@ -6,7 +6,7 @@ import UpdotLogo from "../../assets/img/updot-big.svg";
 import rightArrow from "../../assets/img/right-arrow.svg";
 import Input from "../connect/formFields/Input";
 import Modal from "../ui/modal/Modal";
-import classes from "./Newsletter.module.css";
+import classes from "./Newsletter.module.scss";
 
 const Newsletter = () => {
   const [isFormTouched, setIsFormTouched] = useState(false);

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Input from "../../connect/formFields/Input";
 import SmallNav from "../../ui/smallNav/SmallNav";
 
-import classes from "./BlogHeader.module.css";
+import classes from "./BlogHeader.module.scss";
 const BlogHeader = (props) => {
   const {
     register,

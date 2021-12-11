@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import SectionHeading from "../ui/SectionHeading";
-import classes from "./Privacy.module.css";
+import classes from "./Privacy.module.scss";
 const Privacy = () => {
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -1,5 +1,5 @@
 import blogPlaceholder from "./../../../assets/img/insight-placeholder.png";
-import classes from "./BlogCard.module.css";
+import classes from "./BlogCard.module.scss";
 const BlogImage = (props) => {
   const animateClass = props.isTrue
     ? `${classes["blog-dot-animate-even"]}`

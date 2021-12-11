@@ -5,7 +5,7 @@ import whatsappIcon from "../../../assets/img/contact/Whatsapp.svg";
 import outlookIcon from "../../../assets/img/contact/Outlook.svg";
 import telegramIcon from "../../../assets/img/contact/telegram.svg";
 
-import classes from "./ContactSocial.module.css";
+import classes from "./ContactSocial.module.scss";
 const ContactSocial = () => {
   return (
     <div className={classes["social-outer"]}>

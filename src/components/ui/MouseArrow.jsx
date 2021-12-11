@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { mouseLocationAction } from "../../store/mouseLocation";
 
-import classes from "./MouseArrow.module.css";
+import classes from "./MouseArrow.module.scss";
 
 const MouseArrow = () => {
   const arrowCurrCords = useSelector(
@@ -57,7 +57,6 @@ const MouseArrow = () => {
   let dotColor;
   if (isLightThemeActive) dotColor = "#000";
   else dotColor = "#fff";
-  console.log(dotColor);
 
   const arrowLocation = {
     backgroundColor: `${dotColor}`,

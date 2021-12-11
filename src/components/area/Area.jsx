@@ -6,7 +6,7 @@ import AreaMapUae from "./AreaMapUae";
 import AreaSwitch from "./areaSwitch/AreaSwitch";
 // import AreaStates from "./AreaStates";
 
-import classes from "./Area.module.css";
+import classes from "./Area.module.scss";
 
 const Area = () => {
   const currMap = useSelector((state) => state.mapState.currMap);

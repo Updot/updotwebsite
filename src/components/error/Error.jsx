@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import updot from "../../assets/img/updot.svg";
 import updotU from "../../assets/img/U.svg";
 
-import classes from "./Error.module.css";
+import classes from "./Error.module.scss";
 
 const Error = ({ isLightThemeActive }) => {
   let eggColor;

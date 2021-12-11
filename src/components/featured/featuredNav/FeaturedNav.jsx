@@ -1,4 +1,4 @@
-import classes from "./FeaturedNav.module.css";
+import classes from "./FeaturedNav.module.scss";
 const FeaturedNav = (props) => {
   const onButtonClickHandler = (val, e) => {
     document

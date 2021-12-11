@@ -1,7 +1,7 @@
 import Faq from "../../faq/Faq";
 import lifeFaqData from "./lifeData.json";
 
-import classes from "./Life.module.css";
+import classes from "./Life.module.scss";
 
 const Life = () => {
   return (

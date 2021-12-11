@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
-import classes from "./Cookies.module.css";
+import classes from "./Cookies.module.scss";
 import { useSelector } from "react-redux";
 const Cookies = () => {
   const [isResponded, setIsResponded] = useState(false);

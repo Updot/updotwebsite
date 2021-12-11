@@ -4,7 +4,7 @@ import Member from "./member/Member";
 import teamData from "./teamData.json";
 import joinTeamImg from "../../../assets/img/join-team.svg";
 
-import classes from "./Team.module.css";
+import classes from "./Team.module.scss";
 import { Link } from "react-router-dom";
 
 const Team = () => {

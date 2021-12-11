@@ -1,5 +1,6 @@
 import SectionHeading from "../../ui/SectionHeading";
-import classes from "./CareerPara.module.css";
+import classes from "./CareerPara.module.scss";
+
 const CareerPara = () => {
   return (
     <div className={`${classes["career-container"]} container`}>

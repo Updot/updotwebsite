@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { mapStateAction } from "../../../store/mapState";
 import indiaMin from "../../../assets/img/ind-small.svg";
 import uaeMin from "../../../assets/img/uae-min.svg";
+
 const AreaSwitch = (props) => {
   const dispatch = useDispatch();
 

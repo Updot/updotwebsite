@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import classes from "./Modal.module.css";
+import classes from "./Modal.module.scss";
 
 export default function Modal({ isModalOpen, setIsModalOpen, children }) {
   const clickHandle = (e) => {
