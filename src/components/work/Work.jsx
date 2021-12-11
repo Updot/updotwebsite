@@ -20,7 +20,7 @@ const Work = () => {
         <BlogCard
           key={data.key}
           index={i}
-          heading={`${data.heading}${cardCount}`}
+          heading={`${data.heading}`}
           workId={data.key}
           arrowInline={true}
           isArrowLeftMargin={true}

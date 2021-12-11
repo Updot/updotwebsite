@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useHistory, useRouteMatch, useParams } from "react-router";
 import Home from "../../home/Home";
 import BlogCard from "../../ui/blogCard/BlogCard";
@@ -8,21 +8,28 @@ import imageSmallSample from "./../../../assets/img/image-small-sample.png";
 import BlogContainer from "../../ui/blogContainer/BlogContainer";
 import classes from "./WorkBlog.module.css";
 import BlogNavigateCard from "../../ui/blogCard/BlogNavigateCard";
-import blogData from "./data.json";
+import data from "./../work-data.json";
 import BlogImage from "../../ui/blogCard/BlogImage";
 
 const WorkBlog = () => {
   const history = useHistory();
   const match = useRouteMatch();
+  const params = useParams();
 
-  const navigateLink = blogData.navigateLink;
-
-  const workId = useParams();
-  console.log(workId);
+  const [blogData, setBlogData] = useState();
 
   useEffect(() => {
+    let blogData = {};
+    blogData = data.filter((d) => d.key === params.workId)[0].data;
+    setBlogData(blogData);
+  }, [params.workId]);
+  useEffect(() => {
     window.scrollTo(0, 0);
-  }, [navigateLink]);
+  }, []);
+
+  if (!blogData) return <></>;
+
+  const navigateLink = blogData.navigateLink;
 
   const onBackClickHandler = () => {
     history.push("/work");

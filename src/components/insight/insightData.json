@@ -1,14 +1,104 @@
 [
   {
-    "key": "i1",
-    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
+    "key": "Adobe-XD-vs-Figma",
+    "heading": "Adobe XD vs Figma",
+    "data": {
+      "title": "Adobe XD vs Figma",
+      "author": "Updot",
+      "date": "05-12-2021",
+      "intro_para": "Choosing between Adobe XD and Figma has been a befogging process for every UI/UX professional for quite some time now. Although both the software are significantly different in their interface and design, it is pretty difficult to choose a tool for long time use.",
+      "intro_image": "https://firebasestorage.googleapis.com/v0/b/updot-home.appspot.com/o/test%2Finsight-placeholder.png?alt=media&token=a9183e2d-5c99-406c-8f4c-e936aaa500cb",
+      "content": [
+        {
+          "para_only": true,
+          "para": "Adobe XD is a very popular vector-based designing tool. Known for its easy and flexible wireframing, it is an excellent choice for simple and powerful interactions. Being a baby of Adobe Inc. it is well integrated with the rest of the Adobe creative suite and the users can also experience remarkable community support. Adobe XD scores point when it comes to website mock-ups. The tool also comes with a considerable amount of plug-ins and automatic animation. The software is light and fast and is available for macOS and Windows. The best thing about XD is that it offers a basic introductory tutorial to beginners. The interface is simple and clean. The software is an absolute yes for designers as it facilitates prototyping. Who would say no to code-free mock-ups?"
+        },
+        {
+          "para_only": true,
+          "para": "Being all that said, Adobe XD fails in third-party plug-ins and real-time collaborations. Although there is a free trial version available, the features they provide in it are very limited. The tool also lacks HTML export features and motion gifs. Horizontal scrolling is also missing in the tool. Users find the constant crashing and the application bugs annoying."
+        },
+        {
+          "para_only": true,
+          "para": "Figma is a new, yet well-liked design tool among the developers. What makes Figma in demand is that the software outshines the other alternatives in all the ways possible. Figma is a cloud software, with an auto-save facility so that the users need not download, install and continually update a separate software for designing. The ruling factor why the designers choose Figma over the other tools is that the app permits real-time collaborations. This helps in quick verifications and minimizes errors. Another add-on is memory management through which the users have easy and fast access to resources. Figma is a mile ahead in the prototype tool race. The prototyping Figma provides is quite interactive and user-friendly. Auto layouts are an additional attraction to Figma. Figma surpasses Adobe XD by offering the users a free version with all the features. The interface is fluid fast and simple so the users can effortlessly find whatever they want. The tool comes with access to a wide range of plug-ins at your fingertips. Another supplemental advantage of Figma is that it runs on Windows, Mac, Linux as well as Chromebooks. Figma is that one tool that you can rely upon if you are in need of consistent designs."
+        },
+        {
+          "para_only": true,
+          "para": "All things considered, Figma still has some quirks that are hard to adjust. More attention to jams sessions and PDF export can be a huge win for the community. As it is web-based software, speed and loading times might be an issue for larger files. Keeping track of changes is very difficult in Figma as the version control is almost non-existent. Still and all, Figma is a go-to tool for designers."
+        },
+        {
+          "para_only": true,
+          "para": "It is quite evident that Adobe XD and Figma, both have their own advantages and shortcomings. You can’t go wrong with either of the tools if you’re a user interface designer.  Now that the question is regarding which of the two is better. Simply put, the effectiveness of the tool depends on the person using it. If you are a beginner in the field of designing, unshakeably Figma is the best option in front of you. You get to use all the features for free that you will have to pay for otherwise on any other tool. Also, as already mentioned, Figma is user-friendly and has a very simple interface so that learning becomes much easier. On the other hand, if you are a pro in the field, looking for boundaries to explore, you can confidently go for Adobe XD where you can experience good community support. "
+        }
+      ]
+    }
   },
   {
-    "key": "i2",
-    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
-  },
-  {
-    "key": "i3",
-    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
+    "key": "Top-5-Plugins-for-Figma",
+    "heading": "Top 5 Plugins for Figma",
+    "data": {
+      "title": "Top 5 Plugins for Figma",
+      "author": "Updot",
+      "date": "05-12-2021",
+      "intro_para": "Plug-ins are very utile when it comes to web development. The extensions facilitate the addition of new functions without modifying the host program. Plug-ins are an actual boon to modern developers as they save a considerable amount of time and are highly reliable.",
+      "intro_image": "https://firebasestorage.googleapis.com/v0/b/updot-home.appspot.com/o/test%2Finsight-placeholder.png?alt=media&token=a9183e2d-5c99-406c-8f4c-e936aaa500cb",
+      "content": [
+        {
+          "para_only": true,
+          "para": "Figma is a web-based designing tool that gained popularity amongst developers within no time. Although primarily web-based, Figma also has additional offline features making it more flexible and dependable. Giants like Zoom, Airbnb, Herman Miller use Figma for effortless project management."
+        },
+        {
+          "para_only": true,
+          "para": "Figma is a first-class solution for interface designing and the options from a big assortment of templates, icons, tools, and plugins make it even better. The software serves the purpose of real-time collaborations. The distinct advantage of Figma over other existing tools is that it runs on Windows, Mac, Linux, and also Chromebooks. If you are in requisite of consistent designs, Figma is the one software that you can rely upon, for it has all necessary tools for the development stage of a project including vector tools that are capable of prototyping and full-fledged illustrations."
+        },
+        {
+          "para_only": true,
+          "para": "Changing names, objects, and layer numbers is a piece of cake with Figma. As the software caters to the facility of real-time collaborations, the chances for errors in the files are minimal or even zero.  It is an incredible tool if you need to work with your client as a quick and convenient verification is possible."
+        },
+        {
+          "para_only": true,
+          "para": "Figma is impressive in terms of its speed and efficiency. Adding to it, there is no need to download, install or continually update a separate software as you can work online."
+        },
+        {
+          "para_only": true,
+          "para": "Keeping all of it apart, if you are a current user of Sketch, Figma provides a brilliant option to switch over and import all the Sketch projects to Figma without any losses. Also as a bonus point, Figma enables integration with Slack resulting in a powerful duo."
+        },
+        {
+          "para_only": true,
+          "para": "The plugins and other resources for Figma are continuously uploaded and updated in the Figma community so that the users of the software have easy and convenient access to the previously developed resources."
+        },
+        {
+          "para_only": true,
+          "para": "The top five plugins used in Figma are:"
+        },
+        {
+          "para_only": true,
+          "para": "<b>1. Unsplash</b>: Unsplash is the most commonly used plugin in Figma. This plugin allows users to insert images to their design at ease. A Figma user can either insert image from an already existing stock of a million images or can also insert a random image of their choice. A visually appealing design has higher chances of client acceptance. And when it comes to an eye-pleasing design, Unsplash does the work for you."
+        },
+        {
+          "para_only": true,
+          "para": "<b>2. Color palette</b>: Color palette is yet another plugin that comes to your help in making visually appealing designs. Using Color Palettes for Figma, one can search their needed palette number or colour code from Color Palettes plugin and apply it to the design and make it impressive."
+        },
+        {
+          "para_only": true,
+          "para": "<b>3. Figmotion</b>: Animations are easy- breezy with Figmotion for Figma. Figmotion is an animation tool built-in Figma which makes basic and beginner-level animations easy. The plugin makes animation trouble-free as there is no need to switch to a completely different motion tool. "
+        },
+        {
+          "para_only": true,
+          "para": "<b>4. Logo creator</b>: Logo creator provides access to awesome logos for your new project at your fingertips. All you need to do is to browse for your desired logo in the prebuild stock of logos. One may even craft a logo by choosing from a variety of shapes and components."
+        },
+        {
+          "para_only": true,
+          "para": "<b>3. Able</b>: Able is highly useful when it comes to comparing the contrast between two layers. It aids in adding color contrast and color blindness to the workflow with little effort possible. The comparison of contrasts is done automatically as soon as we open the plug-in. It is also possible to simulate a variety of color blindness on the selected layers in the preview."
+        },
+        {
+          "para_only": true,
+          "para": "The other useful and highly efficient plugins for Figma include Content reel, Iconify, LilGrid, and Table paste. Content reel pulls content into the design while Iconify provides around 40000 pre-produced icons to choose from. If LilGrid helps in cleaning up the app interface, Table paste exports data from Excel sheets."
+        },
+        {
+          "para_only": true,
+          "para": "Altogether,it goes without saying that Figma is one of the most recommended tools for designing. And with a variety of plugin options Figma provides, designing is as easy as ABC."
+        }
+      ]
+    }
   }
 ]

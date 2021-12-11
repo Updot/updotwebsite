@@ -3,7 +3,7 @@ const BlogContainer = (props) => {
   if (props.paraOnly)
     return (
       <div className={classes["container-para"]}>
-        <p>{props.children}</p>
+        <p dangerouslySetInnerHTML={{ __html: props.children }}></p>
       </div>
     );
   else if (props.imageOnly && props.imageCount === 1) {

@@ -1,5 +1,5 @@
-import { Fragment, useEffect } from "react";
-import { useHistory } from "react-router";
+import { Fragment, useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router";
 import Home from "../../home/Home";
 import BlogCard from "../../ui/blogCard/BlogCard";
 import leftArrow from "./../../../assets/img/down-arrow.svg";
@@ -9,17 +9,22 @@ import bar from "./../../../assets/img/bar.svg";
 import BlogContainer from "../../ui/blogContainer/BlogContainer";
 import BlogImage from "../../ui/blogCard/BlogImage";
 
-import blogData from "./data.json";
+import data from "../insightData.json";
 
 import classes from "./InsightBlog.module.css";
 
 const InsightBlog = () => {
   const history = useHistory();
-
+  const param = useParams();
+  const [blogData, setBlogData] = useState();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const filterData = data.filter((d) => d.key === param["insightId"]);
+    setBlogData(filterData[0].data);
+  }, [param]);
   const onBackClickHandler = () => {
     history.goBack();
   };
@@ -28,39 +33,43 @@ const InsightBlog = () => {
   const flowReverse =
     window.innerWidth > 800 ? "row-reverse" : "column-reverse";
 
-  const blogContent = blogData.content.map((data) => {
-    if (data.para_only) {
-      return (
-        <BlogContainer paraOnly={data.para_only}>{data.para}</BlogContainer>
-      );
-    } else {
-      if (data.para.length > 250) {
+  let blogContent = [];
+  if (blogData) {
+    blogContent = blogData.content.map((data) => {
+      if (data.para_only) {
         return (
-          <BlogContainer
-            img={data.image}
-            paraOnly={data.para_only}
-            flow={data.image_left ? flowReverse : flow}
-            margin="0 0 1rem"
-          >
-            {data.para}
-          </BlogContainer>
+          <BlogContainer paraOnly={data.para_only}>{data.para}</BlogContainer>
         );
       } else {
-        return (
-          <BlogContainer
-            img={data.image}
-            paraOnly={data.para_only}
-            flow={data.image_left ? flowReverse : flow}
-            margin="0 0 1rem"
-            align="end"
-            marginBottom={window.innerWidth > 800 ? 70 : 20}
-          >
-            {data.para}
-          </BlogContainer>
-        );
+        if (data.para.length > 250) {
+          return (
+            <BlogContainer
+              img={data.image}
+              paraOnly={data.para_only}
+              flow={data.image_left ? flowReverse : flow}
+              margin="0 0 1rem"
+            >
+              {data.para}
+            </BlogContainer>
+          );
+        } else {
+          return (
+            <BlogContainer
+              img={data.image}
+              paraOnly={data.para_only}
+              flow={data.image_left ? flowReverse : flow}
+              margin="0 0 1rem"
+              align="end"
+              marginBottom={window.innerWidth > 800 ? 70 : 20}
+            >
+              {data.para}
+            </BlogContainer>
+          );
+        }
       }
-    }
-  });
+    });
+  }
+  if (!blogData) return <Fragment></Fragment>;
   return (
     <Fragment>
       <Home hideInner={true} />

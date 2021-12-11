@@ -20,7 +20,7 @@ const Insight = () => {
         <BlogCard
           key={data.key}
           index={insightCount - 1}
-          insightId={`i${insightCount}`}
+          insightId={data.key}
           heading={data.heading}
         />
       );
@@ -36,7 +36,7 @@ const Insight = () => {
         <button
           className={`${classes["insight-load-more"]} btn`}
           onClick={() => {
-            setLoadMoreCount((prevCount) => prevCount + 1);
+            // setLoadMoreCount((prevCount) => prevCount + 1);
           }}
         >
           <span>Load More</span> <img src={downArrow} alt="down arrow" />
