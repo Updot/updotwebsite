@@ -3,42 +3,25 @@
     "key": "Fortune-Avenue",
     "heading": "Fortune Avenue",
     "data": {
-      "title": "Wolf Wizard",
-      "intro_para": "Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit amet, consecteturadip iscing elit, sed do eiusmod temporincididunt na aliqua. Lorem ipsum Lorem ipsum dolor sit amet, consecteturadip iscing elit.",
+      "title": "Fortune Avenue",
+      "intro_para": "Fortune Avenue, a 4-star hotel in Kannur, Kerala, is one of South India’s top-grade stops when it comes to luxury. The perfect destination for deluxe needs, called for a-one solutions to meet their digital demands. Fortune Avenue who has a dab hand in hospitality was Updot’s first client and had approached us for a digital transformation to square with the needs of the digital era.",
       "intro_image": "https://firebasestorage.googleapis.com/v0/b/updot-home.appspot.com/o/test%2Finsight-placeholder.png?alt=media&token=a9183e2d-5c99-406c-8f4c-e936aaa500cb",
       "content": [
         {
-          "image_only": true,
-          "image_count": 1,
-          "images": [
-            "https://firebasestorage.googleapis.com/v0/b/updot-home.appspot.com/o/test%2Fimage-big-sample.png?alt=media&token=46b3279f-8069-4b23-95a7-4dc4bceb6d65"
-          ]
+          "para_only": true,
+          "para": "Updot covered their A-Z branding needs in the initial period and further designed a coherent and all-inclusive website for the primo team. A best-in-class business always requires a super-fine digital experience to reflect the grandiosity of the brand. Hence, we were dedicated to delivering an effortless on-page booking and browsing experience using Word Press and CMS. Our design ascertained that the developed website was transparent and guileless to heighten user confidence."
         },
         {
           "para_only": true,
-          "para": "Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do eiusmod temporincididunt na aliqua. Lorem ipsum dolor sit amet, consecteturadip iscing elitsed do eiusmod temporincididunt na aliqua."
+          "para": "Updot was subsequently given charge of their digital marketing, which enhanced the company’s growth. They thrived in leaps and bounds, making the growth of 47%, during the period from August 2020 to January 2021. Updot was successful in assisting the team to earn a decent profit amidst the lockdown and other pandemic crises. It is estimated that Fortune Avenue made again between Rs.23 lakhs and Rs.27 lakhs ever since Updot took its marketing lead."
         },
         {
-          "image_only": true,
-          "image_count": 2,
-          "images": [
-            "https://firebasestorage.googleapis.com/v0/b/updot-home.appspot.com/o/test%2Fimage-small-sample.png?alt=media&token=24fbc837-4352-4971-b478-96f25585652b",
-            "https://firebasestorage.googleapis.com/v0/b/updot-home.appspot.com/o/test%2Fimage-small-sample.png?alt=media&token=24fbc837-4352-4971-b478-96f25585652b"
-          ]
+          "para_only": true,
+          "para": "A comprehensive branding of Fortune Avenue’s restaurant division, ‘F Grill’ was also done by Updot. We encompassed every aspect of branding for the team, including the logo and menu. The restaurant gained ground amongst vloggers and bloggers within no time."
         },
         {
-          "image_only": true,
-          "image_count": 1,
-          "images": [
-            "https://firebasestorage.googleapis.com/v0/b/updot-home.appspot.com/o/test%2Fimage-big-sample.png?alt=media&token=46b3279f-8069-4b23-95a7-4dc4bceb6d65"
-          ]
-        },
-        {
-          "image_only": true,
-          "image_count": 1,
-          "images": [
-            "https://firebasestorage.googleapis.com/v0/b/updot-home.appspot.com/o/test%2Fimage-big-sample.png?alt=media&token=46b3279f-8069-4b23-95a7-4dc4bceb6d65"
-          ]
+          "para_only": true,
+          "para": "Updot was fortunate enough in bringing a digital transformation, which Kannur never witnessed before in the field of hospitality, through our collaboration with Fortune Avenue. The team was delighted, for Updot, being a one-stop, could cater to all their digital requirements."
         }
       ],
       "navigateLink": {
@@ -52,28 +35,95 @@
   {
     "key": "remax",
     "heading": "Remax",
-    "navigateLink": {
-      "prev": {
-        "heading": "Fortune Avenue",
-        "link": "Fortune-Avenue"
-      },
-      "next": {
-        "heading": "Virtusel",
-        "link": "virtusel"
+    "data": {
+      "title": "Remax",
+      "intro_para": "Remax, a global and world’s largest real estate network was Updot’s yet another estimable client. With no prior media presence, the team of Remax’s Bangalore franchise, Remax infinity approached Updot for their website development. Being highly impressed by the UI works of our team, Remax was keenly engrossed in registering their Google presence with us.",
+      "intro_image": "https://firebasestorage.googleapis.com/v0/b/updot-home.appspot.com/o/test%2Finsight-placeholder.png?alt=media&token=a9183e2d-5c99-406c-8f4c-e936aaa500cb",
+      "content": [
+        {
+          "para_only": true,
+          "para": "An unrivaled firm like their calls for a high-level digital experience. As their partner in the venture, Updot delivered an unparalleled digital experience for Remax. The entire focus was to design a website that could manifest the grandeur of the brand."
+        },
+        {
+          "para_only": true,
+          "para": "We were able to build an excellent client rapport with the team through clear and seamless mutual communication. Coherent and distinct exchange of ideas made it easier for the Updot team to design a well-suited website for the major player in the field of real estate."
+        },
+        {
+          "para_only": true,
+          "para": "Remax's collaboration with Updot helped the bigwig in fostering growth. We were dedicated to improving the SEO so as to increase the number of visitors to the page. They could expand their business through better SEO performance. New and salient features, all-important for a business’s success in the digital era like that of dashboard and more, are expected to roll out in their website soon."
+        }
+      ],
+      "navigateLink": {
+        "prev": {
+          "heading": "Fortune Avenue",
+          "link": "Fortune-Avenue"
+        },
+        "next": {
+          "heading": "Virtusel",
+          "link": "Virtusel"
+        }
       }
     }
   },
   {
-    "key": "virtusel",
+    "key": "Virtusel",
     "heading": "Virtusel",
-    "navigateLink": {
-      "prev": {
-        "heading": "Remax",
-        "link": "remax"
-      },
-      "next": {
-        "heading": "Wolf Wizard",
-        "link": "Wolf-wizard"
+    "data": {
+      "title": "Virtusel",
+      "intro_para": "“In order to be irreplaceable, one should be different.” Updot is esteemed to have such a unique client. Virtusel Pvt. Ltd. is a Bangalore-based e-commerce start-up. What makes them stand out from others is that they provide a facility of the auction on their site which is not something every e-commerce site provides for. Users can bid on what they are looking for.",
+      "intro_image": "https://firebasestorage.googleapis.com/v0/b/updot-home.appspot.com/o/test%2Finsight-placeholder.png?alt=media&token=a9183e2d-5c99-406c-8f4c-e936aaa500cb",
+      "content": [
+        {
+          "para_only": true,
+          "para": "With ever-changing technology and ever-increasing competition, sticking out is not an easy task. Virtusel is distinct from their competitors in everything they do. They own a subscription policy that allays the monthly grocery shopping and more. Monthly shopping is an extra cinch and feasible with Virtusel from now."
+        },
+        {
+          "para_only": true,
+          "para": "A company that tries to be unique in all the shebang must be delivered with the best-in-class digital experience. Updot was approached by the team to do their website, branding, and app development.  We were dedicated to providing the top-flight services for the team. Their designs were carefully picked and a well adaptable branding was done by Updot."
+        },
+        {
+          "para_only": true,
+          "para": "We wish nothing but the best for our clients and so every design is done with much care and diligence. Now that Virtusel Pvt. Ltd. is ready to enter the game, we are quite sure that they will reach greater heights of success."
+        }
+      ],
+      "navigateLink": {
+        "prev": {
+          "heading": "Remax",
+          "link": "remax"
+        },
+        "next": {
+          "heading": "Wolf Wizard",
+          "link": "Wolf-Wizard"
+        }
+      }
+    }
+  },
+  {
+    "key": "Wolf-Wizard",
+    "heading": "Wolf Wizard",
+    "data": {
+      "title": "Wolf Wizard",
+      "intro_para": "“In order to be irreplaceable, one should be different.” Updot is esteemed to have such a unique client. Virtusel Pvt. Ltd. is a Bangalore-based e-commerce start-up. What makes them stand out from others is that they provide a facility of the auction on their site which is not something every e-commerce site provides for. Users can bid on what they are looking for.",
+      "intro_image": "https://firebasestorage.googleapis.com/v0/b/updot-home.appspot.com/o/test%2Finsight-placeholder.png?alt=media&token=a9183e2d-5c99-406c-8f4c-e936aaa500cb",
+      "content": [
+        {
+          "para_only": true,
+          "para": "With ever-changing technology and ever-increasing competition, sticking out is not an easy task. Virtusel is distinct from their competitors in everything they do. They own a subscription policy that allays the monthly grocery shopping and more. Monthly shopping is an extra cinch and feasible with Virtusel from now."
+        },
+        {
+          "para_only": true,
+          "para": "A company that tries to be unique in all the shebang must be delivered with the best-in-class digital experience. Updot was approached by the team to do their website, branding, and app development.  We were dedicated to providing the top-flight services for the team. Their designs were carefully picked and a well adaptable branding was done by Updot."
+        },
+        {
+          "para_only": true,
+          "para": "We wish nothing but the best for our clients and so every design is done with much care and diligence. Now that Virtusel Pvt. Ltd. is ready to enter the game, we are quite sure that they will reach greater heights of success."
+        }
+      ],
+      "navigateLink": {
+        "prev": {
+          "heading": "Wolf Wizard",
+          "link": "Wolf-Wizard"
+        }
       }
     }
   }
