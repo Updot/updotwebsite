@@ -13,11 +13,7 @@ const TermPage = (props) => {
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
       {isNavActive && <Nav />}
-      <HomeComponent
-        isShowVideoHeading={false}
-        heading="Terms and Conditions"
-        fontSize="5.3rem"
-      />
+      <HomeComponent heading="Terms and Conditions" fontSize="5.3rem" />
       <Term />
       <Newsletter />
       <Footer />

@@ -11,11 +11,7 @@ const ContactPage = (props) => {
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
       {isNavActive && <Nav />}
-      <HomeComponent
-        isShowVideoHeading={false}
-        heading="Contact"
-        fontSize="5.3rem"
-      />
+      <HomeComponent heading="Contact" fontSize="5.3rem" />
       <Contact />
     </Fragment>
   );

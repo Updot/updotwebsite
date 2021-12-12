@@ -19,11 +19,7 @@ const Insights = (props) => {
       {isNavActive && <Nav />}
       <Switch>
         <Route path="/insights" exact>
-          <HomeComponent
-            isShowVideoHeading={false}
-            heading="Insights"
-            fontSize="5.3rem"
-          />
+          <HomeComponent heading="Insights" fontSize="5.3rem" />
           <Insight />
         </Route>
         <Route path="/insights/:insightId" exact>

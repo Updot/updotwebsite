@@ -18,11 +18,7 @@ const About = (props) => {
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
       {isNavActive && <Nav />}
-      <HomeComponent
-        isShowVideoHeading={false}
-        heading="About"
-        fontSize="5.3rem"
-      />
+      <HomeComponent heading="About" fontSize="5.3rem" />
       <OurStory />
       <OurValues />
       <MasteredSkills />
