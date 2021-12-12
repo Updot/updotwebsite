@@ -19,10 +19,7 @@ const Home = (props) => {
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
       {isNavActive && <Nav />}
-      <HomeComponent
-        isShowVideoHeading={true}
-        heading="We do things better at"
-      />
+      <HomeComponent heading="We do things better at UPDOT" />
       <Featured />
       <Skills />
       <Clients />

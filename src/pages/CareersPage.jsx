@@ -19,7 +19,7 @@ const CareersPage = (props) => {
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
       {isNavActive && <Nav />}
-      <Home isShowVideoHeading={false} heading="Careers" fontSize="5.3rem" />
+      <Home heading="Careers" fontSize="5.3rem" />
       <Careers />
       <Newsletter />
       <Footer />
