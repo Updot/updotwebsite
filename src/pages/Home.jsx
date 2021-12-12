@@ -20,8 +20,8 @@ const Home = (props) => {
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
       {isNavActive && <Nav />}
       <HomeComponent
-        isShowVideoHeading={true}
-        heading="We do things better at"
+        isShowVideoHeading={false}
+        heading="We do things better at UPDOT"
       />
       <Featured />
       <Skills />
