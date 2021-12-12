@@ -13,11 +13,7 @@ const PrivacyPage = (props) => {
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
       {isNavActive && <Nav />}
-      <HomeComponent
-        isShowVideoHeading={false}
-        heading="Privacy Policy"
-        fontSize="5.3rem"
-      />
+      <HomeComponent heading="Privacy Policy" fontSize="5.3rem" />
       <Privacy />
       <Newsletter />
       <Footer />

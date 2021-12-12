@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 // import mouseLocation from "../../util/mouseLocation";
 // import Header from "../ui/header/Header";
 // import Nav from "../ui/nav/Nav";
-import updot from "../../assets/img/updot.svg";
-import maskVideo from "../../assets/videos/mask-video.mp4";
 // import { navStateAction } from "../../store/NavState";
 // import { mouseLocationAction } from "../../store/mouseLocation";
 import colorTheme from "./colorTheme.json";
@@ -78,7 +76,7 @@ const Home = (props) => {
   // if (window.innerWidth > 600 && window.innerWidth < 800) {
   //   headingStyle = props.isPadding ? { paddingLeft: "50%" } : {};
   // }
-  if (props.isShowVideoHeading && window.innerWidth < 1070) {
+  if (window.innerWidth < 1070) {
     headingStyle["width"] = window.innerWidth >= 600 ? "30%" : "50%";
     headingStyle["paddingLeft"] = "2.5rem";
   }
@@ -92,31 +90,10 @@ const Home = (props) => {
   return (
     <Fragment>
       <div ref={sectionRef} className={classes.home} style={style}>
-        {props.isShowVideoHeading ? (
-          <h1 className={classes.heading} style={headingStyle}>
-            {props.heading}
-            <div
-              className={classes["heading-video"]}
-              style={{
-                maskImage: `url(${updot})`,
-                maskRepeat: "no-repeat",
-                maskSize: "contain",
-                maskPosition: "center",
-                WebkitMaskPosition: "center",
-                WebkitMaskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                WebkitMaskImage: `url(${updot})`,
-                backgroundColor: "var(--bg-color)",
-              }}
-            >
-              <video src={`${maskVideo}`} autoPlay loop muted></video>
-            </div>
-          </h1>
-        ) : (
-          <h1 className={classes.heading} style={headingStyle}>
-            {props.heading}
-          </h1>
-        )}
+        <h1 className={classes.heading} style={headingStyle}>
+          {props.heading}
+        </h1>
+
         {!props.isNotScroll && (
           <div ref={scrollRef} className={classes.scroll}>
             <span className={classes["scroll-text"]}>Scroll</span>

@@ -18,11 +18,7 @@ const WorkPage = (props) => {
 
       <Switch>
         <Route path="/work" exact>
-          <HomeComponent
-            isShowVideoHeading={false}
-            heading="Work"
-            fontSize="5.3rem"
-          />
+          <HomeComponent heading="Work" fontSize="5.3rem" />
           <Work />
         </Route>
         <Route path="/work/:workId">

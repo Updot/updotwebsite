@@ -16,7 +16,6 @@ const ServicesPage = (props) => {
       <Switch>
         <Route path="/services" exact>
           <Home
-            isShowVideoHeading={false}
             heading="Services"
             isNotScroll={true}
             isPadding={true}
