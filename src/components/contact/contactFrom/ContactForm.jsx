@@ -155,7 +155,7 @@ const ContactForm = () => {
       <div
         ref={formOuterRef}
         className={`${classes["form-container"]} ${
-          isFormTouched ? "" : classes["form-container-change"]
+          !isFormTouched ? classes["form-container-change"] : ""
         }`}
       >
         <form
@@ -163,9 +163,9 @@ const ContactForm = () => {
           onSubmit={handleSubmit(formSubmitHandler)}
         >
           <div
-            className={`${classes["form-field"]} ${classes["form-field-1"]}`}
+            className={`${classes["form-field-container"]} ${classes["animate-field-1"]}`}
           >
-            <div className={classes["field-container"]}>
+            <div className={classes["form-field"]}>
               <Input
                 type="text"
                 placeholder="Name*"
@@ -183,9 +183,9 @@ const ContactForm = () => {
           </div>
           {isFormTouched && (
             <div
-              className={`${classes["form-field"]} ${classes["form-field-2"]} ${classes["animate-field-1"]}`}
+              className={`${classes["form-field-container"]} ${classes["animate-field-2"]}`}
             >
-              <div className={classes["field-container"]}>
+              <div className={classes["form-field-10"]}>
                 <DropDown
                   placeholder="Code*"
                   register={register}
@@ -198,7 +198,7 @@ const ContactForm = () => {
                   {errors.code?.type === "required" && "*Code is required."}
                 </p>
               </div>
-              <div className={classes["field-container"]}>
+              <div className={classes["form-field-85"]}>
                 <Input
                   type="tel"
                   placeholder="Phone Number*"
@@ -216,9 +216,9 @@ const ContactForm = () => {
           )}
           {isFormTouched && (
             <div
-              className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-2"]}`}
+              className={`${classes["form-field-container"]} ${classes["animate-field-3"]}`}
             >
-              <div className={classes["field-container"]}>
+              <div className={classes["form-field"]}>
                 <Input
                   type="text"
                   placeholder="Email ID*"
@@ -236,13 +236,9 @@ const ContactForm = () => {
           )}
           {isFormTouched && (
             <div
-              className={`${classes["form-field"]} ${
-                window.innerWidth > 800
-                  ? classes["form-field-2"]
-                  : classes["form-field-9"]
-              } ${classes["animate-field-3"]}`}
+              className={`${classes["form-field-container"]} ${classes["animate-field-4"]}`}
             >
-              <div>
+              <div className={classes["form-field-10"]}>
                 <DropDown
                   placeholder="Industry"
                   register={register}
@@ -253,7 +249,7 @@ const ContactForm = () => {
                 />
                 <p className={classes["input-error"]}></p>
               </div>
-              <div>
+              <div className={classes["form-field-85"]}>
                 <Input
                   type="text"
                   placeholder="Company Name"
@@ -268,36 +264,40 @@ const ContactForm = () => {
           )}
           {isFormTouched && (
             <div
-              className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-4"]}`}
+              className={`${classes["form-field-container"]} ${classes["animate-field-5"]}`}
             >
-              <Input
-                type="url"
-                placeholder="Website URL"
-                register={register}
-                fieldName="websiteURL"
-                required={false}
-                left={window.innerWidth > 800 ? "1%" : "4%"}
-              />
+              <div className={classes["form-field"]}>
+                <Input
+                  type="text"
+                  placeholder="Website URL"
+                  register={register}
+                  fieldName="websiteURL"
+                  required={false}
+                  left={window.innerWidth > 800 ? "1%" : "4%"}
+                />
+              </div>
             </div>
           )}
           {isFormTouched && (
             <div
-              className={`${classes["form-field"]} ${classes["form-field-4"]} ${classes["animate-field-5"]}`}
+              className={`${classes["form-field-container"]} ${classes["animate-field-6"]}`}
             >
-              <h3 className={classes.FormOptionHeading}>Services Required</h3>
-              <Checkbox
-                name="servicesRequired"
-                size={window.innerWidth > 800 ? 3.4 : 1.2}
-                data={ServiceData}
-                register={register}
-              />
+              <div className={classes["form-field"]}>
+                <h3 className={classes.FormOptionHeading}>Services Required</h3>
+                <Checkbox
+                  name="servicesRequired"
+                  size={window.innerWidth > 800 ? 3.4 : 1.2}
+                  data={ServiceData}
+                  register={register}
+                />
+              </div>
             </div>
           )}
           {isFormTouched && (
             <div
-              className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["message-field"]} ${classes["animate-field-6"]}`}
+              className={`${classes["form-field-container"]} ${classes["animate-field-7"]}`}
             >
-              <div className={classes["field-container"]}>
+              <div className={classes["form-field"]}>
                 <TextArea
                   placeholder="Message*"
                   register={register}
@@ -312,34 +312,39 @@ const ContactForm = () => {
               </div>
             </div>
           )}
+
           {isFormTouched && (
             <div
-              className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-4"]} ${classes["file-container"]}`}
+              className={`${`${classes["form-field-container"]} ${classes["animate-field-8"]}`}`}
             >
-              <div className={classes["btn-container"]}>
-                <button
-                  type="button"
-                  className="btn"
-                  onClick={(e) => {
-                    setShowFileInput((prevState) => !prevState);
-                    e.target.classList.toggle(
-                      `${classes["hide-border-bottom"]}`
-                    );
-                  }}
-                >
-                  Attach Files
-                </button>
-              </div>
-              {showFileInput && (
-                <div
-                  className={classes["file-input-container"]}
-                  style={{
-                    marginBottom: window.innerWidth < 800 ? "1rem" : "0rem",
-                  }}
-                >
-                  {fileUploadFields}
+              <div
+                className={`${classes["form-field-row"]} ${classes["form-field-row-mobile"]}`}
+              >
+                <div className={classes["btn-container"]}>
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={(e) => {
+                      setShowFileInput((prevState) => !prevState);
+                      e.target.classList.toggle(
+                        `${classes["hide-border-bottom"]}`
+                      );
+                    }}
+                  >
+                    Attach Files
+                  </button>
                 </div>
-              )}
+                {showFileInput && (
+                  <div
+                    className={classes["file-input-container"]}
+                    style={{
+                      marginBottom: window.innerWidth < 800 ? "1rem" : "0rem",
+                    }}
+                  >
+                    {fileUploadFields}
+                  </div>
+                )}
+              </div>
             </div>
           )}
           {isFormTouched && (
@@ -353,31 +358,34 @@ const ContactForm = () => {
               />
             </div>
           )}
+
           {isFormTouched && (
             <div
-              className={`${classes["form-field"]} ${classes["form-field-6"]} ${classes["animate-field-7"]}`}
+              className={`${`${classes["form-field-container"]} ${classes["animate-field-9"]}`}`}
             >
-              <button
-                ref={submitBtnRef}
-                className={`btn ${classes["btn-submit"]}`}
-                type="submit"
-              >
-                Submit
-              </button>
-              <button
-                ref={newsletterBtnRef}
-                className={`btn ${classes["btn-newsletter"]}`}
-                type="submit"
-                // onClick={onNewsletterBtnClickHandler}
-              >
-                Subscribe to newsletter
-              </button>
+              <div className={classes["form-field-row"]}>
+                <button
+                  ref={submitBtnRef}
+                  className={`btn ${classes["btn-submit"]}`}
+                  type="submit"
+                >
+                  Submit
+                </button>
+                <button
+                  ref={newsletterBtnRef}
+                  className={`btn ${classes["btn-newsletter"]}`}
+                  type="submit"
+                  // onClick={onNewsletterBtnClickHandler}
+                >
+                  Subscribe to newsletter
+                </button>
+              </div>
             </div>
           )}
         </form>
         {isFormTouched && (
           <div
-            className={`${classes["logo-container"]} ${classes["animate-field-8"]}`}
+            className={`${classes["logo-container"]} ${classes["animate-field-10"]}`}
           >
             <img className={classes["updot-img"]} src={UpdotLogo} alt="updot" />
             <img
