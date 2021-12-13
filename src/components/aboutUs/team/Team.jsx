@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Team = () => {
   return (
-    <div className="container">
+    <div className="container" style={{ overflow: "hidden" }}>
       <SectionHeading>Our Team</SectionHeading>
       <div className={classes["team-container"]}>
         {teamData.map((data, index) => (
