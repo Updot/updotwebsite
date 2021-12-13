@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import mouseLocation from "../../util/mouseLocation";
 // import Header from "../ui/header/Header";
 // import Nav from "../ui/nav/Nav";
+import updot from "../../assets/img/updot.svg";
 // import { navStateAction } from "../../store/NavState";
 // import { mouseLocationAction } from "../../store/mouseLocation";
 import colorTheme from "./colorTheme.json";
@@ -64,36 +65,33 @@ const Home = (props) => {
     document.body.style.setProperty("--filter", theme.filter);
   }, [isLightThemeActive]);
 
-  let style = {};
-  if (props.hideInner) {
-    style = { display: "none" };
-  }
-  if (props.isNotScroll && window.innerWidth < 800) {
-    style = { placeContent: "unset", alignContent: "end" };
-  }
-
-  let headingStyle = {};
-  // if (window.innerWidth > 600 && window.innerWidth < 800) {
-  //   headingStyle = props.isPadding ? { paddingLeft: "50%" } : {};
-  // }
-  if (window.innerWidth < 1070) {
-    headingStyle["width"] = window.innerWidth >= 600 ? "30%" : "50%";
-    headingStyle["paddingLeft"] = "2.5rem";
-  }
-  if (props.textCenter) headingStyle["textAlign"] = "center";
-  if (props.textCenter) headingStyle["alignItems"] = "center";
-  if (props.fontSize && window.innerWidth < 1070)
-    headingStyle["fontSize"] = props.fontSize;
-  if (window.innerWidth < 1070 && props.fontSize)
-    headingStyle["transform"] = "unset";
-
   return (
     <Fragment>
-      <div ref={sectionRef} className={classes.home} style={style}>
-        <h1 className={classes.heading} style={headingStyle}>
-          {props.heading}
-        </h1>
-
+      <div ref={sectionRef} className={classes.home}>
+        {props.showLogo ? (
+          <h1 className={classes.heading}>
+            {props.heading}
+            {/* <div
+              className={classes["heading-video"]}
+              style={{
+                maskImage: `url(${updot})`,
+                maskRepeat: "no-repeat",
+                maskSize: "contain",
+                maskPosition: "center",
+                WebkitMaskPosition: "center",
+                WebkitMaskSize: "contain",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskImage: `url(${updot})`,
+                backgroundColor: "var(--bg-color)",
+              }}
+            >
+              <video src={`${maskVideo}`} autoPlay loop muted></video>
+            </div> */}
+            <img className={classes["heading-logo"]} src={updot} alt="logo" />
+          </h1>
+        ) : (
+          <h1 className={classes.heading}>{props.heading}</h1>
+        )}
         {!props.isNotScroll && (
           <div ref={scrollRef} className={classes.scroll}>
             <span className={classes["scroll-text"]}>Scroll</span>
