@@ -34,18 +34,6 @@
     "image": "fortune"
   },
   {
-<<<<<<< HEAD
-    "key": "i2",
-    "heading": "Wolf Wizard",
-    "navigateLink": {
-      "prev": {
-        "heading": "Fortune Avenue",
-        "link": "i1"
-      },
-      "next": {
-        "heading": "Remax",
-        "link": "i3"
-=======
     "key": "remax",
     "heading": "Remax",
     "data": {
@@ -108,35 +96,11 @@
           "heading": "Wolf Wizard",
           "link": "Wolf-Wizard"
         }
->>>>>>> e93727324bff2282cd146f9345e7817fbdfdce59
       }
     },
     "image": "wolfWizard"
   },
   {
-<<<<<<< HEAD
-    "key": "i3",
-    "heading": "Remax",
-    "navigateLink": {
-      "prev": {
-        "heading": "Wolf Wizard",
-        "link": "i2"
-      },
-      "next": {
-        "heading": "Virtusel",
-        "link": "i4"
-      }
-    },
-    "image": "remax"
-  },
-  {
-    "key": "i4",
-    "heading": "Virtusel",
-    "navigateLink": {
-      "prev": {
-        "heading": "Remax",
-        "link": "i3"
-=======
     "key": "Wolf-Wizard",
     "heading": "Wolf Wizard",
     "data": {
@@ -158,7 +122,6 @@
           "heading": "Remax",
           "link": "remax"
         }
->>>>>>> e93727324bff2282cd146f9345e7817fbdfdce59
       }
     },
     "image": "virtusel"

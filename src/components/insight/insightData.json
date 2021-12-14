@@ -1,15 +1,5 @@
 [
   {
-<<<<<<< HEAD
-    "key": "i1",
-    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "image": "figmaXD"
-  },
-  {
-    "key": "i2",
-    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "image": "figmaPlugins"
-=======
     "key": "Adobe-XD-vs-Figma",
     "heading": "Adobe XD vs Figma",
     "data": {
@@ -110,6 +100,5 @@
         }
       ]
     }
->>>>>>> e93727324bff2282cd146f9345e7817fbdfdce59
   }
 ]
