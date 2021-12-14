@@ -46,8 +46,8 @@ const ContactForm = () => {
     }
     // submitBtnRef.current.classList.add(`${classes["animate-btn"]}`);
     const form = new FormData();
-    Object.keys(attachments).forEach((key) => {
-      form.append(key, attachments[key]);
+    Object.keys(attachments).forEach((k) => {
+      form.append(k, attachments[k]);
     });
     for (var key in formData) {
       form.append(key, formData[key]);

@@ -1,9 +1,19 @@
-import blogPlaceholder from "./../../../assets/img/insight-placeholder.png";
+import { useState } from "react";
+import blogPlaceholder from "../../../assets/img/insight-placeholder.png";
 import classes from "./BlogCard.module.scss";
+
 const BlogImage = (props) => {
+  const [img, setImg] = useState("");
+
   const animateClass = props.isTrue
     ? `${classes["blog-dot-animate-even"]}`
     : `${classes["blog-dot-animate-odd"]}`;
+
+  (function (imgName) {
+    import(`../../../assets/img/${imgName}.png`).then((obj) =>
+      setImg(obj.default)
+    );
+  })(props.image);
 
   return (
     <div
@@ -12,7 +22,7 @@ const BlogImage = (props) => {
     >
       <div className={`${classes["blog-img-inner"]} ${animateClass}`}>
         <img
-          src={props.image || blogPlaceholder}
+          src={img || blogPlaceholder}
           alt="blogperson"
           onMouseOver={props.onMouseOverHandler}
         />

@@ -7,7 +7,8 @@
         "heading": "Wolf Wizard",
         "link": "i2"
       }
-    }
+    },
+    "image": "fortune"
   },
   {
     "key": "i2",
@@ -18,19 +19,36 @@
         "link": "i1"
       },
       "next": {
-        "heading": "Loream Ipsum",
+        "heading": "Remax",
         "link": "i3"
       }
-    }
+    },
+    "image": "wolfWizard"
   },
   {
     "key": "i3",
-    "heading": "Lorem Ipsum",
+    "heading": "Remax",
     "navigateLink": {
       "prev": {
         "heading": "Wolf Wizard",
         "link": "i2"
+      },
+      "next": {
+        "heading": "Virtusel",
+        "link": "i4"
       }
-    }
+    },
+    "image": "remax"
+  },
+  {
+    "key": "i4",
+    "heading": "Virtusel",
+    "navigateLink": {
+      "prev": {
+        "heading": "Remax",
+        "link": "i3"
+      }
+    },
+    "image": "virtusel"
   }
 ]

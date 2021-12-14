@@ -71,6 +71,7 @@ const BlogCard = (props) => {
       style={style}
     >
       <BlogImage
+        image={props.image}
         imageStyle={imageStyle}
         isTrue={isTrue}
         onMouseOverHandler={onMouseOverHandler}

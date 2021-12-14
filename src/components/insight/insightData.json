@@ -1,14 +1,12 @@
 [
   {
     "key": "i1",
-    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
+    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "image": "figmaXD"
   },
   {
     "key": "i2",
-    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
-  },
-  {
-    "key": "i3",
-    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
+    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "image": "figmaPlugins"
   }
 ]
