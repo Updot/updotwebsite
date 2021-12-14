@@ -7,6 +7,7 @@ fieldset {
   border: none;
   position: relative;
 }
+
 fieldset img {
   height: auto;
   width: 2.4rem;
@@ -20,10 +21,11 @@ fieldset img {
   outline: none;
   border: none;
   padding: 2rem 1rem;
-  color: var(--fade-black);
   width: 100%;
   font-size: 2.6rem;
   color: var(--text-color);
+  pointer-events: none;
+  user-select: none;
 }
 .dropdown-info::placeholder {
   font-weight: bold;
@@ -85,6 +87,9 @@ fieldset img {
   .dropdown-info {
     font-size: 1.3rem;
     padding: 0.7rem 1rem;
+  }
+  .dropdown-outer {
+    max-height: 11vh;
   }
   .dropdown-info::placeholder {
     font-size: 1.3rem;

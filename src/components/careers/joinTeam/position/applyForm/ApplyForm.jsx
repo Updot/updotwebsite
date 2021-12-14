@@ -11,7 +11,7 @@ import InputFile from "../../../../connect/formFields/InputFile";
 
 import { dialCodes } from "../../../../../util/InternationalDialCodes";
 
-const ApplyForm = () => {
+const ApplyForm = (props) => {
   // const [showFileInput, setShowFileInput] = useState(false);
   const formOuterRef = useRef(null);
   const submitBtnRef = useRef(null);
@@ -135,11 +135,8 @@ const ApplyForm = () => {
               register={register}
               fieldName="Position"
               setValue={setValue}
-              data={[
-                "Creative designer",
-                "UI/UX designer",
-                "Product developer",
-              ]}
+              // defaultValue={props.positions[0]}
+              data={props.positions}
               required={false}
             />
             <p className={classes["input-error"]}>
@@ -167,7 +164,12 @@ const ApplyForm = () => {
               register={register}
               fieldName="Industry"
               setValue={setValue}
-              data={["IT", "Services"]}
+              data={[
+                "0 - 2,00,000",
+                "2,00,000 - 5,00,000",
+                "5,00,000 - 10,00,000",
+                "10,00,000+",
+              ]}
               required={false}
             />
             <p className={classes["input-error"]}>
@@ -175,17 +177,14 @@ const ApplyForm = () => {
             </p>
           </div>
           <div>
-            <DropDown
-              placeholder="Expected Salary"
+            <Input
+              type="text"
+              placeholder="Expected Salary (Per anum eg. xxxxxx)"
               register={register}
-              fieldName="Industry"
-              setValue={setValue}
-              data={["IT", "Services"]}
+              fieldName="expected-salary"
+              left={window.innerWidth > 800 ? "1.5%" : "3%"}
               required={false}
             />
-            <p className={classes["input-error"]}>
-              {errors.emailId?.type === "required" && "*Email ID is required."}
-            </p>
           </div>
         </div>
         <div className={`${classes["form-field"]} ${classes["form-field-3"]}`}>
@@ -212,6 +211,7 @@ const ApplyForm = () => {
             placeholder="Portfolio Link"
             register={register}
             fieldName="PortfolioLink"
+            left="1.5%"
             required={false}
           />
         </div>

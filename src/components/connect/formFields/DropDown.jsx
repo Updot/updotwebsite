@@ -24,6 +24,9 @@ const DropDown = (props) => {
     setIsExpanded((prevState) => !prevState);
   };
 
+  useEffect(() => {
+    if (props.defaultValue) setDropdownValue(props.defaultValue);
+  }, [props.defaultValue]);
   const onOptionClickHanlder = (val, event) => {
     setDropdownValue(val);
     props.setValue(`${props.fieldName}`, val);
@@ -37,7 +40,7 @@ const DropDown = (props) => {
 
   return (
     <div className={classes.dropdown} onClick={onDropDownClickHandler}>
-      <fieldset disabled>
+      <fieldset>
         <input
           className={classes["dropdown-info"]}
           placeholder={props.placeholder}

@@ -11,6 +11,7 @@ import Marketing from "./images/Marketing";
 
 const Position = () => {
   const [isShowForm, setIsShowForm] = useState(false);
+  const [positions, setPositions] = useState([]);
   const mouseRef = useRef(null);
   let count = 0;
 
@@ -80,7 +81,14 @@ const Position = () => {
               {!isShowForm && (
                 <button
                   className="btn"
-                  onClick={() => setIsShowForm((prevState) => !prevState)}
+                  onClick={() => {
+                    setIsShowForm((prevState) => !prevState);
+                    setPositions([
+                      "Graphic Designer",
+                      "UI/UX designer",
+                      "Product Designer",
+                    ]);
+                  }}
                 >
                   Apply Now
                 </button>
@@ -128,7 +136,14 @@ const Position = () => {
               {!isShowForm && (
                 <button
                   className="btn"
-                  onClick={() => setIsShowForm((prevState) => !prevState)}
+                  onClick={() => {
+                    setIsShowForm((prevState) => !prevState);
+                    setPositions([
+                      "SEO Specialist",
+                      "Digital Marketing",
+                      "Social media marketing",
+                    ]);
+                  }}
                 >
                   Apply Now
                 </button>
@@ -179,7 +194,10 @@ const Position = () => {
               {!isShowForm && (
                 <button
                   className="btn"
-                  onClick={() => setIsShowForm((prevState) => !prevState)}
+                  onClick={() => {
+                    setIsShowForm((prevState) => !prevState);
+                    setPositions(["Web Developer", "App Developer"]);
+                  }}
                 >
                   Apply Now
                 </button>
@@ -243,7 +261,7 @@ const Position = () => {
       )}
       {isShowForm && (
         <div className={classes["form-container"]}>
-          <ApplyForm />
+          <ApplyForm positions={positions} />
         </div>
       )}
     </Fragment>
