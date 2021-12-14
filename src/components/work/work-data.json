@@ -30,7 +30,8 @@
           "link": "remax"
         }
       }
-    }
+    },
+    "image": "fortune"
   },
   {
     "key": "remax",
@@ -96,7 +97,8 @@
           "link": "Wolf-Wizard"
         }
       }
-    }
+    },
+    "image": "wolfWizard"
   },
   {
     "key": "Wolf-Wizard",
@@ -121,6 +123,7 @@
           "link": "remax"
         }
       }
-    }
+    },
+    "image": "virtusel"
   }
 ]

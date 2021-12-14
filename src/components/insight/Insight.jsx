@@ -22,6 +22,7 @@ const Insight = () => {
           index={insightCount - 1}
           insightId={data.key}
           heading={data.heading}
+          image={`insights/${data.image}`}
         />
       );
     });
