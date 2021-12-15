@@ -57,9 +57,14 @@ const WorkBlog = () => {
     // }
   });
 
+  console.log(blogData);
+
   return (
     <Fragment>
-      <Home hideInner={true} />
+      <Home
+        hideInner={true}
+        heading={`${!!blogData ? blogData.title : "Work"}`}
+      />
       <div className={`${classes["blog"]}`}>
         <div className={classes["blog-container"]}>
           {window.innerWidth > 800 ? (
