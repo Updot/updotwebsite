@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import blogPlaceholder from "./../../../assets/img/insight-placeholder.png";
 import rightArrow from "./../../../assets/img/right-arrow.svg";
@@ -8,6 +8,15 @@ import classes from "./BlogCard.module.scss";
 const BlogNavigateCard = (props) => {
   const dotRef = useRef(null);
   const isTrue = props.isLeft;
+
+  const [img, setImg] = useState("");
+
+  (function (imgName) {
+    import(`../../../assets/img/${imgName}.png`).then((obj) =>
+      setImg(obj.default)
+    );
+  })(props.image);
+
   const style = isTrue
     ? {
         flexDirection: "row-reverse",
@@ -41,8 +50,8 @@ const BlogNavigateCard = (props) => {
       >
         <div className={`${classes["blog-img-inner"]} ${animateClass}`}>
           <img
-            src={blogPlaceholder}
-            alt="blogperson"
+            src={img || blogPlaceholder}
+            alt="blogimage"
             onMouseOver={onMouseOverHandler}
           />
           <div ref={dotRef} className={classes["dot"]}></div>
