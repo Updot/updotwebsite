@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Footer from "../components/footer/Footer";
 import Newsletter from "../components/newsletter/Newsletter";
-import HomeComponent from "./../components/home/Home";
+import Home from "./../components/home/Home";
 import Term from "../components/term/Term";
 import Header from "../components/ui/header/Header";
 import Nav from "../components/ui/nav/Nav";
@@ -13,7 +13,7 @@ const TermPage = (props) => {
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
       {isNavActive && <Nav />}
-      <HomeComponent heading="Terms and Conditions" fontSize="5.3rem" />
+      <Home heading="Terms and Conditions" fontSize="5.3rem" />
       <Term />
       <Newsletter />
       <Footer />

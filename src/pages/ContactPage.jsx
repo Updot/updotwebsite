@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import HomeComponent from "../components/home/Home";
+import Home from "../components/home/Home";
 import Contact from "../components/contact/Contact";
 import Header from "../components/ui/header/Header";
 import Nav from "../components/ui/nav/Nav";
@@ -11,7 +11,7 @@ const ContactPage = (props) => {
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
       {isNavActive && <Nav />}
-      <HomeComponent heading="Contact" fontSize="5.3rem" />
+      <Home heading="Contact" fontSize="5.3rem" />
       <Contact />
     </Fragment>
   );
