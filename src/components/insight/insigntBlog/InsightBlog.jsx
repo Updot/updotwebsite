@@ -16,7 +16,9 @@ import classes from "./InsightBlog.module.scss";
 const InsightBlog = () => {
   const history = useHistory();
   const param = useParams();
+
   const [blogData, setBlogData] = useState();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -25,6 +27,7 @@ const InsightBlog = () => {
     const filterData = data.filter((d) => d.key === param["insightId"]);
     setBlogData(filterData[0].data);
   }, [param]);
+
   const onBackClickHandler = () => {
     history.goBack();
   };
@@ -35,41 +38,45 @@ const InsightBlog = () => {
 
   let blogContent = [];
   if (blogData) {
-    blogContent = blogData.content.map((data) => {
-      if (data.para_only) {
+    blogContent = blogData.content.map((ele, i) => {
+      if (ele.para_only) {
         return (
-          <BlogContainer paraOnly={data.para_only}>{data.para}</BlogContainer>
+          <BlogContainer key={i} paraOnly={true}>
+            {ele.para}
+          </BlogContainer>
         );
-      } else {
-        if (data.para.length > 250) {
-          return (
-            <BlogContainer
-              img={data.image}
-              paraOnly={data.para_only}
-              flow={data.image_left ? flowReverse : flow}
-              margin="0 0 1rem"
-            >
-              {data.para}
-            </BlogContainer>
-          );
-        } else {
-          return (
-            <BlogContainer
-              img={data.image}
-              paraOnly={data.para_only}
-              flow={data.image_left ? flowReverse : flow}
-              margin="0 0 1rem"
-              align="end"
-              marginBottom={window.innerWidth > 800 ? 70 : 20}
-            >
-              {data.para}
-            </BlogContainer>
-          );
-        }
+      } else if (ele.para.length > 250) {
+        return (
+          <BlogContainer
+            key={i}
+            img={ele.image}
+            paraOnly={ele.para_only}
+            flow={ele.image_left ? flowReverse : flow}
+            margin="0 0 1rem"
+          >
+            {ele.para}
+          </BlogContainer>
+        );
       }
+      // else {
+      //     return (
+      //       <BlogContainer
+      //         img={ele.image}
+      //         paraOnly={ele.para_only}
+      //         flow={ele.image_left ? flowReverse : flow}
+      //         margin="0 0 1rem"
+      //         align="end"
+      //         marginBottom={window.innerWidth > 800 ? 70 : 20}
+      //       >
+      //         {ele.para}
+      //       </BlogContainer>
+      //     );
+      //   }
     });
   }
+
   if (!blogData) return <Fragment></Fragment>;
+
   return (
     <Fragment>
       <Home hideInner={true} />
@@ -77,7 +84,10 @@ const InsightBlog = () => {
         <div className={classes["blog-container"]}>
           {window.innerWidth > 800 ? (
             <div className={classes["blog-info"]}>
-              <BlogCard hideDefault={true}>
+              <BlogCard
+                hideDefault={true}
+                image={`insights/${blogData.intro_image}`}
+              >
                 <div className={classes["blog-info-inner"]}>
                   <div className={classes["blog-header"]}>
                     <h1>Insight</h1>
@@ -131,7 +141,6 @@ const InsightBlog = () => {
               </BlogContainer>
             </div>
           )}
-
           {blogContent}
         </div>
       </div>

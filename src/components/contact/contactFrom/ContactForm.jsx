@@ -147,6 +147,8 @@ const ContactForm = () => {
     setHCaptchaData({ token, ekey });
   };
 
+  console.log(submissionMessage);
+
   return (
     <>
       <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
@@ -315,7 +317,7 @@ const ContactForm = () => {
 
           {isFormTouched && (
             <div
-              className={`${`${classes["form-field-container"]} ${classes["animate-field-8"]}`}`}
+              className={`${classes["form-field-container"]} ${classes["animate-field-8"]}`}
             >
               <div
                 className={`${classes["form-field-row"]} ${classes["form-field-row-mobile"]}`}
@@ -361,7 +363,7 @@ const ContactForm = () => {
 
           {isFormTouched && (
             <div
-              className={`${`${classes["form-field-container"]} ${classes["animate-field-9"]}`}`}
+              className={`${classes["form-field-container"]} ${classes["animate-field-9"]}`}
             >
               <div className={classes["form-field-row"]}>
                 <button

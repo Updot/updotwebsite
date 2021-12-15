@@ -40,8 +40,6 @@ const Nav = () => {
     var xDown = null;
     var yDown = null;
 
-    console.log("here");
-    console.log(swipeCount);
     function getTouches(evt) {
       return evt.touches || evt.originalEvent.touches;
     }

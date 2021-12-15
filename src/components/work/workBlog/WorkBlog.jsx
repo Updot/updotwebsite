@@ -17,12 +17,15 @@ const WorkBlog = () => {
   const params = useParams();
 
   const [blogData, setBlogData] = useState();
+  const [image, setImage] = useState("");
 
   useEffect(() => {
-    let blogData = {};
-    blogData = data.filter((d) => d.key === params.workId)[0].data;
-    setBlogData(blogData);
+    let bData = {};
+    bData = data.filter((d) => d.key === params.workId)[0].data;
+    setBlogData(bData);
+    setImage(bData.intro_image);
   }, [params.workId]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -34,25 +37,34 @@ const WorkBlog = () => {
   const onBackClickHandler = () => {
     history.push("/work");
   };
-  const blogContent = blogData.content.map((data) => {
-    if (data.para_only) {
-      return <BlogContainer paraOnly={true}>{data.para}</BlogContainer>;
-    } else if (data.image_only) {
+
+  const blogContent = blogData.content.map((ele, i) => {
+    if (ele.para_only) {
       return (
-        <BlogContainer
-          imageOnly={data.image_only}
-          imageCount={data.image_count}
-        >
-          {data.images.map((image) => (
-            <img className="mt-5" src={image} alt="" />
-          ))}
+        <BlogContainer key={i} paraOnly={true}>
+          {ele.para}
         </BlogContainer>
       );
     }
+    // else if (ele.image_only) {
+    //   return (
+    //     <BlogContainer imageOnly={ele.image_only} imageCount={ele.image_count}>
+    //       {ele.images.map((image) => (
+    //         <img className="mt-5" src={image} alt="" />
+    //       ))}
+    //     </BlogContainer>
+    //   );
+    // }
   });
+
+  console.log(blogData);
+
   return (
     <Fragment>
-      <Home hideInner={true} />
+      <Home
+        hideInner={true}
+        heading={`${!!blogData ? blogData.title : "Work"}`}
+      />
       <div className={`${classes["blog"]}`}>
         <div className={classes["blog-container"]}>
           {window.innerWidth > 800 ? (
@@ -60,6 +72,7 @@ const WorkBlog = () => {
               <BlogCard
                 hideDefault={true}
                 isColumn={window.innerWidth < 800 ? true : false}
+                image={`work/${image}`}
               >
                 <div className={classes["blog-info-inner"]}>
                   <div className={classes["blog-header"]}>
@@ -80,7 +93,7 @@ const WorkBlog = () => {
             <div>
               <div className={classes["mobile-header"]}>
                 <div className={classes["mobile-header-image"]}>
-                  <BlogImage isTrue={false} />
+                  <BlogImage isTrue={false} image={`work/${image}`} />
                 </div>
                 <div className={classes["blog-header"]}>
                   <h1>{blogData.title}</h1>
@@ -106,6 +119,7 @@ const WorkBlog = () => {
       <div className={classes["blog-navigate-container"]}>
         {navigateLink.hasOwnProperty("next") && (
           <BlogNavigateCard
+            image={`work/${blogData.navigateLink.next.image}`}
             isLeft={true}
             heading={navigateLink["next"].heading}
             link={`${match.path.split(":")[0]}${navigateLink["next"].link}`}
@@ -114,6 +128,7 @@ const WorkBlog = () => {
         )}
         {navigateLink.hasOwnProperty("prev") && (
           <BlogNavigateCard
+            image={`work/${blogData.navigateLink.prev.image}`}
             isLeft={false}
             link={`${match.path.split(":")[0]}${navigateLink["prev"].link}`}
             heading={navigateLink["prev"].heading}

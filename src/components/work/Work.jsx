@@ -16,7 +16,6 @@ const Work = () => {
   useEffect(() => {
     const cards = workData.map((data, i) => {
       cardCount += 1;
-      console.log(data.image);
       return (
         <BlogCard
           key={data.key}
