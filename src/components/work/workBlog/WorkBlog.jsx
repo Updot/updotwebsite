@@ -38,9 +38,13 @@ const WorkBlog = () => {
     history.push("/work");
   };
 
-  const blogContent = blogData.content.map((ele) => {
+  const blogContent = blogData.content.map((ele, i) => {
     if (ele.para_only) {
-      return <BlogContainer paraOnly={true}>{ele.para}</BlogContainer>;
+      return (
+        <BlogContainer key={i} paraOnly={true}>
+          {ele.para}
+        </BlogContainer>
+      );
     }
     // else if (ele.image_only) {
     //   return (

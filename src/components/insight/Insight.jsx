@@ -14,7 +14,7 @@ const Insight = () => {
   const [loadMoreCount, setLoadMoreCount] = useState(1);
 
   useEffect(() => {
-    let els = insightData.map((data, i) => {
+    let els = insightData.map((data) => {
       insightCount++;
       return (
         <BlogCard
@@ -22,7 +22,7 @@ const Insight = () => {
           index={insightCount - 1}
           insightId={data.key}
           heading={data.heading}
-          image={`insights/${data.image}`}
+          image={`insights/${data.data.intro_image}`}
         />
       );
     });
