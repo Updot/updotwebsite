@@ -61,10 +61,10 @@ const WorkBlog = () => {
 
   return (
     <Fragment>
-      <Home
+      {/* <Home
         hideInner={true}
         heading={`${!!blogData ? blogData.title : "Work"}`}
-      />
+      /> */}
       <div className={`${classes["blog"]}`}>
         <div className={classes["blog-container"]}>
           {window.innerWidth > 800 ? (
