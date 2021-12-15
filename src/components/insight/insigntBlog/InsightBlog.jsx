@@ -79,7 +79,7 @@ const InsightBlog = () => {
 
   return (
     <Fragment>
-      <Home hideInner={true} />
+      {/* <Home hideInner={true} /> */}
       <div className={`${classes["blog"]}`}>
         <div className={classes["blog-container"]}>
           {window.innerWidth > 800 ? (
