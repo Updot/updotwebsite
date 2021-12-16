@@ -12,7 +12,7 @@
 }
 
 .heading {
-  font-size: 7.5rem;
+  font-size: 7rem;
   color: var(--text-color);
   user-select: none;
   display: flex;
@@ -22,7 +22,7 @@
 .heading-logo {
   display: inline;
   margin-left: 3rem;
-  height: 7.5rem;
+  height: 7rem;
   animation: animateText 1s linear;
   animation-delay: 1s;
   animation-fill-mode: forwards;
@@ -124,19 +124,19 @@
 }
 @media only screen and (max-width: 1090px) {
   .heading {
-    font-size: 7rem;
+    font-size: 6.5rem;
   }
   .heading-logo {
-    height: 7rem;
+    height: 6.5rem;
     margin-left: 2rem;
   }
 }
 @media only screen and (max-width: 1040px) {
   .heading {
-    font-size: 6rem;
+    font-size: 5.5rem;
   }
   .heading-logo {
-    height: 6rem;
+    height: 5.5rem;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -150,6 +150,7 @@
     line-height: 1.25;
   }
   .heading-logo {
+    height: 5.8rem;
     margin-left: 0;
     margin-top: 1rem;
   }
