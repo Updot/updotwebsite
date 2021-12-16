@@ -29,6 +29,10 @@
   opacity: 0;
   transform: translateY(-1rem);
 }
+.heading-logo svg {
+  width: fit-content;
+  height: 100%;
+}
 @keyframes animateText {
   0% {
     opacity: 0;
