@@ -11,7 +11,7 @@ let insightCount = 0;
 
 const Insight = () => {
   const [insightCards, setInsightCards] = useState([]);
-  const [loadMoreCount, setLoadMoreCount] = useState(1);
+  // const [loadMoreCount, setLoadMoreCount] = useState(1);
 
   useEffect(() => {
     let els = insightData.map((data) => {
@@ -27,7 +27,7 @@ const Insight = () => {
       );
     });
     setInsightCards((prevState) => [...prevState, ...els]);
-  }, [loadMoreCount]);
+  }, []);
 
   return (
     <div className={`${classes["insight-container"]}`}>

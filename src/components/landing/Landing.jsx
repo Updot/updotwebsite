@@ -1,5 +1,5 @@
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef, useState } from "react";
 import classes from "./Landing.module.scss";
 import LandingUpdot from "./LandingUpdot";
 import updotBlack from "../../assets/img/updot-black.svg";
@@ -48,7 +48,7 @@ const Landing = ({ setLandingDisplayed }) => {
         setLandingDisplayed(true);
       });
     }
-  }, [isLoaded, isLoaderHidden, dispatch]);
+  }, [isLoaded, isLoaderHidden, dispatch, setLandingDisplayed]);
   let updots = [];
   useEffect(() => {
     setUpdotSize({
@@ -91,4 +91,4 @@ const Landing = ({ setLandingDisplayed }) => {
   );
 };
 
-export default Landing;
+export default React.memo(Landing);

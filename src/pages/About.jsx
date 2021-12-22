@@ -5,7 +5,7 @@ import OurValues from "../components/aboutUs/ourValues/OurValues";
 import MasteredSkills from "../components/aboutUs/masteredSkills/MasteredSkills";
 import Area from "../components/area/Area";
 import Team from "../components/aboutUs/team/Team";
-import Connect from "./../components/connect/Connect";
+// import Connect from "./../components/connect/Connect";
 import Nav from "./../components/ui/nav/Nav";
 import Header from "../components/ui/header/Header";
 import Newsletter from "./../components/newsletter/Newsletter";

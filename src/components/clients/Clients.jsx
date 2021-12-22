@@ -7,8 +7,8 @@ import Client from "./Client";
 
 import classes from "./Clients.module.scss";
 
-import ab from "../../assets/img/clients/AB-logo.svg";
-import abBlack from "../../assets/img/clients/AB-logo-black.svg";
+// import ab from "../../assets/img/clients/AB-logo.svg";
+// import abBlack from "../../assets/img/clients/AB-logo-black.svg";
 // import fortune from "../../assets/img/clients/Fortune-Avenue-Logo.svg";
 // import fortuneBlack from "../../assets/img/clients/Fortune-Avenue-Logo-black.svg";
 import yottahawk from "../../assets/img/clients/Yottahawk-Logo.svg";

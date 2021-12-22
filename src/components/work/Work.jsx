@@ -41,7 +41,7 @@ const Work = () => {
             className={`${classes["nav-btn"]} ${classes["prev-btn"]}`}
             onClick={() => {
               setPageNumber((prevNum) => (prevNum > 1 ? prevNum - 1 : prevNum));
-              cardCount -= 3;
+              cardCount = cardCount - 3;
               window.scrollTo(0, window.innerHeight + 200);
             }}
           >

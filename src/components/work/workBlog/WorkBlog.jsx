@@ -1,10 +1,10 @@
 import { Fragment, useEffect, useState } from "react";
 import { useHistory, useRouteMatch, useParams } from "react-router";
-import Home from "../../home/Home";
+// import Home from "../../home/Home";
 import BlogCard from "../../ui/blogCard/BlogCard";
 import leftArrow from "./../../../assets/img/down-arrow.svg";
-import imageBigSample from "./../../../assets/img/image-big-sample.png";
-import imageSmallSample from "./../../../assets/img/image-small-sample.png";
+// import imageBigSample from "./../../../assets/img/image-big-sample.png";
+// import imageSmallSample from "./../../../assets/img/image-small-sample.png";
 import BlogContainer from "../../ui/blogContainer/BlogContainer";
 import classes from "./WorkBlog.module.scss";
 import BlogNavigateCard from "../../ui/blogCard/BlogNavigateCard";
@@ -45,6 +45,8 @@ const WorkBlog = () => {
           {ele.para}
         </BlogContainer>
       );
+    } else {
+      return <></>;
     }
     // else if (ele.image_only) {
     //   return (

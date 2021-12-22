@@ -1,11 +1,11 @@
 import { Fragment, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import Home from "../../home/Home";
+// import Home from "../../home/Home";
 import BlogCard from "../../ui/blogCard/BlogCard";
 import leftArrow from "./../../../assets/img/down-arrow.svg";
-import emptyRect1 from "./../../../assets/img/empty-rect-1.svg";
-import emptyRect2 from "./../../../assets/img/empty-rect-2.svg";
-import bar from "./../../../assets/img/bar.svg";
+// import emptyRect1 from "./../../../assets/img/empty-rect-1.svg";
+// import emptyRect2 from "./../../../assets/img/empty-rect-2.svg";
+// import bar from "./../../../assets/img/bar.svg";
 import BlogContainer from "../../ui/blogContainer/BlogContainer";
 import BlogImage from "../../ui/blogCard/BlogImage";
 
@@ -57,6 +57,8 @@ const InsightBlog = () => {
             {ele.para}
           </BlogContainer>
         );
+      } else {
+        return <></>;
       }
       // else {
       //     return (
@@ -116,7 +118,10 @@ const InsightBlog = () => {
             <div>
               <div className={classes["mobile-header"]}>
                 <div className={classes["mobile-header-image"]}>
-                  <BlogImage image={blogData.intro_image} isTrue={false} />
+                  <BlogImage
+                    image={`insights/${blogData.intro_image}`}
+                    isTrue={false}
+                  />
                 </div>
                 <div className={classes["blog-header"]}>
                   <div className={classes["blog-header-top"]}>

@@ -53,7 +53,7 @@ function App() {
   return (
     <div className="App">
       <MouseArrow />
-      {/* <Cookies /> */}
+      <Cookies />
       {!landingDisplayed && window.innerWidth > 800 && (
         <Landing setLandingDisplayed={setLandingDisplayed} />
       )}

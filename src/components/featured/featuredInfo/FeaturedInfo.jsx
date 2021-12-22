@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import classes from "./FeaturedInfo.module.scss";
 const FeaturedInfo = (props) => {
   const wrapperRef = useRef(null);
@@ -120,6 +120,7 @@ const FeaturedInfo = (props) => {
               href={props.btnUrl}
               target="_blank"
               className="btn"
+              rel="noreferrer"
               style={{ color: props.btnColor, borderColor: props.btnColor }}
             >
               {props.btnText}

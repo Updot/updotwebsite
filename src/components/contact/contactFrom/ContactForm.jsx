@@ -118,9 +118,9 @@ const ContactForm = () => {
     }
   };
 
-  const onNewsletterBtnClickHandler = (e) => {
-    newsletterBtnRef.current.classList.add(`${classes["animate-btn-2"]}`);
-  };
+  // const onNewsletterBtnClickHandler = (e) => {
+  //   newsletterBtnRef.current.classList.add(`${classes["animate-btn-2"]}`);
+  // };
   const setAttechment = (fieldName, result) => {
     setAttachments((prevState) => {
       return { ...prevState, [fieldName]: result };

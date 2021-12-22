@@ -48,7 +48,7 @@ const Services = (props) => {
     }
   }, [props.data]);
 
-  console.log(iconsData[iconNumber]);
+  // console.log(iconsData[iconNumber]);
 
   useEffect(() => {
     let onEntry = (entries) => {
@@ -97,13 +97,13 @@ const Services = (props) => {
     observer.observe(el);
   }, []);
 
-  const onMouseOverHandler = (event) => {
-    event.target.nextSibling.classList.add(`${classes["show"]}`);
-  };
+  // const onMouseOverHandler = (event) => {
+  //   event.target.nextSibling.classList.add(`${classes["show"]}`);
+  // };
 
-  const onMouseOutHandler = (event) => {
-    event.target.nextSibling.classList.remove(`${classes["show"]}`);
-  };
+  // const onMouseOutHandler = (event) => {
+  //   event.target.nextSibling.classList.remove(`${classes["show"]}`);
+  // };
 
   return (
     <Fragment>

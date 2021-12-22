@@ -77,7 +77,7 @@ const SkillContainer = (props) => {
         Math.floor(skillsInnerRef.current.scrollLeft / window.innerWidth)
       );
     });
-  }, []);
+  }, [props]);
   return (
     <div ref={skillsInnerRef} className={classes["skills-inner-cotnainer"]}>
       {SKILLS_DATA.map((skill, i) => (

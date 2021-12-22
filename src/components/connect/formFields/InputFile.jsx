@@ -5,7 +5,7 @@ import classes from "./InputFile.module.scss";
 
 const InputFile = (props) => {
   const [file, setFile] = useState(null);
-  const [base64File, setBase64File] = useState(null);
+  // const [base64File, setBase64File] = useState(null);
 
   const inputChangeHandler = (fieldName, data) => {
     // function getBase64(file, cb) {

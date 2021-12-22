@@ -51,11 +51,11 @@ const BlogCard = (props) => {
       ? "35%"
       : "50%"
     : "60%";
-  linkStyle["marginRight"] =
-    isTrue &&
-    location.pathname.includes("work") &&
-    window.innerWidth < 800 &&
-    "-20%";
+  // linkStyle["marginRight"] =
+  //   isTrue &&
+  //   location.pathname.includes("work") &&
+  //   window.innerWidth < 800 &&
+  //   "-20%";
 
   let headingStyle = isTrue ? { textAlign: "right" } : {};
 

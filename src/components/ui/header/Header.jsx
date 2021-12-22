@@ -14,7 +14,7 @@ const Header = (props) => {
   const isLightThemeActive = useSelector(
     (state) => state.themeState.isLightThemeActive
   );
-  const [showBg, setShowBg] = useState(true);
+  // const [showBg, setShowBg] = useState(true);
   const [bgColor, setBgColor] = useState("");
   const isNavActive = useSelector((state) => state.navState.isActive);
   let navStyle = {};
@@ -24,15 +24,15 @@ const Header = (props) => {
     navStyle["top"] = arrowCurrCords.y;
   }
 
-  useEffect(() => {
-    window.addEventListener("scroll", (e) => {
-      if (window.scrollY > 100) {
-        setShowBg(false);
-      } else {
-        setShowBg(true);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", (e) => {
+  //     if (window.scrollY > 100) {
+  //       setShowBg(false);
+  //     } else {
+  //       setShowBg(true);
+  //     }
+  //   });
+  // }, []);
   useEffect(() => {
     if (isNavActive) {
       // if (isLightThemeActive) {

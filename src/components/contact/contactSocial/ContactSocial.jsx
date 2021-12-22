@@ -1,8 +1,8 @@
 import SectionHeading from "../../ui/SectionHeading";
 
-import gmailIcon from "../../../assets/img/contact/gmail.svg";
+// import gmailIcon from "../../../assets/img/contact/gmail.svg";
 import whatsappIcon from "../../../assets/img/contact/Whatsapp.svg";
-import outlookIcon from "../../../assets/img/contact/Outlook.svg";
+// import outlookIcon from "../../../assets/img/contact/Outlook.svg";
 import telegramIcon from "../../../assets/img/contact/telegram.svg";
 
 import classes from "./ContactSocial.module.scss";
