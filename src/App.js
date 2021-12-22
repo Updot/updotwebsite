@@ -50,6 +50,11 @@ function App() {
     }
   }, [dispatch]);
 
+  // Disable both in development
+  // temp warning surpass for installed packages where package using old dependencies
+  console.warn = () => {};
+  // temp error removel
+  console.error = () => {};
   return (
     <div className="App">
       <MouseArrow />
