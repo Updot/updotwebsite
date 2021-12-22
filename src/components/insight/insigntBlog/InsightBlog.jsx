@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-// import Home from "../../home/Home";
+import Home from "../../home/Home";
 import BlogCard from "../../ui/blogCard/BlogCard";
 import leftArrow from "./../../../assets/img/down-arrow.svg";
 // import emptyRect1 from "./../../../assets/img/empty-rect-1.svg";
