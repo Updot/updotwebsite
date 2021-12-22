@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
-import HomeComponent from "./../components/home/Home";
+import Home from "./../components/home/Home";
 import Work from "../components/work/Work";
 import Newsletter from "./../components/newsletter/Newsletter";
 import Footer from "../components/footer/Footer";
@@ -18,7 +18,7 @@ const WorkPage = (props) => {
 
       <Switch>
         <Route path="/work" exact>
-          <HomeComponent heading="Work" fontSize="5.3rem" />
+          <Home heading="Work" fontSize="5.3rem" />
           <Work />
         </Route>
         <Route path="/work/:workId">

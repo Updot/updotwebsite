@@ -12,7 +12,7 @@ import { themeStateAction } from "./store/themeState";
 // import Header from "./components/ui/header/Header";
 // import Nav from "./components/ui/nav/Nav";
 
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
 
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 const About = React.lazy(() => import("./pages/About"));
@@ -58,7 +58,7 @@ function App() {
         <Landing setLandingDisplayed={setLandingDisplayed} />
       )}
       <Route path="/" exact>
-        <Home headerDisplayed={headerDisplayed} />
+        <HomePage headerDisplayed={headerDisplayed} />
       </Route>
       <React.Suspense fallback={<Loader />}>
         <Switch>

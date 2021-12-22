@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import HomeComponent from "./../components/home/Home";
+import Home from "./../components/home/Home";
 import OurStory from "../components/aboutUs/ourStory/OurStory";
 import OurValues from "../components/aboutUs/ourValues/OurValues";
 import MasteredSkills from "../components/aboutUs/masteredSkills/MasteredSkills";
@@ -18,7 +18,7 @@ const About = (props) => {
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
       {isNavActive && <Nav />}
-      <HomeComponent heading="About" fontSize="5.3rem" />
+      <Home heading="About" fontSize="5.3rem" />
       <OurStory />
       <OurValues />
       <MasteredSkills />

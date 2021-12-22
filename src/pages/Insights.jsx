@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
-import HomeComponent from "./../components/home/Home";
+import Home from "./../components/home/Home";
 import Insight from "../components/insight/Insight";
 import InsightBlog from "../components/insight/insigntBlog/InsightBlog";
 // import Connect from "./../components/connect/Connect";
@@ -19,7 +19,7 @@ const Insights = (props) => {
       {isNavActive && <Nav />}
       <Switch>
         <Route path="/insights" exact>
-          <HomeComponent heading="Insights" fontSize="5.3rem" />
+          <Home heading="Insights" fontSize="5.3rem" />
           <Insight />
         </Route>
         <Route path="/insights/:insightId" exact>
