@@ -1,52 +1,96 @@
-@keyframes overlay-fade {
-  0% {
-    opacity: 0%;
-  }
-  100% {
-    opacity: 100%;
-  }
-}
-@keyframes modal-animation {
-  0% {
-    opacity: 0%;
-    transform: translate(-50%, -100vh);
-  }
-  100% {
-    opacity: 100%;
-    transform: translate(-50%, -50%);
-  }
-}
+// @keyframes overlay-fade {
+//   0% {
+//     opacity: 0%;
+//   }
+//   100% {
+//     opacity: 100%;
+//   }
+// }
+// @keyframes modal-animation {
+//   0% {
+//     opacity: 0%;
+//     transform: translate(-50%, -100vh);
+//   }
+//   100% {
+//     opacity: 100%;
+//     transform: translate(-50%, -50%);
+//   }
+// }
 
-.overlay {
-  display: block;
+// .overlay {
+//   display: block;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   animation: overlay-fade 0.2s both;
+//   z-index: 99999;
+// }
+// .modal {
+//   position: fixed;
+//   top: 30%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   background-color: var(--bg-color);
+//   color: var(--text-color);
+//   font-size: 3rem;
+//   padding: 50px;
+//   box-shadow: 0 0 10px var(--box-shadow-light);
+//   border-radius: 20px;
+//   border: none;
+//   animation: modal-animation 0.2s ease forwards;
+//   z-index: 99999;
+//   user-select: none;
+// }
+// .close {
+//   position: absolute;
+//   top: 2rem;
+//   right: 3rem;
+//   cursor: pointer;
+// }
+
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
   background-color: rgba(0, 0, 0, 0.5);
-  animation: overlay-fade 0.2s both;
-  z-index: 99999;
 }
+
 .modal {
   position: fixed;
-  top: 30%;
+  top: 25vh;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  width: 90%;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-size: 3rem;
   padding: 50px;
+  border-radius: 14px;
+  font-size: 3rem;
   box-shadow: 0 0 10px var(--box-shadow-light);
-  border-radius: 20px;
-  border: none;
-  animation: modal-animation 0.2s ease forwards;
-  z-index: 99999;
-  user-select: none;
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
 }
-.close {
-  position: absolute;
-  top: 2rem;
-  right: 3rem;
-  cursor: pointer;
+
+@media (min-width: 768px) {
+  .modal {
+    width: 50vw;
+    left: calc(50% - 25vw);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
