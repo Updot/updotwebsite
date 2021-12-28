@@ -15,7 +15,6 @@ const InputFile = (props) => {
     //     cb(reader.result);
     //   };
     //   reader.onerror = function (error) {
-    //     console.log("Error: ", error);
     //   };
     // }
     // getBase64(data, (result) => {

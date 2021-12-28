@@ -42,7 +42,6 @@ const FeaturedInfo = (props) => {
           // fiRef.current.classList.remove(
           //   `${classes["featured-info-outer-animate"]}`
           // );
-          console.log("out");
           featuredInfoContainerRef.current.classList.remove(
             `${classes["featured-info-container-animate-sec"]}`
           );

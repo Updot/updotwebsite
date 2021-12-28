@@ -89,8 +89,8 @@ const Cookies = () => {
           <div className={classes["cookie-container"]}>
             <h4>Cookies</h4>
             <p>
-              Shadapadey Shadapadey Shadapadey Shadapadey Shadapadey Shadapadey
-              Shadapadey Shadapadey Shadapadey Shadapadey Shadapadey Shadapadey
+              We baked some cookies that you have to accept. This is to ensure
+              we can improve further. Hope you don't mind?
             </p>
             <div>
               <button className="btn" onClick={() => accept()}>

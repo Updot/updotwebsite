@@ -33,7 +33,6 @@ const ApplyForm = (props) => {
     }
   }, [isSubmitSuccessful, reset]);
   const formSubmitHandler = async (formData) => {
-    // console.log(formData);
     const form = new FormData();
     Object.keys(attachments).forEach((k) => {
       form.append(k, attachments[k]);

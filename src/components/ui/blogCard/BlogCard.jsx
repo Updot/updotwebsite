@@ -59,9 +59,7 @@ const BlogCard = (props) => {
 
   let headingStyle = isTrue ? { textAlign: "right" } : {};
 
-  const onMouseOverHandler = () => {
-    // console.log(dotRef.current.getBoundingClientRect());
-  };
+  const onMouseOverHandler = () => {};
 
   return (
     <div

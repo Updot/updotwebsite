@@ -38,9 +38,7 @@ const BlogNavigateCard = (props) => {
     ? `${classes["blog-dot-animate-even"]}`
     : `${classes["blog-dot-animate-odd"]}`;
 
-  const onMouseOverHandler = () => {
-    // console.log(dotRef.current.getBoundingClientRect());
-  };
+  const onMouseOverHandler = () => {};
 
   return (
     <div className={classes["blog-card-2"]} mask="true" style={style}>

@@ -21,9 +21,9 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  // animation: animateField 0.4s ease-in-out;
+  animation: animateField 0.4s ease-in-out;
   // opacity: 0;
-  // animation-fill-mode: forwards;
+  animation-fill-mode: backwards;
 }
 .form-field-container {
   margin-bottom: 5rem;

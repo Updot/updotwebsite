@@ -147,8 +147,6 @@ const ContactForm = () => {
     setHCaptchaData({ token, ekey });
   };
 
-  console.log(submissionMessage);
-
   return (
     <>
       <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>

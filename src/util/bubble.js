@@ -119,7 +119,6 @@ window.addEventListener("mousemove", (e) => {
   const bouding = circle1.getBoundingClientRect();
   const elCenterX = bouding.x + bouding.width / 2;
   const elCenterY = bouding.y + bouding.height / 2;
-  console.log(elCenterX, elCenterY);
   connector.setAttribute(
     "d",
     metaball(50, 10, [elCenterX, elCenterY], [centerX, centerY])

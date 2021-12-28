@@ -59,8 +59,6 @@ const WorkBlog = () => {
     // }
   });
 
-  console.log(blogData);
-
   return (
     <Fragment>
       {/* <Home

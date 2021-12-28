@@ -48,8 +48,6 @@ const Services = (props) => {
     }
   }, [props.data]);
 
-  // console.log(iconsData[iconNumber]);
-
   useEffect(() => {
     let onEntry = (entries) => {
       entries.forEach((change) => {
