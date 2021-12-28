@@ -18,7 +18,7 @@ const ApplyForm = (props) => {
   const [attachments, setAttachments] = useState({});
   const [submissionMessage, setSubmissionMessage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const submitBtnRef = useRef(null);
+  const submitBtnRef = useRef(null);
   const {
     register,
     handleSubmit,
@@ -40,6 +40,7 @@ const ApplyForm = (props) => {
     for (var key in formData) {
       form.append(key, formData[key]);
     }
+    submitBtnRef.current.innerText = "Submitting...";
     const response = await fetch(
       "https://temp-updot-backend-o9zol.ondigitalocean.app/api/data-submission/careers",
       {
@@ -57,6 +58,7 @@ const ApplyForm = (props) => {
     } else {
       setSubmissionMessage(`Error occured while submitting form!!`);
     }
+    submitBtnRef.current.innerText = "Submit";
     setIsModalOpen(true);
   };
 
@@ -284,6 +286,7 @@ const ApplyForm = (props) => {
             <button
               className="btn"
               type="submit"
+              ref={submitBtnRef}
               onClick={(e) => {
                 e.target.classList.add("btn-active");
               }}

@@ -109,17 +109,19 @@
 .btn-submit {
   border: unset;
   position: relative;
+  border-bottom: 2px solid var(--text-color);
+  padding-bottom: 0rem;
 }
-.btn-submit::after {
-  content: "";
-  display: inline-block;
-  background-color: var(--text-color);
-  width: 10rem;
-  height: 1.5px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
+// .btn-submit::after {
+//   content: "";
+//   display: inline-block;
+//   background-color: var(--text-color);
+//   width: 10rem;
+//   height: 1.5px;
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+// }
 .btn-newsletter {
   /* width: 35.5rem; */
   /* height: 3.3rem; */

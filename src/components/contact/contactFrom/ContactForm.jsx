@@ -53,6 +53,7 @@ const ContactForm = () => {
       form.append(key, formData[key]);
     }
     form.append("h-captcha-token", hCaptchaData.token);
+    submitBtnRef.current.innerText = "Submitting...";
     const response = await fetch(
       "https://temp-updot-backend-o9zol.ondigitalocean.app/api/data-submission/contact",
       {
@@ -72,6 +73,7 @@ const ContactForm = () => {
     } else {
       setSubmissionMessage(`Error occured while submitting form!!`);
     }
+    submitBtnRef.current.innerText = "Submit";
     setIsModalOpen(true);
   };
   useEffect(() => {
