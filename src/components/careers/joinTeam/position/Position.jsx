@@ -52,7 +52,6 @@ const Position = () => {
     if (!isShowForm) {
       const position = document.querySelector(`.${classes["position"]}`);
 
-      console.log(position.getBoundingClientRect().width);
       const singlePositionHeight = position.getBoundingClientRect().width;
       const elementCount = position.childElementCount;
       if (count < elementCount - 1) {

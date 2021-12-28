@@ -41,7 +41,7 @@ const ApplyForm = (props) => {
       form.append(key, formData[key]);
     }
     const response = await fetch(
-      "http://localhost:8080/api/data-submission/careers",
+      "https://temp-updot-backend-o9zol.ondigitalocean.app/api/data-submission/careers",
       {
         method: "POST",
         headers: {

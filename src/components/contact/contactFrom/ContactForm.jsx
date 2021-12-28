@@ -54,7 +54,7 @@ const ContactForm = () => {
     }
     form.append("h-captcha-token", hCaptchaData.token);
     const response = await fetch(
-      "http://localhost:8080/api/data-submission/contact",
+      "https://temp-updot-backend-o9zol.ondigitalocean.app/api/data-submission/contact",
       {
         method: "POST",
         headers: {
