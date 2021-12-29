@@ -12,12 +12,20 @@ const AreaSwitch = (props) => {
   return (
     <div>
       {props.current === "ind" ? (
-        <div onClick={onClickHandler.bind(null, "uae")}>
-          <img src={uaeMin} alt="uae map" />
+        <div>
+          <img
+            onClick={onClickHandler.bind(null, "uae")}
+            src={uaeMin}
+            alt="uae map"
+          />
         </div>
       ) : (
-        <div onClick={onClickHandler.bind(null, "ind")}>
-          <img src={indiaMin} alt="india map" />
+        <div>
+          <img
+            onClick={onClickHandler.bind(null, "ind")}
+            src={indiaMin}
+            alt="india map"
+          />
         </div>
       )}
     </div>

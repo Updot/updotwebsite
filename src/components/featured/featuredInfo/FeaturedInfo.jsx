@@ -21,11 +21,17 @@ const FeaturedInfo = (props) => {
               fiRef.current.classList.add(
                 `${classes["featured-info-outer-animate"]}`
               );
-              if (window.innerWidth < 800)
+              if (window.innerWidth < 800) {
                 featuredInfoContainerRef.current.classList.add(
                   `${classes["featured-info-container-animate"]}`
                 );
+              }
               props.setIsAnimated(false);
+              setTimeout(() => {
+                if (props.setIsWebsiteAnimated) {
+                  props.setIsWebsiteAnimated(true);
+                }
+              }, 1000);
             }
           }
         } else {

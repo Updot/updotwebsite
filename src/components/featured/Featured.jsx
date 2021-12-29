@@ -17,6 +17,7 @@ import classes from "./Featured.module.scss";
 
 const Featured = () => {
   const [isAnimated, setIsAnimated] = useState(false);
+  const [isWebsiteAnimated, setIsWebsiteAnimated] = useState(false);
   const [showFeatured, setShowFeatured] = useState("website");
 
   const showFeaturedItem = (secName) => {
@@ -36,8 +37,9 @@ const Featured = () => {
           <FeaturedInfo
             logo={remaxLogo}
             ui={remaxWeb}
-            isAnimated={isAnimated}
+            isAnimated={isWebsiteAnimated || isAnimated}
             setIsAnimated={setIsAnimated}
+            setIsWebsiteAnimated={setIsWebsiteAnimated}
             description={featuredData[`website`].description}
             btnText={featuredData[`website`].btnText}
             btnColor={featuredData[`website`].btnColor}

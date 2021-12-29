@@ -272,6 +272,9 @@
 }
 .animate-field-7 {
   animation-delay: 1.4s;
+  @media screen and (max-width: 800px) {
+    margin-top: 4rem;
+  }
 }
 .animate-field-8 {
   animation-delay: 1.6s;

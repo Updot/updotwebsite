@@ -64,9 +64,9 @@
 .modal {
   position: fixed;
   top: 25vh;
-  left: 50%;
   transform: translateX(-50%);
-  width: 90%;
+  width: 50vw;
+  left: calc(50% - 25vw);
   background-color: var(--bg-color);
   color: var(--text-color);
   padding: 50px;
@@ -77,10 +77,14 @@
   animation: slide-down 300ms ease-out forwards;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 800px) {
   .modal {
-    width: 50vw;
-    left: calc(50% - 25vw);
+    font-size: 1.6rem;
+    padding: 2rem;
+    width: 90%;
+    left: 5%;
+    line-height: 1.5;
+    border-radius: 1rem;
   }
 }
 
