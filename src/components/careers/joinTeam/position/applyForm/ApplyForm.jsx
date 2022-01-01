@@ -42,7 +42,7 @@ const ApplyForm = (props) => {
     }
     submitBtnRef.current.innerText = "Submitting...";
     const response = await fetch(
-      "https://temp-updot-backend-o9zol.ondigitalocean.app/api/data-submission/careers",
+      "https://updotweb-backend-2xv8y.ondigitalocean.app/api/data-submission/careers",
       {
         method: "POST",
         headers: {

@@ -11,7 +11,7 @@ const Cookies = () => {
 
   const sendAcceptedCookieInfo = async () => {
     const res = await axios.post(
-      "https://temp-updot-backend-o9zol.ondigitalocean.app/api/cookies/accept",
+      "https://updotweb-backend-2xv8y.ondigitalocean.app/api/cookies/accept",
       {
         theme,
         deviceInfo: window.clientInformation.userAgent,
@@ -21,7 +21,7 @@ const Cookies = () => {
   };
   const sendDeclinedCookieInfo = async () => {
     const res = await axios.post(
-      "https://temp-updot-backend-o9zol.ondigitalocean.app/api/cookies/decline",
+      "https://updotweb-backend-2xv8y.ondigitalocean.app/api/cookies/decline",
       {
         theme,
         deviceInfo: window.clientInformation.userAgent,
@@ -34,7 +34,7 @@ const Cookies = () => {
     const cookieInfo = JSON.parse(localStorage.getItem("updotCookie"));
     const updateCookieInfo = async () => {
       const res = await axios.post(
-        "https://temp-updot-backend-o9zol.ondigitalocean.app/api/cookies/update",
+        "https://updotweb-backend-2xv8y.ondigitalocean.app/api/cookies/update",
         {
           id: cookieInfo.cookieId,
           theme,
