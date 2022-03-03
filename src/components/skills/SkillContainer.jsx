@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-
+import gsap from "gsap";
 import Skill from "./Skill";
 import SectionHeading from "../ui/SectionHeading";
 import classes from "./SkillContainer.module.scss";
@@ -76,6 +76,21 @@ const SkillContainer = (props) => {
       props.setScrollDot(
         Math.floor(skillsInnerRef.current.scrollLeft / window.innerWidth)
       );
+    });
+    // GSAP
+    let sections = gsap.utils.toArray(skillsInnerRef.current.children);
+    console.log(sections);
+    gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: props.parent,
+        pin: true,
+        scrub: 1,
+        snap: 1 / (sections.length - 1),
+        // base vertical scrolling on how wide the container is so it feels more natural.
+        end: "+=3500",
+      },
     });
   }, [props]);
   return (
