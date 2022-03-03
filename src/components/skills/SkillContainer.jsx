@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import Skill from "./Skill";
 import SectionHeading from "../ui/SectionHeading";
 import classes from "./SkillContainer.module.scss";
@@ -68,9 +69,10 @@ const SKILLS_DATA = [
     img: loadingIcon,
   },
 ];
-
+gsap.registerPlugin(ScrollTrigger);
 const SkillContainer = (props) => {
   const skillsInnerRef = useRef();
+
   useEffect(() => {
     skillsInnerRef.current.addEventListener("scroll", (e) => {
       props.setScrollDot(
@@ -79,17 +81,18 @@ const SkillContainer = (props) => {
     });
     // GSAP
     let sections = gsap.utils.toArray(skillsInnerRef.current.children);
-    console.log(sections);
+    console.log(skillsInnerRef.current);
+
     gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
       ease: "none",
       scrollTrigger: {
-        trigger: props.parent,
+        trigger: skillsInnerRef.current,
         pin: true,
         scrub: 1,
         snap: 1 / (sections.length - 1),
         // base vertical scrolling on how wide the container is so it feels more natural.
-        end: "+=3500",
+        end: () => `+=${skillsInnerRef.current.offsetWidth}`,
       },
     });
   }, [props]);
