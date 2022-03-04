@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialMouseState = {
-  currLocation: { x: 108, y: 23 },
-  restLocation: { x: 108, y: 23 },
+  currLocation: { x: 40, y: 40 },
+  restLocation: { x: 40, y: 40 },
 };
 
 const mouseLocationSlice = createSlice({

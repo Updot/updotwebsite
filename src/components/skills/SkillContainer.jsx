@@ -81,7 +81,6 @@ const SkillContainer = (props) => {
     });
     // GSAP
     let sections = gsap.utils.toArray(skillsInnerRef.current.children);
-    console.log(skillsInnerRef.current);
 
     gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
