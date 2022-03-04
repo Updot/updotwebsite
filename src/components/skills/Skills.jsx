@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import ScrollDot from "./ScrollDot";
-import SkillContainer from "./SkillContainer";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import Skill from "./Skill";
 import classes from "./Skills.module.scss";
 import SectionHeading from "../ui/SectionHeading";
@@ -18,6 +18,7 @@ import loadingIcon from "../../assets/img/lottiefiles/loading.json";
 import thumbIcon from "../../assets/img/lottiefiles/thumbsup.json";
 import upArrow from "../../assets/img/up-arrow.svg";
 
+gsap.registerPlugin(ScrollTrigger);
 const Skills = () => {
   const [scrollDir, setScrollDir] = useState("bottom");
   const [scrollDotCount, setScrollDotCount] = useState(0);
