@@ -6,7 +6,7 @@
 }
 .skill-text {
   display: grid;
-  place-content: end;
+  place-content: center;
   flex-basis: 50%;
 }
 .skill-heading {
@@ -24,8 +24,8 @@
 .skill-icon {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  flex-basis: 20%;
+  align-items: flex-start;
+  flex-basis: 50%;
   margin-left: auto;
 }
 .skill-icon img {

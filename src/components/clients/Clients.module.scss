@@ -119,23 +119,20 @@
     left: 14%; */
   }
   .client-loc-2 {
-    /* top: 20%;
-    right: 17%;
-    left: unset; */
+    top: 30%;
+    left: 27%;
   }
   .client-loc-3 {
-    /* top: 40%;
-    left: unset;
-    right: 25%; */
+    top: 35%;
+    left: 55%;
   }
   .client-loc-4 {
-    /* top: 47%;
-    right: unset;
-    left: 18%; */
+    top: 47%;
+    left: 32%;
   }
   .client-loc-5 {
-    /* right: 21%;
-    top: 57%; */
+    right: 8%;
+    top: 47%;
   }
   .client-loc-6 {
     /* right: 25%; */
@@ -150,7 +147,11 @@
 }
 @media only screen and (max-width: 980px) {
   .client-loc-3 {
-    left: 54%;
+    left: 52%;
+  }
+  .client-loc-5 {
+    top: 46%;
+    left: 68%;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -189,7 +190,7 @@
   }
   .client-loc-3 {
     top: 55%;
-    left: 45%;
+    left: 14%;
   }
   .client-loc-4 {
     top: 70%;
@@ -219,15 +220,15 @@
     left: 50%;
   }
   .client-loc-3 {
-    top: 50%;
+    top: 55%;
     left: 15%;
   }
   .client-loc-4 {
-    top: 63%;
+    top: 73%;
     left: 45%;
   }
   .client-loc-5 {
-    top: 80%;
+    top: 90%;
     left: 15%;
   }
 }

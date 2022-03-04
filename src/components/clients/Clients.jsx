@@ -17,7 +17,7 @@ import remaxLogo from "../../assets/img/featured/remax.svg";
 // import virtuselLogo from "../../assets/img/featured/virtusel.svg";
 import wolfwizardLogo from "../../assets/img/featured/wolfwizard.svg";
 import fortuneLogo from "../../assets/img/featured/fortune.png";
-import hyundaiLogo from "../../assets/img/clients/hyundai-black-logo.png";
+import hyundaiLogo from "../../assets/img/clients/hyundai-logo.png";
 import kiaLogo from "../../assets/img/clients/kia-black-logo.png";
 
 const Clients = () => {
@@ -50,15 +50,15 @@ const Clients = () => {
           imgColor={fortuneLogo}
         />
         <Client
-          className={`${classes["client-loc-4"]} ${classes["small"]}`}
-          imgColor={hyundaiLogo}
-        />
-        <Client
           className={`${classes["client-loc-3"]} ${classes["big"]}`}
           imgColor={wolfwizardLogo}
         />
         <Client
-          className={`${classes["client-loc-5"]} ${classes["big"]}`}
+          className={`${classes["client-loc-4"]} ${classes["big"]}`}
+          imgColor={hyundaiLogo}
+        />
+        <Client
+          className={`${classes["client-loc-5"]} ${classes["mid"]}`}
           imgColor={kiaLogo}
         />
         {/* <Client
