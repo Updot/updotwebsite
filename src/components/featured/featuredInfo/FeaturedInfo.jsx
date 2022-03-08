@@ -87,25 +87,25 @@ const FeaturedInfo = (props) => {
   //     }
   //   });
   // }, [featuredBoundary]);
-  const onMouseOverOuterHandler = (event) => {
-    if (!isLightThemeActive)
-      document.querySelector("[data-arrow='mousearrow']").style.filter =
-        "invert(100%)";
-  };
-  const onMouseOutOuterHandler = () => {
-    document.querySelector("[data-arrow='mousearrow']").style.filter = "unset";
-  };
-  const onMouseOverHandler = (event) => {};
-  const onMouseOutHandler = () => {
-    // bubbleRef.current.style.top = `${0}px`;
-  };
+  // const onMouseOverOuterHandler = (event) => {
+  //   if (!isLightThemeActive)
+  //     document.querySelector("[data-arrow='mousearrow']").style.filter =
+  //       "invert(100%)";
+  // };
+  // const onMouseOutOuterHandler = () => {
+  //   document.querySelector("[data-arrow='mousearrow']").style.filter = "unset";
+  // };
+  // const onMouseOverHandler = (event) => {};
+  // const onMouseOutHandler = () => {
+  //   // bubbleRef.current.style.top = `${0}px`;
+  // };
 
   return (
     <div
       ref={wrapperRef}
       className={classes["featured-info-wrapper"]}
-      onMouseOver={onMouseOverOuterHandler}
-      onMouseOut={onMouseOutOuterHandler}
+      // onMouseOver={onMouseOverOuterHandler}
+      // onMouseOut={onMouseOutOuterHandler}
     >
       <div ref={fiRef} className={classes["featured-info-outer"]}>
         {/* <div
@@ -115,8 +115,8 @@ const FeaturedInfo = (props) => {
         <div
           ref={featuredInfoContainerRef}
           className={classes["featured-info-container"]}
-          onMouseOver={onMouseOverHandler}
-          onMouseOut={onMouseOutHandler}
+          // onMouseOver={onMouseOverHandler}
+          // onMouseOut={onMouseOutHandler}
         >
           <div className={classes["featured-info"]}>
             <img src={props.logo} alt="remax" />

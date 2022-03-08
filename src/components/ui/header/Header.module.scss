@@ -1,5 +1,4 @@
 .header {
-  width: 90vw;
   top: 10%;
   left: 5vw;
   margin: 0 auto;
@@ -7,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 99999;
+  z-index: 999;
   transition: all 0.2s ease-in-out;
 }
 .header-hide {
@@ -121,14 +120,16 @@
 .nav-btn:hover span:nth-of-type(2) {
   width: 100%;
 }
-.rotate-top {
-  transform: rotate(-45deg);
+// .rotate-top {
+//   transform: rotate(-45deg);
+// }
+// .rotate-up {
+//   transform: translateY(1.25rem) rotate(45deg);
+//   width: 100% !important;
+// }
+.hide-nav {
+  display: none;
 }
-.rotate-up {
-  transform: translateY(1.25rem) rotate(45deg);
-  width: 100% !important;
-}
-
 @media only screen and (max-width: 800px) {
   .header {
     top: 5%;

@@ -3,11 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/img/updot-logo.svg";
 import { navStateAction } from "../../../store/NavState";
+import { useGlobalDispatchContext } from "../../../context/globalContext";
 
 import classes from "./Header.module.scss";
 
 const Header = (props) => {
   const dispatch = useDispatch();
+  const cursorDispatch = useGlobalDispatchContext();
+
   const arrowCurrCords = useSelector(
     (state) => state.mouseLocation.currLocation
   );
@@ -18,11 +21,11 @@ const Header = (props) => {
   const [bgColor, setBgColor] = useState("");
   const isNavActive = useSelector((state) => state.navState.isActive);
   let navStyle = {};
-  if (isNavActive && window.innerWidth > 800) {
-    navStyle["right"] = "unset";
-    navStyle["left"] = arrowCurrCords.x;
-    navStyle["top"] = arrowCurrCords.y;
-  }
+  // if (isNavActive && window.innerWidth > 800) {
+  //   navStyle["right"] = "unset";
+  //   navStyle["left"] = arrowCurrCords.x;
+  //   navStyle["top"] = arrowCurrCords.y;
+  // }
 
   // useEffect(() => {
   //   window.addEventListener("scroll", (e) => {
@@ -46,25 +49,8 @@ const Header = (props) => {
       }, 1000);
     } else {
       setBgColor("");
-      const navBtn = document.querySelector('[data-name="nav-btn"]');
-      navBtn.classList.remove("hide");
     }
   }, [isNavActive, isLightThemeActive]);
-
-  const mouseHoverHandler = () => {
-    if (isNavActive) {
-      const navBtn = document.querySelector('[data-name="nav-btn"]');
-      navBtn.classList.add("hide");
-      document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
-    }
-  };
-  const mouseOutHandler = () => {
-    if (isNavActive) {
-      const navBtn = document.querySelector('[data-name="nav-btn"]');
-      navBtn.classList.remove("hide");
-      document.querySelector("[data-arrow='mousearrow']").style.opacity = 0;
-    }
-  };
 
   return (
     <Fragment>
@@ -79,8 +65,8 @@ const Header = (props) => {
           onClick={() => {
             isNavActive && dispatch(navStateAction.toggleNav());
           }}
-          onMouseOver={mouseHoverHandler}
-          onMouseOut={mouseOutHandler}
+          onMouseEnter={() => cursorDispatch("cursor-main")}
+          onMouseLeave={cursorDispatch}
         >
           <img
             src={logo}
@@ -89,21 +75,19 @@ const Header = (props) => {
           />
           {isNavActive && <p>Home</p>}
         </Link>
-        <div className={classes["nav-button-wrapper"]}>
-          <div
-            data-name="nav-btn"
-            className={classes["nav-btn"]}
-            style={navStyle}
-            onClick={() => dispatch(navStateAction.toggleNav())}
-          >
-            <span className={`${isNavActive && classes["rotate-top"]}`}>
-              &nbsp;
-            </span>
-            <span className={`${isNavActive && classes["rotate-up"]}`}>
-              &nbsp;
-            </span>
+        {!isNavActive ? (
+          <div className={classes["nav-button-wrapper"]}>
+            <div
+              data-name="nav-btn"
+              className={classes["nav-btn"]}
+              style={navStyle}
+              onClick={() => dispatch(navStateAction.toggleNav())}
+            >
+              <span className={`${isNavActive}`}>&nbsp;</span>
+              <span className={`${isNavActive}`}>&nbsp;</span>
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
       {/* {window.innerWidth > 800 && (
         <div
