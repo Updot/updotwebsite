@@ -16,19 +16,13 @@ import brandingIcon from "../../assets/img/lottiefiles/branding.json";
 import puzzleIcon from "../../assets/img/lottiefiles/puzzle.json";
 import loadingIcon from "../../assets/img/lottiefiles/loading.json";
 import thumbIcon from "../../assets/img/lottiefiles/thumbsup.json";
-import upArrow from "../../assets/img/up-arrow.svg";
+// import upArrow from "../../assets/img/up-arrow.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 const Skills = () => {
-  const [scrollDir, setScrollDir] = useState("bottom");
   const [scrollDotCount, setScrollDotCount] = useState(0);
 
-  const ghostRef = useRef(null);
   const skillsInnerRef = useRef();
-
-  const setScrollDot = (skillNum) => {
-    setScrollDotCount(skillNum);
-  };
 
   useEffect(() => {
     // skillsInnerRef.current.addEventListener("scroll", (e) => {

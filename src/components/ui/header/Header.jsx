@@ -11,9 +11,6 @@ const Header = (props) => {
   const dispatch = useDispatch();
   const cursorDispatch = useGlobalDispatchContext();
 
-  const arrowCurrCords = useSelector(
-    (state) => state.mouseLocation.currLocation
-  );
   const isLightThemeActive = useSelector(
     (state) => state.themeState.isLightThemeActive
   );
@@ -21,29 +18,8 @@ const Header = (props) => {
   const [bgColor, setBgColor] = useState("");
   const isNavActive = useSelector((state) => state.navState.isActive);
   let navStyle = {};
-  // if (isNavActive && window.innerWidth > 800) {
-  //   navStyle["right"] = "unset";
-  //   navStyle["left"] = arrowCurrCords.x;
-  //   navStyle["top"] = arrowCurrCords.y;
-  // }
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", (e) => {
-  //     if (window.scrollY > 100) {
-  //       setShowBg(false);
-  //     } else {
-  //       setShowBg(true);
-  //     }
-  //   });
-  // }, []);
   useEffect(() => {
     if (isNavActive) {
-      // if (isLightThemeActive) {
-      //   setBgColor("var(--text-color)");
-      // } else {
-      //   setBgColor("var(--bg-color)");
-      // }
-
       setTimeout(() => {
         setBgColor("#000");
       }, 1000);
