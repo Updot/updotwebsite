@@ -32,6 +32,7 @@ const Nav = () => {
 
   const desktopThemeTogglerHandler = () => {
     dispatch(themeStateAction.toggleTheme());
+    dispatch(navStateAction.toggleNav());
   };
   return (
     <div

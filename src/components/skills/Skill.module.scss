@@ -49,7 +49,7 @@
     flex-direction: column;
     height: unset;
     min-height: 60%;
-    width: 100%;
+    // width: 100%;
     padding: 0 0vw;
   }
   .skill-text {
@@ -58,16 +58,16 @@
     flex-basis: 50%;
   }
   .skill-heading {
-    margin-top: 2rem;
+    // margin-top: 2rem;
     font-size: 2.2rem;
-    margin-bottom: 1.4rem;
+    // margin-bottom: 1.4rem;
   }
   .skill-para {
     font-size: 1.7rem;
   }
 
   .skill-icon {
-    margin-top: 3rem;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;

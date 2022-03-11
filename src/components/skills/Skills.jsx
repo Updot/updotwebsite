@@ -17,7 +17,11 @@ import puzzleIcon from "../../assets/img/lottiefiles/puzzle.json";
 import loadingIcon from "../../assets/img/lottiefiles/loading.json";
 import thumbIcon from "../../assets/img/lottiefiles/thumbsup.json";
 // import upArrow from "../../assets/img/up-arrow.svg";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+import "swiper/swiper.scss";
 gsap.registerPlugin(ScrollTrigger);
 const Skills = () => {
   const [scrollDotCount, setScrollDotCount] = useState(0);
@@ -30,40 +34,59 @@ const Skills = () => {
     //     Math.floor(skillsInnerRef.current.scrollLeft / window.innerWidth)
     //   );
     // });
-    // GSAP
-    let sections = gsap.utils.toArray(skillsInnerRef.current.children);
-
-    gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: skillsInnerRef.current,
-        pin: true,
-        scrub: 1,
-        snap: 1 / (sections.length - 1),
-        // base vertical scrolling on how wide the container is so it feels more natural.
-        end: () => `+=${skillsInnerRef.current.offsetWidth}`,
-      },
-    });
+    // GSAP;
+    if (window.innerWidth > 800) {
+      let sections = gsap.utils.toArray(skillsInnerRef.current.children);
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: skillsInnerRef.current,
+          pin: true,
+          scrub: 1,
+          snap: 1 / (sections.length - 1),
+          // base vertical scrolling on how wide the container is so it feels more natural.
+          end: () => `+=${skillsInnerRef.current.offsetWidth}`,
+        },
+      });
+    }
   }, []);
 
   return (
-    <div className={classes["skills-section"]}>
-      <h2 className={classes["section-heading"]}>Our Mastered Skills</h2>
-      <div className={classes["h-scroll-container"]}>
-        <div className={classes["scroll-area"]} ref={skillsInnerRef}>
-          {SkillData.map((item, index) => (
-            <div className={classes["skill-container"]} key={index}>
-              <SectionHeading>Our Mastered Skills</SectionHeading>
-              <Skill lottie={item.img} skillData={item} />
-            </div>
-          ))}
+    <>
+      {/* Scroll */}
+      <div className={classes["skills-section"]}>
+        <div className={classes["h-scroll-container"]}>
+          <div className={classes["scroll-area"]} ref={skillsInnerRef}>
+            {SkillData.map((item, index) => (
+              <div className={classes["skill-container"]} key={index}>
+                <SectionHeading>Our Mastered Skills</SectionHeading>
+                <Skill lottie={item.img} skillData={item} />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className={classes["scroll-navigator"]}>
+      </div>
+      {/* Draggable */}
+      <div className={classes["swiper-skills-section"]}>
+        <h2 className={classes["section-heading"]}>Our Mastered Skills</h2>
+        <Swiper
+          onSwiper={(swiper) => console.log(swiper)}
+          modules={[Pagination]}
+          onSlideChange={(e) => setScrollDotCount(e.activeIndex)}
+          className={classes["swiper-container"]}
+        >
+          {SkillData.map((item, index) => (
+            <SwiperSlide className={classes["skill-container"]} key={index}>
+              <Skill lottie={item.img} skillData={item} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div className={classes["swiper-pagination"]}>
           <ScrollDot scrollDotCount={scrollDotCount} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
