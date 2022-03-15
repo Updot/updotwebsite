@@ -25,6 +25,15 @@ const Nav = () => {
   const navRef = useRef();
   const swipwTextRef = useRef();
 
+  useEffect(() => {
+    if (isNavActive) {
+      document.querySelector("body").style.overflowY = "hidden";
+    }
+    return () => {
+      document.querySelector("body").style.overflowY = "scroll";
+    };
+  }, [isNavActive]);
+
   // Mobile Theme Swipe
   useEffect(() => {
     navRef.current.addEventListener("touchstart", handleTouchStart, false);

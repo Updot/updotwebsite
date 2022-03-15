@@ -5,7 +5,6 @@ import classes from "./AreaMap.module.scss";
 const AreaMap = React.forwardRef((props, ref) => {
   const arrowCurr = useSelector((state) => state.mouseLocation.currLocation);
   const mapRef = useRef(null);
-  console.log(mapRef);
   const animateMap = () => {
     mapRef.current.classList.add(`${classes["area-map-active"]}`);
     setTimeout(() => {
