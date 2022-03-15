@@ -37,13 +37,18 @@ const Footer = (props) => {
             </a>
           </div>
         </div>
-        <div className={classes.spot}>
+        <a
+          className={classes.spot}
+          href="https://maps.app.goo.gl/HQU1YwRzJHdY5ydr8"
+          target="_blank"
+          rel="noreferrer"
+        >
           <h3 className={classes["footer-heading"]}>Spot Us</h3>
           <p className={classes["footer-address"]}>
             No.32, next to Spring Valley Club,
             <br /> Bengaluru, Karnataka 560090
           </p>
-        </div>
+        </a>
         <div className={classes.follow}>
           <h3 className={classes["footer-heading"]}>Follow Us</h3>
           <div className={classes["footer-link-container"]}>
