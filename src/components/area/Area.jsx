@@ -60,7 +60,7 @@ const Area = () => {
       >
         <p className={classes["state-name"]}>Kerla</p>
         <span className={classes["h-line"]}></span>
-        <span className={classes["angle-line"]}></span>
+        {/* <span className={classes["angle-line"]}></span> */}
       </div>
     </div>
   );

@@ -24,13 +24,11 @@ const AreaMap = React.forwardRef((props, ref) => {
   useEffect(() => {
     const indicator = document.querySelector(`[data-type="indicator"]`);
     const { width, height } = indicator.getBoundingClientRect();
-    // if (arrowCurr.x - width * 1.2 < 0) {
-    //   indicator.style.left = `${arrowCurr.x - width * 1.2}px`;
-    // } else {
-    //   indicator.style.left = `${arrowCurr.x - width * 1.2}px`;
-    // }
-    indicator.style.left = `${window.clientX - width * 1.2}px`;
-    indicator.style.top = `${window.clientY - height * 1.2}px`;
+
+    document.addEventListener("mousemove", (event) => {
+      indicator.style.left = `${event.clientX - width / 3}px`;
+      indicator.style.top = `${event.clientY - height * 2.8}px`;
+    });
   }, [arrowCurr]);
 
   const onMouseOverHandler = (stateName, event) => {
