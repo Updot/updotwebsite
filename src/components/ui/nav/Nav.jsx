@@ -13,6 +13,8 @@ import { navStateAction } from "../../../store/NavState";
 import { themeStateAction } from "../../../store/themeState";
 import { useGlobalDispatchContext } from "../../../context/globalContext";
 
+let swipeCount = 0;
+
 const Nav = () => {
   const isNavActive = useSelector((state) => state.navState.isActive);
   const isLightThemeActive = useSelector(
@@ -22,6 +24,64 @@ const Nav = () => {
   const dispatch = useDispatch();
   const navRef = useRef();
   const swipwTextRef = useRef();
+
+  // Mobile Theme Swipe
+  useEffect(() => {
+    navRef.current.addEventListener("touchstart", handleTouchStart, false);
+    navRef.current.addEventListener("touchmove", handleTouchMove, false);
+
+    var xDown = null;
+    var yDown = null;
+
+    function getTouches(evt) {
+      return evt.touches || evt.originalEvent.touches;
+    }
+
+    function handleTouchStart(evt) {
+      const firstTouch = getTouches(evt)[0];
+      xDown = firstTouch.clientX;
+      yDown = firstTouch.clientY;
+    }
+
+    function handleTouchMove(evt) {
+      if (!xDown || !yDown) {
+        return;
+      }
+
+      var xUp = evt.touches[0].clientX;
+      var yUp = evt.touches[0].clientY;
+
+      var xDiff = xDown - xUp;
+      var yDiff = yDown - yUp;
+
+      if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        /*most significant*/
+
+        if (xDiff > 0) {
+          if (swipeCount === 0) {
+            if (isLightThemeActive) {
+              swipwTextRef.current.innerText = "Swipe for Dark mode";
+            } else {
+              swipwTextRef.current.innerText = "Swipe for light mode";
+            }
+            swipeCount = 1;
+          } else if (swipeCount === 1) {
+            swipwTextRef.current.innerText = "Swipe";
+            // navRef.current.classList.add(`${}`);
+            dispatch(themeStateAction.toggleTheme());
+            swipeCount = 0;
+          }
+        } else {
+          /* left swipe */
+          // alert("right");
+        }
+      }
+      xDown = null;
+      yDown = null;
+    }
+  }, [dispatch, isLightThemeActive]);
+
+  // Theme Toggle
   useEffect(() => {
     if (isLightThemeActive) {
       localStorage.setItem("updotThemePreference", "Light");
