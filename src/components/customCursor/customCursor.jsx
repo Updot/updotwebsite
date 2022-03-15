@@ -5,12 +5,12 @@ import { useSelector } from "react-redux";
 
 function CustomCursor() {
   const [cursorPos, setCursorPos] = useState({
-    x: 400,
-    y: 400,
+    x: 0,
+    y: 0,
   });
 
   const onMouseMove = useCallback((event) => {
-    const { pageX: x, pageY: y } = event;
+    const { clientX: x, clientY: y } = event;
     setCursorPos({ x, y });
   }, []);
 
