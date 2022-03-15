@@ -34,6 +34,13 @@
   height: 22rem;
   filter: var(--filter);
 }
+.skip-wrap {
+  position: absolute;
+  right: 24rem;
+  span {
+    font-size: 3rem;
+  }
+}
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
   .skill {
     width: 100vw;
@@ -65,7 +72,9 @@
   .skill-para {
     font-size: 1.7rem;
   }
-
+  .skip-wrap {
+    display: none;
+  }
   .skill-icon {
     margin-top: 1rem;
     display: flex;

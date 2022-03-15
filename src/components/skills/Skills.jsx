@@ -29,12 +29,6 @@ const Skills = () => {
   const skillsInnerRef = useRef();
 
   useEffect(() => {
-    // skillsInnerRef.current.addEventListener("scroll", (e) => {
-    //   props.setScrollDot(
-    //     Math.floor(skillsInnerRef.current.scrollLeft / window.innerWidth)
-    //   );
-    // });
-    // GSAP;
     if (window.innerWidth > 800) {
       let sections = gsap.utils.toArray(skillsInnerRef.current.children);
       gsap.to(sections, {
@@ -49,19 +43,58 @@ const Skills = () => {
           end: () => `+=${skillsInnerRef.current.offsetWidth}`,
         },
       });
+      var scrollPos = 0;
+
+      // adding scroll event
+      window.addEventListener("scroll", function () {
+        // detects new state and compares it with the new one
+        if (document.body.getBoundingClientRect().top > scrollPos) {
+          document
+            .getElementById("skills-section")
+            .setAttribute("data-direction", "UP");
+        } else {
+          document
+            .getElementById("skills-section")
+            .setAttribute("data-direction", "DOWN");
+        }
+
+        // saves the new position for iteration.
+        scrollPos = document.body.getBoundingClientRect().top;
+      });
     }
   }, []);
+
+  const handleSkipScroll = () => {
+    let targetArea = document.getElementById("skills-section");
+    if (targetArea.dataset.direction === "UP") {
+      document
+        .getElementById("top-anchor")
+        .scrollIntoView({ behavior: "smooth", block: "center" });
+    } else if (targetArea.dataset.direction === "DOWN") {
+      document
+        .getElementById("bottom-anchor")
+        .scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
 
   return (
     <>
       {/* Scroll */}
-      <div className={classes["skills-section"]}>
+      <div
+        className={classes["skills-section"]}
+        data-direction="scroll"
+        id="skills-section"
+      >
         <div className={classes["h-scroll-container"]}>
           <div className={classes["scroll-area"]} ref={skillsInnerRef}>
             {SkillData.map((item, index) => (
               <div className={classes["skill-container"]} key={index}>
                 <SectionHeading>Our Mastered Skills</SectionHeading>
-                <Skill lottie={item.img} skillData={item} />
+                <Skill
+                  lottie={item.img}
+                  skillData={item}
+                  handleSkipScroll={handleSkipScroll}
+                />
               </div>
             ))}
           </div>
@@ -97,50 +130,60 @@ const SkillData = [
     name: "Web Development",
     desc: "Your business is ready to go places with Updot’s top-notch web designs. Take your idea across all the top platforms the web has to offer.",
     img: webIcon,
+    skip: false,
   },
   {
     name: "App Development",
     desc: "Go from zero to the finest app you can have, in no time with our team. While we build the app, you just be ready to kick ass on the app store.",
     img: appIcon,
+    skip: false,
   },
   {
     name: "Chatbot Development",
     desc: "We have your back if you need an additional route for leads and acquisition. An all customised chatbot is no biggie at Updot.",
     img: chatBotIcon,
+    skip: true,
   },
   {
     name: "DevOps & Cloud",
     desc: "Tech made easy just for you. Experience the best DevOps and Cloud services like nowhere else with our team",
     img: cloudIcon,
+    skip: true,
   },
   {
     name: "UI/UX Design",
     desc: "Our designs are between business and art. Meet the best UI/UX designers at Updot to experience the most exceptional designs in the market.",
     img: uiIcon,
+    skip: true,
   },
   {
     name: "SEO",
     desc: "Turn the hectic process of ranking into a piece of cake with Updot. With our dedicated team, increase your visibility online and get your website amongst the top in the Google rankings.",
     img: seoIcon,
+    skip: true,
   },
   {
     name: "Branding",
     desc: "Let the world know your business presence with our team. Big ideas and creative designs for a lasting impression, exclusively for your brand",
     img: brandingIcon,
+    skip: true,
   },
   {
     name: "Business Analysis",
     desc: "Business analysis done right with Updot.We promise precise business data analysis and interpretation because your information needs impression.",
     img: puzzleIcon,
+    skip: true,
   },
   {
     name: "Digital Marketing",
     desc: "Turn clicks into customers with Updot. We deliver the marketing results you desire post an extensive research and planning. Come on, let’s pull the digital trigger together.",
     img: thumbIcon,
+    skip: true,
   },
   {
     name: "Maintenance and Upgrade",
     desc: "We drive profit to your doors. Maintain and upgrade your website like a pro with Updot.",
     img: loadingIcon,
+    skip: true,
   },
 ];

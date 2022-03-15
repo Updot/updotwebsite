@@ -38,7 +38,7 @@ const Clients = () => {
   // }, [dispatch]);
 
   return (
-    <div ref={sectionRef} className={`${classes.clients}`}>
+    <div ref={sectionRef} className={`${classes.clients}`} id="bottom-anchor">
       <SectionHeading>Clients</SectionHeading>
       <div className={classes["clients-container"]}>
         <Client

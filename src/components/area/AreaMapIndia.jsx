@@ -5,7 +5,7 @@ import classes from "./AreaMap.module.scss";
 const AreaMap = React.forwardRef((props, ref) => {
   const arrowCurr = useSelector((state) => state.mouseLocation.currLocation);
   const mapRef = useRef(null);
-
+  console.log(mapRef);
   const animateMap = () => {
     mapRef.current.classList.add(`${classes["area-map-active"]}`);
     setTimeout(() => {
@@ -29,8 +29,8 @@ const AreaMap = React.forwardRef((props, ref) => {
     // } else {
     //   indicator.style.left = `${arrowCurr.x - width * 1.2}px`;
     // }
-    indicator.style.left = `${arrowCurr.x - width * 1.2}px`;
-    indicator.style.top = `${arrowCurr.y - height * 1.2}px`;
+    indicator.style.left = `${window.clientX - width * 1.2}px`;
+    indicator.style.top = `${window.clientY - height * 1.2}px`;
   }, [arrowCurr]);
 
   const onMouseOverHandler = (stateName, event) => {

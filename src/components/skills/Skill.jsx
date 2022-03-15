@@ -48,8 +48,13 @@ const Skill = (props) => {
               }}
             />
           )}
-          {props.img && (
-            <img src={props.img} alt="" style={{ marginTop: "6rem" }} />
+          {props.skillData.skip && (
+            <div
+              className={classes["skip-wrap"]}
+              onClick={() => props.handleSkipScroll()}
+            >
+              <span>skip</span>
+            </div>
           )}
         </div>
       </div>
