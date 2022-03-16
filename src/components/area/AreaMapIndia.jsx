@@ -1,9 +1,9 @@
 import React, { useEffect, useImperativeHandle, useRef } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import classes from "./AreaMap.module.scss";
 
 const AreaMap = React.forwardRef((props, ref) => {
-  const arrowCurr = useSelector((state) => state.mouseLocation.currLocation);
+  // const arrowCurr = useSelector((state) => state.mouseLocation.currLocation);
   const mapRef = useRef(null);
   const animateMap = () => {
     mapRef.current.classList.add(`${classes["area-map-active"]}`);
@@ -22,11 +22,11 @@ const AreaMap = React.forwardRef((props, ref) => {
 
   useEffect(() => {
     const indicator = document.querySelector(`[data-type="indicator"]`);
-    const { width, height } = indicator.getBoundingClientRect();
+    const { height } = indicator.getBoundingClientRect();
 
     document.addEventListener("mousemove", (event) => {
       indicator.style.left = `${event.clientX}px`;
-      indicator.style.top = `${event.clientY - height * 1.2}px`;
+      indicator.style.top = `${event.clientY - height * 1.5}px`;
     });
   }, []);
 

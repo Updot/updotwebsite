@@ -3,7 +3,7 @@ import { Fragment, useEffect } from "react";
 import SectionHeading from "../ui/SectionHeading";
 import ContactForm from "./contactFrom/ContactForm";
 // import Faq from "../faq/Faq";
-import ContactSocial from "./contactSocial/ContactSocial";
+// import ContactSocial from "./contactSocial/ContactSocial";
 import TimeDate from "./timeDate/TimeDate";
 import Map from "./map/Map";
 import Footer from "../footer/Footer";
