@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router";
-import { useLocation } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import GlobalProvider from "./context/globalContext";
 import Landing from "./components/landing/Landing";
@@ -60,38 +60,42 @@ function App() {
         {!landingDisplayed && window.innerWidth > 800 && (
           <Landing setLandingDisplayed={setLandingDisplayed} />
         )}
-        <Route path="/" exact>
-          <HomePage headerDisplayed={headerDisplayed} />
-        </Route>
-        <React.Suspense fallback={<Loader />}>
-          <Switch>
-            <Route path="/about-us">
-              <About headerDisplayed={headerDisplayed} />
-            </Route>
-            <Route path="/insights">
-              <Insights headerDisplayed={headerDisplayed} />
-            </Route>
-            <Route path="/work">
-              <WorkPage headerDisplayed={headerDisplayed} />
-            </Route>
-            <Route path="/contact">
-              <ContactPage headerDisplayed={headerDisplayed} />
-            </Route>
-            <Route path="/services">
-              <ServicesPage headerDisplayed={headerDisplayed} />
-            </Route>
-            <Route path="/careers">
-              <CareersPage headerDisplayed={headerDisplayed} />
-            </Route>
-            <Route path="/term-and-conditions">
-              <TermPage headerDisplayed={headerDisplayed} />
-            </Route>
-            <Route path="/privacy-policy">
-              <PrivacyPage headerDisplayed={headerDisplayed} />
-            </Route>
-            <Route path="*">{location.pathname !== "/" && <NotFound />}</Route>
-          </Switch>
-        </React.Suspense>
+        <BrowserRouter forceRefresh={true}>
+          <Route path="/" exact>
+            <HomePage headerDisplayed={headerDisplayed} />
+          </Route>
+          <React.Suspense fallback={<Loader />}>
+            <Switch>
+              <Route path="/about-us">
+                <About headerDisplayed={headerDisplayed} />
+              </Route>
+              <Route path="/insights">
+                <Insights headerDisplayed={headerDisplayed} />
+              </Route>
+              <Route path="/work">
+                <WorkPage headerDisplayed={headerDisplayed} />
+              </Route>
+              <Route path="/contact">
+                <ContactPage headerDisplayed={headerDisplayed} />
+              </Route>
+              <Route path="/services">
+                <ServicesPage headerDisplayed={headerDisplayed} />
+              </Route>
+              <Route path="/careers">
+                <CareersPage headerDisplayed={headerDisplayed} />
+              </Route>
+              <Route path="/term-and-conditions">
+                <TermPage headerDisplayed={headerDisplayed} />
+              </Route>
+              <Route path="/privacy-policy">
+                <PrivacyPage headerDisplayed={headerDisplayed} />
+              </Route>
+              <Route path="*">
+                {location.pathname !== "/" && <NotFound />}
+              </Route>
+            </Switch>
+          </React.Suspense>
+        </BrowserRouter>
         <svg style={{ display: "none" }}>
           <defs>
             <filter id="filter">
