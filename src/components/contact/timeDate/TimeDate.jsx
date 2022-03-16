@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import weatherIcon from "../../../assets/img/weather-icon.svg";
+// import weatherIcon from "../../../assets/img/weather-icon.svg";
 
 import classes from "./TimeDate.module.scss";
 
@@ -94,10 +94,10 @@ const TimeDate = () => {
             {`${date.day}, ${date.date} ${date.month} ${date.year}`}
           </p>
         </div>
-        <div className={classes["weather"]}>
+        {/* <div className={classes["weather"]}>
           <img src={weatherIcon} alt="cloudy" />
           <p className={classes["weather-text"]}>{`25°C AQI 99`}</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import Home from "./../components/home/Home";
 import OurStory from "../components/aboutUs/ourStory/OurStory";
 import OurValues from "../components/aboutUs/ourValues/OurValues";
-import MasteredSkills from "../components/aboutUs/masteredSkills/MasteredSkills";
+// import MasteredSkills from "../components/aboutUs/masteredSkills/MasteredSkills";
 import Area from "../components/area/Area";
 import Team from "../components/aboutUs/team/Team";
 // import Connect from "./../components/connect/Connect";
@@ -21,7 +21,7 @@ const About = (props) => {
       <Home heading="About" fontSize="5.3rem" />
       <OurStory />
       <OurValues />
-      <MasteredSkills />
+      {/* <MasteredSkills /> */}
       <Area />
       <Team />
       {/* <Connect /> */}

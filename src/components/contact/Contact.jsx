@@ -20,7 +20,7 @@ const Contact = () => {
         <ContactForm />
       </div>
       {/* <Faq faqHeading="FAQ" /> */}
-      <ContactSocial />
+      {/* <ContactSocial /> */}
       <TimeDate />
       <Map />
       <Footer height="5vh" />

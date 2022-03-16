@@ -96,7 +96,7 @@ const Footer = (props) => {
       </div>
       <div className={classes["footer-bottom"]}>
         <p className={classes["footer-copyright"]}>
-          © Copyright 2021 UPDOT. All rights reserverd
+          © Copyright {new Date().getFullYear()} UPDOT. All rights reserverd
         </p>
         <div className={classes["footer-tp"]}>
           <NavLink to="/term-and-conditions">Terms and Conditions</NavLink>{" "}
