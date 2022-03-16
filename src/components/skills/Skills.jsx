@@ -48,24 +48,25 @@ const Skills = () => {
       // adding scroll event
       window.addEventListener("scroll", function () {
         // detects new state and compares it with the new one
-        if (document.body.getBoundingClientRect().top > scrollPos) {
-          document
-            .getElementById("skills-section")
-            .setAttribute("data-direction", "UP");
-        } else {
-          document
-            .getElementById("skills-section")
-            .setAttribute("data-direction", "DOWN");
+        if (document.getElementById("id-skills-section")) {
+          if (document.body.getBoundingClientRect().top > scrollPos) {
+            document
+              .getElementById("id-skills-section")
+              .setAttribute("data-direction", "UP");
+          } else {
+            document
+              .getElementById("id-skills-section")
+              .setAttribute("data-direction", "DOWN");
+          }
         }
-
         // saves the new position for iteration.
         scrollPos = document.body.getBoundingClientRect().top;
       });
     }
-  }, []);
+  }, [skillsInnerRef]);
 
   const handleSkipScroll = () => {
-    let targetArea = document.getElementById("skills-section");
+    let targetArea = document.getElementById("id-skills-section");
     if (targetArea.dataset.direction === "UP") {
       document
         .getElementById("top-anchor")
@@ -83,7 +84,7 @@ const Skills = () => {
       <div
         className={classes["skills-section"]}
         data-direction="scroll"
-        id="skills-section"
+        id="id-skills-section"
       >
         <div className={classes["h-scroll-container"]}>
           <div className={classes["scroll-area"]} ref={skillsInnerRef}>

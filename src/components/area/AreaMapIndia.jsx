@@ -25,10 +25,10 @@ const AreaMap = React.forwardRef((props, ref) => {
     const { width, height } = indicator.getBoundingClientRect();
 
     document.addEventListener("mousemove", (event) => {
-      indicator.style.left = `${event.clientX - width / 3}px`;
-      indicator.style.top = `${event.clientY - height * 2.8}px`;
+      indicator.style.left = `${event.clientX}px`;
+      indicator.style.top = `${event.clientY - height * 1.2}px`;
     });
-  }, [arrowCurr]);
+  }, []);
 
   const onMouseOverHandler = (stateName, event) => {
     document.querySelectorAll(`.${classes["map-loc"]}`).forEach((el) => {
