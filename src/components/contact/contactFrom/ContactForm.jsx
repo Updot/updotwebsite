@@ -11,7 +11,7 @@ import UpdotLogo from "../../../assets/img/updot-big.svg";
 import UpdotMagnet from "../../../assets/img/updot-magnet.svg";
 import InputFile from "../../connect/formFields/InputFile";
 import Modal from "../../ui/modal/Modal";
-
+import { FiUpload } from "react-icons/fi";
 import { dialCodes } from "../../../util/InternationalDialCodes";
 import classes from "./ContactForm.module.scss";
 
@@ -288,7 +288,7 @@ const ContactForm = () => {
                 <h3 className={classes.FormOptionHeading}>Services Required</h3>
                 <Checkbox
                   name="servicesRequired"
-                  size={window.innerWidth > 800 ? 3.4 : 1.2}
+                  size={window.innerWidth > 800 ? 3 : 1.2}
                   data={ServiceData}
                   register={register}
                 />
@@ -328,12 +328,13 @@ const ContactForm = () => {
                     className="btn"
                     onClick={(e) => {
                       setShowFileInput((prevState) => !prevState);
-                      e.target.classList.toggle(
-                        `${classes["hide-border-bottom"]}`
-                      );
+                      // e.target.classList.toggle(
+                      //   `${classes["hide-border-bottom"]}`
+                      // );
                     }}
                   >
                     Attach Files
+                    <FiUpload size={18} className={classes["btn-icon"]} />
                   </button>
                 </div>
                 {showFileInput && (

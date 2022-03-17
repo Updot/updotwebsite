@@ -63,6 +63,7 @@ const DropDown = (props) => {
               onClick={onOptionClickHanlder.bind(null, dd)}
             >
               {dd}
+              <hr className={classes["btm-brdr"]} />
             </span>
           ))}
         </div>

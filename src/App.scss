@@ -6,8 +6,10 @@ html {
 
 :root {
   --bg-color: #000;
+  --bg-color-1: #1d1d1d;
   --bg-color-2: #fff;
   --bg-color-3: rgba(64, 64, 64, 0.5);
+  --bg-color-4: #434343;
   --text-color: #fff;
   --tech-icon-bg-color: #fff;
   --text-color-2: #000;
@@ -18,6 +20,8 @@ html {
   --fade-black: #363636;
   --nav-bg: rgb(235, 235, 235);
   --filter: invert(0);
+  --input-text-color: #000;
+  --input-label-color: #c6c6c6;
 }
 
 :root,

@@ -3,15 +3,32 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  row-gap: 3rem;
+  row-gap: 6rem;
   column-gap: 2rem;
+  margin-bottom: 8rem;
+}
+.options {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .options label {
-  color: var(--fade-black);
+  background-color: var(--bg-color-4);
+  border-radius: 11px;
+  color: var(--text-color);
   font-weight: bold;
   border-bottom: 2px solid var(--fade-black);
-  padding-bottom: 0.5rem;
+  padding: 1rem 2rem;
   cursor: none;
+}
+.options hr {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 3px;
+  background-color: var(--text-color);
+  max-width: 80%;
 }
 .options input:checked ~ label {
   color: var(--text-color);

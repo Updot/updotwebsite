@@ -19,6 +19,7 @@ const Checkbox = (props) => {
           >
             {checkboxData}
           </label>
+          <hr />
         </div>
       ))}
     </div>
