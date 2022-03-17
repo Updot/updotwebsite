@@ -57,19 +57,23 @@ function App() {
         {/* <MouseArrow /> */}
         <CustomCursor />
         <Cookies />
-        {!landingDisplayed && window.innerWidth > 800 && (
+        {/* {!landingDisplayed && window.innerWidth > 800 && (
           <Landing setLandingDisplayed={setLandingDisplayed} />
-        )}
+        )} */}
         <BrowserRouter forceRefresh={true}>
-          <Route path="/" exact>
-            <HomePage headerDisplayed={headerDisplayed} />
-          </Route>
           <React.Suspense fallback={<Loader />}>
+            <Route path="/" exact>
+              {!landingDisplayed && window.innerWidth > 800 && (
+                <Landing setLandingDisplayed={setLandingDisplayed} />
+              )}
+              <HomePage headerDisplayed={headerDisplayed} />
+            </Route>
+
             <Switch>
-              <Route path="/about-us">
+              <Route exact path="/about-us">
                 <About headerDisplayed={headerDisplayed} />
               </Route>
-              <Route path="/insights">
+              <Route exact path="/insights">
                 <Insights headerDisplayed={headerDisplayed} />
               </Route>
               <Route path="/work">
@@ -96,6 +100,7 @@ function App() {
             </Switch>
           </React.Suspense>
         </BrowserRouter>
+
         <svg style={{ display: "none" }}>
           <defs>
             <filter id="filter">

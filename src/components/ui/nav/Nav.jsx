@@ -123,7 +123,7 @@ const Nav = () => {
             <NavLink
               to={`${navItem.link}`}
               activeClassName={classes["active-nav"]}
-              // onClick={() => dispatch(navStateAction.toggleNav())}
+              onClick={() => dispatch(navStateAction.toggleNav())}
             >
               {navItem.name}
             </NavLink>
