@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router";
 import { BrowserRouter, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import GlobalProvider from "./context/globalContext";
+import { ContactProvider } from "./context/contactContext";
 import Landing from "./components/landing/Landing";
 import Cookies from "./components/cookies/Cookies";
 import Loader from "./components/ui/loader/Loader";
@@ -53,73 +54,75 @@ function App() {
 
   return (
     <GlobalProvider>
-      <div className="App">
-        {/* <MouseArrow /> */}
-        <CustomCursor />
-        <Cookies />
-        {/* {!landingDisplayed && window.innerWidth > 800 && (
+      <ContactProvider>
+        <div className="App">
+          {/* <MouseArrow /> */}
+          <CustomCursor />
+          <Cookies />
+          {/* {!landingDisplayed && window.innerWidth > 800 && (
           <Landing setLandingDisplayed={setLandingDisplayed} />
         )} */}
-        <BrowserRouter forceRefresh={true}>
-          <React.Suspense fallback={<Loader />}>
-            <Route path="/" exact>
-              {!landingDisplayed && window.innerWidth > 800 && (
-                <Landing setLandingDisplayed={setLandingDisplayed} />
-              )}
-              <HomePage headerDisplayed={headerDisplayed} />
-            </Route>
+          <BrowserRouter forceRefresh={true}>
+            <React.Suspense fallback={<Loader />}>
+              <Route path="/" exact>
+                {!landingDisplayed && window.innerWidth > 800 && (
+                  <Landing setLandingDisplayed={setLandingDisplayed} />
+                )}
+                <HomePage headerDisplayed={headerDisplayed} />
+              </Route>
 
-            <Switch>
-              <Route exact path="/about-us">
-                <About headerDisplayed={headerDisplayed} />
-              </Route>
-              <Route exact path="/insights">
-                <Insights headerDisplayed={headerDisplayed} />
-              </Route>
-              <Route path="/work">
-                <WorkPage headerDisplayed={headerDisplayed} />
-              </Route>
-              <Route path="/contact">
-                <ContactPage headerDisplayed={headerDisplayed} />
-              </Route>
-              <Route path="/services">
-                <ServicesPage headerDisplayed={headerDisplayed} />
-              </Route>
-              <Route path="/careers">
-                <CareersPage headerDisplayed={headerDisplayed} />
-              </Route>
-              <Route path="/term-and-conditions">
-                <TermPage headerDisplayed={headerDisplayed} />
-              </Route>
-              <Route path="/privacy-policy">
-                <PrivacyPage headerDisplayed={headerDisplayed} />
-              </Route>
-              <Route path="*">
-                {location.pathname !== "/" && <NotFound />}
-              </Route>
-            </Switch>
-          </React.Suspense>
-        </BrowserRouter>
+              <Switch>
+                <Route exact path="/about-us">
+                  <About headerDisplayed={headerDisplayed} />
+                </Route>
+                <Route exact path="/insights">
+                  <Insights headerDisplayed={headerDisplayed} />
+                </Route>
+                <Route path="/work">
+                  <WorkPage headerDisplayed={headerDisplayed} />
+                </Route>
+                <Route path="/contact">
+                  <ContactPage headerDisplayed={headerDisplayed} />
+                </Route>
+                <Route path="/services">
+                  <ServicesPage headerDisplayed={headerDisplayed} />
+                </Route>
+                <Route path="/careers">
+                  <CareersPage headerDisplayed={headerDisplayed} />
+                </Route>
+                <Route path="/term-and-conditions">
+                  <TermPage headerDisplayed={headerDisplayed} />
+                </Route>
+                <Route path="/privacy-policy">
+                  <PrivacyPage headerDisplayed={headerDisplayed} />
+                </Route>
+                <Route path="*">
+                  {location.pathname !== "/" && <NotFound />}
+                </Route>
+              </Switch>
+            </React.Suspense>
+          </BrowserRouter>
 
-        <svg style={{ display: "none" }}>
-          <defs>
-            <filter id="filter">
-              <feGaussianBlur
-                in="SourceGraphic"
-                stdDeviation="10"
-                result="blur"
-              />
-              <feColorMatrix
-                in="blur"
-                mode="matrix"
-                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                result="filter"
-              />
-              <feComposite in="SourceGraphic" in2="filter" operator="atop" />
-            </filter>
-          </defs>
-        </svg>
-      </div>
+          <svg style={{ display: "none" }}>
+            <defs>
+              <filter id="filter">
+                <feGaussianBlur
+                  in="SourceGraphic"
+                  stdDeviation="10"
+                  result="blur"
+                />
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                  result="filter"
+                />
+                <feComposite in="SourceGraphic" in2="filter" operator="atop" />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+      </ContactProvider>
     </GlobalProvider>
   );
 }
