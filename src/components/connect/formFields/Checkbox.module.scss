@@ -18,21 +18,26 @@
   border-radius: 11px;
   color: var(--text-color);
   font-weight: bold;
-  border-bottom: 2px solid var(--fade-black);
   padding: 1rem 2rem;
   cursor: none;
+  transition: all ease-in-out 0.2s;
 }
 .options hr {
   position: absolute;
   width: 100%;
   bottom: 0;
   height: 3px;
-  background-color: var(--text-color);
+  background-color: var(--bg-color-2);
   max-width: 80%;
+  border: none;
+  transition: all ease-in-out 0.2s;
 }
 .options input:checked ~ label {
-  color: var(--text-color);
-  border-color: var(--text-color);
+  color: var(--text-color-2);
+  background-color: var(--bg-color-2);
+}
+input:checked ~ hr {
+  background-color: var(--bg-color);
 }
 @media only screen and (max-width: 1360px) {
   .checkbox {

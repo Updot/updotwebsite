@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import ServiceData from "../../connect/serviceData.json";
 import Input from "../../connect/formFields/Input";
@@ -27,6 +28,7 @@ const ContactForm = () => {
   const newsletterBtnRef = useRef(null);
   const [fileUploadFields, setFileUploadFields] = useState([]);
   const [hCaptchaData, setHCaptchaData] = useState();
+  const [preLoadValue, setPreLoadValue] = useState("");
 
   const {
     register,
@@ -123,12 +125,29 @@ const ContactForm = () => {
   // const onNewsletterBtnClickHandler = (e) => {
   //   newsletterBtnRef.current.classList.add(`${classes["animate-btn-2"]}`);
   // };
+  const getGeoInfo = () => {
+    axios
+      .get("https://ipapi.co/json/")
+      .then((response) => {
+        let data = response.data;
+
+        setPreLoadValue(data.country_calling_code.replace("+", ""));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    getGeoInfo();
+  }, []);
+
   const setAttechment = (fieldName, result) => {
     setAttachments((prevState) => {
       return { ...prevState, [fieldName]: result };
     });
   };
   useEffect(() => {
+    // Attachment dimensions
     const arr = [];
     const itrCount = window.innerWidth > 800 ? 6 : 3;
     for (let i = 0; i < itrCount; i++) {
@@ -188,13 +207,27 @@ const ContactForm = () => {
               className={`${classes["form-field-container"]} ${classes["animate-field-2"]}`}
             >
               <div className={classes["form-field-10"]}>
-                <DropDown
+                {/* <DropDown
                   placeholder="Code*"
                   register={register}
                   fieldName="code"
                   setValue={setValue}
                   data={dialCodes}
                   required={true}
+                /> */}
+                <Input
+                  type="text"
+                  placeholder="Code*"
+                  register={register}
+                  setValue={setValue}
+                  fieldName="code"
+                  required={true}
+                  preLoadValue={preLoadValue}
+                  autoComplete="tel-country-code"
+                  size="5"
+                  maxlength="5"
+                  inputStyle={{ textAlign: "center" }}
+                  adornment="+"
                 />
                 <p className={classes["input-error"]}>
                   {errors.code?.type === "required" && "*Code is required."}
@@ -208,6 +241,7 @@ const ContactForm = () => {
                   fieldName="phoneNumber"
                   required={true}
                   left={window.innerWidth > 800 ? "1%" : "4%"}
+                  autoComplete="tel-national"
                 />
                 <p className={classes["input-error"]}>
                   {errors.phoneNumber?.type === "required" &&
@@ -328,12 +362,9 @@ const ContactForm = () => {
                     className="btn"
                     onClick={(e) => {
                       setShowFileInput((prevState) => !prevState);
-                      // e.target.classList.toggle(
-                      //   `${classes["hide-border-bottom"]}`
-                      // );
                     }}
                   >
-                    Attach Files
+                    <span>Attach Files</span>
                     <FiUpload size={18} className={classes["btn-icon"]} />
                   </button>
                 </div>
