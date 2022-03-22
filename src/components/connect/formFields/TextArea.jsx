@@ -10,22 +10,22 @@ const TextArea = (props) => {
   };
   // console.log(inputRef);
   useEffect(() => {
-    if (inputValue.trim().length > 0) {
+    if (props.value.trim().length > 0) {
       labelRef.current.classList.add(`${classes["change-label"]}`);
       inputRef.current.classList.add(`${classes["change-inputBg"]}`);
     } else {
       labelRef.current.classList.remove(`${classes["change-label"]}`);
       inputRef.current.classList.remove(`${classes["change-inputBg"]}`);
     }
-  }, [inputValue]);
+  }, [props.value]);
   return (
     <div className={classes["input-container"]}>
       <textarea
         id={props.fieldName}
         className={classes.input}
-        {...props.register(`${props.fieldName}`, { required: true })}
-        onChange={onChangeHandler}
-        value={inputValue}
+        // {...props.register(`${props.fieldName}`, { required: true })}
+        onChange={(e) => props.handleChange(e.target.value)}
+        value={props.value}
         style={props.height ? { height: `${props.height}rem` } : {}}
         ref={inputRef}
       />

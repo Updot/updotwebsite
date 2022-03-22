@@ -1,23 +1,45 @@
+import React, { useCallback, useState, useEffect } from "react";
 import classes from "./Checkbox.module.scss";
 
 const Checkbox = (props) => {
+  const { formState, setFormState } = props;
+  const [services, setServices] = useState(formState.services);
+
+  const handleCheckBox = useCallback(
+    (id) => {
+      const item = services[id];
+
+      setServices((prevData) => {
+        const newData = [...prevData];
+        newData[id] = {
+          ...item,
+          checked: !item.checked,
+        };
+        return newData;
+      });
+    },
+    [services]
+  );
+  useEffect(() => {
+    setFormState({ ...formState, services });
+  }, [services]);
   return (
     <div className={classes.checkbox}>
-      {props.data.map((checkboxData) => (
-        <div key={checkboxData} className={classes.options}>
+      {services.map((item, index) => (
+        <div key={index} className={classes.options}>
           <input
-            id={checkboxData}
+            id={index}
             type="checkbox"
             name={props.name}
-            value={checkboxData}
-            {...props.register(`${props.name}`)}
+            value={item.checked}
             hidden
           />
           <label
-            htmlFor={checkboxData}
+            htmlFor={index}
             style={{ fontSize: props.size ? `${props.size}rem` : "2.6rem" }}
+            onClick={() => handleCheckBox(index)}
           >
-            {checkboxData}
+            {item.label}
           </label>
           <hr />
         </div>

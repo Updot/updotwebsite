@@ -4,17 +4,16 @@ import classes from "./Input.module.scss";
 const Input = (props) => {
   const inputRef = useRef(null);
   const labelRef = useRef(null);
-  const [inputValue, setInputValue] = useState("");
   const [showAdorn, setShowAdorn] = useState(false);
 
   const onChangeHandler = (e) => {
     if (props.onFirstChange) {
       props.onFirstChange();
     }
-    setInputValue(e.target.value);
+    // setInputValue(e.target.value);
   };
   useEffect(() => {
-    if (inputValue.trim().length > 0 || props.preLoadValue?.trim().length > 0) {
+    if (props?.value?.trim().length > 0) {
       labelRef.current.classList.add(`${classes["change-label"]}`);
       inputRef.current.classList.add(`${classes["change-inputBg"]}`);
       setShowAdorn(true);
@@ -23,20 +22,24 @@ const Input = (props) => {
       inputRef.current.classList.remove(`${classes["change-inputBg"]}`);
       setShowAdorn(false);
     }
-  }, [inputValue]);
+  }, [props.value]);
   return (
     <div className={classes["input-container"]}>
       <input
         id={props.fieldName}
         className={classes.input}
         type={props.type}
-        {...props.register(`${props.fieldName}`, { required: props.required })}
-        onChange={onChangeHandler}
-        value={props.preLoadValue ? props.preLoadValue : inputValue}
+        // {...props.register(`${props.fieldName}`, { required: props.required })}
+        // onChange={onChangeHandler}
+        value={props.value}
+        onChange={(e) => {
+          props.handleChange(e.target.value);
+          onChangeHandler(e);
+        }}
         ref={inputRef}
         autoComplete={props.autoComplete}
         size={props.size}
-        maxlength={props.maxlength}
+        maxLength={props.maxlength}
         style={props.inputStyle}
       />
       <span className={classes["input-span"]}></span>

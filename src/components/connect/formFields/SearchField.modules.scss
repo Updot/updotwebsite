@@ -1,0 +1,36 @@
+.dropdown-options {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.dropdown-options .option {
+  position: relative;
+  width: 100%;
+  padding: 1.6rem 2rem;
+  text-align: left;
+  transition: all 0.2s;
+  font-weight: bold;
+  color: var(--text-color);
+  // border-bottom: 2px solid var(--text-color);
+  background-color: var(--bg-color-4);
+  border-radius: 11px;
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+}
+.dropdown-options .option span {
+  font-size: 2rem;
+}
+.dropdown-options .btm-brdr {
+  position: absolute;
+  width: 100%;
+
+  bottom: 0;
+  height: 3px;
+  background-color: var(--text-color);
+  max-width: 80%;
+}

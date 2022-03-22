@@ -27,9 +27,9 @@ const DropDown = (props) => {
   useEffect(() => {
     if (props.defaultValue) setDropdownValue(props.defaultValue);
   }, [props.defaultValue]);
-  const onOptionClickHanlder = (val, event) => {
+  const onOptionClickHanlder = (val) => {
     setDropdownValue(val);
-    props.setValue(`${props.fieldName}`, val);
+    props.handleChange(val);
   };
 
   let dropdownOptionClass = isExpanded
@@ -45,9 +45,9 @@ const DropDown = (props) => {
           className={classes["dropdown-info"]}
           placeholder={props.placeholder}
           defaultValue={dropdownValue}
-          {...props.register(`${props.fieldName}`, {
-            required: props.required,
-          })}
+          // {...props.register(`${props.fieldName}`, {
+          //   required: props.required,
+          // })}
         />
         <img src={dArrow} alt="down arrow" />
       </fieldset>
