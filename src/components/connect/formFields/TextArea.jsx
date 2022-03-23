@@ -1,14 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import classes from "./Input.module.scss";
 
 const TextArea = (props) => {
   const inputRef = useRef(null);
   const labelRef = useRef(null);
-  const [inputValue, setInputValue] = useState("");
-  const onChangeHandler = (e) => {
-    setInputValue(e.target.value);
-  };
-  // console.log(inputRef);
+
   useEffect(() => {
     if (props.value.trim().length > 0) {
       labelRef.current.classList.add(`${classes["change-label"]}`);

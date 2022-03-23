@@ -1,8 +1,7 @@
 import { useEffect, useState, useRef, useContext } from "react";
 import { useSelector } from "react-redux";
-import axios from "axios";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import ServiceData from "../../connect/serviceData.json";
+// import ServiceData from "../../connect/serviceData.json";
 import Input from "../../connect/formFields/Input";
 import DropDown from "../../connect/formFields/DropDown";
 import Checkbox from "../../connect/formFields/Checkbox";
@@ -11,7 +10,7 @@ import UpdotLogo from "../../../assets/img/updot-big.svg";
 import UpdotMagnet from "../../../assets/img/updot-magnet.svg";
 import InputFile from "../../connect/formFields/InputFile";
 import SearchField from "../../connect/formFields/SearchField";
-import Modal from "../../ui/modal/Modal";
+// import Modal from "../../ui/modal/Modal";
 import { FiUpload } from "react-icons/fi";
 import classes from "./ContactForm.module.scss";
 import ContactContext from "../../../context/contactContext";
@@ -20,15 +19,13 @@ const ContactForm = () => {
   const [isStandby, setIsStandby] = useState(false);
   const [isFormTouched, setIsFormTouched] = useState(false);
   const [showFileInput, setShowFileInput] = useState(false);
-  const [submissionMessage, setSubmissionMessage] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [submissionMessage, setSubmissionMessage] = useState("");
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [attachments, setAttachments] = useState({});
   const formOuterRef = useRef(null);
   const submitBtnRef = useRef(null);
   const newsletterBtnRef = useRef(null);
   const [fileUploadFields, setFileUploadFields] = useState([]);
-  const [expand, setExpand] = useState(false);
-  const [query, setQuery] = useState("");
   // const [hCaptchaData, setHCaptchaData] = useState();
 
   const { formState, errorState, setFormState, handleSubmit } =
@@ -38,41 +35,41 @@ const ContactForm = () => {
   );
   console.log(formState);
 
-  const formSubmitHandler = async (formData) => {
-    // if (!hCaptchaData) {
-    //   return alert("Please verify captcha!!");
-    // }
-    // // submitBtnRef.current.classList.add(`${classes["animate-btn"]}`);
-    // const form = new FormData();
-    // Object.keys(attachments).forEach((k) => {
-    //   form.append(k, attachments[k]);
-    // });
-    // for (var key in formData) {
-    //   form.append(key, formData[key]);
-    // }
-    // form.append("h-captcha-token", hCaptchaData.token);
-    // submitBtnRef.current.innerText = "Submitting...";
-    // const response = await fetch(
-    //   "https://updotweb-msr94.ondigitalocean.app/backend/api/data-submission/contact",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       // "Content-Type": "multipart/form-data",
-    //     },
-    //     body: form,
-    //   }
-    // );
-    // // const data = await response.json();
-    // if (response.ok) {
-    //   setSubmissionMessage(
-    //     `Hey, ${formData.name}!, Thankyou for Submitting form`
-    //   );
-    // } else {
-    //   setSubmissionMessage(`Error occured while submitting form!!`);
-    // }
-    // submitBtnRef.current.innerText = "Submit";
-    // setIsModalOpen(true);
-  };
+  // const formSubmitHandler = async (formData) => {
+  // if (!hCaptchaData) {
+  //   return alert("Please verify captcha!!");
+  // }
+  // // submitBtnRef.current.classList.add(`${classes["animate-btn"]}`);
+  // const form = new FormData();
+  // Object.keys(attachments).forEach((k) => {
+  //   form.append(k, attachments[k]);
+  // });
+  // for (var key in formData) {
+  //   form.append(key, formData[key]);
+  // }
+  // form.append("h-captcha-token", hCaptchaData.token);
+  // submitBtnRef.current.innerText = "Submitting...";
+  // const response = await fetch(
+  //   "https://updotweb-msr94.ondigitalocean.app/backend/api/data-submission/contact",
+  //   {
+  //     method: "POST",
+  //     headers: {
+  //       // "Content-Type": "multipart/form-data",
+  //     },
+  //     body: form,
+  //   }
+  // );
+  // // const data = await response.json();
+  // if (response.ok) {
+  //   setSubmissionMessage(
+  //     `Hey, ${formData.name}!, Thankyou for Submitting form`
+  //   );
+  // } else {
+  //   setSubmissionMessage(`Error occured while submitting form!!`);
+  // }
+  // submitBtnRef.current.innerText = "Submit";
+  // setIsModalOpen(true);
+  // };
 
   // useEffect(() => {
   //   if (isSubmitSuccessful) {
@@ -173,9 +170,9 @@ const ContactForm = () => {
 
   return (
     <>
-      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+      {/* <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
         {submissionMessage}
-      </Modal>
+      </Modal> */}
       <div
         ref={formOuterRef}
         className={`${classes["form-container"]} ${
@@ -207,17 +204,10 @@ const ContactForm = () => {
             <div
               className={`${classes["form-field-container"]} ${classes["animate-field-2"]}`}
             >
-              <div
-                id="countryCode"
-                className={classes["form-field-10"]}
-                onClick={() => setExpand((prev) => !prev)}
-              >
+              <div id="countryCode" className={classes["form-field-10"]}>
                 <SearchField
-                  expand={expand}
                   formState={formState}
                   setFormState={setFormState}
-                  query={query}
-                  setQuery={setQuery}
                 />
                 {errorState.countryCode && (
                   <p className={classes["input-error"]}>

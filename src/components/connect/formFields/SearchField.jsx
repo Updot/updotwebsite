@@ -1,23 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { countries } from "../../../util/countries";
 import Input from "../formFields/Input";
 import "./SearchField.modules.scss";
-function SearchField({ query, setQuery, expand, formState, setFormState }) {
-  const filteredData = countries.filter(
-    (item) => item.name.toLowerCase() === formState.countryCode.toLowerCase()
+
+function SearchField({ formState, setFormState }) {
+  const [expand, setExpand] = useState(false);
+
+  const filteredData = countries.filter((item) =>
+    item.dial_code.toLowerCase().includes(formState.countryCode.toLowerCase())
   );
+
+  useEffect(() => {
+    const eventHandler = (e) => {
+      if (expand) setExpand(false);
+    };
+    document.addEventListener("click", eventHandler);
+    return () => document.removeEventListener("click", eventHandler);
+  }, [expand]);
+
+  const handleInputChange = (val) => {
+    setExpand(true);
+    setFormState({ ...formState, countryCode: val });
+  };
   return (
-    <div>
+    <div className="search-field">
       <Input
         type="text"
         placeholder="Code*"
-        // value={formState.countryCode}
-        // handleChange={(val) =>
-        //   setFormState({ ...formState, countryCode: val })
-        // }
         value={formState.countryCode}
-        handleChange={(val) => setFormState({ ...formState, countryCode: val })}
-        autoComplete="tel-country-code"
+        handleChange={(val) => handleInputChange(val)}
+        // autoComplete="tel-country-code"
+        className="search-input"
         inputStyle={{ textAlign: "center" }}
       />
       {expand && (
