@@ -23,7 +23,7 @@ const Home = (props) => {
 
   useEffect(() => {
     const handler = (event) => {
-      if (scrollRef) {
+      if (scrollRef && !props.isNotScroll) {
         if (window.scrollY > 80) {
           scrollRef.current.classList.add(`${classes["scroll-fade"]}`);
         } else {
@@ -128,8 +128,6 @@ const Home = (props) => {
                 Chatbot Development
               </Link>
               <Link to="/services/devops-cloud">DevOps & Cloud</Link>
-            </div>
-            <div className={classes["services-container"]}>
               <Link to="/services/ui-ux">UI/UX Design</Link>
               <Link to="/services/seo">SEO</Link>
               <Link to="/services/branding">Branding</Link>

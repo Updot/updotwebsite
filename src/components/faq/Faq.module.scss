@@ -13,7 +13,12 @@
 .faq-container {
   margin-top: 8rem;
 }
-
+.faq-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  margin-top: 8rem;
+}
 @media only screen and (max-width: 800px) {
   .faq {
     min-height: unset;
@@ -21,6 +26,12 @@
   }
   .faq-container {
     margin-top: 4rem;
+  }
+  .faq-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 8rem;
   }
   .faq h2 {
     width: 90%;

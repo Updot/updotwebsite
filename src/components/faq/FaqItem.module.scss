@@ -8,6 +8,16 @@
 .faq-qn-container:not(:last-of-type) {
   margin-bottom: 2rem;
 }
+.faq-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 1rem;
+}
+.faq-col-qn {
+  font-size: 30px;
+  font-weight: 600;
+}
 .faq-qn {
   // color: var(--text-color);
   flex-basis: max-content;
@@ -19,6 +29,11 @@
 .faq-qn span {
   font-size: 30px;
   font-weight: 600;
+}
+.faq-numId {
+  color: var(--text-color);
+  font-size: 70px;
+  font-weight: bold;
 }
 .faq-arrow {
   display: inline-block;
@@ -45,6 +60,15 @@
   width: 90%;
   height: 100%;
 }
+.faq-grid-ans {
+  display: inline-block;
+  font-size: 20px;
+  color: var(--text-color);
+  font-weight: 500;
+  line-height: 30px;
+  width: 90%;
+  height: 100%;
+}
 .faq-ans-container {
   width: 100%;
   overflow: hidden;
@@ -56,6 +80,10 @@
   max-height: 160px;
   padding-bottom: 2rem;
   margin-left: 10rem;
+}
+.faq-grid-ans-expend {
+  max-height: 160px;
+  padding-bottom: 2rem;
 }
 @media only screen and (max-width: 800px) {
   .faq-qn-main {
@@ -69,8 +97,13 @@
     column-gap: 1rem;
     align-items: center;
   }
-  .faq-qn span {
+  .faq-qn span,
+  .faq-col-qn {
     font-size: 15px;
+  }
+
+  .faq-numId {
+    font-size: 30px;
   }
   .faq-arrow {
     justify-content: flex-start;
@@ -94,5 +127,9 @@
     max-height: 200px;
     padding-bottom: 2rem;
     margin-left: 4rem;
+  }
+  .faq-grid-ans-expend {
+    max-height: max-content;
+    padding-bottom: 2rem;
   }
 }

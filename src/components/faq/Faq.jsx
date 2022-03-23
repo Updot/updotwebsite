@@ -36,9 +36,22 @@ const Faq = (props) => {
   return (
     <div className={classes.faq}>
       <SectionHeading>{props.faqHeading || "FAQ"}</SectionHeading>
-      <ul className={classes["faq-container"]}>
+      <ul
+        className={
+          props.componentOf === "about"
+            ? classes["faq-grid-container"]
+            : classes["faq-container"]
+        }
+      >
         {faqData.map((fd) => (
-          <FaqItem key={fd.id} img={fd.img} qn={fd.qn} ans={fd.ans} />
+          <FaqItem
+            key={fd.id}
+            numId={fd.id}
+            componentOf={props.componentOf}
+            img={fd.img ? fd.img : null}
+            qn={fd.qn}
+            ans={fd.ans}
+          />
         ))}
       </ul>
     </div>
