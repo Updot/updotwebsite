@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { mapStateAction } from "../../store/mapState";
 import SectionHeading from "../ui/SectionHeading";
 import AreaMapIndia from "./AreaMapIndia";
 import AreaMapUae from "./AreaMapUae";
@@ -14,6 +16,8 @@ const Area = () => {
   const indiaMapRef = useRef(null);
   const uaeMapRef = useRef(null);
   const stateIndicatorRef = useRef(null);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const scrollHandler = (e) => {
       stateIndicatorRef.current.style.opacity = "0";
@@ -44,13 +48,32 @@ const Area = () => {
   return (
     <div className={`container ${classes["area-container"]}`}>
       <SectionHeading>Covered Area</SectionHeading>
+      <div className={classes["area-select-wrap"]}>
+        <span
+          onClick={() => dispatch(mapStateAction.setMap("ind"))}
+          className={
+            currMap === "ind"
+              ? classes["area-label"]
+              : classes["area-label-inactive"]
+          }
+        >
+          India
+        </span>
+        <span
+          onClick={() => dispatch(mapStateAction.setMap("uae"))}
+          className={
+            currMap === "uae"
+              ? classes["area-label"]
+              : classes["area-label-inactive"]
+          }
+        >
+          UAE
+        </span>
+      </div>
       <div className={classes["area-inner"]}>
-        <div className={classes["area-map-container"]}>
+        <div className={classes["area-map-container"]} ref={mapContainerRef}>
           {currMap === "ind" && <AreaMapIndia ref={indiaMapRef} />}
           {currMap === "uae" && <AreaMapUae ref={uaeMapRef} />}
-        </div>
-        <div ref={mapContainerRef} className={classes["area-switch-container"]}>
-          <AreaSwitch current={currMap} />
         </div>
       </div>
       <div

@@ -1,6 +1,24 @@
 .area-container {
   padding-top: 5vh;
 }
+.area-select-wrap {
+  display: flex;
+  align-items: center;
+  column-gap: 8rem;
+  margin-top: 10rem;
+}
+.area-label {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--text-light);
+  border-bottom: 2px solid var(--text-color);
+  transition: all 0.2s ease-in-out;
+}
+.area-label-inactive {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--text-inactive);
+}
 .area-inner {
   display: flex;
   margin-top: 10rem;
@@ -61,6 +79,12 @@
   .area-container {
     padding-top: 0rem;
     min-height: unset;
+  }
+  .area-select-wrap {
+    display: flex;
+    align-items: center;
+    column-gap: 4rem;
+    margin-top: 4rem;
   }
   .area-map-container {
     width: 85%;
