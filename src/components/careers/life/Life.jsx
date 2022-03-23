@@ -1,12 +1,12 @@
 import Faq from "../../faq/Faq";
-import lifeFaqData from "./lifeData.json";
+import { lifeData } from "./lifeData.js";
 
 import classes from "./Life.module.scss";
 
 const Life = () => {
   return (
     <div className={classes["life"]}>
-      <Faq faqData={lifeFaqData} faqHeading="Life at Updot" />
+      <Faq faqData={lifeData} faqHeading="Life at Updot" />
     </div>
   );
 };

@@ -74,15 +74,23 @@ span {
   font-weight: bold;
   margin: 0 1rem;
 }
-.up-arrow {
+.up-arrow-wrap {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-
-.up-arrow img {
-  height: auto;
-  width: 4rem;
+.up-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color-2);
+  mix-blend-mode: difference;
+  border-radius: 100%;
+  width: 8rem;
+  height: 8rem;
+}
+.up-arrow svg path {
+  stroke: var(--text-color-2);
   filter: var(--filter);
 }
 @media only screen and (max-width: 800px) {

@@ -90,8 +90,24 @@ const Footer = (props) => {
             </a>
           </div>
         </div>
-        <div className={classes["up-arrow"]}>
-          <img src={upArrow} alt="up arrow" onClick={onUpArrowClickHandler} />
+        <div className={classes["up-arrow-wrap"]}>
+          <div className={classes["up-arrow"]} onClick={onUpArrowClickHandler}>
+            <svg
+              width="24"
+              height="14"
+              viewBox="0 0 24 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 12L12 2L2 12"
+                stroke="black"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
         </div>
       </div>
       <div className={classes["footer-bottom"]}>

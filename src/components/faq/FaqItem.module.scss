@@ -1,3 +1,6 @@
+.faq-qn-main {
+  margin-bottom: 6rem;
+}
 .faq-qn-container {
   display: flex;
   justify-content: flex-start;
@@ -6,39 +9,39 @@
   margin-bottom: 2rem;
 }
 .faq-qn {
-  color: var(--text-color);
+  // color: var(--text-color);
   flex-basis: max-content;
   cursor: pointer;
   display: flex;
   align-items: center;
+  column-gap: 4rem;
 }
 .faq-qn span {
-  font-size: 4.5rem;
-  font-weight: bold;
+  font-size: 30px;
+  font-weight: 600;
 }
 .faq-arrow {
-  min-height: 100%;
   display: inline-block;
   color: var(--text-color);
-  flex-basis: auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-left: 2rem;
-  /* transform: translateY(-10%); */
+  padding: 0.5rem;
   pointer-events: none;
+  border-radius: 100%;
 }
 .faq-arrow img {
-  height: auto;
+  height: 4rem;
   width: 4rem;
-  filter: var(--filter);
   transition: all 0.2s ease-in-out;
 }
 .faq-ans {
   display: inline-block;
-  font-size: 3.5rem;
+  font-size: 24px;
   color: var(--text-color);
-  font-weight: bold;
+  font-weight: 500;
+  line-height: 30px;
   width: 90%;
   height: 100%;
 }
@@ -52,16 +55,22 @@
 .faq-ans-expend {
   max-height: 160px;
   padding-bottom: 2rem;
+  margin-left: 10rem;
 }
 @media only screen and (max-width: 800px) {
+  .faq-qn-main {
+    margin-bottom: 2rem;
+  }
   .faq-qn-container:not(:last-of-type) {
     margin-bottom: 1rem;
   }
   .faq-qn {
     justify-content: flex-start;
+    column-gap: 1rem;
+    align-items: center;
   }
-  .faq-qn span:nth-of-type(1) {
-    font-size: 1.8rem;
+  .faq-qn span {
+    font-size: 15px;
   }
   .faq-arrow {
     justify-content: flex-start;
@@ -69,10 +78,8 @@
     margin-left: unset;
   }
   .faq-arrow img {
-    height: auto;
+    height: 2rem;
     width: 2rem;
-    margin-left: 0.7rem;
-    filter: var(--filter);
   }
   .faq-ans-container {
     margin-bottom: 1.5rem;
@@ -86,5 +93,6 @@
   .faq-ans-expend {
     max-height: 200px;
     padding-bottom: 2rem;
+    margin-left: 4rem;
   }
 }

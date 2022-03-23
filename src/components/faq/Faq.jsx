@@ -38,7 +38,7 @@ const Faq = (props) => {
       <SectionHeading>{props.faqHeading || "FAQ"}</SectionHeading>
       <ul className={classes["faq-container"]}>
         {faqData.map((fd) => (
-          <FaqItem key={fd.id} qn={fd.qn} ans={fd.ans} />
+          <FaqItem key={fd.id} img={fd.img} qn={fd.qn} ans={fd.ans} />
         ))}
       </ul>
     </div>
