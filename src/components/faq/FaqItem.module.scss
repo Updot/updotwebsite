@@ -15,8 +15,9 @@
   row-gap: 1rem;
 }
 .faq-col-qn {
-  font-size: 30px;
+  font-size: 4rem;
   font-weight: 600;
+  mix-blend-mode: difference;
 }
 .faq-qn {
   // color: var(--text-color);
@@ -29,10 +30,11 @@
 .faq-qn span {
   font-size: 30px;
   font-weight: 600;
+  mix-blend-mode: difference;
 }
 .faq-numId {
   color: var(--text-color);
-  font-size: 70px;
+  font-size: 6rem;
   font-weight: bold;
 }
 .faq-arrow {

@@ -38,20 +38,22 @@ const AreaMapUae = React.forwardRef((props, ref) => {
     //   el.style.fill = `#000`;
     //   el.style.stroke = `#fff`;
     // });
+    props.setActiveState({
+      map: event.target.getAttribute("d"),
+      stateName: stateName,
+    });
     event.target.style.fill = `#fff`;
     // event.target.style.stroke = `#69b423`;
-    const indicator = document.querySelector(`[data-type="indicator"]`);
-    indicator.style.opacity = 1;
-    const nameContainer = document.querySelector(`[data-type="indicator"] p`);
-    nameContainer.innerText = stateName;
   };
 
   const onMouseOutHandler = () => {
     document.querySelectorAll(`.${classes["map-loc"]}`).forEach((el) => {
       el.style.fill = `#252525`;
       el.style.stroke = `#fff`;
-      const indicator = document.querySelector(`[data-type="indicator"]`);
-      indicator.style.opacity = 0;
+      props.setActiveState({
+        map: "",
+        stateName: "",
+      });
     });
   };
 

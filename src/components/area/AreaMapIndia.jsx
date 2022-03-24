@@ -20,35 +20,28 @@ const AreaMap = React.forwardRef((props, ref) => {
     return { animateMap, removeAnimation };
   });
 
-  useEffect(() => {
-    const indicator = document.querySelector(`[data-type="indicator"]`);
-    const { height } = indicator.getBoundingClientRect();
+  // useEffect(() => {
+  //   const indicator = document.querySelector(`[data-type="indicator"]`);
+  //   const { height } = indicator.getBoundingClientRect();
 
-    document.addEventListener("mousemove", (event) => {
-      indicator.style.left = `${event.clientX}px`;
-      indicator.style.top = `${event.clientY - height * 1.5}px`;
-    });
-  }, []);
+  //   document.addEventListener("mousemove", (event) => {
+  //     indicator.style.left = `${event.clientX}px`;
+  //     indicator.style.top = `${event.clientY - height * 1.5}px`;
+  //   });
+  // }, []);
 
   const onMouseOverHandler = (stateName, event) => {
-    // document.querySelectorAll(`.${classes["map-loc"]}`).forEach((el) => {
-    //   el.style.fill = `#000`;
-    //   el.style.stroke = `#fff`;
-    // });
+    props.setActiveState(event.target.getAttribute("loc"));
+
     event.target.style.fill = `#fff`;
     // event.target.style.stroke = `#69b423`;
-    const indicator = document.querySelector(`[data-type="indicator"]`);
-    indicator.style.opacity = 1;
-    const nameContainer = document.querySelector(`[data-type="indicator"] p`);
-    nameContainer.innerText = stateName;
   };
 
   const onMouseOutHandler = () => {
     document.querySelectorAll(`.${classes["map-loc"]}`).forEach((el) => {
       el.style.fill = `#252525`;
       el.style.stroke = `#fff`;
-      const indicator = document.querySelector(`[data-type="indicator"]`);
-      indicator.style.opacity = 0;
+      props.setActiveState("");
     });
   };
 
@@ -73,6 +66,7 @@ const AreaMap = React.forwardRef((props, ref) => {
           />
           <path
             id="gj"
+            loc="gj"
             className={classes["map-loc"]}
             onMouseOver={onMouseOverHandler.bind(null, "Gujarat")}
             onMouseOut={onMouseOutHandler}
@@ -133,6 +127,7 @@ const AreaMap = React.forwardRef((props, ref) => {
           />
           <path
             id="tamil-nadu"
+            loc="tn"
             className={classes["map-loc"]}
             onMouseOver={onMouseOverHandler.bind(null, "Tamil Nadu")}
             onMouseOut={onMouseOutHandler}
@@ -158,6 +153,7 @@ const AreaMap = React.forwardRef((props, ref) => {
           />
           <path
             id="karnataka"
+            loc="ka"
             className={classes["map-loc"]}
             onMouseOver={onMouseOverHandler.bind(null, "karnataka")}
             onMouseOut={onMouseOutHandler}
@@ -169,8 +165,9 @@ const AreaMap = React.forwardRef((props, ref) => {
           />
           <path
             id="maharashtra"
+            loc="mh"
             className={classes["map-loc"]}
-            onMouseOver={onMouseOverHandler.bind(null, "maharashtra")}
+            onMouseOver={onMouseOverHandler.bind(null, "Maharashtra")}
             onMouseOut={onMouseOutHandler}
             d="M84.583 275.736L122.033 270.296L139.123 263.946L145.273 251.676L154.043 250.086L168.363 254.836L174.643 264.576L198.173 268.486L204.203 275.076L219.363 277.336L241.823 271.396L253.003 272.776L249.323 279.826L256.963 280.886L270.483 276.996L281.813 278.566L285.753 282.236L294.253 283.406L304.093 280.896L318.103 282.836L320.273 286.016L342.833 290.286L328.993 308.266L318.413 315.516L321.263 320.016L316.793 324.826L299.633 329.196L293.173 337.406L281.973 333.416L293.543 319.066L287.933 315.986L275.903 318.106L265.533 315.856L262.073 309.946L253.713 308.796L239.043 313.916L223.053 313.926L210.223 324.736L197.613 327.316L163.603 330.786L144.453 336.446L124.623 333.706L103.873 340.206L88.013 338.016L66.693 346.006L70.603 349.006L65.223 353.776L52.533 357.286L39.923 353.486L30.293 355.326L27.583 342.516L84.583 275.736Z"
             fill="#252525"
@@ -194,6 +191,7 @@ const AreaMap = React.forwardRef((props, ref) => {
           />
           <path
             id="hr"
+            loc="hr"
             className={classes["map-loc"]}
             onMouseOver={onMouseOverHandler.bind(null, "Haryana")}
             onMouseOut={onMouseOutHandler}
@@ -240,6 +238,7 @@ const AreaMap = React.forwardRef((props, ref) => {
           />
           <path
             id="madhya-pardesh"
+            loc="mp"
             className={classes["map-loc"]}
             onMouseOver={onMouseOverHandler.bind(null, "Madhya Pradesh")}
             onMouseOut={onMouseOutHandler}
@@ -272,6 +271,7 @@ const AreaMap = React.forwardRef((props, ref) => {
           />
           <path
             id="andhra-pradesh"
+            loc="ap"
             className={classes["map-loc"]}
             onMouseOver={onMouseOverHandler.bind(null, "Andhra Pradesh")}
             onMouseOut={onMouseOutHandler}
@@ -283,6 +283,7 @@ const AreaMap = React.forwardRef((props, ref) => {
           />
           <path
             id="kerla"
+            loc="kl"
             className={classes["map-loc"]}
             onMouseOver={onMouseOverHandler.bind(null, "Kerala")}
             onMouseOut={onMouseOutHandler}

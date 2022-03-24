@@ -86,11 +86,17 @@ span {
   background-color: var(--bg-color-2);
   mix-blend-mode: difference;
   border-radius: 100%;
-  width: 8rem;
-  height: 8rem;
+  width: 6rem;
+  height: 6rem;
+}
+.up-arrow svg {
+  width: 20px;
+  height: 10px;
 }
 .up-arrow svg path {
   stroke: var(--text-color-2);
+  mix-blend-mode: difference;
+
   filter: var(--filter);
 }
 @media only screen and (max-width: 800px) {
@@ -151,13 +157,14 @@ span {
     grid-column: 2/3;
     grid-row: 1 /2;
   }
-  .up-arrow {
-    grid-column: 2 / 3;
+  .up-arrow-wrap {
+    display: unset;
+    grid-column: 1/2;
   }
-  .up-arrow img {
-    width: auto;
-    height: 1.5rem;
-    margin-top: 4rem;
+
+  .up-arrow {
+    width: 4rem;
+    height: 4rem;
   }
   .footer-bottom {
     align-items: center;

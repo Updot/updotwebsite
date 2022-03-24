@@ -11,7 +11,11 @@ const Team = () => {
   return (
     <div
       className="container"
-      style={{ overflow: "hidden", paddingTop: "1vh" }}
+      style={{
+        overflow: "hidden",
+        paddingTop: "1vh",
+        transition: "all 0.2s ease-in-out",
+      }}
     >
       <SectionHeading>Our Team</SectionHeading>
       <div className={classes["team-container"]}>

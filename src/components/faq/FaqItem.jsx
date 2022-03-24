@@ -13,7 +13,6 @@ const FaqItem = (props) => {
   const faqGridAnsClass = isExpended
     ? `${classes["faq-ans-container"]} ${classes["faq-grid-ans-expend"]}`
     : `${classes["faq-ans-container"]}`;
-  console.log(props.numId);
   return (
     <>
       {props.componentOf === "about" ? (

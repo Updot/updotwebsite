@@ -93,8 +93,8 @@ const Footer = (props) => {
         <div className={classes["up-arrow-wrap"]}>
           <div className={classes["up-arrow"]} onClick={onUpArrowClickHandler}>
             <svg
-              width="24"
-              height="14"
+              // width="24"
+              // height="14"
               viewBox="0 0 24 14"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

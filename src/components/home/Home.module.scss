@@ -89,7 +89,7 @@
 .services {
   position: absolute;
   width: 100%;
-  top: 100%;
+  top: 120%;
 }
 .services-container {
   display: flex;
@@ -103,18 +103,32 @@
   margin-bottom: 3rem;
 }
 
-.services a {
+.service-link-light {
   text-decoration: none;
   font-size: 3.5rem;
   font-weight: bold;
   transition: all 0.2s ease-in-out;
   color: var(--bg-color-4);
+  mix-blend-mode: difference;
 }
-.services a:hover {
+.service-link-light:hover {
+  transform: translateY(-10%);
+  color: var(--text-color-2);
+  mix-blend-mode: difference;
+}
+.service-link-dark {
+  text-decoration: none;
+  font-size: 3.5rem;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  color: #ababab;
+  mix-blend-mode: difference;
+}
+.service-link-dark:hover {
   transform: translateY(-10%);
   color: var(--text-light);
+  mix-blend-mode: difference;
 }
-
 .service {
   position: absolute;
   bottom: 15%;

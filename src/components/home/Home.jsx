@@ -23,7 +23,7 @@ const Home = (props) => {
 
   useEffect(() => {
     const handler = (event) => {
-      if (scrollRef && !props.isNotScroll) {
+      if (scrollRef) {
         if (window.scrollY > 80) {
           scrollRef.current.classList.add(`${classes["scroll-fade"]}`);
         } else {
@@ -120,23 +120,110 @@ const Home = (props) => {
           </div>
         )}
         {props.isNotScroll && (
-          <div className={classes["services"]}>
-            <div className={classes["services-container"]}>
-              <Link to="/services/web-development">Web Development</Link>
-              <Link to="/services/app-development">App Development</Link>
-              <Link to="/services/chatbot-development">
-                Chatbot Development
-              </Link>
-              <Link to="/services/devops-cloud">DevOps & Cloud</Link>
-              <Link to="/services/ui-ux">UI/UX Design</Link>
-              <Link to="/services/seo">SEO</Link>
-              <Link to="/services/branding">Branding</Link>
-              <Link to="/services/digital-marketing">Digital Marketing</Link>
-              <Link to="/services/maintenance-and-upgrade">
-                Maintenance and Upgrade
-              </Link>
+          <>
+            <div ref={scrollRef} className={classes.scroll}>
+              <span className={classes["scroll-text"]}>Scroll</span>
+              <span
+                className={`${classes["scroll-text"]} ${classes["swipe-text"]}`}
+              >
+                Swipe
+              </span>
             </div>
-          </div>
+            <div className={classes["services"]}>
+              <div className={classes["services-container"]}>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/web-development"
+                >
+                  Web Development
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/app-development"
+                >
+                  App Development
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/chatbot-development"
+                >
+                  Chatbot Development
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/devops-cloud"
+                >
+                  DevOps & Cloud
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/ui-ux"
+                >
+                  UI/UX Design
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/seo"
+                >
+                  SEO
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/branding"
+                >
+                  Branding
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/digital-marketing"
+                >
+                  Digital Marketing
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/maintenance-and-upgrade"
+                >
+                  Maintenance and Upgrade
+                </Link>
+              </div>
+            </div>
+          </>
         )}
         {props.service && (
           <div className={classes["service"]}>
