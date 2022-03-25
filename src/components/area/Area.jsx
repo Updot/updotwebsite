@@ -7,7 +7,7 @@ import AreaMapUae from "./AreaMapUae";
 import AreaSwitch from "./areaSwitch/AreaSwitch";
 import Location from "../../assets/img/location-green.svg";
 // import AreaStates from "./AreaStates";
-import { areaIndData } from "./area-data";
+import { areaData } from "./area-data";
 
 import classes from "./Area.module.scss";
 
@@ -53,7 +53,7 @@ const Area = () => {
   }, [currMap]);
 
   // Find the area
-  const currentLoc = areaIndData.filter(
+  const currentLoc = areaData.filter(
     (item) => item.id?.toLowerCase() === activeState.toLowerCase()
   );
   console.log(currentLoc);

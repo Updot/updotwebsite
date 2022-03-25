@@ -2,8 +2,8 @@
   position: relative;
   min-height: 30vh;
   width: 100vw;
-  padding: 2vh 7.5vw;
-  padding-top: 10vh;
+  padding: 1vh 7.5vw;
+  margin-top: 6rem;
   background-color: var(--bg-color);
 }
 .footer a,
@@ -95,9 +95,7 @@ span {
 }
 .up-arrow svg path {
   stroke: var(--text-color-2);
-  mix-blend-mode: difference;
-
-  filter: var(--filter);
+  // filter: var(--filter);
 }
 @media only screen and (max-width: 800px) {
   .footer {

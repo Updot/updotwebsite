@@ -1,43 +1,49 @@
 import { Fragment, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 import UpdotLogo from "../../assets/img/updot-big.svg";
 import rightArrow from "../../assets/img/right-arrow.svg";
 import Input from "../connect/formFields/Input";
-import Modal from "../ui/modal/Modal";
 import classes from "./Newsletter.module.scss";
 
 const Newsletter = () => {
-  const [isFormTouched, setIsFormTouched] = useState(false);
   const [email, setEmail] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitSuccessful },
-    reset,
-  } = useForm();
-  const formSubmitHandler = (formData) => {
-    setEmail(formData.email);
-    setIsModalOpen(true);
-  };
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset({ something: "" });
-    }
+  const [submit, setSubmit] = useState({
+    message: "",
+    done: false,
+    label: "Subscribe",
   });
-  const onFirstChange = () => {
-    if (!isFormTouched) {
-      setIsFormTouched(true);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (email) {
+      setEmail("");
+      setSubmit({
+        ...submit,
+        message: `Hi ${email}! Thank you for subscribing to our newsletter`,
+        label: "You're Done!",
+        done: true,
+      });
+      setTimeout(() => {
+        setSubmit({
+          ...submit,
+          message: "",
+          label: "Subscribe",
+          done: false,
+        });
+      }, 3000);
+    }
+    if (!email) {
+      setSubmit({
+        ...submit,
+        message: "Email is not valid",
+        done: false,
+      });
     }
   };
+  console.log(email);
   return (
     <Fragment>
-      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
-        Hi {email}! Thank you for subscribing to our newsletter.
-      </Modal>
       <div className={classes["connect-btn"]}>
         <Link to="/contact">
           Let's Connect <img src={rightArrow} alt="right arrows" />
@@ -48,30 +54,38 @@ const Newsletter = () => {
           <h3 className={classes["newsletter-heading"]}>
             Subscribe to our Newsletter
           </h3>
-          <form onSubmit={handleSubmit(formSubmitHandler)}>
+          <form className={classes["newsletter-form"]}>
             <Input
               type="email"
               placeholder="Email*"
-              register={register}
-              fieldName="email"
-              error={errors}
-              required={true}
-              onFirstChange={onFirstChange}
+              autoComplete="email"
+              value={email}
+              handleChange={(val) => setEmail(val)}
             />
             <div className={classes["newsletter-btn-container"]}>
               <button
-                className="btn"
+                className={
+                  submit.done ? classes["subs-done-btn"] : classes["subs-btn"]
+                }
                 type="submit"
-                onClick={(e) => {
-                  isFormTouched && e.target.classList.add("btn-active");
-                }}
+                onClick={(e) => handleSubmit(e)}
               >
-                Subscribe Now
+                {submit.label}
               </button>
-              <p className={classes["newsletter-info"]}>
-                We'll never share your info with anyone else.
-              </p>
             </div>
+            {submit.done && (
+              <p className={classes["newsletter-submit-message"]}>
+                {submit.message}
+              </p>
+            )}
+            {!submit.done && (
+              <p className={classes["newsletter-error-message"]}>
+                {submit.message}
+              </p>
+            )}
+            <p className={classes["newsletter-info"]}>
+              We'll never share your info with anyone else.
+            </p>
           </form>
         </div>
         <div className={classes["newsletter-logo"]}>

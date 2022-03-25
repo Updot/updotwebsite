@@ -16,7 +16,7 @@ const Footer = (props) => {
         paddingTop:
           window.innerWidth < 800
             ? "0vh"
-            : `${props.height ? props.height : "10vh"}`,
+            : `${props.height ? props.height : "8vh"}`,
       }}
     >
       <div className={classes["footer-top"]}>

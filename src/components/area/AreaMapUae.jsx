@@ -38,10 +38,7 @@ const AreaMapUae = React.forwardRef((props, ref) => {
     //   el.style.fill = `#000`;
     //   el.style.stroke = `#fff`;
     // });
-    props.setActiveState({
-      map: event.target.getAttribute("d"),
-      stateName: stateName,
-    });
+    props.setActiveState(event.target.getAttribute("loc"));
     event.target.style.fill = `#fff`;
     // event.target.style.stroke = `#69b423`;
   };
@@ -50,10 +47,7 @@ const AreaMapUae = React.forwardRef((props, ref) => {
     document.querySelectorAll(`.${classes["map-loc"]}`).forEach((el) => {
       el.style.fill = `#252525`;
       el.style.stroke = `#fff`;
-      props.setActiveState({
-        map: "",
-        stateName: "",
-      });
+      props.setActiveState("");
     });
   };
 
@@ -71,6 +65,7 @@ const AreaMapUae = React.forwardRef((props, ref) => {
         <g id="uae-map">
           <path
             id="abu-dhabi"
+            loc="abd"
             className={classes["map-loc"]}
             onMouseOver={onMouseOverHandler.bind(null, "Abu Dhabi")}
             onMouseOut={onMouseOutHandler}
@@ -82,6 +77,7 @@ const AreaMapUae = React.forwardRef((props, ref) => {
           />
           <path
             id="dubai"
+            loc="dxb"
             className={classes["map-loc"]}
             onMouseOver={onMouseOverHandler.bind(null, "Dubai")}
             onMouseOut={onMouseOutHandler}
@@ -93,6 +89,7 @@ const AreaMapUae = React.forwardRef((props, ref) => {
           />
           <path
             id="sharjah"
+            loc="shj"
             className={classes["map-loc"]}
             onMouseOver={onMouseOverHandler.bind(null, "Sharjah")}
             onMouseOut={onMouseOutHandler}

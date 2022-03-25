@@ -7,7 +7,11 @@ import state_mh from "../../assets/img/area-india/state_mh.svg";
 import state_mp from "../../assets/img/area-india/state_mp.svg";
 import state_tn from "../../assets/img/area-india/state_tn.svg";
 
-const areaIndData = [
+import state_abd from "../../assets/img/area-uae/state_abd.svg";
+import state_shj from "../../assets/img/area-uae/state_shj.svg";
+import state_dxb from "../../assets/img/area-uae/state_dxb.svg";
+
+const areaData = [
   {
     id: "ap",
     img: state_ap,
@@ -64,6 +68,29 @@ const areaIndData = [
     projects: 20,
     clients: 7,
   },
+
+  //UAE
+  {
+    id: "abd",
+    img: state_abd,
+    stateName: "Abu Dhabi",
+    projects: 20,
+    clients: 7,
+  },
+  {
+    id: "shj",
+    img: state_shj,
+    stateName: "Sharjah",
+    projects: 43,
+    clients: 11,
+  },
+  {
+    id: "dxb",
+    img: state_dxb,
+    stateName: "Dubai",
+    projects: 56,
+    clients: 15,
+  },
 ];
 
-export { areaIndData };
+export { areaData };
