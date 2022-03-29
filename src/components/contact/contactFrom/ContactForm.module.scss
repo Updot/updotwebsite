@@ -360,6 +360,9 @@
   .form-field-row-mobile .btn-container {
     margin-bottom: 2rem;
   }
+  .btn-container button {
+    padding: 1rem 1.5rem;
+  }
   .btn-submit {
     width: 6rem;
     height: 2.3rem;
@@ -396,6 +399,15 @@
     display: flex;
     flex-direction: column;
     row-gap: 2.5rem;
+  }
+  .input-error {
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-color);
+    margin: 1rem 1rem;
+    border-radius: 4px;
+    width: fit-content;
   }
   .standby-message {
     font-size: 1.3rem;

@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useContext } from "react";
 import { useSelector } from "react-redux";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-// import ServiceData from "../../connect/serviceData.json";
+import ServiceData from "../../connect/serviceData.json";
 import Input from "../../connect/formFields/Input";
 import DropDown from "../../connect/formFields/DropDown";
 import Checkbox from "../../connect/formFields/Checkbox";
@@ -10,7 +10,7 @@ import UpdotLogo from "../../../assets/img/updot-big.svg";
 import UpdotMagnet from "../../../assets/img/updot-magnet.svg";
 import InputFile from "../../connect/formFields/InputFile";
 import SearchField from "../../connect/formFields/SearchField";
-// import Modal from "../../ui/modal/Modal";
+import Modal from "../../ui/modal/Modal";
 import { FiUpload } from "react-icons/fi";
 import classes from "./ContactForm.module.scss";
 import ContactContext from "../../../context/contactContext";
@@ -19,57 +19,26 @@ const ContactForm = () => {
   const [isStandby, setIsStandby] = useState(false);
   const [isFormTouched, setIsFormTouched] = useState(false);
   const [showFileInput, setShowFileInput] = useState(false);
-  // const [submissionMessage, setSubmissionMessage] = useState("");
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  const [attachments, setAttachments] = useState({});
   const formOuterRef = useRef(null);
   const submitBtnRef = useRef(null);
   const newsletterBtnRef = useRef(null);
   const [fileUploadFields, setFileUploadFields] = useState([]);
-  // const [hCaptchaData, setHCaptchaData] = useState();
 
-  const { formState, errorState, setFormState, handleSubmit } =
-    useContext(ContactContext);
+  const {
+    formState,
+    attachments,
+    loading,
+    setAttachments,
+    errorState,
+    setFormState,
+    handleSubmit,
+    isModalOpen,
+    setIsModalOpen,
+    submissionMessage,
+  } = useContext(ContactContext);
   const isLightThemeActive = useSelector(
     (state) => state.themeState.isLightThemeActive
   );
-  console.log(formState);
-
-  // const formSubmitHandler = async (formData) => {
-  // if (!hCaptchaData) {
-  //   return alert("Please verify captcha!!");
-  // }
-  // // submitBtnRef.current.classList.add(`${classes["animate-btn"]}`);
-  // const form = new FormData();
-  // Object.keys(attachments).forEach((k) => {
-  //   form.append(k, attachments[k]);
-  // });
-  // for (var key in formData) {
-  //   form.append(key, formData[key]);
-  // }
-  // form.append("h-captcha-token", hCaptchaData.token);
-  // submitBtnRef.current.innerText = "Submitting...";
-  // const response = await fetch(
-  //   "https://updotweb-msr94.ondigitalocean.app/backend/api/data-submission/contact",
-  //   {
-  //     method: "POST",
-  //     headers: {
-  //       // "Content-Type": "multipart/form-data",
-  //     },
-  //     body: form,
-  //   }
-  // );
-  // // const data = await response.json();
-  // if (response.ok) {
-  //   setSubmissionMessage(
-  //     `Hey, ${formData.name}!, Thankyou for Submitting form`
-  //   );
-  // } else {
-  //   setSubmissionMessage(`Error occured while submitting form!!`);
-  // }
-  // submitBtnRef.current.innerText = "Submit";
-  // setIsModalOpen(true);
-  // };
 
   // useEffect(() => {
   //   if (isSubmitSuccessful) {
@@ -115,31 +84,9 @@ const ContactForm = () => {
     }
   };
 
-  // const onNewsletterBtnClickHandler = (e) => {
-  //   newsletterBtnRef.current.classList.add(`${classes["animate-btn-2"]}`);
-  // };
-  // const getGeoInfo = () => {
-  //   axios
-  //     .get("https://ipapi.co/json/")
-  //     .then((response) => {
-  //       let data = response.data;
-
-  //       setFormState({
-  //         ...formState,
-  //         countryCode: data.country_calling_code.replace("+", ""),
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-  // useEffect(() => {
-  //   getGeoInfo();
-  // }, []);
-
-  useEffect(() => {
-    setFormState({ ...formState, attachments: attachments });
-  }, [attachments]);
+  const onNewsletterBtnClickHandler = (e) => {
+    newsletterBtnRef.current.classList.add(`${classes["animate-btn-2"]}`);
+  };
 
   const setAttechment = (fieldName, result) => {
     setAttachments((prevState) => {
@@ -170,9 +117,9 @@ const ContactForm = () => {
 
   return (
     <>
-      {/* <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
         {submissionMessage}
-      </Modal> */}
+      </Modal>
       <div
         ref={formOuterRef}
         className={`${classes["form-container"]} ${
@@ -238,19 +185,19 @@ const ContactForm = () => {
             <div
               className={`${classes["form-field-container"]} ${classes["animate-field-3"]}`}
             >
-              <div id="email" className={classes["form-field"]}>
+              <div id="emailId" className={classes["form-field"]}>
                 <Input
                   type="text"
                   placeholder="Email ID*"
                   autoComplete="email"
-                  value={formState.email}
+                  value={formState.emailId}
                   handleChange={(val) =>
-                    setFormState({ ...formState, email: val })
+                    setFormState({ ...formState, emailId: val })
                   }
                   left={window.innerWidth > 800 ? "1%" : "4%"}
                 />
-                {errorState.email && (
-                  <p className={classes["input-error"]}>{errorState.email}</p>
+                {errorState.emailId && (
+                  <p className={classes["input-error"]}>{errorState.emailId}</p>
                 )}
               </div>
             </div>
@@ -309,6 +256,7 @@ const ContactForm = () => {
                 <Checkbox
                   name="servicesRequired"
                   size={window.innerWidth > 800 ? 3 : 1.2}
+                  data={ServiceData}
                   formState={formState}
                   setFormState={setFormState}
                 />
@@ -395,13 +343,13 @@ const ContactForm = () => {
                   className={`btn ${classes["btn-submit"]}`}
                   type="submit"
                 >
-                  Submit
+                  {loading ? "Submitting..." : "Submit"}
                 </button>
                 <button
                   ref={newsletterBtnRef}
                   className={`btn ${classes["btn-newsletter"]}`}
                   type="submit"
-                  // onClick={onNewsletterBtnClickHandler}
+                  onClick={onNewsletterBtnClickHandler}
                 >
                   Subscribe to newsletter
                 </button>

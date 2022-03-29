@@ -56,3 +56,23 @@
   background-color: var(--text-color);
   max-width: 80%;
 }
+@media only screen and (max-width: 800px) {
+  .dropdown-options {
+    width: 100%;
+    align-items: center;
+  }
+  .dropdown-options .option {
+    position: relative;
+
+    width: 100%;
+    padding: 1.5rem;
+    text-align: left;
+    transition: all 0.2s;
+    font-weight: bold;
+    color: var(--text-color);
+    border-radius: 8px;
+  }
+  .dropdown-options .option span {
+    font-size: 1rem;
+  }
+}
