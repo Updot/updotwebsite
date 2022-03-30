@@ -65,7 +65,7 @@ const Position = () => {
       <div className={classes["position"]}>
         <div className={classes["position-container"]}>
           <div className={classes["position-container-left"]}>
-            <SectionHeading size="5.5rem">Graphic Designer</SectionHeading>{" "}
+            <SectionHeading size="5.5rem">Creative Designer</SectionHeading>{" "}
             {window.innerWidth <= 800 && (
               <div className={classes["position-container-right"]}>
                 <img ref={mouseRef} src={mouse} alt="" />
@@ -117,7 +117,9 @@ const Position = () => {
         </div>
         <div className={classes["position-container"]}>
           <div className={classes["position-container-left"]}>
-            <SectionHeading size="5.5rem">Marketing</SectionHeading>{" "}
+            <SectionHeading size="5.5rem">
+              Digital Marketing Analyst
+            </SectionHeading>{" "}
             {window.innerWidth <= 800 && (
               <div className={classes["position-container-right"]}>
                 {/* <img src={marketing} alt="" /> */}
@@ -175,7 +177,7 @@ const Position = () => {
         </div>
         <div className={classes["position-container"]}>
           <div className={classes["position-container-left"]}>
-            <SectionHeading size="5.5rem">Developer</SectionHeading>{" "}
+            <SectionHeading size="5.5rem">Front-end Developer</SectionHeading>{" "}
             {window.innerWidth <= 800 && (
               <div className={classes["position-container-right"]}>
                 {/* <img src={developer} alt="" /> */}

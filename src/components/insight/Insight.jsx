@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import BlogHeader from "../ui/blogHeader/BlogHeader";
+import SearchContext from "../../context/searchContext";
 
 import insightData from "./insightData.json";
 import downArrow from "./../../assets/img/down-arrow.svg";
@@ -13,8 +14,12 @@ const Insight = () => {
   const [insightCards, setInsightCards] = useState([]);
   // const [loadMoreCount, setLoadMoreCount] = useState(1);
 
+  const { handleInsightSearch, insightState, insight } =
+    useContext(SearchContext);
+
   useEffect(() => {
-    let els = insightData.map((data) => {
+    let data = insight.length === 0 ? insightData : insight;
+    let els = insight.map((data) => {
       insightCount++;
       return (
         <BlogCard
@@ -31,7 +36,11 @@ const Insight = () => {
 
   return (
     <div className={`${classes["insight-container"]}`}>
-      <BlogHeader navData={["Latest", "Most Viewed"]} />
+      <BlogHeader
+        handleSearch={handleInsightSearch}
+        searchState={insightState}
+        navData={["Latest", "Most Viewed"]}
+      />
       <div className={classes["insight-card-container"]}>
         {insightCards}
         <button

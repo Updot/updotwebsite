@@ -40,43 +40,17 @@ const ContactForm = () => {
     (state) => state.themeState.isLightThemeActive
   );
 
-  // useEffect(() => {
-  //   if (isSubmitSuccessful) {
-  //     reset({ something: "" });
-  //   }
-  //   let timeout,
-  //     timerActive = false;
-  //   const scrollHandler = (e) => {
-  //     function onEntry(entry) {
-  //       entry.forEach((change) => {
-  //         if (change.isIntersecting) {
-  //           if (!isStandby && !timerActive) {
-  //             timerActive = true;
-  //             timeout = setTimeout(() => {
-  //               setIsStandby(true);
-  //             }, 6000);
-  //           }
-  //         } else {
-  //           clearTimeout(timeout);
-  //           timerActive = false;
-  //         }
-  //       });
-  //     }
+  //
+  useEffect(() => {
+    if (isFormTouched) {
+      setIsStandby(false);
+    } else {
+      setTimeout(() => {
+        setIsStandby(true);
+      }, 6000);
+    }
+  }, [isFormTouched]);
 
-  //     let options = {
-  //       threshold: [0.3],
-  //     };
-
-  //     let observer = new IntersectionObserver(onEntry, options);
-
-  //     let elements = formOuterRef.current;
-
-  //     observer.observe(elements);
-  //   };
-  //   document.addEventListener("scroll", scrollHandler);
-
-  //   return () => document.removeEventListener("scroll", scrollHandler);
-  // }, [isSubmitSuccessful, isStandby, reset]);
   const onFirstChange = (event) => {
     if (!isFormTouched) {
       setIsFormTouched(true);
@@ -206,7 +180,7 @@ const ContactForm = () => {
             <div
               className={`${classes["form-field-container"]} ${classes["animate-field-4"]}`}
             >
-              <div className={classes["form-field-10"]}>
+              <div className={classes["form-field-15"]}>
                 <DropDown
                   placeholder="Industry"
                   data={["IT", "Services"]}
@@ -216,7 +190,7 @@ const ContactForm = () => {
                 />
                 {/* <p className={classes["input-error"]}></p> */}
               </div>
-              <div className={classes["form-field-85"]}>
+              <div className={classes["form-field-80"]}>
                 <Input
                   type="text"
                   placeholder="Company Name"

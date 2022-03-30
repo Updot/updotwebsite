@@ -70,11 +70,11 @@ const Skills = () => {
     if (targetArea.dataset.direction === "UP") {
       document
         .getElementById("top-anchor")
-        .scrollIntoView({ behavior: "smooth", block: "center" });
+        .scrollIntoView({ behavior: "auto", block: "center" });
     } else if (targetArea.dataset.direction === "DOWN") {
       document
         .getElementById("bottom-anchor")
-        .scrollIntoView({ behavior: "smooth", block: "center" });
+        .scrollIntoView({ behavior: "auto", block: "center" });
     }
   };
 

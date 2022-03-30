@@ -1,36 +1,22 @@
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useState, useContext } from "react";
 import Input from "../../connect/formFields/Input";
 import SmallNav from "../../ui/smallNav/SmallNav";
+import workData from "../../work/work-data";
 
 import classes from "./BlogHeader.module.scss";
-const BlogHeader = (props) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitSuccessful },
-    reset,
-  } = useForm();
 
-  const formSubmitHandler = (formData) => {
-    alert(`Hey, ${formData.name}!, Thankyou for Submitting form`);
-  };
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset({ something: "" });
-    }
-  });
+const BlogHeader = (props) => {
+  const { handleSearch, searchState } = props;
+
   return (
     <div className={classes["blog-header"]}>
-      <form action="#" onSubmit={handleSubmit(formSubmitHandler)}>
+      <form action="#">
         <Input
           type="text"
           placeholder="Search"
-          register={register}
-          fieldName="search"
-          error={errors}
+          value={searchState}
+          handleChange={(val) => handleSearch(val)}
           left={window.innerWidth > 800 ? "4%" : "10%"}
-          required={true}
         />
       </form>
       <div className={classes["blog-nav"]}>

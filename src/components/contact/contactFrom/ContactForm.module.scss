@@ -23,6 +23,7 @@
   justify-content: space-between;
   animation: animateField 0.4s ease-in-out;
   // opacity: 0;
+
   animation-fill-mode: backwards;
 }
 .form-field-container {
@@ -42,8 +43,14 @@
 .form-field-10 {
   flex-basis: 10%;
 }
+.form-field-15 {
+  flex-basis: 15%;
+}
 .form-field-85 {
   flex-basis: 85%;
+}
+.form-field-80 {
+  flex-basis: 80%;
 }
 .form-field-row {
   flex-basis: 100%;
@@ -347,7 +354,8 @@
   .form-field-container {
     margin-bottom: 2rem;
   }
-  .form-field-10 {
+  .form-field-10,
+  .form-field-11 {
     flex-basis: 100%;
     margin-bottom: 2rem;
   }

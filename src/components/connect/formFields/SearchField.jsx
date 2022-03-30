@@ -41,12 +41,12 @@ function SearchField({ formState, setFormState }) {
               onClick={() =>
                 setFormState({
                   ...formState,
-                  countryCode: `${item.dial_code} ${item.name}`,
+                  countryCode: `${item.dial_code} ${item.code}`,
                 })
               }
             >
               {item.dial_code && <span>{item.dial_code}</span>}
-              {item.name && <span>{item.name}</span>}
+              {item.code && <span>{item.code}</span>}
               <hr className="btm-brdr" />
             </li>
           ))}
