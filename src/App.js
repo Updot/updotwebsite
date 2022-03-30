@@ -31,8 +31,20 @@ function App() {
   const dispatch = useDispatch();
   const [headerDisplayed, setHeaderDisplayed] = useState(true);
   const [landingDisplayed, setLandingDisplayed] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(false);
+
+  let sessionLandingDisplayed = sessionStorage.getItem("landingDisplayed");
 
   const location = useLocation();
+
+  useEffect(() => {
+    if (!sessionLandingDisplayed) {
+      setLandingDisplayed(false);
+      sessionStorage.setItem("landingDisplayed", true);
+    } else if (sessionLandingDisplayed) {
+      setLandingDisplayed(true);
+    }
+  }, []);
 
   useEffect(() => {
     const handler = (event) => {

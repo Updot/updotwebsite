@@ -39,6 +39,8 @@ fieldset img {
   color: var(--input-label-color);
 }
 .dropdown-outer {
+  background-color: rgba(67, 67, 67, 0.8);
+
   position: absolute;
   max-height: 18rem;
   overflow-y: scroll;

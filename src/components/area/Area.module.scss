@@ -22,11 +22,13 @@
 }
 .area-inner {
   display: flex;
+  justify-content: space-evenly;
   margin-top: 10rem;
   height: 70%;
 }
 .area-map-container {
-  flex-basis: 100%;
+  // flex-basis: 100%;
+  width: 100%;
   display: grid;
   place-content: center;
 }
@@ -39,8 +41,8 @@
 }
 
 .active-area-map {
-  width: 35rem;
-  height: 35rem;
+  width: 100%;
+  height: 15rem;
 }
 
 .area-location {
