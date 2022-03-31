@@ -38,11 +38,18 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    if (!sessionLandingDisplayed) {
-      setLandingDisplayed(false);
-      sessionStorage.setItem("landingDisplayed", true);
-    } else if (sessionLandingDisplayed) {
-      setLandingDisplayed(true);
+    if (
+      window.performance.navigation.type ==
+      window.performance.navigation.TYPE_RELOAD
+    ) {
+      sessionStorage.removeItem("landingDisplayed");
+    } else {
+      if (!sessionLandingDisplayed) {
+        setLandingDisplayed(false);
+        sessionStorage.setItem("landingDisplayed", true);
+      } else if (sessionLandingDisplayed) {
+        setLandingDisplayed(true);
+      }
     }
   }, []);
 

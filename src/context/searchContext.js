@@ -22,17 +22,6 @@ const SearchProvider = (props) => {
     [caseState]
   );
 
-  workData.sort((a, b) => {
-    if (a > b) {
-      return -1;
-    }
-    if (b > a) {
-      return 1;
-    }
-    return 0;
-  });
-  console.log(workData);
-
   // INSIGHT
   const insight = insightData.filter((item) =>
     item.data.title.toLowerCase().includes(insightState.toLowerCase())

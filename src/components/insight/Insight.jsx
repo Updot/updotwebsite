@@ -18,20 +18,20 @@ const Insight = () => {
     useContext(SearchContext);
 
   useEffect(() => {
-    let data = insight.length === 0 ? insightData : insight;
-    let els = insight.map((data) => {
-      insightCount++;
+    let allData = insight.length === 0 ? insightData : insight;
+    const els = allData.map((item) => {
+      insightCount += 1;
       return (
         <BlogCard
-          key={data.key}
+          key={item.key}
           index={insightCount - 1}
-          insightId={data.key}
-          heading={data.heading}
-          image={`insights/${data.data.intro_image}`}
+          insightId={item.key}
+          heading={item.heading}
+          image={`insights/${item.data.intro_image}`}
         />
       );
     });
-    setInsightCards((prevState) => [...prevState, ...els]);
+    setInsightCards(els);
   }, []);
 
   return (
@@ -39,7 +39,7 @@ const Insight = () => {
       <BlogHeader
         handleSearch={handleInsightSearch}
         searchState={insightState}
-        navData={["Latest", "Most Viewed"]}
+        navData={["Latest"]}
       />
       <div className={classes["insight-card-container"]}>
         {insightCards}

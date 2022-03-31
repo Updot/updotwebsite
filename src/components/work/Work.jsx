@@ -39,7 +39,7 @@ const Work = () => {
       <BlogHeader
         handleSearch={handleCaseSearch}
         searchState={caseState}
-        navData={["A-Z", "Date"]}
+        navData={["A-Z"]}
       />
       <div className={classes["work-card-container"]}>
         {workCards}
