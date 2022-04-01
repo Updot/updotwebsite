@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import ScrollDot from "./ScrollDot";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import Skill from "./Skill";
 import classes from "./Skills.module.scss";
 import SectionHeading from "../ui/SectionHeading";
@@ -16,13 +17,17 @@ import brandingIcon from "../../assets/img/lottiefiles/branding.json";
 import puzzleIcon from "../../assets/img/lottiefiles/puzzle.json";
 import loadingIcon from "../../assets/img/lottiefiles/loading.json";
 import thumbIcon from "../../assets/img/lottiefiles/thumbsup.json";
-// import upArrow from "../../assets/img/up-arrow.svg";
+import { SlowMo } from "gsap/EasePack";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "swiper/swiper.scss";
+
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SlowMo);
+gsap.registerPlugin(ScrollToPlugin);
+
 const Skills = () => {
   const [scrollDotCount, setScrollDotCount] = useState(0);
 
@@ -37,7 +42,7 @@ const Skills = () => {
         scrollTrigger: {
           trigger: skillsInnerRef.current,
           pin: true,
-          scrub: 1,
+          scrub: 2,
           snap: 1 / (sections.length - 1),
           // base vertical scrolling on how wide the container is so it feels more natural.
           end: () => `+=${skillsInnerRef.current.offsetWidth}`,
@@ -68,13 +73,9 @@ const Skills = () => {
   const handleSkipScroll = () => {
     let targetArea = document.getElementById("id-skills-section");
     if (targetArea.dataset.direction === "UP") {
-      document
-        .getElementById("top-anchor")
-        .scrollIntoView({ behavior: "auto", block: "center" });
+      gsap.to(window, { duration: 2, scrollTo: "#top-anchor" });
     } else if (targetArea.dataset.direction === "DOWN") {
-      document
-        .getElementById("bottom-anchor")
-        .scrollIntoView({ behavior: "auto", block: "center" });
+      gsap.to(window, { duration: 2, scrollTo: "#bottom-anchor" });
     }
   };
 

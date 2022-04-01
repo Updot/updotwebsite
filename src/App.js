@@ -31,7 +31,6 @@ function App() {
   const dispatch = useDispatch();
   const [headerDisplayed, setHeaderDisplayed] = useState(true);
   const [landingDisplayed, setLandingDisplayed] = useState(false);
-  const [initialLoad, setInitialLoad] = useState(false);
 
   let sessionLandingDisplayed = sessionStorage.getItem("landingDisplayed");
 
@@ -44,12 +43,8 @@ function App() {
     ) {
       sessionStorage.removeItem("landingDisplayed");
     } else {
-      if (!sessionLandingDisplayed) {
-        setLandingDisplayed(false);
-        sessionStorage.setItem("landingDisplayed", true);
-      } else if (sessionLandingDisplayed) {
-        setLandingDisplayed(true);
-      }
+      setLandingDisplayed(true);
+      sessionStorage.setItem("landingDisplayed", true);
     }
   }, []);
 
@@ -80,15 +75,15 @@ function App() {
             {/* <MouseArrow /> */}
             <CustomCursor />
             <Cookies />
-            {/* {!landingDisplayed && window.innerWidth > 800 && (
-          <Landing setLandingDisplayed={setLandingDisplayed} />
-        )} */}
+            {!landingDisplayed && window.innerWidth > 800 && (
+              <Landing setLandingDisplayed={setLandingDisplayed} />
+            )}
             <BrowserRouter forceRefresh={true}>
               <React.Suspense fallback={<Loader />}>
                 <Route path="/" exact>
-                  {!landingDisplayed && window.innerWidth > 800 && (
+                  {/* {!landingDisplayed && window.innerWidth > 800 && (
                     <Landing setLandingDisplayed={setLandingDisplayed} />
-                  )}
+                  )} */}
                   <HomePage headerDisplayed={headerDisplayed} />
                 </Route>
 

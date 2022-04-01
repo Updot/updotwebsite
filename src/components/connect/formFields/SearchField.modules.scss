@@ -12,7 +12,9 @@
   transition: all 0.2s;
   z-index: 99;
   height: 20rem;
-  background-color: rgba(67, 67, 67, 0.8);
+  border-radius: 8px;
+  margin-top: 2px;
+  // background-color: rgba(67, 67, 67, 0.8);
 }
 .dropdown-options::-webkit-scrollbar {
   width: 0;
@@ -36,9 +38,9 @@
   text-align: left;
   transition: all 0.2s;
   font-weight: bold;
-  color: var(--text-color);
+  // color: var(--text-color);
   // border-bottom: 2px solid var(--text-color);
-  background-color: var(--bg-color-4);
+  // background-color: var(--bg-color-4);
   border-radius: 8px;
   margin-bottom: 4px;
   display: flex;
@@ -55,7 +57,7 @@
 
   bottom: 0;
   height: 3px;
-  background-color: var(--text-color);
+  background-color: var(--bg-color-2);
   max-width: 80%;
 }
 @media only screen and (max-width: 800px) {

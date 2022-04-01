@@ -1,8 +1,14 @@
 import React, { useCallback, useState, useEffect } from "react";
 import classes from "./Checkbox.module.scss";
+import { useSelector } from "react-redux";
+
 const Checkbox = (props) => {
   const { formState, setFormState } = props;
   const [servicesRequired, setServicesRequired] = useState([]);
+
+  const isLightThemeActive = useSelector(
+    (state) => state.themeState.isLightThemeActive
+  );
 
   const handleCheckBox = (item) => {
     if (servicesRequired.includes(item.trim())) {
@@ -31,11 +37,19 @@ const Checkbox = (props) => {
           <label
             onClick={() => handleCheckBox(item)}
             htmlFor={item}
-            style={{ fontSize: props.size ? `${props.size}rem` : "2.6rem" }}
+            style={{
+              backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
+              color: isLightThemeActive ? "#000" : "#fff",
+              fontSize: props.size ? `${props.size}rem` : "2.6rem",
+            }}
           >
             {item}
           </label>
-          <hr />
+          <hr
+            style={{
+              backgroundColor: isLightThemeActive ? "#000" : "#fff",
+            }}
+          />
         </div>
       ))}
     </div>

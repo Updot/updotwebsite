@@ -322,7 +322,7 @@
 }
 .btn-container button {
   border: 3px var(--fade-black) solid;
-  background-color: var(--bg-color-1);
+  // background-color: var(--bg-color-1);
   padding: 2rem 2.5rem;
   border-radius: 10px;
   display: flex;
@@ -335,7 +335,7 @@
   }
 }
 .btn-container button span {
-  color: var(--text-light) !important;
+  
   // mix-blend-mode: difference;
 }
 .upload-btn {

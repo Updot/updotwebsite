@@ -19,20 +19,23 @@ const Insight = () => {
 
   useEffect(() => {
     let allData = insight.length === 0 ? insightData : insight;
-    const els = allData.map((item) => {
+    console.log(allData);
+    const els = allData.map((item, i) => {
       insightCount += 1;
       return (
         <BlogCard
           key={item.key}
-          index={insightCount - 1}
+          index={i}
           insightId={item.key}
           heading={item.heading}
           image={`insights/${item.data.intro_image}`}
+          arrowInline={true}
+          isArrowLeftMargin={true}
         />
       );
     });
     setInsightCards(els);
-  }, []);
+  }, [insight]);
 
   return (
     <div className={`${classes["insight-container"]}`}>

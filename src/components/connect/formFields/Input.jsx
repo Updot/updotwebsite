@@ -1,10 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import classes from "./Input.module.scss";
+import { useSelector } from "react-redux";
 
 const Input = (props) => {
   const inputRef = useRef(null);
   const labelRef = useRef(null);
   const [showAdorn, setShowAdorn] = useState(false);
+
+  const isLightThemeActive = useSelector(
+    (state) => state.themeState.isLightThemeActive
+  );
 
   const onChangeHandler = (e) => {
     if (props.onFirstChange) {
@@ -26,11 +31,10 @@ const Input = (props) => {
   return (
     <div className={classes["input-container"]}>
       <input
+        onClick={props.handleInputClick ? () => props.handleInputClick() : null}
         id={props.fieldName}
         className={classes.input}
         type={props.type}
-        // {...props.register(`${props.fieldName}`, { required: props.required })}
-        // onChange={onChangeHandler}
         value={props.value}
         onChange={(e) => {
           props.handleChange(e.target.value);
@@ -40,7 +44,10 @@ const Input = (props) => {
         autoComplete={props.autoComplete}
         size={props.size}
         maxLength={props.maxlength}
-        style={props.inputStyle}
+        style={{
+          backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
+          color: isLightThemeActive ? "#000" : "#fff",
+        }}
       />
       <span className={classes["input-span"]}></span>
       <span
@@ -58,7 +65,10 @@ const Input = (props) => {
       <label
         ref={labelRef}
         htmlFor={props.fieldName}
-        style={{ left: props.left ? props.left : "4%" }}
+        style={{
+          left: props.left ? props.left : "4%",
+          color: isLightThemeActive ? "#000" : "#fff",
+        }}
       >
         {props.placeholder}
       </label>

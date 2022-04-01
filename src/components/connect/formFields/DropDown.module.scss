@@ -2,10 +2,9 @@
   // border-left: 1px solid var(--input-border-fade);
   // border-bottom: 1px solid var(--input-border-fade);
   position: relative;
-  background-color: #1d1d1d;
+  // background-color: #1d1d1d;
   outline: none;
   border: none;
-  border-radius: 10px;
 }
 fieldset {
   border: none;
@@ -15,6 +14,7 @@ fieldset {
   align-items: center;
   justify-content: space-between;
   padding: 0 8px;
+  border-radius: 10px;
 }
 
 fieldset img {
@@ -29,18 +29,18 @@ fieldset img {
   padding: 2rem 1rem;
   width: 100%;
   font-size: 2.6rem;
-  color: var(--input-label-color);
+  // color: var(--input-label-color);
   pointer-events: none;
   user-select: none;
 }
 .dropdown-info::placeholder {
   font-weight: normal;
   font-size: 2.6rem;
-  color: var(--input-label-color);
+  // color: var(--input-label-color);
 }
 .dropdown-outer {
-  background-color: rgba(67, 67, 67, 0.8);
-
+  // background-color: rgba(67, 67, 67, 0.8);
+  border-radius: 11px;
   position: absolute;
   max-height: 18rem;
   overflow-y: scroll;
@@ -79,9 +79,9 @@ fieldset img {
   font-size: 2.6rem;
   transition: all 0.2s;
   font-weight: bold;
-  color: var(--text-color);
+  // color: var(--text-color);
   // border-bottom: 2px solid var(--text-color);
-  background-color: var(--bg-color-4);
+  // background-color: var(--bg-color-4);
   border-radius: 11px;
   margin-bottom: 4px;
   display: flex;
@@ -94,7 +94,7 @@ fieldset img {
 
   bottom: 0;
   height: 3px;
-  background-color: var(--text-color);
+  background-color: var(--bg-color-2);
   max-width: 80%;
 }
 .dropdown-options .option:hover {

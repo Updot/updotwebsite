@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { countries } from "../../../util/countries";
 import Input from "../formFields/Input";
 import "./SearchField.modules.scss";
+import { useSelector } from "react-redux";
 
 function SearchField({ formState, setFormState }) {
   const [expand, setExpand] = useState(false);
-
+  const isLightThemeActive = useSelector(
+    (state) => state.themeState.isLightThemeActive
+  );
   const filteredData = countries.filter((item) =>
     item.dial_code.toLowerCase().includes(formState.countryCode.toLowerCase())
   );
@@ -31,13 +34,20 @@ function SearchField({ formState, setFormState }) {
         handleChange={(val) => handleInputChange(val)}
         // autoComplete="tel-country-code"
         className="search-input"
-        inputStyle={{ textAlign: "center" }}
       />
       {expand && (
-        <div className="dropdown-options">
+        <div
+          className="dropdown-options"
+          style={{
+            backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
+          }}
+        >
           {filteredData.map((item) => (
             <li
               className="option"
+              style={{
+                backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
+              }}
               onClick={() =>
                 setFormState({
                   ...formState,
@@ -45,9 +55,30 @@ function SearchField({ formState, setFormState }) {
                 })
               }
             >
-              {item.dial_code && <span>{item.dial_code}</span>}
-              {item.code && <span>{item.code}</span>}
-              <hr className="btm-brdr" />
+              {item.dial_code && (
+                <span
+                  style={{
+                    color: isLightThemeActive ? "#000" : "#fff",
+                  }}
+                >
+                  {item.dial_code}
+                </span>
+              )}
+              {item.code && (
+                <span
+                  style={{
+                    color: isLightThemeActive ? "#000" : "#fff",
+                  }}
+                >
+                  {item.code}
+                </span>
+              )}
+              <hr
+                className="btm-brdr"
+                style={{
+                  backgroundColor: isLightThemeActive ? "#000" : "#fff",
+                }}
+              />
             </li>
           ))}
         </div>

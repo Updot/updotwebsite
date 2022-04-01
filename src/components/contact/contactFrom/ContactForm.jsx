@@ -19,6 +19,7 @@ const ContactForm = () => {
   const [isStandby, setIsStandby] = useState(false);
   const [isFormTouched, setIsFormTouched] = useState(false);
   const [showFileInput, setShowFileInput] = useState(false);
+  const [isInputClick, setIsInputClick] = useState(false);
   const formOuterRef = useRef(null);
   const submitBtnRef = useRef(null);
   const newsletterBtnRef = useRef(null);
@@ -42,14 +43,12 @@ const ContactForm = () => {
 
   //
   useEffect(() => {
-    if (isFormTouched) {
-      setIsStandby(false);
-    } else {
+    if (isInputClick) {
       setTimeout(() => {
         setIsStandby(true);
       }, 6000);
     }
-  }, [isFormTouched]);
+  }, [isInputClick]);
 
   const onFirstChange = (event) => {
     if (!isFormTouched) {
@@ -106,6 +105,7 @@ const ContactForm = () => {
           >
             <div id="name" className={classes["form-field"]}>
               <Input
+                handleInputClick={() => setIsInputClick(true)}
                 type="text"
                 placeholder="Name*"
                 autoComplete="name"
@@ -269,6 +269,12 @@ const ContactForm = () => {
                   <button
                     type="button"
                     className="btn"
+                    style={{
+                      backgroundColor: isLightThemeActive
+                        ? "#ECECEC"
+                        : "#1d1d1d",
+                      color: isLightThemeActive ? "#000" : "#fff",
+                    }}
                     onClick={(e) => {
                       setShowFileInput((prevState) => !prevState);
                     }}
