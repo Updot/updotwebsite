@@ -7,6 +7,7 @@ import ContactForm from "./contactFrom/ContactForm";
 import TimeDate from "./timeDate/TimeDate";
 import Map from "./map/Map";
 import Footer from "../footer/Footer";
+import classes from "./Contact.module.scss";
 
 const Contact = () => {
   useEffect(() => {
@@ -15,7 +16,10 @@ const Contact = () => {
 
   return (
     <Fragment>
-      <div className="container h-unset-mobile">
+      <div
+        className={classes["connect-area"]}
+        // className="container  h-unset-mobile"
+      >
         <SectionHeading size="7rem">Let's Connect</SectionHeading>
         <ContactForm />
       </div>

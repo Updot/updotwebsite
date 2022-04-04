@@ -68,7 +68,13 @@ const Home = (props) => {
 
   return (
     <Fragment>
-      <div ref={sectionRef} className={classes.home}>
+      <div
+        ref={sectionRef}
+        className={classes.home}
+        style={{
+          backgroundColor: isLightThemeActive ? "#fff" : "#000",
+        }}
+      >
         {props.showLogo ? (
           <h1 className={classes.heading}>
             {props.heading}

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import classes from "./FaqItem.module.scss";
-import ArrowImg from "../../assets/img/faq/arrow.svg";
 
 const FaqItem = (props) => {
   const [isExpended, setIsExpended] = useState(false);

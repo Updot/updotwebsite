@@ -3,6 +3,8 @@ import { countries } from "../../../util/countries";
 import Input from "../formFields/Input";
 import "./SearchField.modules.scss";
 import { useSelector } from "react-redux";
+import dArrowWhite from "../../../assets/img/d-arrow-white.svg";
+import dArrowDark from "../../../assets/img/d-arrow-dark.svg";
 
 function SearchField({ formState, setFormState }) {
   const [expand, setExpand] = useState(false);
@@ -22,24 +24,43 @@ function SearchField({ formState, setFormState }) {
   }, [expand]);
 
   const handleInputChange = (val) => {
-    setExpand(true);
     setFormState({ ...formState, countryCode: val });
   };
+
+  const dArrow = isLightThemeActive ? dArrowWhite : dArrowDark;
+
   return (
-    <div className="search-field">
-      <Input
-        type="text"
-        placeholder="Code*"
-        value={formState.countryCode}
-        handleChange={(val) => handleInputChange(val)}
-        // autoComplete="tel-country-code"
-        className="search-input"
-      />
+    <div className="search-field" onClick={() => setExpand((p) => !p)}>
+      <fieldset
+        style={{
+          backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
+          color: isLightThemeActive ? "#000" : "#fff",
+        }}
+      >
+        <input
+          type="text"
+          placeholder="Code*"
+          value={formState.countryCode}
+          onChange={(e) => handleInputChange(e.target.value)}
+          className="search-input"
+          style={{
+            color: isLightThemeActive ? "#000" : "#fff",
+          }}
+        />
+        <img
+          src={dArrow}
+          alt="down arrow"
+          style={{
+            filter: isLightThemeActive ? "invert(1)" : "invert(0)",
+          }}
+        />
+      </fieldset>
       {expand && (
         <div
           className="dropdown-options"
           style={{
             backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
+            height: filteredData.length === 0 ? "0rem" : " 20rem",
           }}
         >
           {filteredData.map((item) => (

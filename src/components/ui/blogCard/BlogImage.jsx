@@ -1,5 +1,4 @@
 import { useState } from "react";
-import blogPlaceholder from "../../../assets/img/insight-placeholder.png";
 import classes from "./BlogCard.module.scss";
 
 const BlogImage = (props) => {
@@ -22,7 +21,7 @@ const BlogImage = (props) => {
     >
       <div className={`${classes["blog-img-inner"]} ${animateClass}`}>
         <img
-          src={img || blogPlaceholder}
+          src={img || null}
           alt="blogperson"
           onMouseOver={props.onMouseOverHandler}
         />

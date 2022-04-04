@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from "react";
-import axios from "axios";
 
 const ContactContext = React.createContext();
 

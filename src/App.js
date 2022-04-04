@@ -75,15 +75,15 @@ function App() {
             {/* <MouseArrow /> */}
             <CustomCursor />
             <Cookies />
-            {!landingDisplayed && window.innerWidth > 800 && (
+            {/* {!landingDisplayed && window.innerWidth > 800 && (
               <Landing setLandingDisplayed={setLandingDisplayed} />
-            )}
+            )} */}
             <BrowserRouter forceRefresh={true}>
               <React.Suspense fallback={<Loader />}>
                 <Route path="/" exact>
-                  {/* {!landingDisplayed && window.innerWidth > 800 && (
+                  {!landingDisplayed && window.innerWidth > 800 && (
                     <Landing setLandingDisplayed={setLandingDisplayed} />
-                  )} */}
+                  )}
                   <HomePage headerDisplayed={headerDisplayed} />
                 </Route>
 

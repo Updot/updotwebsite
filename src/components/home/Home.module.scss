@@ -7,7 +7,6 @@
   place-content: center;
   align-content: center;
   position: relative;
-  background-color: var(--bg-color);
   z-index: 10;
 }
 
@@ -16,12 +15,13 @@
   color: var(--text-color);
   user-select: none;
   display: flex;
-  align-items: flex-end;
-  transform: translateY(-23%);
+  align-items: center;
+  column-gap: 2.6rem;
+
 }
 .heading-logo {
   display: inline;
-  margin-left: 3rem;
+  // margin-left: 3rem;
   height: 7rem;
   animation: animateText 1s linear;
   animation-delay: 1s;

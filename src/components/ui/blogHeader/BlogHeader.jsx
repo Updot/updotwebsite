@@ -1,7 +1,5 @@
-import { useState, useContext } from "react";
 import Input from "../../connect/formFields/Input";
 import SmallNav from "../../ui/smallNav/SmallNav";
-import workData from "../../work/work-data";
 
 import classes from "./BlogHeader.module.scss";
 

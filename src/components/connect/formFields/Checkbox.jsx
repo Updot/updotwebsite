@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Checkbox.module.scss";
 import { useSelector } from "react-redux";
 
