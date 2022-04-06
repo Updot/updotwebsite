@@ -122,6 +122,7 @@ span {
   .footer-link img {
     width: 5rem;
     height: auto;
+    aspect-ratio: 1;
   }
   .follow .footer-link-container {
     row-gap: 0.5rem;
@@ -129,6 +130,7 @@ span {
   .footer-link img.insta-icon {
     height: auto;
     width: 6rem;
+    aspect-ratio: 1;
     transform: translateY(5%);
   }
   .footer-top a,

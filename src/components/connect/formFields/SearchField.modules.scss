@@ -89,6 +89,19 @@ fieldset img {
   max-width: 80%;
 }
 @media only screen and (max-width: 800px) {
+  .search-input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    font-size: 1rem;  
+  }
+  .search-input::placeholder {
+    font-weight: normal;
+    font-size: 1rem;
+    // color: var(--input-label-color);
+  }
   .dropdown-options {
     width: 100%;
     align-items: center;
@@ -105,5 +118,11 @@ fieldset img {
   }
   .dropdown-options .option span {
     font-size: 1rem;
+  }
+  fieldset img {
+    width: 1.1rem;
+    top: 50%;
+    right: 3%;
+    transform: translate(-3%, -50%);
   }
 }

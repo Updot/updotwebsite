@@ -40,7 +40,6 @@ const Checkbox = (props) => {
             style={{
               backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
               color: isLightThemeActive ? "#000" : "#fff",
-              fontSize: props.size ? `${props.size}rem` : "2.6rem",
             }}
           >
             {item}

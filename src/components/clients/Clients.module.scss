@@ -166,10 +166,11 @@
   .mid {
     height: 15rem;
     width: 15rem;
+    object-fit: contain;
   }
   .mid img {
-    height: 13rem;
-    width: auto;
+    // height: 10rem;
+    width: 12rem;
   }
   .small {
     height: 13rem;

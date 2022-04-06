@@ -161,8 +161,9 @@
 
   .featured-info img {
     width: auto;
-    height: 5.5rem;
+    height: 6.5rem;
     margin-bottom: 1.8rem;
+    aspect-ratio: 1.5;
   }
   .featured-subtext {
     font-size: 1.65rem;
@@ -186,6 +187,7 @@
     height: auto;
     transform: rotate(-10deg) translateY(5%);
     transition: all 0.2s ease-in-out;
+    aspect-ratio: 1;
   }
   .featured-info-container:hover .featured-graphics img {
     transform: rotate(-10deg) translateY(0%);

@@ -17,7 +17,6 @@ import ContactContext from "../../../context/contactContext";
 
 const ContactForm = () => {
   const [isStandby, setIsStandby] = useState(false);
-  const [isFormTouched, setIsFormTouched] = useState(false);
   const [showFileInput, setShowFileInput] = useState(false);
   const [isInputClick, setIsInputClick] = useState(false);
   const formOuterRef = useRef(null);
@@ -36,6 +35,8 @@ const ContactForm = () => {
     isModalOpen,
     setIsModalOpen,
     submissionMessage,
+    isFormTouched,
+    setIsFormTouched,
   } = useContext(ContactContext);
   const isLightThemeActive = useSelector(
     (state) => state.themeState.isLightThemeActive

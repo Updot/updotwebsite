@@ -17,8 +17,8 @@ import remaxLogo from "../../assets/img/featured/remax.svg";
 // import virtuselLogo from "../../assets/img/featured/virtusel.svg";
 import wolfwizardLogo from "../../assets/img/featured/wolfwizard.svg";
 import fortuneLogo from "../../assets/img/featured/fortune.png";
-import hyundaiLogo from "../../assets/img/clients/hyundai-logo.png";
-import kiaLogo from "../../assets/img/clients/kia-black-logo.png";
+import hyundaiLogo from "../../assets/img/clients/Hyundai.svg";
+import kiaLogo from "../../assets/img/clients/Kia.svg";
 
 const Clients = () => {
   const sectionRef = useRef(null);

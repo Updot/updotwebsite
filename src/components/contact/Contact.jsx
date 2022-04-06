@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useContext } from "react";
 
 import SectionHeading from "../ui/SectionHeading";
 import ContactForm from "./contactFrom/ContactForm";
@@ -7,24 +7,25 @@ import ContactForm from "./contactFrom/ContactForm";
 import TimeDate from "./timeDate/TimeDate";
 import Map from "./map/Map";
 import Footer from "../footer/Footer";
-import classes from "./Contact.module.scss";
-
+import ContactContext from "../../context/contactContext";
 const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const { isFormTouched } = useContext(ContactContext);
+
   return (
     <Fragment>
       <div
-        className={classes["connect-area"]}
-        // className="container  h-unset-mobile"
+        className="container  h-unset-mobile"
+        style={{
+          height: isFormTouched ? "" : "100vh",
+        }}
       >
         <SectionHeading size="7rem">Let's Connect</SectionHeading>
         <ContactForm />
       </div>
-      {/* <Faq faqHeading="FAQ" /> */}
-      {/* <ContactSocial /> */}
       <TimeDate />
       <Map />
       <Footer height="5vh" />

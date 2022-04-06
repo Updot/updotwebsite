@@ -22,6 +22,7 @@ const ContactProvider = (props) => {
   const [loading, setLoading] = useState(false);
   const [submissionMessage, setSubmissionMessage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFormTouched, setIsFormTouched] = useState(false);
 
   const handleValidation = useCallback(() => {
     let errors = {};
@@ -117,6 +118,8 @@ const ContactProvider = (props) => {
         submissionMessage,
         isModalOpen,
         setIsModalOpen,
+        isFormTouched,
+        setIsFormTouched,
       }}
     >
       {children}

@@ -47,6 +47,7 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   cursor: none !important;
+  font-display: swap;
 }
 input,
 select,
@@ -54,6 +55,7 @@ textarea,
 button {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
+  font-display: swap;
 }
 body::-webkit-scrollbar,
 textarea::-webkit-scrollbar {
