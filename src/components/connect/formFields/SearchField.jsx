@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { countries } from "../../../util/countries";
-import Input from "../formFields/Input";
 import "./SearchField.modules.scss";
 import { useSelector } from "react-redux";
 import dArrowWhite from "../../../assets/img/d-arrow-white.svg";

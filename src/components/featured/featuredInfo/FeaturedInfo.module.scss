@@ -88,6 +88,7 @@
   height: auto;
   width: 25rem;
   margin-bottom: 2rem;
+    aspect-ratio: 1.5;
 }
 .featured-info a {
   font-size: 3rem;
@@ -111,6 +112,7 @@
 .featured-graphics img {
   width: auto;
   height: 80%;
+  aspect-ratio: 1;
   transform: rotate(-15deg) translateY(25%) translateX(-35%);
   transition: all 0.2s ease-in-out;
 }
@@ -129,6 +131,8 @@
 @media only screen and (max-width: 1360px) {
   .featured-graphics img {
     height: 70%;
+    width: auto;
+    aspect-ratio: 1;
     transform: rotate(-15deg) translateY(25%) translateX(-15%);
   }
   .featured-info-container:hover .featured-graphics img {

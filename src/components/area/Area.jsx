@@ -4,7 +4,6 @@ import { mapStateAction } from "../../store/mapState";
 import SectionHeading from "../ui/SectionHeading";
 import AreaMapIndia from "./AreaMapIndia";
 import AreaMapUae from "./AreaMapUae";
-import AreaSwitch from "./areaSwitch/AreaSwitch";
 import Location from "../../assets/img/location-green.svg";
 // import AreaStates from "./AreaStates";
 import { areaData } from "./area-data";
@@ -20,7 +19,6 @@ const Area = () => {
   const indiaMapRef = useRef(null);
   const uaeMapRef = useRef(null);
   const stateIndicatorRef = useRef(null);
-  const activeStateRef = useRef(null);
   const dispatch = useDispatch();
   const [activeState, setActiveState] = useState("");
 

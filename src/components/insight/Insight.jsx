@@ -8,8 +8,6 @@ import downArrow from "./../../assets/img/down-arrow.svg";
 import classes from "./Insight.module.scss";
 import BlogCard from "../ui/blogCard/BlogCard";
 
-let insightCount = 0;
-
 const Insight = () => {
   const [insightCards, setInsightCards] = useState([]);
   // const [loadMoreCount, setLoadMoreCount] = useState(1);
@@ -21,7 +19,6 @@ const Insight = () => {
     let allData = insight.length === 0 ? insightData : insight;
     console.log(allData);
     const els = allData.map((item, i) => {
-      insightCount += 1;
       return (
         <BlogCard
           key={item.key}

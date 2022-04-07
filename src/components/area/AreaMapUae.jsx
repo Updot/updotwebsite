@@ -4,6 +4,7 @@ import classes from "./AreaMap.module.scss";
 
 const AreaMapUae = React.forwardRef((props, ref) => {
   const arrowCurr = useSelector((state) => state.mouseLocation.currLocation);
+
   const mapRef = useRef(null);
 
   const animateMap = () => {

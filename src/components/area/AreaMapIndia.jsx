@@ -1,10 +1,9 @@
-import React, { useEffect, useImperativeHandle, useRef } from "react";
-// import { useSelector } from "react-redux";
+import React, { useImperativeHandle, useRef } from "react";
 import classes from "./AreaMap.module.scss";
 
 const AreaMap = React.forwardRef((props, ref) => {
-  // const arrowCurr = useSelector((state) => state.mouseLocation.currLocation);
   const mapRef = useRef(null);
+
   const animateMap = () => {
     mapRef.current.classList.add(`${classes["area-map-active"]}`);
     setTimeout(() => {
@@ -19,16 +18,6 @@ const AreaMap = React.forwardRef((props, ref) => {
   useImperativeHandle(ref, () => {
     return { animateMap, removeAnimation };
   });
-
-  // useEffect(() => {
-  //   const indicator = document.querySelector(`[data-type="indicator"]`);
-  //   const { height } = indicator.getBoundingClientRect();
-
-  //   document.addEventListener("mousemove", (event) => {
-  //     indicator.style.left = `${event.clientX}px`;
-  //     indicator.style.top = `${event.clientY - height * 1.5}px`;
-  //   });
-  // }, []);
 
   const onMouseOverHandler = (stateName, event) => {
     props.setActiveState(event.target.getAttribute("loc"));

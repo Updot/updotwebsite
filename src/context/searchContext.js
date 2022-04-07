@@ -19,7 +19,7 @@ const SearchProvider = (props) => {
     (search) => {
       setCaseState(search);
     },
-    [caseState]
+    [setCaseState]
   );
 
   // INSIGHT
@@ -30,7 +30,7 @@ const SearchProvider = (props) => {
     (search) => {
       setInsightState(search);
     },
-    [insightState]
+    [setInsightState]
   );
 
   return (

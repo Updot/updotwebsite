@@ -59,10 +59,13 @@
 .footer-link img {
   width: auto;
   height: 2rem;
+    aspect-ratio: 4;
   filter: var(--filter);
 }
 .footer-link img.insta-icon {
   height: 3rem;
+  width: auto;
+  aspect-ratio: 4;
   transform: translateY(15%);
 }
 .footer-bottom p,

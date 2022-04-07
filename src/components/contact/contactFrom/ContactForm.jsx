@@ -26,7 +26,6 @@ const ContactForm = () => {
 
   const {
     formState,
-    attachments,
     loading,
     setAttachments,
     errorState,

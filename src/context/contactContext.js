@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 
 const ContactContext = React.createContext();
 
@@ -23,50 +23,6 @@ const ContactProvider = (props) => {
   const [submissionMessage, setSubmissionMessage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFormTouched, setIsFormTouched] = useState(false);
-
-  const handleValidation = useCallback(() => {
-    let errors = {};
-
-    if (!formState.name.trim()) {
-      errors.name = "Name* is required";
-    }
-    if (!formState.emailId) {
-      errors.emailId = "Email* is required";
-    } else if (!/\S+@\S+\.\S+/.test(formState.emailId)) {
-      errors.emailId = "Email is invalid";
-    }
-    if (!formState.countryCode) {
-      errors.countryCode = "Phone Code* is invalid";
-    } else if (!formState.countryCode.replace(/[^\d]/g, "")) {
-      errors.countryCode = "Phone Code is invalid";
-    }
-    if (!formState.phoneNumber) {
-      errors.phoneNumber = "Phone Number* is required";
-    } else if (formState.phoneNumber.replace(/[^\d]/g, "").length < 10) {
-      errors.phoneNumber = "Phone Number is incomplete";
-    }
-    if (!formState.message.trim()) {
-      errors.message = "Message* is required";
-    }
-    if (!formState.hCaptchaData) {
-      errors.hCaptchaData = "Please verify captcha!!";
-    }
-
-    // Validator Handlers
-    if (Object.keys(errors).length === 0) {
-      apiCall();
-    } else {
-      document
-        .getElementById(`${Object.keys(errors)[0]}`)
-        .scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-    return errors;
-  }, [formState]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setErrorState(handleValidation());
-  };
 
   const apiCall = async () => {
     try {
@@ -105,6 +61,51 @@ const ContactProvider = (props) => {
       console.log(error);
     }
   };
+
+  const handleValidation = () => {
+    let errors = {};
+
+    if (!formState.name.trim()) {
+      errors.name = "Name* is required";
+    }
+    if (!formState.emailId) {
+      errors.emailId = "Email* is required";
+    } else if (!/\S+@\S+\.\S+/.test(formState.emailId)) {
+      errors.emailId = "Email is invalid";
+    }
+    if (!formState.countryCode) {
+      errors.countryCode = "Phone Code* is invalid";
+    } else if (!formState.countryCode.replace(/[^\d]/g, "")) {
+      errors.countryCode = "Phone Code is invalid";
+    }
+    if (!formState.phoneNumber) {
+      errors.phoneNumber = "Phone Number* is required";
+    } else if (formState.phoneNumber.replace(/[^\d]/g, "").length < 10) {
+      errors.phoneNumber = "Phone Number is incomplete";
+    }
+    if (!formState.message.trim()) {
+      errors.message = "Message* is required";
+    }
+    if (!formState.hCaptchaData) {
+      errors.hCaptchaData = "Please verify captcha!!";
+    }
+
+    // Validator Handlers
+    if (Object.keys(errors).length === 0) {
+      apiCall();
+    } else {
+      document
+        .getElementById(`${Object.keys(errors)[0]}`)
+        .scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    return errors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrorState(handleValidation());
+  };
+
   return (
     <ContactContext.Provider
       value={{

@@ -24,11 +24,11 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "swiper/swiper.scss";
 
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(SlowMo);
-gsap.registerPlugin(ScrollToPlugin);
-
 const Skills = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(SlowMo);
+  gsap.registerPlugin(ScrollToPlugin);
+
   const [scrollDotCount, setScrollDotCount] = useState(0);
 
   const skillsInnerRef = useRef();

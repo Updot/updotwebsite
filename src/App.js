@@ -32,13 +32,11 @@ function App() {
   const [headerDisplayed, setHeaderDisplayed] = useState(true);
   const [landingDisplayed, setLandingDisplayed] = useState(false);
 
-  let sessionLandingDisplayed = sessionStorage.getItem("landingDisplayed");
-
   const location = useLocation();
 
   useEffect(() => {
     if (
-      window.performance.navigation.type ==
+      window.performance.navigation.type ===
       window.performance.navigation.TYPE_RELOAD
     ) {
       sessionStorage.removeItem("landingDisplayed");
@@ -80,14 +78,21 @@ function App() {
             )} */}
             <BrowserRouter forceRefresh={true}>
               <React.Suspense fallback={<Loader />}>
-                <Route path="/" exact>
-                  {!landingDisplayed && window.innerWidth > 800 && (
-                    <Landing setLandingDisplayed={setLandingDisplayed} />
-                  )}
-                  <HomePage headerDisplayed={headerDisplayed} />
-                </Route>
+                {window.innerWidth > 800 && (
+                  <Route path="/" exact>
+                    {!landingDisplayed && (
+                      <Landing setLandingDisplayed={setLandingDisplayed} />
+                    )}
+                    <HomePage headerDisplayed={headerDisplayed} />
+                  </Route>
+                )}
 
                 <Switch>
+                  {window.innerWidth < 800 && (
+                    <Route path="/" exact>
+                      <HomePage headerDisplayed={headerDisplayed} />
+                    </Route>
+                  )}
                   <Route exact path="/about-us">
                     <About headerDisplayed={headerDisplayed} />
                   </Route>

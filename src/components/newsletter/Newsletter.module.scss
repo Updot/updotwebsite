@@ -30,6 +30,7 @@
   filter: var(--filter);
   height: 4rem;
   width: auto;
+  aspect-ratio: 1;
   margin-left: 6rem;
 }
 .newsletter-heading,
@@ -48,6 +49,7 @@
 .newsletter-logo img {
   height: 100%;
   width: auto;
+  aspect-ratio: 1;
   transform: translateX(-10%);
   filter: var(--filter);
   z-index: 100;
