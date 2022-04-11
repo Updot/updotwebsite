@@ -1,54 +1,53 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import classes from "./Checkbox.module.scss";
 import { useSelector } from "react-redux";
 
 const Checkbox = (props) => {
   const { formState, setFormState } = props;
-  const [servicesRequired, setServicesRequired] = useState([]);
+  const { services } = formState;
 
   const isLightThemeActive = useSelector(
     (state) => state.themeState.isLightThemeActive
   );
 
-  const handleCheckBox = (item) => {
-    if (servicesRequired.includes(item.trim())) {
-      setServicesRequired(servicesRequired.filter((i) => i !== item));
+  const handleCheckBox = (item, isChecked) => {
+    const newServices = [...services];
+    const index = newServices.indexOf(item);
+    if (isChecked) {
+      newServices.push(item);
     } else {
-      servicesRequired.push(item);
-      setServicesRequired(servicesRequired);
+      newServices.splice(index, 1);
     }
+    setFormState({ ...formState, services: newServices });
   };
-  useEffect(() => {
-    setFormState({ ...formState, servicesRequired });
-  }, [servicesRequired]);
 
   return (
     <div className={classes.checkbox}>
       {props.data.map((item, index) => (
-        <div key={item} className={classes.options}>
+        <div
+          key={item}
+          className={
+            isLightThemeActive ? classes.options_light : classes.options_dark
+          }
+        >
           <input
             id={item}
             type="checkbox"
             name={props.name}
             value={item}
             hidden
-            // onChange={(e) => handleChange(e.target.value)}
+            onChange={(e) => handleCheckBox(e.target.value, e.target.checked)}
           />
           <label
-            onClick={() => handleCheckBox(item)}
             htmlFor={item}
-            style={{
-              backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
-              color: isLightThemeActive ? "#000" : "#fff",
-            }}
+            // style={{
+            //   backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
+            //   color: isLightThemeActive ? "#000" : "#fff",
+            // }}
           >
             {item}
           </label>
-          <hr
-            style={{
-              backgroundColor: isLightThemeActive ? "#000" : "#fff",
-            }}
-          />
+          <hr />
         </div>
       ))}
     </div>

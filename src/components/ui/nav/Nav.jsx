@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import classes from "./Nav.module.scss";
@@ -13,9 +13,8 @@ import { navStateAction } from "../../../store/NavState";
 import { themeStateAction } from "../../../store/themeState";
 import { useGlobalDispatchContext } from "../../../context/globalContext";
 
-let swipeCount = 0;
-
 const Nav = () => {
+  const [touchPos, setTouchPos] = useState(0);
   const isNavActive = useSelector((state) => state.navState.isActive);
   const isLightThemeActive = useSelector(
     (state) => state.themeState.isLightThemeActive
@@ -35,60 +34,52 @@ const Nav = () => {
   }, [isNavActive]);
 
   // Mobile Theme Swipe
-  useEffect(() => {
-    navRef.current.addEventListener("touchstart", handleTouchStart, false);
-    navRef.current.addEventListener("touchmove", handleTouchMove, false);
+  // useEffect(() => {
+  //   navRef.current.addEventListener("touchstart", handleTouchStart, false);
+  //   navRef.current.addEventListener("touchmove", handleTouchMove, false);
 
-    var xDown = null;
-    var yDown = null;
+  //   var xDown = null;
+  //   var yDown = null;
 
-    function getTouches(evt) {
-      return evt.touches || evt.originalEvent.touches;
-    }
+  //   function getTouches(evt) {
+  //     return evt.touches || evt.originalEvent.touches;
+  //   }
 
-    function handleTouchStart(evt) {
-      const firstTouch = getTouches(evt)[0];
-      xDown = firstTouch.clientX;
-      yDown = firstTouch.clientY;
-    }
+  //   function handleTouchStart(evt) {
+  //     const firstTouch = getTouches(evt)[0];
+  //     xDown = firstTouch.clientX;
+  //     yDown = firstTouch.clientY;
+  //   }
 
-    function handleTouchMove(evt) {
-      if (!xDown || !yDown) {
-        return;
-      }
+  //   function handleTouchMove(evt) {
+  //     if (!xDown || !yDown) {
+  //       return;
+  //     }
 
-      var xUp = evt.touches[0].clientX;
-      var yUp = evt.touches[0].clientY;
+  //     var xUp = evt.touches[0].clientX;
+  //     var yUp = evt.touches[0].clientY;
 
-      var xDiff = xDown - xUp;
-      var yDiff = yDown - yUp;
+  //     var xDiff = xDown - xUp;
+  //     var yDiff = yDown - yUp;
 
-      if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        /*most significant*/
+  //     if (Math.abs(xDiff) > Math.abs(yDiff)) {
+  //       /*most significant*/
 
-        if (xDiff > 0) {
-          if (swipeCount === 0) {
-            if (isLightThemeActive) {
-              swipwTextRef.current.innerText = "Swipe for Dark mode";
-            } else {
-              swipwTextRef.current.innerText = "Swipe for light mode";
-            }
-            swipeCount = 1;
-          } else if (swipeCount === 1) {
-            swipwTextRef.current.innerText = "Swipe";
-            // navRef.current.classList.add(`${}`);
-            dispatch(themeStateAction.toggleTheme());
-            swipeCount = 0;
-          }
-        } else {
-          /* left swipe */
-          // alert("right");
-        }
-      }
-      xDown = null;
-      yDown = null;
-    }
-  }, [dispatch, isLightThemeActive]);
+  //       if (xDiff > 0) {
+  //         if (isLightThemeActive) {
+  //           swipwTextRef.current.innerText = "Swipe for Dark mode";
+  //         } else {
+  //           swipwTextRef.current.innerText = "Swipe for light mode";
+  //         }
+  //       } else {
+  //         /* left swipe */
+  //         // alert("right");
+  //       }
+  //     }
+  //     xDown = null;
+  //     yDown = null;
+  //   }
+  // }, [dispatch, isLightThemeActive]);
 
   // Theme Toggle
   useEffect(() => {
@@ -103,6 +94,13 @@ const Nav = () => {
     dispatch(themeStateAction.toggleTheme());
     dispatch(navStateAction.toggleNav());
   };
+
+  const handleGesture = (e) => {
+    if (touchPos - e.changedTouches[0].clientX > 10) {
+      dispatch(themeStateAction.toggleTheme());
+      setTouchPos(0);
+    }
+  };
   return (
     <div
       ref={navRef}
@@ -111,7 +109,9 @@ const Nav = () => {
       className={`${classes["navbar"]} ${
         isNavActive ? classes["navbar-show"] : classes["navbar-hide"]
       } ${isLightThemeActive && classes["navbar-bg-slide"]}`}
-      onClick={() => dispatch(navStateAction.toggleNav())}
+      onClick={() =>
+        window.innerWidth < 800 ? null : dispatch(navStateAction.toggleNav())
+      }
     >
       <ul className={classes["nav-container"]}>
         {navData.map((navItem, index) => (
@@ -123,7 +123,11 @@ const Nav = () => {
             <NavLink
               to={`${navItem.link}`}
               activeClassName={classes["active-nav"]}
-              onClick={() => dispatch(navStateAction.toggleNav())}
+              onClick={() =>
+                window.innerWidth < 800
+                  ? null
+                  : dispatch(navStateAction.toggleNav())
+              }
             >
               {navItem.name}
             </NavLink>
@@ -151,9 +155,18 @@ const Nav = () => {
       >
         <div className={classes["theme-toggler"]}></div>
       </div>
-      <div className={classes["swipe-text-container"]}>
+      <div
+        onTouchStart={(event) => setTouchPos(event.touches[0].clientX)}
+        onTouchMove={(e) => handleGesture(e)}
+        className={classes["swipe-text-container"]}
+      >
         <p>
-          <span ref={swipwTextRef}>Swipe</span> <img src={arrow} alt="arrow" />
+          <span ref={swipwTextRef}>
+            {isLightThemeActive
+              ? "Swipe for dark mode"
+              : "Swipe for light mode"}
+          </span>{" "}
+          <img src={arrow} alt="arrow" />
         </p>
       </div>
       <ul className={classes["social-container"]}>

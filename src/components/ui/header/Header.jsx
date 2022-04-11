@@ -51,7 +51,7 @@ const Header = (props) => {
           />
           {isNavActive && <p>Home</p>}
         </Link>
-        {!isNavActive ? (
+        {window.innerWidth > 800 && !isNavActive ? (
           <div className={classes["nav-button-wrapper"]}>
             <div
               data-name="nav-btn"
@@ -64,6 +64,31 @@ const Header = (props) => {
             </div>
           </div>
         ) : null}
+        {window.innerWidth < 800 && (
+          <div className={classes["nav-button-wrapper"]}>
+            <div
+              data-name="nav-btn"
+              className={classes["nav-btn"]}
+              style={navStyle}
+              onClick={() => dispatch(navStateAction.toggleNav())}
+            >
+              <span
+                className={
+                  !isNavActive ? `${isNavActive}` : classes["rotate-top"]
+                }
+              >
+                &nbsp;
+              </span>
+              <span
+                className={
+                  !isNavActive ? `${isNavActive}` : classes["rotate-up"]
+                }
+              >
+                &nbsp;
+              </span>
+            </div>
+          </div>
+        )}
       </div>
       {/* {window.innerWidth > 800 && (
         <div

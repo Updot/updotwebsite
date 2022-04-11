@@ -79,6 +79,13 @@ const Skills = () => {
     }
   };
 
+  const handleScrollDotCount = (e) => {
+    setScrollDotCount(e.activeIndex);
+    gsap.to(SwiperSlide, {
+      duration: 1,
+      ease: "expo.inOut",
+    });
+  };
   return (
     <>
       {/* Scroll */}
@@ -106,9 +113,9 @@ const Skills = () => {
       <div className={classes["swiper-skills-section"]}>
         <h2 className={classes["section-heading"]}>Our Mastered Skills</h2>
         <Swiper
-          onSwiper={(swiper) => console.log(swiper)}
+          onSwiper={(e) => console.log(e)}
           modules={[Pagination]}
-          onSlideChange={(e) => setScrollDotCount(e.activeIndex)}
+          onSlideChange={(e) => handleScrollDotCount(e)}
           className={classes["swiper-container"]}
         >
           {SkillData.map((item, index) => (

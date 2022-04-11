@@ -7,7 +7,7 @@ import ContactForm from "./contactFrom/ContactForm";
 import TimeDate from "./timeDate/TimeDate";
 import Map from "./map/Map";
 import Footer from "../footer/Footer";
-import ContactContext from "../../context/contactContext";
+import { ContactContext } from "../../context/formContext";
 const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);

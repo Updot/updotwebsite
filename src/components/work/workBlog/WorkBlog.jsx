@@ -112,7 +112,14 @@ const WorkBlog = () => {
           )}
           {blogContent}
           <div className={`${classes["vb-btn"]} container-2`}>
-            <button className="btn">Visit Website</button>
+            <a
+              target="_blank"
+              href={blogData.work_link}
+              rel="noreferrer"
+              className="btn"
+            >
+              Visit Website
+            </a>
           </div>
         </div>
       </div>

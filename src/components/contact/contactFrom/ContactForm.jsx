@@ -13,7 +13,7 @@ import SearchField from "../../connect/formFields/SearchField";
 import Modal from "../../ui/modal/Modal";
 import { FiUpload } from "react-icons/fi";
 import classes from "./ContactForm.module.scss";
-import ContactContext from "../../../context/contactContext";
+import { ContactContext } from "../../../context/formContext";
 
 const ContactForm = () => {
   const [isStandby, setIsStandby] = useState(false);
@@ -30,7 +30,7 @@ const ContactForm = () => {
     setAttachments,
     errorState,
     setFormState,
-    handleSubmit,
+    handleContactSubmit,
     isModalOpen,
     setIsModalOpen,
     submissionMessage,
@@ -99,7 +99,7 @@ const ContactForm = () => {
           !isFormTouched ? classes["form-container-change"] : ""
         }`}
       >
-        <form className={classes.form} onSubmit={(e) => handleSubmit(e)}>
+        <form className={classes.form} onSubmit={(e) => handleContactSubmit(e)}>
           <div
             className={`${classes["form-field-container"]} ${classes["animate-field-1"]}`}
           >

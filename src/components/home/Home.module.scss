@@ -212,10 +212,13 @@
     }
   }
   .services {
-    position: unset;
+    position: absolute;
     width: 100%;
-    // display: flex;
-    // align-self: flex-end;
+    top: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     padding: 3rem 0 6rem;
   }
   .services-container {
