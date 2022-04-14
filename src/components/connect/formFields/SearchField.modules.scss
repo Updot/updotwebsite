@@ -89,6 +89,9 @@ fieldset img {
   max-width: 80%;
 }
 @media only screen and (max-width: 800px) {
+  fieldset{
+    margin-top: 10px;
+  }
   .search-input {
     background-color: transparent;
     outline: none;

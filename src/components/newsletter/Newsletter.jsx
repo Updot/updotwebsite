@@ -41,7 +41,7 @@ const Newsletter = () => {
       });
     }
   };
-  console.log(email);
+
   return (
     <Fragment>
       <div className={classes["connect-btn"]}>
@@ -83,9 +83,9 @@ const Newsletter = () => {
                 {submit.message}
               </p>
             )}
-            <p className={classes["newsletter-info"]}>
+            {/* <p className={classes["newsletter-info"]}>
               We'll never share your info with anyone else.
-            </p>
+            </p> */}
           </form>
         </div>
         <div className={classes["newsletter-logo"]}>

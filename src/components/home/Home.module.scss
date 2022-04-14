@@ -10,14 +10,24 @@
   z-index: 10;
 }
 
-.heading {
-  font-size: 7rem;
-  color: var(--text-color);
+.heading {  
   user-select: none;
   display: flex;
+  justify-content: center;
   align-items: center;
   column-gap: 2.6rem;
+  
+  height: 100px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 
+}
+.heading .heading__text{
+  // position: absolute;
+  line-height: 4.2rem;
+  font-size: 7rem;
+  color: var(--text-color);
 }
 .heading-logo {
   display: inline;
@@ -173,6 +183,16 @@
     transform: translateY(-5%);
     align-items: flex-start;
     line-height: 1.25;
+
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+  }
+  .heading .heading__text {
+    // position: absolute;
+    line-height: unset;   
   }
   .heading-logo {
     height: 5.8rem;

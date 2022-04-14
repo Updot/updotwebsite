@@ -89,7 +89,10 @@ textarea ~ .change-label {
 @media only screen and (max-width: 800px) {
   .input {
     font-size: 1.3rem;
-    padding: 0.7rem 1rem;
+    padding: 1rem 1rem;
+  }
+  .input-container{
+    margin-top: 10px;
   }
   .input-container label {
     font-size: 1.3rem;

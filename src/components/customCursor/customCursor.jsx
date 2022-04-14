@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import "./customCursor.scss";
 import { useGlobalStateContext } from "../../context/globalContext";
-import { useSelector } from "react-redux";
 
 function CustomCursor() {
   const [cursorPos, setCursorPos] = useState({
@@ -14,7 +13,7 @@ function CustomCursor() {
     setCursorPos({ x, y });
   }, []);
 
-  const { cursorType } = useGlobalStateContext();
+  const { cursorType, navOpen } = useGlobalStateContext();
 
   useEffect(() => {
     document.addEventListener("mousemove", onMouseMove);
@@ -23,10 +22,9 @@ function CustomCursor() {
     };
   }, [onMouseMove]);
 
-  const isNavActive = useSelector((state) => state.navState.isActive);
   return (
     <>
-      {!!cursorType && isNavActive ? (
+      {!!cursorType && navOpen ? (
         <div
           className="hovered"
           data-name="nav-btn"

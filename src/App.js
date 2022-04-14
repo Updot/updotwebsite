@@ -12,7 +12,7 @@ import CustomCursor from "./components/customCursor/customCursor";
 import "./App.scss";
 import { themeStateAction } from "./store/themeState";
 // import Header from "./components/ui/header/Header";
-// import Nav from "./components/ui/nav/Nav";
+import Nav from "./components/ui/nav/Nav";
 
 import HomePage from "./pages/HomePage";
 
@@ -76,7 +76,10 @@ function App() {
               {/* {!landingDisplayed && window.innerWidth > 800 && (
               <Landing setLandingDisplayed={setLandingDisplayed} />
             )} */}
-              <BrowserRouter forceRefresh={true}>
+
+              <BrowserRouter>
+                <Nav />
+
                 <React.Suspense fallback={<Loader />}>
                   {window.innerWidth > 800 && (
                     <Route path="/" exact>

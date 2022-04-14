@@ -7,79 +7,62 @@ import instaIcon from "../../../assets/img/insta-icon.svg";
 import fbIcon from "../../../assets/img/fb-icon.svg";
 import linkedinIcon from "../../../assets/img/linkedin.svg";
 import arrow from "../../../assets/img/arrow-left.svg";
-
+import gsap from "gsap";
 import navData from "./navData.json";
-import { navStateAction } from "../../../store/NavState";
+
 import { themeStateAction } from "../../../store/themeState";
-import { useGlobalDispatchContext } from "../../../context/globalContext";
+import {
+  useGlobalDispatchContext,
+  useGlobalStateContext,
+} from "../../../context/globalContext";
 
 const Nav = () => {
   const [touchPos, setTouchPos] = useState(0);
-  const isNavActive = useSelector((state) => state.navState.isActive);
   const isLightThemeActive = useSelector(
     (state) => state.themeState.isLightThemeActive
   );
-  const cursorDispatch = useGlobalDispatchContext();
+  const { onCursor, onNav } = useGlobalDispatchContext();
+  const { navOpen } = useGlobalStateContext();
+
   const dispatch = useDispatch();
   const navRef = useRef();
   const swipwTextRef = useRef();
 
   useEffect(() => {
-    if (isNavActive) {
+    let nav = navRef.current;
+    const tl = gsap.timeline();
+
+    if (navOpen) {
       document.querySelector("body").style.overflowY = "hidden";
+      tl.to(nav, {
+        duration: 1,
+        css: {
+          transform: "translate(0%, 0%)",
+          display: "block",
+        },
+        ease: "elastic.out(1, 1)",
+      }).from(".line-item", 0.2, {
+        y: 100,
+        css: {
+          opacity: 0,
+        },
+        delay: -0.8,
+        stagger: 0.1,
+        ease: "expo.out",
+      });
     }
     return () => {
       document.querySelector("body").style.overflowY = "scroll";
+      tl.to(nav, {
+        duration: 1,
+        css: {
+          transform: "translate(101%, 0%)",
+          display: "none",
+        },
+        ease: "power3.inOut",
+      });
     };
-  }, [isNavActive]);
-
-  // Mobile Theme Swipe
-  // useEffect(() => {
-  //   navRef.current.addEventListener("touchstart", handleTouchStart, false);
-  //   navRef.current.addEventListener("touchmove", handleTouchMove, false);
-
-  //   var xDown = null;
-  //   var yDown = null;
-
-  //   function getTouches(evt) {
-  //     return evt.touches || evt.originalEvent.touches;
-  //   }
-
-  //   function handleTouchStart(evt) {
-  //     const firstTouch = getTouches(evt)[0];
-  //     xDown = firstTouch.clientX;
-  //     yDown = firstTouch.clientY;
-  //   }
-
-  //   function handleTouchMove(evt) {
-  //     if (!xDown || !yDown) {
-  //       return;
-  //     }
-
-  //     var xUp = evt.touches[0].clientX;
-  //     var yUp = evt.touches[0].clientY;
-
-  //     var xDiff = xDown - xUp;
-  //     var yDiff = yDown - yUp;
-
-  //     if (Math.abs(xDiff) > Math.abs(yDiff)) {
-  //       /*most significant*/
-
-  //       if (xDiff > 0) {
-  //         if (isLightThemeActive) {
-  //           swipwTextRef.current.innerText = "Swipe for Dark mode";
-  //         } else {
-  //           swipwTextRef.current.innerText = "Swipe for light mode";
-  //         }
-  //       } else {
-  //         /* left swipe */
-  //         // alert("right");
-  //       }
-  //     }
-  //     xDown = null;
-  //     yDown = null;
-  //   }
-  // }, [dispatch, isLightThemeActive]);
+  }, [navOpen]);
 
   // Theme Toggle
   useEffect(() => {
@@ -92,7 +75,7 @@ const Nav = () => {
 
   const desktopThemeTogglerHandler = () => {
     dispatch(themeStateAction.toggleTheme());
-    dispatch(navStateAction.toggleNav());
+    onNav();
   };
 
   const handleGesture = (e) => {
@@ -101,33 +84,32 @@ const Nav = () => {
       setTouchPos(0);
     }
   };
+
   return (
     <div
       ref={navRef}
-      onMouseEnter={() => cursorDispatch("hovered")}
-      onMouseLeave={() => cursorDispatch("cursor-main")}
-      className={`${classes["navbar"]} ${
-        isNavActive ? classes["navbar-show"] : classes["navbar-hide"]
-      } ${isLightThemeActive && classes["navbar-bg-slide"]}`}
-      onClick={() =>
-        window.innerWidth < 800 ? null : dispatch(navStateAction.toggleNav())
-      }
+      onMouseEnter={() => onCursor("hovered")}
+      onMouseLeave={() => onCursor("cursor-main")}
+      className={`${classes["navbar"]}      
+      ${isLightThemeActive && classes["navbar-bg-slide"]}`}
+      onClick={() => onNav()}
+      style={{ display: "none", transform: "translate(101%, 0%)" }}
     >
       <ul className={classes["nav-container"]}>
         {navData.map((navItem, index) => (
           <li
+            className="line-item"
+            // style={{
+            //   opacity: 0,
+            // }}
             key={index}
-            onMouseEnter={() => cursorDispatch("cursor-main")}
-            onMouseLeave={() => cursorDispatch("hovered")}
+            onMouseEnter={() => onCursor("cursor-main")}
+            onMouseLeave={() => onCursor("hovered")}
           >
             <NavLink
+              // onClick={() => (window.innerWidth < 800 ? null : onNav())}
               to={`${navItem.link}`}
               activeClassName={classes["active-nav"]}
-              onClick={() =>
-                window.innerWidth < 800
-                  ? null
-                  : dispatch(navStateAction.toggleNav())
-              }
             >
               {navItem.name}
             </NavLink>
@@ -137,7 +119,7 @@ const Nav = () => {
                   <Link
                     key={i}
                     to={`${el.link}`}
-                    // onClick={() => dispatch(navStateAction.toggleNav())}
+                    // onClick={() =>     onNav()}
                   >
                     {el.name}
                   </Link>
@@ -149,8 +131,8 @@ const Nav = () => {
       </ul>
       <div
         className={classes["theme-toggler-desktop"]}
-        onMouseEnter={() => cursorDispatch("cursor-main")}
-        onMouseLeave={() => cursorDispatch("hovered")}
+        onMouseEnter={() => onCursor("cursor-main")}
+        onMouseLeave={() => onCursor("hovered")}
         onClick={desktopThemeTogglerHandler}
       >
         <div className={classes["theme-toggler"]}></div>
@@ -175,8 +157,8 @@ const Nav = () => {
             href="https://www.linkedin.com/company/updot/"
             target="_blank"
             rel="noreferrer"
-            onMouseEnter={() => cursorDispatch("cursor-main")}
-            onMouseLeave={() => cursorDispatch("hovered")}
+            onMouseEnter={() => onCursor("cursor-main")}
+            onMouseLeave={() => onCursor("hovered")}
           >
             <img src={linkedinIcon} alt="linkedin icon" />
           </a>
@@ -186,8 +168,8 @@ const Nav = () => {
             href="https://www.instagram.com/updotofficial/"
             target="_blank"
             rel="noreferrer"
-            onMouseEnter={() => cursorDispatch("cursor-main")}
-            onMouseLeave={() => cursorDispatch("hovered")}
+            onMouseEnter={() => onCursor("cursor-main")}
+            onMouseLeave={() => onCursor("hovered")}
           >
             <img src={instaIcon} alt="instagram icon" />
           </a>
@@ -197,8 +179,8 @@ const Nav = () => {
             href="https://www.facebook.com/updotofficial"
             target="_blank"
             rel="noreferrer"
-            onMouseEnter={() => cursorDispatch("cursor-main")}
-            onMouseLeave={() => cursorDispatch("hovered")}
+            onMouseEnter={() => onCursor("cursor-main")}
+            onMouseLeave={() => onCursor("hovered")}
           >
             <img src={fbIcon} alt="facebook icon" />
           </a>

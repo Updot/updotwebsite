@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import ScrollDot from "./ScrollDot";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -6,6 +6,7 @@ import Skill from "./Skill";
 import classes from "./Skills.module.scss";
 import SectionHeading from "../ui/SectionHeading";
 import gsap from "gsap";
+import useEmblaCarousel from "embla-carousel-react";
 
 import webIcon from "../../assets/img/lottiefiles/pointer.json";
 import appIcon from "../../assets/img/lottiefiles/androidapple.json";
@@ -18,18 +19,12 @@ import puzzleIcon from "../../assets/img/lottiefiles/puzzle.json";
 import loadingIcon from "../../assets/img/lottiefiles/loading.json";
 import thumbIcon from "../../assets/img/lottiefiles/thumbsup.json";
 import { SlowMo } from "gsap/EasePack";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
-import "swiper/swiper-bundle.min.css";
-import "swiper/swiper.min.css";
-import "swiper/swiper.scss";
 
 const Skills = () => {
+  // Scrolling Animation
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(SlowMo);
   gsap.registerPlugin(ScrollToPlugin);
-
-  const [scrollDotCount, setScrollDotCount] = useState(0);
 
   const skillsInnerRef = useRef();
 
@@ -68,6 +63,9 @@ const Skills = () => {
         scrollPos = document.body.getBoundingClientRect().top;
       });
     }
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, [skillsInnerRef]);
 
   const handleSkipScroll = () => {
@@ -79,13 +77,28 @@ const Skills = () => {
     }
   };
 
-  const handleScrollDotCount = (e) => {
-    setScrollDotCount(e.activeIndex);
-    gsap.to(SwiperSlide, {
-      duration: 1,
-      ease: "expo.inOut",
-    });
-  };
+  // Dragging the carousel
+  const [viewportRef, embla] = useEmblaCarousel({
+    loop: false,
+    align: "center",
+    skipSnap: false,
+  });
+  const [scrollDotCount, setScrollDotCount] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!embla) return;
+
+    setScrollDotCount(embla.selectedScrollSnap());
+  }, [embla]);
+
+  useEffect(() => {
+    if (window.innerWidth < 800) {
+      if (!embla) return;
+      embla.on("select", onSelect);
+      onSelect();
+    }
+  }, [embla, onSelect]);
+
   return (
     <>
       {/* Scroll */}
@@ -109,21 +122,23 @@ const Skills = () => {
           </div>
         </div>
       </div>
+
       {/* Draggable */}
-      <div className={classes["swiper-skills-section"]}>
+      <div className={classes.embla}>
         <h2 className={classes["section-heading"]}>Our Mastered Skills</h2>
-        <Swiper
-          onSwiper={(e) => console.log(e)}
-          modules={[Pagination]}
-          onSlideChange={(e) => handleScrollDotCount(e)}
-          className={classes["swiper-container"]}
-        >
-          {SkillData.map((item, index) => (
-            <SwiperSlide className={classes["skill-container"]} key={index}>
-              <Skill lottie={item.img} skillData={item} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className={classes["embla__viewport"]} ref={viewportRef}>
+          <div className={classes["embla__container"]}>
+            {SkillData.map((item, index) => (
+              <div className={classes["embla__slide"]} key={index}>
+                <Skill
+                  className={classes["embla__slide__inner"]}
+                  lottie={item.img}
+                  skillData={item}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
         <div className={classes["swiper-pagination"]}>
           <ScrollDot scrollDotCount={scrollDotCount} />
         </div>

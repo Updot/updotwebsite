@@ -9,7 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import colorTheme from "./colorTheme.json";
 import classes from "./Home.module.scss";
 import { Link } from "react-router-dom";
-// import { useCallback } from "react";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 const Home = (props) => {
   // const isNavActive = useSelector((state) => state.navState.isActive);
@@ -20,6 +21,36 @@ const Home = (props) => {
   const sectionRef = useRef(null);
   const scrollRef = useRef(null);
   const dispatch = useDispatch();
+  gsap.registerPlugin(ScrollToPlugin);
+
+  useEffect(() => {
+    let tl = gsap.timeline();
+    tl.from("h1 span", 1.8, {
+      ease: "power4.out",
+      css: {
+        opacity: 0,
+        translateY: 100,
+        // transform: "skewY(7)",
+      },
+      delay: 0.5,
+      stagger: {
+        amount: 0.2,
+      },
+    });
+    gsap.from("h3", 1.8, {
+      ease: "power4.out",
+      css: {
+        opacity: 0,
+        translateY: 100,
+        // transform: "skewY(7)",
+      },
+      delay: -1.8,
+      stagger: {
+        amount: 0.2,
+      },
+    });
+    gsap.to(window, { duration: 0, scrollTo: 0 });
+  }, []);
 
   useEffect(() => {
     const handler = (event) => {
@@ -77,23 +108,8 @@ const Home = (props) => {
       >
         {props.showLogo ? (
           <h1 className={classes.heading}>
-            {props.heading}
-            {/* <div
-              className={classes["heading-video"]}
-              style={{
-                maskImage: `url(${updot})`,
-                maskRepeat: "no-repeat",
-                maskSize: "contain",
-                maskPosition: "center",
-                WebkitMaskPosition: "center",
-                WebkitMaskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                WebkitMaskImage: `url(${updot})`,
-                backgroundColor: "var(--bg-color)",
-              }}
-            >
-              <video src={`${maskVideo}`} autoPlay loop muted></video>
-            </div> */}
+            <span className={classes.heading__text}>{props.heading}</span>
+
             <span className={classes["heading-logo"]}>
               <svg
                 width="352"
@@ -113,7 +129,9 @@ const Home = (props) => {
             </span>
           </h1>
         ) : (
-          <h1 className={classes.heading}>{props.heading}</h1>
+          <h1 className={classes.heading}>
+            <span className={classes.heading__text}>{props.heading}</span>
+          </h1>
         )}
         {!props.isNotScroll && (
           <div ref={scrollRef} className={classes.scroll}>

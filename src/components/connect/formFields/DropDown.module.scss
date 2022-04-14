@@ -106,9 +106,12 @@ fieldset img {
   overflow: hidden;
 }
 @media only screen and (max-width: 800px) {
+  fieldset{
+    margin-top: 10px;
+  }
   .dropdown-info {
     font-size: 1.3rem;
-    padding: 0.7rem 1rem;
+        padding: 1rem 1rem;
   }
   .dropdown-outer {
     max-height: 11vh;
