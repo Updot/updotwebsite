@@ -8,9 +8,11 @@
   position: absolute;
 }
 .client img {
-  height: auto;
+  height: 100%;
   width: 100%;
+  aspect-ratio: 1;
   filter: grayscale(100%);
+  padding: 10px;
 }
 .client:hover img {
   filter: grayscale(0);
@@ -24,5 +26,7 @@
   }
   .client img {
     width: 8rem;
+    height: auto;
+    aspect-ratio: 1;
   }
 }

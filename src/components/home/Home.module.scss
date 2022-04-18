@@ -7,21 +7,31 @@
   place-content: center;
   align-content: center;
   position: relative;
-  background-color: var(--bg-color);
   z-index: 10;
 }
 
-.heading {
-  font-size: 7rem;
-  color: var(--text-color);
+.heading {  
   user-select: none;
   display: flex;
-  align-items: flex-end;
-  transform: translateY(-23%);
+  justify-content: center;
+  align-items: center;
+  column-gap: 2.6rem;
+  
+  height: 100px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+}
+.heading .heading__text{
+  // position: absolute;
+  line-height: 4.2rem;
+  font-size: 7rem;
+  color: var(--text-color);
 }
 .heading-logo {
   display: inline;
-  margin-left: 3rem;
+  // margin-left: 3rem;
   height: 7rem;
   animation: animateText 1s linear;
   animation-delay: 1s;
@@ -89,28 +99,46 @@
 .services {
   position: absolute;
   width: 100%;
-  bottom: 5%;
+  top: 120%;
 }
 .services-container {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  row-gap: 6rem;
 }
 
 .services-container:first-of-type {
   margin-bottom: 3rem;
 }
 
-.services a {
+.service-link-light {
   text-decoration: none;
   font-size: 3.5rem;
   font-weight: bold;
   transition: all 0.2s ease-in-out;
+  color: var(--bg-color-4);
+  mix-blend-mode: difference;
 }
-.services a:hover {
+.service-link-light:hover {
   transform: translateY(-10%);
+  color: var(--text-color-2);
+  mix-blend-mode: difference;
 }
-
+.service-link-dark {
+  text-decoration: none;
+  font-size: 3.5rem;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  color: #ababab;
+  mix-blend-mode: difference;
+}
+.service-link-dark:hover {
+  transform: translateY(-10%);
+  color: var(--text-light);
+  mix-blend-mode: difference;
+}
 .service {
   position: absolute;
   bottom: 15%;
@@ -155,6 +183,16 @@
     transform: translateY(-5%);
     align-items: flex-start;
     line-height: 1.25;
+
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+  }
+  .heading .heading__text {
+    // position: absolute;
+    line-height: unset;   
   }
   .heading-logo {
     height: 5.8rem;
@@ -194,17 +232,17 @@
     }
   }
   .services {
-    position: unset;
+    position: absolute;
     width: 100%;
+    top: 100%;
     display: flex;
-    flex-direction: column;
-    column-gap: 2vw;
-    /* row-gap: 2rem; */
-    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     padding: 3rem 0 6rem;
   }
   .services-container {
-    flex-direction: column;
+    row-gap: 2rem;
     margin-bottom: unset !important;
   }
   .service h3 {
@@ -215,6 +253,5 @@
     text-decoration: none;
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 1.2rem;
   }
 }

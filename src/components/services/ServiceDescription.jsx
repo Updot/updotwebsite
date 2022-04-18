@@ -41,12 +41,9 @@ const ServiceDescription = (props) => {
                     : 500
                   : 400
               }
-              //   style={{
-              //     filter: "var(--filter)",
-              //     transform: `${
-              //       window.innerWidth > 800 ? "translate(5vw ,20vh)" : ""
-              //     }`,
-              //   }}
+              style={{
+                filter: "var(--filter)",
+              }}
             />
           )}
           {props.img && <img src={props.img} alt="" />}

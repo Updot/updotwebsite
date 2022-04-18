@@ -30,7 +30,7 @@ const Skill = (props) => {
                 window.innerWidth > 800
                   ? window.innerWidth < 1200
                     ? 300
-                    : 500
+                    : 400
                   : 300
               }
               width={
@@ -43,13 +43,18 @@ const Skill = (props) => {
               style={{
                 filter: "var(--filter)",
                 transform: `${
-                  window.innerWidth > 800 ? "translate(5vw ,20vh)" : ""
+                  window.innerWidth > 800 ? "translate(0vw ,0vh)" : ""
                 }`,
               }}
             />
           )}
-          {props.img && (
-            <img src={props.img} alt="" style={{ marginTop: "6rem" }} />
+          {props.skillData.skip && (
+            <div
+              className={classes["skip-wrap"]}
+              onClick={() => props.handleSkipScroll()}
+            >
+              <span>skip</span>
+            </div>
           )}
         </div>
       </div>

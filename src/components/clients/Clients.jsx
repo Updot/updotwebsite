@@ -11,12 +11,14 @@ import classes from "./Clients.module.scss";
 // import abBlack from "../../assets/img/clients/AB-logo-black.svg";
 // import fortune from "../../assets/img/clients/Fortune-Avenue-Logo.svg";
 // import fortuneBlack from "../../assets/img/clients/Fortune-Avenue-Logo-black.svg";
-import yottahawk from "../../assets/img/clients/Yottahawk-Logo.svg";
+// import yottahawk from "../../assets/img/clients/Yottahawk-Logo.svg";
 // import yottahawkBlack from "../../assets/img/clients/Yottahawk-Logo-black.svg";
 import remaxLogo from "../../assets/img/featured/remax.svg";
-import virtuselLogo from "../../assets/img/featured/virtusel.svg";
+// import virtuselLogo from "../../assets/img/featured/virtusel.svg";
 import wolfwizardLogo from "../../assets/img/featured/wolfwizard.svg";
 import fortuneLogo from "../../assets/img/featured/fortune.png";
+import hyundaiLogo from "../../assets/img/clients/Hyundai.svg";
+import kiaLogo from "../../assets/img/clients/Kia.svg";
 
 const Clients = () => {
   const sectionRef = useRef(null);
@@ -36,7 +38,7 @@ const Clients = () => {
   // }, [dispatch]);
 
   return (
-    <div ref={sectionRef} className={`${classes.clients}`}>
+    <div ref={sectionRef} className={`${classes.clients}`} id="bottom-anchor">
       <SectionHeading>Clients</SectionHeading>
       <div className={classes["clients-container"]}>
         <Client
@@ -48,24 +50,24 @@ const Clients = () => {
           imgColor={fortuneLogo}
         />
         <Client
-          className={`${classes["client-loc-3"]} ${classes["small"]}`}
-          imgColor={yottahawk}
-        />
-        <Client
-          className={`${classes["client-loc-4"]} ${classes["big"]}`}
+          className={`${classes["client-loc-3"]} ${classes["big"]}`}
           imgColor={wolfwizardLogo}
         />
         <Client
-          className={`${classes["client-loc-5"]} ${classes["big"]}`}
-          imgColor={virtuselLogo}
+          className={`${classes["client-loc-4"]} ${classes["big"]}`}
+          imgColor={hyundaiLogo}
+        />
+        <Client
+          className={`${classes["client-loc-5"]} ${classes["mid"]}`}
+          imgColor={kiaLogo}
         />
         {/* <Client
           className={`${classes["client-loc-6"]} ${classes["small"]}`}
-          // imgColor={abBlack}
+          imgColor={}
         />
         <Client
           className={`${classes["client-loc-7"]} ${classes["big"]}`}
-          // imgColor={ab}
+          imgColor={}
         /> */}
       </div>
     </div>

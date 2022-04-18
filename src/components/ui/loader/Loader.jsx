@@ -5,8 +5,10 @@ import { useDispatch } from "react-redux";
 import { pageStateAction } from "../../../store/pageState";
 const Loader = () => {
   const dispatch = useDispatch();
-  window.onload = (e) => {
-    dispatch(pageStateAction.setLoaded());
+  window.onLoad = (e) => {
+    setTimeout(() => {
+      dispatch(pageStateAction.setLoaded());
+    }, 2000);
   };
   return (
     <div className={classes["loader"]}>

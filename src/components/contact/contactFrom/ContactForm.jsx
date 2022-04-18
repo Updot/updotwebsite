@@ -1,6 +1,5 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import { useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import ServiceData from "../../connect/serviceData.json";
 import Input from "../../connect/formFields/Input";
@@ -10,109 +9,47 @@ import TextArea from "../../connect/formFields/TextArea";
 import UpdotLogo from "../../../assets/img/updot-big.svg";
 import UpdotMagnet from "../../../assets/img/updot-magnet.svg";
 import InputFile from "../../connect/formFields/InputFile";
+import SearchField from "../../connect/formFields/SearchField";
 import Modal from "../../ui/modal/Modal";
-
-import { dialCodes } from "../../../util/InternationalDialCodes";
+import { FiUpload } from "react-icons/fi";
 import classes from "./ContactForm.module.scss";
+import { ContactContext } from "../../../context/formContext";
 
 const ContactForm = () => {
   const [isStandby, setIsStandby] = useState(false);
-  const [isFormTouched, setIsFormTouched] = useState(false);
   const [showFileInput, setShowFileInput] = useState(false);
-  const [submissionMessage, setSubmissionMessage] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [attachments, setAttachments] = useState({});
+  const [isInputClick, setIsInputClick] = useState(false);
   const formOuterRef = useRef(null);
   const submitBtnRef = useRef(null);
   const newsletterBtnRef = useRef(null);
   const [fileUploadFields, setFileUploadFields] = useState([]);
-  const [hCaptchaData, setHCaptchaData] = useState();
 
   const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors, isSubmitSuccessful },
-    reset,
-  } = useForm();
-
+    formState,
+    loading,
+    setAttachments,
+    errorState,
+    setFormState,
+    handleContactSubmit,
+    isModalOpen,
+    setIsModalOpen,
+    submissionMessage,
+    isFormTouched,
+    setIsFormTouched,
+  } = useContext(ContactContext);
   const isLightThemeActive = useSelector(
     (state) => state.themeState.isLightThemeActive
   );
 
-  const formSubmitHandler = async (formData) => {
-    if (!hCaptchaData) {
-      return alert("Please verify captcha!!");
-    }
-    // submitBtnRef.current.classList.add(`${classes["animate-btn"]}`);
-    const form = new FormData();
-    Object.keys(attachments).forEach((k) => {
-      form.append(k, attachments[k]);
-    });
-    for (var key in formData) {
-      form.append(key, formData[key]);
-    }
-    form.append("h-captcha-token", hCaptchaData.token);
-    submitBtnRef.current.innerText = "Submitting...";
-    const response = await fetch(
-      "https://updotweb-msr94.ondigitalocean.app/backend/api/data-submission/contact",
-      {
-        method: "POST",
-        headers: {
-          // "Content-Type": "multipart/form-data",
-        },
-        body: form,
-      }
-    );
-
-    // const data = await response.json();
-    if (response.ok) {
-      setSubmissionMessage(
-        `Hey, ${formData.name}!, Thankyou for Submitting form`
-      );
-    } else {
-      setSubmissionMessage(`Error occured while submitting form!!`);
-    }
-    submitBtnRef.current.innerText = "Submit";
-    setIsModalOpen(true);
-  };
+  //
   useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset({ something: "" });
+    if (isInputClick) {
+      setTimeout(() => {
+        setIsStandby(true);
+      }, 6000);
     }
-    let timeout,
-      timerActive = false;
-    const scrollHandler = (e) => {
-      function onEntry(entry) {
-        entry.forEach((change) => {
-          if (change.isIntersecting) {
-            if (!isStandby && !timerActive) {
-              timerActive = true;
-              timeout = setTimeout(() => {
-                setIsStandby(true);
-              }, 6000);
-            }
-          } else {
-            clearTimeout(timeout);
-            timerActive = false;
-          }
-        });
-      }
+  }, [isInputClick]);
 
-      let options = {
-        threshold: [0.3],
-      };
-
-      let observer = new IntersectionObserver(onEntry, options);
-
-      let elements = formOuterRef.current;
-
-      observer.observe(elements);
-    };
-    document.addEventListener("scroll", scrollHandler);
-
-    return () => document.removeEventListener("scroll", scrollHandler);
-  }, [isSubmitSuccessful, isStandby, reset]);
   const onFirstChange = (event) => {
     if (!isFormTouched) {
       setIsFormTouched(true);
@@ -120,15 +57,17 @@ const ContactForm = () => {
     }
   };
 
-  // const onNewsletterBtnClickHandler = (e) => {
-  //   newsletterBtnRef.current.classList.add(`${classes["animate-btn-2"]}`);
-  // };
+  const onNewsletterBtnClickHandler = (e) => {
+    newsletterBtnRef.current.classList.add(`${classes["animate-btn-2"]}`);
+  };
+
   const setAttechment = (fieldName, result) => {
     setAttachments((prevState) => {
       return { ...prevState, [fieldName]: result };
     });
   };
   useEffect(() => {
+    // Attachment dimensions
     const arr = [];
     const itrCount = window.innerWidth > 800 ? 6 : 3;
     for (let i = 0; i < itrCount; i++) {
@@ -146,7 +85,7 @@ const ContactForm = () => {
   }, []);
 
   const handleVerificationSuccess = (token, ekey) => {
-    setHCaptchaData({ token, ekey });
+    setFormState({ ...formState, hCaptchaData: { token, ekey } });
   };
 
   return (
@@ -160,59 +99,59 @@ const ContactForm = () => {
           !isFormTouched ? classes["form-container-change"] : ""
         }`}
       >
-        <form
-          className={classes.form}
-          onSubmit={handleSubmit(formSubmitHandler)}
-        >
+        <form className={classes.form} onSubmit={(e) => handleContactSubmit(e)}>
           <div
             className={`${classes["form-field-container"]} ${classes["animate-field-1"]}`}
           >
-            <div className={classes["form-field"]}>
+            <div id="name" className={classes["form-field"]}>
               <Input
+                handleInputClick={() => setIsInputClick(true)}
                 type="text"
                 placeholder="Name*"
-                register={register}
-                fieldName="name"
-                error={errors}
-                required={true}
+                autoComplete="name"
+                value={formState.name}
                 onFirstChange={onFirstChange}
                 left={window.innerWidth > 800 ? "1%" : "4%"}
+                handleChange={(val) =>
+                  setFormState({ ...formState, name: val })
+                }
               />
-              <p className={classes["input-error"]}>
-                {errors.name?.type === "required" && "*Name is required."}
-              </p>
+              {errorState.name && (
+                <p className={classes["input-error"]}>{errorState.name}</p>
+              )}
             </div>
           </div>
           {isFormTouched && (
             <div
               className={`${classes["form-field-container"]} ${classes["animate-field-2"]}`}
             >
-              <div className={classes["form-field-10"]}>
-                <DropDown
-                  placeholder="Code*"
-                  register={register}
-                  fieldName="code"
-                  setValue={setValue}
-                  data={dialCodes}
-                  required={true}
+              <div id="countryCode" className={classes["form-field-10"]}>
+                <SearchField
+                  formState={formState}
+                  setFormState={setFormState}
                 />
-                <p className={classes["input-error"]}>
-                  {errors.code?.type === "required" && "*Code is required."}
-                </p>
+                {errorState.countryCode && (
+                  <p className={classes["input-error"]}>
+                    {errorState.countryCode}
+                  </p>
+                )}
               </div>
-              <div className={classes["form-field-85"]}>
+              <div id="phoneNumber" className={classes["form-field-85"]}>
                 <Input
                   type="tel"
                   placeholder="Phone Number*"
-                  register={register}
-                  fieldName="phoneNumber"
-                  required={true}
+                  value={formState.phoneNumber}
+                  handleChange={(val) =>
+                    setFormState({ ...formState, phoneNumber: val })
+                  }
                   left={window.innerWidth > 800 ? "1%" : "4%"}
+                  autoComplete="tel-national"
                 />
-                <p className={classes["input-error"]}>
-                  {errors.phoneNumber?.type === "required" &&
-                    "*Phone Number is required."}
-                </p>
+                {errorState.phoneNumber && (
+                  <p className={classes["input-error"]}>
+                    {errorState.phoneNumber}
+                  </p>
+                )}
               </div>
             </div>
           )}
@@ -220,19 +159,20 @@ const ContactForm = () => {
             <div
               className={`${classes["form-field-container"]} ${classes["animate-field-3"]}`}
             >
-              <div className={classes["form-field"]}>
+              <div id="emailId" className={classes["form-field"]}>
                 <Input
                   type="text"
                   placeholder="Email ID*"
-                  register={register}
-                  fieldName="emailId"
-                  required={true}
+                  autoComplete="email"
+                  value={formState.emailId}
+                  handleChange={(val) =>
+                    setFormState({ ...formState, emailId: val })
+                  }
                   left={window.innerWidth > 800 ? "1%" : "4%"}
                 />
-                <p className={classes["input-error"]}>
-                  {errors.emailId?.type === "required" &&
-                    "*Email ID is required."}
-                </p>
+                {errorState.emailId && (
+                  <p className={classes["input-error"]}>{errorState.emailId}</p>
+                )}
               </div>
             </div>
           )}
@@ -240,27 +180,27 @@ const ContactForm = () => {
             <div
               className={`${classes["form-field-container"]} ${classes["animate-field-4"]}`}
             >
-              <div className={classes["form-field-10"]}>
+              <div className={classes["form-field-15"]}>
                 <DropDown
                   placeholder="Industry"
-                  register={register}
-                  fieldName="industry"
-                  setValue={setValue}
                   data={["IT", "Services"]}
-                  required={false}
+                  handleChange={(val) =>
+                    setFormState({ ...formState, industry: val })
+                  }
                 />
-                <p className={classes["input-error"]}></p>
+                {/* <p className={classes["input-error"]}></p> */}
               </div>
-              <div className={classes["form-field-85"]}>
+              <div className={classes["form-field-80"]}>
                 <Input
                   type="text"
                   placeholder="Company Name"
-                  register={register}
-                  fieldName="companyName"
-                  required={false}
+                  value={formState.companyName}
+                  handleChange={(val) =>
+                    setFormState({ ...formState, companyName: val })
+                  }
                   left={window.innerWidth > 800 ? "1%" : "4%"}
                 />
-                <p className={classes["input-error"]}></p>
+                {/* <p className={classes["input-error"]}></p> */}
               </div>
             </div>
           )}
@@ -272,9 +212,10 @@ const ContactForm = () => {
                 <Input
                   type="text"
                   placeholder="Website URL"
-                  register={register}
-                  fieldName="websiteURL"
-                  required={false}
+                  value={formState.websiteURL}
+                  handleChange={(val) =>
+                    setFormState({ ...formState, websiteURL: val })
+                  }
                   left={window.innerWidth > 800 ? "1%" : "4%"}
                 />
               </div>
@@ -288,9 +229,10 @@ const ContactForm = () => {
                 <h3 className={classes.FormOptionHeading}>Services Required</h3>
                 <Checkbox
                   name="servicesRequired"
-                  size={window.innerWidth > 800 ? 3.4 : 1.2}
+                  size={window.innerWidth > 800 ? 3 : 1.2}
                   data={ServiceData}
-                  register={register}
+                  formState={formState}
+                  setFormState={setFormState}
                 />
               </div>
             </div>
@@ -299,18 +241,19 @@ const ContactForm = () => {
             <div
               className={`${classes["form-field-container"]} ${classes["animate-field-7"]}`}
             >
-              <div className={classes["form-field"]}>
+              <div id="message" className={classes["form-field"]}>
                 <TextArea
                   placeholder="Message*"
-                  register={register}
-                  fieldName="message"
+                  value={formState.message}
+                  handleChange={(val) =>
+                    setFormState({ ...formState, message: val })
+                  }
                   height={window.innerWidth > 800 ? 15 : 11.5}
                   left="2%"
                 />
-                <p className={classes["input-error"]}>
-                  {errors.message?.type === "required" &&
-                    "*Message is required."}
-                </p>
+                {errorState.message && (
+                  <p className={classes["input-error"]}>{errorState.message}</p>
+                )}
               </div>
             </div>
           )}
@@ -326,14 +269,18 @@ const ContactForm = () => {
                   <button
                     type="button"
                     className="btn"
+                    style={{
+                      backgroundColor: isLightThemeActive
+                        ? "#ECECEC"
+                        : "#1d1d1d",
+                      color: isLightThemeActive ? "#000" : "#fff",
+                    }}
                     onClick={(e) => {
                       setShowFileInput((prevState) => !prevState);
-                      e.target.classList.toggle(
-                        `${classes["hide-border-bottom"]}`
-                      );
                     }}
                   >
-                    Attach Files
+                    <span>Attach Files</span>
+                    <FiUpload size={18} className={classes["btn-icon"]} />
                   </button>
                 </div>
                 {showFileInput && (
@@ -350,7 +297,7 @@ const ContactForm = () => {
             </div>
           )}
           {isFormTouched && (
-            <div className={classes["h-captcha"]}>
+            <div id="hCaptchaData" className={classes["h-captcha"]}>
               <HCaptcha
                 sitekey="a8476602-b2d6-44ba-b8b8-5ae90461b4c3"
                 theme={isLightThemeActive ? "light" : "dark"}
@@ -358,6 +305,11 @@ const ContactForm = () => {
                   handleVerificationSuccess(token, ekey)
                 }
               />
+              {errorState.hCaptchaData && (
+                <p className={classes["input-error"]}>
+                  {errorState.hCaptchaData}
+                </p>
+              )}
             </div>
           )}
 
@@ -371,13 +323,13 @@ const ContactForm = () => {
                   className={`btn ${classes["btn-submit"]}`}
                   type="submit"
                 >
-                  Submit
+                  {loading ? "Submitting..." : "Submit"}
                 </button>
                 <button
                   ref={newsletterBtnRef}
                   className={`btn ${classes["btn-newsletter"]}`}
                   type="submit"
-                  // onClick={onNewsletterBtnClickHandler}
+                  onClick={onNewsletterBtnClickHandler}
                 >
                   Subscribe to newsletter
                 </button>

@@ -63,7 +63,7 @@ const BlogCard = (props) => {
 
   return (
     <div
-      id={props.workId}
+      id={props.workId || props.insightId}
       className={classes["blog-card"]}
       mask="true"
       style={style}

@@ -1,20 +1,23 @@
 import BlogHeader from "../ui/blogHeader/BlogHeader";
 import BlogCard from "../ui/blogCard/BlogCard";
+import SearchContext from "../../context/searchContext";
 
 import workData from "./work-data.json";
 import downArrow from "./../../assets/img/down-arrow.svg";
 
 import classes from "./Work.module.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 let cardCount = 0;
 
 const Work = () => {
   const [workCards, setWorkCards] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const { handleCaseSearch, caseState, caseStudy } = useContext(SearchContext);
 
   useEffect(() => {
-    const cards = workData.map((data, i) => {
+    let data = caseStudy.length === 0 ? workData : caseStudy;
+    const cards = data.map((data, i) => {
       cardCount += 1;
       return (
         <BlogCard
@@ -29,11 +32,15 @@ const Work = () => {
       );
     });
     setWorkCards(cards);
-  }, [pageNumber]);
+  }, [pageNumber, caseStudy]);
 
   return (
     <div className={`${classes["work-container"]}`}>
-      <BlogHeader navData={["A-Z", "Date"]} />
+      <BlogHeader
+        handleSearch={handleCaseSearch}
+        searchState={caseState}
+        navData={["A-Z"]}
+      />
       <div className={classes["work-card-container"]}>
         {workCards}
         <div className={classes["nav-btn-container"]}>

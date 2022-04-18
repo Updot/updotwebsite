@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import linkedinImg from "../../assets/img/linkedin.svg";
 import facebookImg from "../../assets/img/fb-icon.svg";
 import instagramImg from "../../assets/img/insta-icon.svg";
-import upArrow from "../../assets/img/up-arrow.svg";
 import classes from "./Footer.module.scss";
 
 const Footer = (props) => {
@@ -16,7 +15,7 @@ const Footer = (props) => {
         paddingTop:
           window.innerWidth < 800
             ? "0vh"
-            : `${props.height ? props.height : "10vh"}`,
+            : `${props.height ? props.height : "8vh"}`,
       }}
     >
       <div className={classes["footer-top"]}>
@@ -37,13 +36,18 @@ const Footer = (props) => {
             </a>
           </div>
         </div>
-        <div className={classes.spot}>
+        <a
+          className={classes.spot}
+          href="https://maps.app.goo.gl/HQU1YwRzJHdY5ydr8"
+          target="_blank"
+          rel="noreferrer"
+        >
           <h3 className={classes["footer-heading"]}>Spot Us</h3>
           <p className={classes["footer-address"]}>
             No.32, next to Spring Valley Club,
             <br /> Bengaluru, Karnataka 560090
           </p>
-        </div>
+        </a>
         <div className={classes.follow}>
           <h3 className={classes["footer-heading"]}>Follow Us</h3>
           <div className={classes["footer-link-container"]}>
@@ -85,13 +89,29 @@ const Footer = (props) => {
             </a>
           </div>
         </div>
-        <div className={classes["up-arrow"]}>
-          <img src={upArrow} alt="up arrow" onClick={onUpArrowClickHandler} />
+        <div className={classes["up-arrow-wrap"]}>
+          <div className={classes["up-arrow"]} onClick={onUpArrowClickHandler}>
+            <svg
+              // width="24"
+              // height="14"
+              viewBox="0 0 24 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 12L12 2L2 12"
+                stroke="black"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
         </div>
       </div>
       <div className={classes["footer-bottom"]}>
         <p className={classes["footer-copyright"]}>
-          © Copyright 2021 UPDOT. All rights reserverd
+          © Copyright {new Date().getFullYear()} UPDOT. All rights reserverd
         </p>
         <div className={classes["footer-tp"]}>
           <NavLink to="/term-and-conditions">Terms and Conditions</NavLink>{" "}

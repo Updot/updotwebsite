@@ -1,16 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
-
-// import { Link } from "react-router-dom";
 import classes from "./FeaturedInfo.module.scss";
+
 const FeaturedInfo = (props) => {
   const wrapperRef = useRef(null);
   const featuredInfoContainerRef = useRef(null);
   const fiRef = useRef(null);
   // const bubbleRef = useRef(null);
-  const isLightThemeActive = useSelector(
-    (state) => state.themeState.isLightThemeActive
-  );
+  // const isLightThemeActive = useSelector(
+  //   (state) => state.themeState.isLightThemeActive
+  // );
 
   useEffect(() => {
     let onEntry = (entries) => {
@@ -66,47 +64,8 @@ const FeaturedInfo = (props) => {
     observer.observe(el);
     return () => observer.disconnect();
   }, [props]);
-  // useEffect(() => {
-  //   const el = document.querySelector("[data-arrow='mousearrow']");
-  //   window.addEventListener("scroll", (e) => {
-  //     setFeatureBoundary(wrapperRef.current.getBoundingClientRect().top - 70);
-  //   });
-  //   window.addEventListener("mouseover", (e) => {
-  //     if (featuredBoundary < e.clientY) {
-  //       if (featuredBoundary + 40 < e.clientY) {
-  //         el.classList.remove("mousearrow-change");
-  //         el.classList.add("mousearrow-change-up");
-  //       } else {
-  //         el.classList.remove("mousearrow-change-up");
-  //         el.classList.add("mousearrow-change");
-  //       }
-  //     }
-  //     if (featuredBoundary + 200 < e.clientY || featuredBoundary > e.clientY) {
-  //       el.classList.remove("mousearrow-change");
-  //       el.classList.remove("mousearrow-change-up");
-  //     }
-  //   });
-  // }, [featuredBoundary]);
-  const onMouseOverOuterHandler = (event) => {
-    if (!isLightThemeActive)
-      document.querySelector("[data-arrow='mousearrow']").style.filter =
-        "invert(100%)";
-  };
-  const onMouseOutOuterHandler = () => {
-    document.querySelector("[data-arrow='mousearrow']").style.filter = "unset";
-  };
-  const onMouseOverHandler = (event) => {};
-  const onMouseOutHandler = () => {
-    // bubbleRef.current.style.top = `${0}px`;
-  };
-
   return (
-    <div
-      ref={wrapperRef}
-      className={classes["featured-info-wrapper"]}
-      onMouseOver={onMouseOverOuterHandler}
-      onMouseOut={onMouseOutOuterHandler}
-    >
+    <div ref={wrapperRef} className={classes["featured-info-wrapper"]}>
       <div ref={fiRef} className={classes["featured-info-outer"]}>
         {/* <div
           ref={bubbleRef}
@@ -115,8 +74,6 @@ const FeaturedInfo = (props) => {
         <div
           ref={featuredInfoContainerRef}
           className={classes["featured-info-container"]}
-          onMouseOver={onMouseOverHandler}
-          onMouseOut={onMouseOutHandler}
         >
           <div className={classes["featured-info"]}>
             <img src={props.logo} alt="remax" />

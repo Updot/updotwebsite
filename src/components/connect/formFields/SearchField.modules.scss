@@ -1,0 +1,131 @@
+.search-field {
+  position: relative;
+}
+fieldset {
+  border: none;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  border-radius: 10px;
+}
+.search-input{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 2rem 1rem;
+  width: 100%;
+  font-size: 2.6rem;
+ 
+}
+.search-input::placeholder {
+  font-weight: normal;
+  font-size: 2.6rem;
+  // color: var(--input-label-color);
+}
+fieldset img {
+  height: auto;
+  width: 2.4rem;
+  margin-left: 2px;
+}
+.dropdown-options {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: all 0.2s;
+  z-index: 99;
+  
+  border-radius: 8px;
+  margin-top: 2px;
+  // background-color: rgba(67, 67, 67, 0.8);
+}
+.dropdown-options::-webkit-scrollbar {
+  width: 0;
+}
+
+.dropdown-options::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.dropdown-options::-webkit-scrollbar-thumb {
+  background: transparent !important;
+}
+
+.dropdown-options::-webkit-scrollbar-thumb:hover {
+  background: transparent !important;
+}
+.dropdown-options .option {
+  position: relative;
+  width: 100%;
+  padding: 1.6rem 2rem;
+  text-align: center;
+  transition: all 0.2s;
+  font-weight: bold;
+  // color: var(--text-color);
+  // border-bottom: 2px solid var(--text-color);
+  // background-color: var(--bg-color-4);
+  border-radius: 8px;
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;  
+}
+.dropdown-options .option span {
+  font-size: 2rem;
+}
+.dropdown-options .btm-brdr {
+  position: absolute;
+  width: 100%;
+
+  bottom: 0;
+  height: 3px;
+  background-color: var(--bg-color-2);
+  max-width: 80%;
+}
+@media only screen and (max-width: 800px) {
+  fieldset{
+    margin-top: 10px;
+  }
+  .search-input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    font-size: 1rem;  
+  }
+  .search-input::placeholder {
+    font-weight: normal;
+    font-size: 1rem;
+    // color: var(--input-label-color);
+  }
+  .dropdown-options {
+    width: 100%;
+    align-items: center;
+  }
+  .dropdown-options .option {
+    position: relative;
+    width: 100%;
+    padding: 1.5rem;
+    text-align: left;
+    transition: all 0.2s;
+    font-weight: bold;
+    color: var(--text-color);
+    border-radius: 8px;
+  }
+  .dropdown-options .option span {
+    font-size: 1rem;
+  }
+  fieldset img {
+    width: 1.1rem;
+    top: 50%;
+    right: 3%;
+    transform: translate(-3%, -50%);
+  }
+}

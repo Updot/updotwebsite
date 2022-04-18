@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import classes from "./Nav.module.scss";
@@ -7,86 +7,64 @@ import instaIcon from "../../../assets/img/insta-icon.svg";
 import fbIcon from "../../../assets/img/fb-icon.svg";
 import linkedinIcon from "../../../assets/img/linkedin.svg";
 import arrow from "../../../assets/img/arrow-left.svg";
-
+import gsap from "gsap";
 import navData from "./navData.json";
-import { navStateAction } from "../../../store/NavState";
-import { themeStateAction } from "../../../store/themeState";
 
-let swipeCount = 0;
+import { themeStateAction } from "../../../store/themeState";
+import {
+  useGlobalDispatchContext,
+  useGlobalStateContext,
+} from "../../../context/globalContext";
 
 const Nav = () => {
-  const isNavActive = useSelector((state) => state.navState.isActive);
+  const [touchPos, setTouchPos] = useState(0);
   const isLightThemeActive = useSelector(
     (state) => state.themeState.isLightThemeActive
   );
+  const { onCursor, onNav } = useGlobalDispatchContext();
+  const { navOpen } = useGlobalStateContext();
+
   const dispatch = useDispatch();
   const navRef = useRef();
   const swipwTextRef = useRef();
 
   useEffect(() => {
-    if (isNavActive) {
-      document.querySelector("[data-arrow='mousearrow']").style.opacity = 0;
+    let nav = navRef.current;
+    const tl = gsap.timeline();
+
+    if (navOpen) {
       document.querySelector("body").style.overflowY = "hidden";
+      tl.to(nav, {
+        duration: 1,
+        css: {
+          transform: "translate(0%, 0%)",
+          display: "block",
+        },
+        ease: "elastic.out(1, 1)",
+      }).from(".line-item", 0.2, {
+        y: 100,
+        css: {
+          opacity: 0,
+        },
+        delay: -0.8,
+        stagger: 0.1,
+        ease: "expo.out",
+      });
     }
     return () => {
-      document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
       document.querySelector("body").style.overflowY = "scroll";
+      tl.to(nav, {
+        duration: 1,
+        css: {
+          transform: "translate(101%, 0%)",
+          display: "none",
+        },
+        ease: "power3.inOut",
+      });
     };
-  }, [isNavActive]);
-  useEffect(() => {
-    navRef.current.addEventListener("touchstart", handleTouchStart, false);
-    navRef.current.addEventListener("touchmove", handleTouchMove, false);
+  }, [navOpen]);
 
-    var xDown = null;
-    var yDown = null;
-
-    function getTouches(evt) {
-      return evt.touches || evt.originalEvent.touches;
-    }
-
-    function handleTouchStart(evt) {
-      const firstTouch = getTouches(evt)[0];
-      xDown = firstTouch.clientX;
-      yDown = firstTouch.clientY;
-    }
-
-    function handleTouchMove(evt) {
-      if (!xDown || !yDown) {
-        return;
-      }
-
-      var xUp = evt.touches[0].clientX;
-      var yUp = evt.touches[0].clientY;
-
-      var xDiff = xDown - xUp;
-      var yDiff = yDown - yUp;
-
-      if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        /*most significant*/
-
-        if (xDiff > 0) {
-          if (swipeCount === 0) {
-            if (isLightThemeActive) {
-              swipwTextRef.current.innerText = "Swipe for Dark mode";
-            } else {
-              swipwTextRef.current.innerText = "Swipe for light mode";
-            }
-            swipeCount = 1;
-          } else if (swipeCount === 1) {
-            swipwTextRef.current.innerText = "Swipe";
-            // navRef.current.classList.add(`${}`);
-            dispatch(themeStateAction.toggleTheme());
-            swipeCount = 0;
-          }
-        } else {
-          /* left swipe */
-          // alert("right");
-        }
-      }
-      xDown = null;
-      yDown = null;
-    }
-  }, [dispatch, isLightThemeActive]);
+  // Theme Toggle
   useEffect(() => {
     if (isLightThemeActive) {
       localStorage.setItem("updotThemePreference", "Light");
@@ -95,38 +73,43 @@ const Nav = () => {
     }
   }, [isLightThemeActive]);
 
-  const mouseHoverHandler = () => {
-    const navBtn = document.querySelector('[data-name="nav-btn"]');
-    navBtn.classList.add("hide");
-    document.querySelector("[data-arrow='mousearrow']").style.opacity = 1;
-  };
-  const mouseOutHandler = () => {
-    const navBtn = document.querySelector('[data-name="nav-btn"]');
-    navBtn.classList.remove("hide");
-    if (isNavActive)
-      document.querySelector("[data-arrow='mousearrow']").style.opacity = 0;
-  };
   const desktopThemeTogglerHandler = () => {
     dispatch(themeStateAction.toggleTheme());
+    onNav();
   };
+
+  const handleGesture = (e) => {
+    if (touchPos - e.changedTouches[0].clientX > 10) {
+      dispatch(themeStateAction.toggleTheme());
+      setTouchPos(0);
+    }
+  };
+
   return (
     <div
       ref={navRef}
-      className={`${classes["navbar"]} ${
-        isNavActive ? classes["navbar-show"] : classes["navbar-hide"]
-      } ${isLightThemeActive && classes["navbar-bg-slide"]}`}
+      onMouseEnter={() => onCursor("hovered")}
+      onMouseLeave={() => onCursor("cursor-main")}
+      className={`${classes["navbar"]}      
+      ${isLightThemeActive && classes["navbar-bg-slide"]}`}
+      onClick={() => onNav()}
+      style={{ display: "none", transform: "translate(101%, 0%)" }}
     >
       <ul className={classes["nav-container"]}>
         {navData.map((navItem, index) => (
           <li
+            className="line-item"
+            // style={{
+            //   opacity: 0,
+            // }}
             key={index}
-            onMouseOver={mouseHoverHandler}
-            onMouseOut={mouseOutHandler}
+            onMouseEnter={() => onCursor("cursor-main")}
+            onMouseLeave={() => onCursor("hovered")}
           >
             <NavLink
+              // onClick={() => (window.innerWidth < 800 ? null : onNav())}
               to={`${navItem.link}`}
               activeClassName={classes["active-nav"]}
-              onClick={() => dispatch(navStateAction.toggleNav())}
             >
               {navItem.name}
             </NavLink>
@@ -136,7 +119,7 @@ const Nav = () => {
                   <Link
                     key={i}
                     to={`${el.link}`}
-                    onClick={() => dispatch(navStateAction.toggleNav())}
+                    // onClick={() =>     onNav()}
                   >
                     {el.name}
                   </Link>
@@ -148,15 +131,24 @@ const Nav = () => {
       </ul>
       <div
         className={classes["theme-toggler-desktop"]}
-        onMouseOver={mouseHoverHandler}
-        onMouseOut={mouseOutHandler}
+        onMouseEnter={() => onCursor("cursor-main")}
+        onMouseLeave={() => onCursor("hovered")}
         onClick={desktopThemeTogglerHandler}
       >
         <div className={classes["theme-toggler"]}></div>
       </div>
-      <div className={classes["swipe-text-container"]}>
+      <div
+        onTouchStart={(event) => setTouchPos(event.touches[0].clientX)}
+        onTouchMove={(e) => handleGesture(e)}
+        className={classes["swipe-text-container"]}
+      >
         <p>
-          <span ref={swipwTextRef}>Swipe</span> <img src={arrow} alt="arrow" />
+          <span ref={swipwTextRef}>
+            {isLightThemeActive
+              ? "Swipe for dark mode"
+              : "Swipe for light mode"}
+          </span>{" "}
+          <img src={arrow} alt="arrow" />
         </p>
       </div>
       <ul className={classes["social-container"]}>
@@ -165,8 +157,8 @@ const Nav = () => {
             href="https://www.linkedin.com/company/updot/"
             target="_blank"
             rel="noreferrer"
-            onMouseOver={mouseHoverHandler}
-            onMouseOut={mouseOutHandler}
+            onMouseEnter={() => onCursor("cursor-main")}
+            onMouseLeave={() => onCursor("hovered")}
           >
             <img src={linkedinIcon} alt="linkedin icon" />
           </a>
@@ -176,8 +168,8 @@ const Nav = () => {
             href="https://www.instagram.com/updotofficial/"
             target="_blank"
             rel="noreferrer"
-            onMouseOver={mouseHoverHandler}
-            onMouseOut={mouseOutHandler}
+            onMouseEnter={() => onCursor("cursor-main")}
+            onMouseLeave={() => onCursor("hovered")}
           >
             <img src={instaIcon} alt="instagram icon" />
           </a>
@@ -187,8 +179,8 @@ const Nav = () => {
             href="https://www.facebook.com/updotofficial"
             target="_blank"
             rel="noreferrer"
-            onMouseOver={mouseHoverHandler}
-            onMouseOut={mouseOutHandler}
+            onMouseEnter={() => onCursor("cursor-main")}
+            onMouseLeave={() => onCursor("hovered")}
           >
             <img src={fbIcon} alt="facebook icon" />
           </a>

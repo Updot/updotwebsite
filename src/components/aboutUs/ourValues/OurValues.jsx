@@ -6,7 +6,7 @@ import classes from "./OurValues.module.scss";
 const OurValues = () => {
   return (
     <div className={classes["our-values"]}>
-      <Faq faqData={faqData} faqHeading="Our Core Values" />
+      <Faq componentOf="about" faqData={faqData} faqHeading="Our Core Values" />
     </div>
   );
 };

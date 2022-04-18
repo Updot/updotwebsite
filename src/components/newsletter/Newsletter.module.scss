@@ -30,6 +30,7 @@
   filter: var(--filter);
   height: 4rem;
   width: auto;
+  aspect-ratio: 1;
   margin-left: 6rem;
 }
 .newsletter-heading,
@@ -48,32 +49,71 @@
 .newsletter-logo img {
   height: 100%;
   width: auto;
+  aspect-ratio: 1;
   transform: translateX(-10%);
   filter: var(--filter);
   z-index: 100;
 }
+.newsletter-form {
+  position: relative;
+}
 .newsletter-btn-container {
-  margin-top: 3rem;
+  position: absolute;
+  right: 0;
+  top: 0%;
   display: flex;
   justify-content: space-between;
 }
+.newsletter-submit-message,
+.newsletter-error-message {
+  position: absolute;
+  left: 0;
+  margin-top: 2rem;
+  font-size: 2rem;
+  // font-weight: 600;
+  max-width: 50%;
+  padding-bottom: 2rem;
+}
+.newsletter-submit-message {
+  color: var(--success);
+}
+.newsletter-error-message {
+  color: var(--warning);
+}
 .newsletter-info {
-  font-size: 1.4rem;
+  position: absolute;
+  right: 0;
+  margin-top: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 .subs-btn {
-  background-color: transparent;
+  background-color: var(--bg-color-4);
   color: #fff;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   border: none;
   outline: none;
-  border-bottom: 2px solid #fff;
   cursor: none;
+  border-radius: 10px;
+  padding: 2.4rem 4rem;
+}
+.subs-done-btn {
+  background-color: var(--bg-color-2);
+  color: #000;
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  cursor: none;
+  border-radius: 10px;
+  padding: 2.4rem 4rem;
 }
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
   .newsletter-logo img {
     height: 95%;
+    width: auto;
+    aspect-ratio: 1;
   }
 }
 
@@ -100,6 +140,8 @@
   }
   .connect-btn a img {
     height: 2rem;
+    width: auto;
+    aspect-ratio: 1;
     margin-left: 2.5rem;
   }
   .newsletter {
@@ -108,7 +150,19 @@
     align-items: center;
   }
   .newsletter-info {
-    display: none;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    max-width: 30%;
+    text-align: right;
+  }
+  .newsletter-submit-message,
+  .newsletter-error-message {
+    position: absolute;
+    left: 0;
+    font-weight: normal;
+    margin-top: 1rem;
+    font-size: 1rem;
+    max-width: 65%;
   }
   .newsletter-logo {
     flex-basis: 100%;
@@ -121,14 +175,27 @@
     transform: unset;
     height: 19.5rem;
     width: auto;
+    aspect-ratio: 1;
   }
-  .newsletter-btn-container {
-    margin-top: 1.5rem;
+
+  .subs-btn {
+    font-size: 1.3rem;
+    border-radius: 10px;
+        padding: 1rem 1rem;
+
+  }
+  .subs-done-btn {
+    font-size: 1.3rem;
+    border-radius: 10px;
+        padding: 1rem 1rem;
+
   }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 800px) {
   .newsletter-logo img {
     height: 25.5rem;
+    width: auto;
+    aspect-ratio: 1;
   }
 }

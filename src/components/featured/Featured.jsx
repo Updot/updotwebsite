@@ -24,7 +24,7 @@ const Featured = () => {
     setShowFeatured(secName);
   };
   return (
-    <div data-section="Featured" className={classes.featured}>
+    <div data-section="Featured" className={classes.featured} id="top-anchor">
       <div className={classes["featured-header"]}>
         <SectionHeading>Featured</SectionHeading>
         <SmallNav

@@ -26,10 +26,14 @@
   flex-direction: column;
 }
 .input-error {
-  font-size: 1.6rem;
-  font-weight: 300;
+  background-color: var(--warning);
+  padding: 1.5rem;
+  font-size: 2rem;
+  font-weight: 400;
   color: var(--text-color);
-  margin-top: 1rem;
+  margin: 1rem 1rem;
+  border-radius: 8px;
+  width: fit-content;
 }
 .form-field:not(:last-of-type) {
   margin-bottom: 7rem;
@@ -80,6 +84,15 @@
   .form-field h3 {
     font-size: 1.3rem;
   }
+    .input-error {
+      padding: 0.8rem;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-color);
+      margin: 1rem 1rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
   .protfolio-container {
     margin-bottom: 3rem;
   }
