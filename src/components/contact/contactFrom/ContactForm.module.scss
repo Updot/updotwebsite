@@ -13,20 +13,21 @@
 .FormOptionHeading {
   font-size: 3.7rem;
   font-weight: bold;
-  color: #363636;
+  color: var(--text-color);
   margin: 4rem 0;
 }
 .form-field-container {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   animation: animateField 0.4s ease-in-out;
   // opacity: 0;
+
   animation-fill-mode: backwards;
 }
 .form-field-container {
-  margin-bottom: 5rem;
+  margin-bottom: 6.5rem;
 }
 // .form-field:nth-of-type(1) {
 //   opacity: 1;
@@ -42,8 +43,14 @@
 .form-field-10 {
   flex-basis: 10%;
 }
+.form-field-15 {
+  flex-basis: 15%;
+}
 .form-field-85 {
   flex-basis: 85%;
+}
+.form-field-80 {
+  flex-basis: 80%;
 }
 .form-field-row {
   flex-basis: 100%;
@@ -51,14 +58,18 @@
   justify-content: space-between;
 }
 .form-field-container label {
-  top: 20%;
+  top: 25%;
   left: 2%;
 }
 .input-error {
-  font-size: 1.6rem;
-  font-weight: 300;
+  background-color: var(--warning);
+  padding: 1.5rem;
+  font-size: 2rem;
+  font-weight: 400;
   color: var(--text-color);
-  margin-top: 1rem;
+  margin: 1rem 1rem;
+  border-radius: 8px;
+  width: fit-content;
 }
 
 .message-field {
@@ -122,10 +133,11 @@
 //   bottom: 0;
 //   left: 0;
 // }
+.btn-submit,
 .btn-newsletter {
-  /* width: 35.5rem; */
-  /* height: 3.3rem; */
+  margin-top: 6rem;
 }
+
 .animate-btn {
   border-bottom: unset;
 }
@@ -309,11 +321,25 @@
   margin-right: 5rem;
 }
 .btn-container button {
-  color: var(--fade-black) !important;
-  border-color: var(--fade-black) !important;
+  border: 3px var(--fade-black) solid;
+  // background-color: var(--bg-color-1);
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: none;
+  mix-blend-mode: difference;
+  .btn-icon {
+    margin-left: 10px;
+  }
 }
-.hide-border-bottom {
-  border: unset !important;
+.btn-container button span {
+  
+  // mix-blend-mode: difference;
+}
+.upload-btn {
+  background-color: var(--bg-color-2);
 }
 .h-captcha {
   margin-bottom: 3rem;
@@ -323,16 +349,17 @@
     margin-top: 1.5rem;
   }
   .form-container-change {
-    transform: translateY(10vh);
+    transform: translateY(22vh);
   }
   .form-field-container {
     margin-bottom: 2rem;
   }
-  .form-field-10 {
+  .form-field-10,
+  .form-field-11, .form-field-15 {
     flex-basis: 100%;
     margin-bottom: 2rem;
   }
-  .form-field-85 {
+  .form-field-85, .form-field-80 {
     flex-basis: 100%;
   }
   .form-field-row-mobile {
@@ -340,6 +367,9 @@
   }
   .form-field-row-mobile .btn-container {
     margin-bottom: 2rem;
+  }
+  .btn-container button {
+    padding: 1rem 1.5rem;
   }
   .btn-submit {
     width: 6rem;
@@ -372,13 +402,20 @@
     row-gap: 2rem;
     column-gap: 2rem;
   }
-  .input-error {
-    font-size: 1rem;
-  }
+
   .form-field-9 {
     display: flex;
     flex-direction: column;
     row-gap: 2.5rem;
+  }
+  .input-error {
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-color);
+    margin: 1rem 1rem;
+    border-radius: 4px;
+    width: fit-content;
   }
   .standby-message {
     font-size: 1.3rem;

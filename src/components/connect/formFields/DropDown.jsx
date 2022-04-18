@@ -27,9 +27,9 @@ const DropDown = (props) => {
   useEffect(() => {
     if (props.defaultValue) setDropdownValue(props.defaultValue);
   }, [props.defaultValue]);
-  const onOptionClickHanlder = (val, event) => {
+  const onOptionClickHanlder = (val) => {
     setDropdownValue(val);
-    props.setValue(`${props.fieldName}`, val);
+    props.handleChange(val);
   };
 
   let dropdownOptionClass = isExpanded
@@ -40,29 +40,54 @@ const DropDown = (props) => {
 
   return (
     <div className={classes.dropdown} onClick={onDropDownClickHandler}>
-      <fieldset>
+      <fieldset
+        style={{
+          backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
+          color: isLightThemeActive ? "#000" : "#fff",
+        }}
+      >
         <input
           className={classes["dropdown-info"]}
           placeholder={props.placeholder}
           defaultValue={dropdownValue}
-          {...props.register(`${props.fieldName}`, {
-            required: props.required,
-          })}
+          style={{
+            color: isLightThemeActive ? "#000" : "#fff",
+          }}
         />
-        <img src={dArrow} alt="down arrow" />
+        <img
+          src={dArrow}
+          alt="down arrow"
+          style={{
+            filter: isLightThemeActive ? "invert(1)" : "invert(0)",
+          }}
+        />
       </fieldset>
-      <div ref={dropdownOptionsRef} className={classes["dropdown-outer"]}>
+      <div
+        ref={dropdownOptionsRef}
+        className={classes["dropdown-outer"]}
+        style={{
+          backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
+          color: isLightThemeActive ? "#000" : "#fff",
+        }}
+      >
         <div className={dropdownOptionClass}>
-          {/* <span className={classes["option"]} data-value="none">
-          {props.fieldName}
-        </span> */}
           {props.data.map((dd) => (
             <span
               key={Math.random() * 100}
               className={classes["option"]}
               onClick={onOptionClickHanlder.bind(null, dd)}
+              style={{
+                backgroundColor: isLightThemeActive ? "#ECECEC" : "#1d1d1d",
+                color: isLightThemeActive ? "#000" : "#fff",
+              }}
             >
               {dd}
+              <hr
+                style={{
+                  backgroundColor: isLightThemeActive ? "#000" : "#fff",
+                }}
+                className={classes["btm-brdr"]}
+              />
             </span>
           ))}
         </div>

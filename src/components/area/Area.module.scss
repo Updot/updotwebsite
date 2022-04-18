@@ -1,19 +1,90 @@
+.area-container {
+  padding-top: 5vh;
+}
+.area-select-wrap {
+  display: flex;
+  align-items: center;
+  column-gap: 8rem;
+  margin-top: 10rem;
+}
+.area-label {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-light);
+  border-bottom: 2px solid var(--text-light);
+  transition: all 0.2s ease-in-out;
+  mix-blend-mode: difference;
+}
+.area-label-inactive {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-inactive);
+}
 .area-inner {
   display: flex;
+  justify-content: space-evenly;
   margin-top: 10rem;
   height: 70%;
 }
 .area-map-container {
   flex-basis: 100%;
+  // width: 100%;
   display: grid;
   place-content: center;
 }
 .area-switch-container {
-  flex-basis: 20%;
+  flex-basis: 30%;
+  display: flex;
+  flex-direction: column;
+  // width: auto;
+  // height: 40.3rem;
 }
-.area-switch-container img {
-  width: auto;
-  height: 16.3rem;
+
+.active-area-map {
+  width: 100%;
+  height: 15rem;
+}
+
+.area-location {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+  margin-top: 10rem;
+  width: 100%;
+}
+.area-location span {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+// Stats
+.area-stats-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+  column-gap: 20rem;
+  transition: all 0.2s ease-in-out;
+  height: 40%;
+}
+.area-stats-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 3rem;
+}
+.area-stats-container hr {
+  width: 10rem;
+  transform: rotate(90deg);
+}
+.stats-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.stats-count {
+  font-size: 30px;
+  font-weight: bold;
 }
 .state-indicator {
   display: inline-block;
@@ -22,12 +93,15 @@
   opacity: 0;
   transition: opacity 0.2s linear;
   pointer-events: none;
+  margin-left: 3rem;
+  // mix-blend-mode: difference;
 }
 .state-name {
   font-size: 2.8rem;
   font-weight: bold;
   padding-right: 2rem;
   text-transform: capitalize;
+  // mix-blend-mode: difference;
 }
 .h-line,
 .angle-line {
@@ -38,49 +112,77 @@
 }
 
 .angle-line {
-  width: 2.5rem;
+  width: 3rem;
   position: absolute;
-  height: 2px;
-  right: 1.5%;
+  height: 2.5px;
+  left: 0;
   bottom: 7.5%;
-  transform-origin: right;
-  transform: rotate(-135deg);
+  transform-origin: left;
+  transform: rotate(135deg);
 }
 
 @media only screen and (max-width: 800px) {
   .area-inner {
-    flex-direction: column-reverse;
+    flex-direction: column;
     margin-top: 3.5rem;
   }
   .area-container {
     padding-top: 0rem;
     min-height: unset;
   }
+  .area-select-wrap {
+    display: flex;
+    align-items: center;
+    column-gap: 4rem;
+    margin-top: 4rem;
+  }
   .area-map-container {
-    width: 85%;
+    width: 100%;
     align-self: center;
   }
   .area-switch-container {
     flex-basis: 100%;
-    margin-bottom: 5rem;
-    text-align: right;
-  }
-  .area-switch-container img {
-    height: auto;
-    width: 6rem;
-    align-self: flex-end;
-    opacity: 0.7;
-  }
-  .state-name {
-    font-size: 1.4rem;
-    font-weight: bold;
-    padding-right: unset;
+    width: 100%;
+    height: 40.3rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 8rem 0rem;
+    column-gap: 2rem;
   }
 
-  .angle-line {
-    height: 1.3px;
-    width: 1.5rem;
-    bottom: 8%;
-    right: 0.5%;
+  .active-area-map {
+    height: auto;
+    width: 100%;
+    max-width: 15rem;
+  }
+
+  .area-location {
+    margin-top: unset;
+    column-gap: 1rem;
+    width: 100%;
+  }
+  .area-location span {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .area-stats-container {
+    margin-top: unset;
+    column-gap: 2rem;
+  }
+  .area-stats-wrap {
+    row-gap: 1rem;
+  }
+  .area-stats-container hr {
+    width: 5rem;
+    transform: rotate(90deg);
+  }
+  .stats-title {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .stats-count {
+    font-size: 20px;
+    font-weight: bold;
   }
 }

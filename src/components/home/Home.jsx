@@ -9,7 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import colorTheme from "./colorTheme.json";
 import classes from "./Home.module.scss";
 import { Link } from "react-router-dom";
-// import { useCallback } from "react";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 const Home = (props) => {
   // const isNavActive = useSelector((state) => state.navState.isActive);
@@ -20,6 +21,36 @@ const Home = (props) => {
   const sectionRef = useRef(null);
   const scrollRef = useRef(null);
   const dispatch = useDispatch();
+  gsap.registerPlugin(ScrollToPlugin);
+
+  useEffect(() => {
+    let tl = gsap.timeline();
+    tl.from("h1 span", 1.8, {
+      ease: "power4.out",
+      css: {
+        opacity: 0,
+        translateY: 100,
+        // transform: "skewY(7)",
+      },
+      delay: 0.5,
+      stagger: {
+        amount: 0.2,
+      },
+    });
+    gsap.from("h3", 1.8, {
+      ease: "power4.out",
+      css: {
+        opacity: 0,
+        translateY: 100,
+        // transform: "skewY(7)",
+      },
+      delay: -1.8,
+      stagger: {
+        amount: 0.2,
+      },
+    });
+    gsap.to(window, { duration: 0, scrollTo: 0 });
+  }, []);
 
   useEffect(() => {
     const handler = (event) => {
@@ -68,26 +99,17 @@ const Home = (props) => {
 
   return (
     <Fragment>
-      <div ref={sectionRef} className={classes.home}>
+      <div
+        ref={sectionRef}
+        className={classes.home}
+        style={{
+          backgroundColor: isLightThemeActive ? "#fff" : "#000",
+        }}
+      >
         {props.showLogo ? (
           <h1 className={classes.heading}>
-            {props.heading}
-            {/* <div
-              className={classes["heading-video"]}
-              style={{
-                maskImage: `url(${updot})`,
-                maskRepeat: "no-repeat",
-                maskSize: "contain",
-                maskPosition: "center",
-                WebkitMaskPosition: "center",
-                WebkitMaskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                WebkitMaskImage: `url(${updot})`,
-                backgroundColor: "var(--bg-color)",
-              }}
-            >
-              <video src={`${maskVideo}`} autoPlay loop muted></video>
-            </div> */}
+            <span className={classes.heading__text}>{props.heading}</span>
+
             <span className={classes["heading-logo"]}>
               <svg
                 width="352"
@@ -107,7 +129,9 @@ const Home = (props) => {
             </span>
           </h1>
         ) : (
-          <h1 className={classes.heading}>{props.heading}</h1>
+          <h1 className={classes.heading}>
+            <span className={classes.heading__text}>{props.heading}</span>
+          </h1>
         )}
         {!props.isNotScroll && (
           <div ref={scrollRef} className={classes.scroll}>
@@ -120,25 +144,110 @@ const Home = (props) => {
           </div>
         )}
         {props.isNotScroll && (
-          <div className={classes["services"]}>
-            <div className={classes["services-container"]}>
-              <Link to="/services/web-development">Web Development</Link>
-              <Link to="/services/app-development">App Development</Link>
-              <Link to="/services/chatbot-development">
-                Chatbot Development
-              </Link>
-              <Link to="/services/devops-cloud">DevOps & Cloud</Link>
+          <>
+            <div ref={scrollRef} className={classes.scroll}>
+              <span className={classes["scroll-text"]}>Scroll</span>
+              <span
+                className={`${classes["scroll-text"]} ${classes["swipe-text"]}`}
+              >
+                Swipe
+              </span>
             </div>
-            <div className={classes["services-container"]}>
-              <Link to="/services/ui-ux">UI/UX Design</Link>
-              <Link to="/services/seo">SEO</Link>
-              <Link to="/services/branding">Branding</Link>
-              <Link to="/services/digital-marketing">Digital Marketing</Link>
-              <Link to="/services/maintenance-and-upgrade">
-                Maintenance and Upgrade
-              </Link>
+            <div className={classes["services"]}>
+              <div className={classes["services-container"]}>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/web-development"
+                >
+                  Web Development
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/app-development"
+                >
+                  App Development
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/chatbot-development"
+                >
+                  Chatbot Development
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/devops-cloud"
+                >
+                  DevOps & Cloud
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/ui-ux"
+                >
+                  UI/UX Design
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/seo"
+                >
+                  SEO
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/branding"
+                >
+                  Branding
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/digital-marketing"
+                >
+                  Digital Marketing
+                </Link>
+                <Link
+                  className={
+                    isLightThemeActive
+                      ? classes["service-link-light"]
+                      : classes["service-link-dark"]
+                  }
+                  to="/services/maintenance-and-upgrade"
+                >
+                  Maintenance and Upgrade
+                </Link>
+              </div>
             </div>
-          </div>
+          </>
         )}
         {props.service && (
           <div className={classes["service"]}>

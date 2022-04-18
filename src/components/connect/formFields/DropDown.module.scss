@@ -1,20 +1,26 @@
 .dropdown {
-  border-left: 1px solid var(--input-border-fade);
-  border-bottom: 1px solid var(--input-border-fade);
+  // border-left: 1px solid var(--input-border-fade);
+  // border-bottom: 1px solid var(--input-border-fade);
   position: relative;
+  // background-color: #1d1d1d;
+  outline: none;
+  border: none;
 }
 fieldset {
   border: none;
   position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  border-radius: 10px;
 }
 
 fieldset img {
   height: auto;
   width: 2.4rem;
-  position: absolute;
-  top: 50%;
-  right: 3%;
-  transform: translate(-3%, -50%);
+  margin-left: 2px;
 }
 .dropdown-info {
   background-color: transparent;
@@ -23,18 +29,20 @@ fieldset img {
   padding: 2rem 1rem;
   width: 100%;
   font-size: 2.6rem;
-  color: var(--text-color);
+  // color: var(--input-label-color);
   pointer-events: none;
   user-select: none;
 }
 .dropdown-info::placeholder {
-  font-weight: bold;
+  font-weight: normal;
   font-size: 2.6rem;
-  color: var(--fade-black);
+  // color: var(--input-label-color);
 }
 .dropdown-outer {
+  // background-color: rgba(67, 67, 67, 0.8);
+  border-radius: 11px;
   position: absolute;
-  max-height: 15rem;
+  max-height: 18rem;
   overflow-y: scroll;
   top: 103%;
   left: 0%;
@@ -42,38 +50,52 @@ fieldset img {
   z-index: 99;
 }
 .dropdown-outer::-webkit-scrollbar {
-  width: 5px;
+  width: 0;
 }
 
 .dropdown-outer::-webkit-scrollbar-track {
-  background: var(--bg-color) !important;
+  background: transparent !important;
 }
 
 .dropdown-outer::-webkit-scrollbar-thumb {
-  background: var(--text-color) !important;
+  background: transparent !important;
 }
 
 .dropdown-outer::-webkit-scrollbar-thumb:hover {
-  background: var(--text-color) !important;
+  background: transparent !important;
 }
 .dropdown-options {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-radius: 0.4rem;
-  background-color: var(--bg-color);
   overflow: hidden;
   transition: all 0.2s;
 }
 .dropdown-options .option {
+  position: relative;
   width: 100%;
-  padding: 1.3rem;
+  padding: 1.3rem 2rem;
   text-align: left;
   font-size: 2.6rem;
   transition: all 0.2s;
   font-weight: bold;
-  color: #363636;
-  border: 1px solid var(--text-color);
+  // color: var(--text-color);
+  // border-bottom: 2px solid var(--text-color);
+  // background-color: var(--bg-color-4);
+  border-radius: 11px;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dropdown-options .btm-brdr {
+  position: absolute;
+  width: 100%;
+
+  bottom: 0;
+  height: 3px;
+  background-color: var(--bg-color-2);
+  max-width: 80%;
 }
 .dropdown-options .option:hover {
   /* background-color: #262626;
@@ -84,9 +106,12 @@ fieldset img {
   overflow: hidden;
 }
 @media only screen and (max-width: 800px) {
+  fieldset{
+    margin-top: 10px;
+  }
   .dropdown-info {
     font-size: 1.3rem;
-    padding: 0.7rem 1rem;
+        padding: 1rem 1rem;
   }
   .dropdown-outer {
     max-height: 11vh;

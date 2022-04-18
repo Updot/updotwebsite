@@ -1,37 +1,14 @@
 .navbar {
   background-color: var(--bg-color);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: fixed;
   top: 0;
-  left: 100vw;
-  z-index: 9999;
-  animation-fill-mode: forwards;
+  left: 0;
+  z-index: 998;
 }
-.navbar-show {
-  animation: annimateNav 0.8s cubic-bezier(0.86, -0.55, 0.265, 1.55);
-  animation-fill-mode: forwards;
-}
-.navbar-hide {
-  animation: annimateNavRev 0.8s cubic-bezier(0.86, -0.55, 0.265, 1.55);
-  animation-fill-mode: forwards;
-}
-@keyframes annimateNav {
-  from {
-    left: 100vw;
-  }
-  to {
-    left: 0;
-  }
-}
-@keyframes annimateNavRev {
-  from {
-    left: 0vw;
-  }
-  to {
-    left: 100vw;
-  }
-}
+
+
 .nav-container {
   list-style: none;
   position: absolute;
@@ -49,7 +26,9 @@
 
 .nav-container li {
   transition: all 0.2s ease-in-out;
-  text-align: right;
+  text-align: right;  
+    //   -webkit-clip-path: inset(0 0 0 0);
+    // clip-path: inset(0 0 0 0);
   /* margin: 10px 0; */
 }
 
@@ -93,7 +72,7 @@
 
 .active-nav {
   display: inline-block;
-  /* transform: translateY(-15%); */
+  transform: translateY(-15%);
 }
 .sub-nav {
   display: flex;
@@ -182,7 +161,7 @@
     background: linear-gradient(to right, black 50%, white 50%);
     background-size: 200% 100%;
     background-position: left bottom;
-    transition: all 0.5s ease-out;
+    // transition: all 0.5s ease-out;
   }
   .navbar-bg-slide {
     background-position: right bottom;

@@ -1,5 +1,5 @@
 .timedate-container {
-  padding: 10vh 0;
+  padding: 30vh 0;
   display: flex;
   column-gap: 5vw;
   margin-bottom: 20vh;
@@ -57,7 +57,7 @@
 
 @media only screen and (max-width: 800px) {
   .timedate-container {
-    padding: 10vh 7.5vw;
+    padding: 30vh 7.5vw;
     column-gap: unset;
     flex-direction: column;
     margin-bottom: 3vh;

@@ -1,70 +1,30 @@
-import { useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useRef, useContext } from "react";
 // import ServiceData from "../../../../connect/serviceData.json";
 import Input from "../../../../connect/formFields/Input";
 import DropDown from "../../../../connect/formFields/DropDown";
-// import Checkbox from "../../../../connect/formFields/Checkbox";
-// import TextArea from "../../../../connect/formFields/TextArea";
+import SearchField from "../../../../connect/formFields/SearchField";
 
 import classes from "./ApplyForm.module.scss";
 import InputFile from "../../../../connect/formFields/InputFile";
 import Modal from "../../../../ui/modal/Modal";
-
-import { dialCodes } from "../../../../../util/InternationalDialCodes";
+import { CareerContext } from "../../../../../context/formContext";
 
 const ApplyForm = (props) => {
   // const [showFileInput, setShowFileInput] = useState(false);
   const formOuterRef = useRef(null);
-  const [attachments, setAttachments] = useState({});
-  const [submissionMessage, setSubmissionMessage] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const submitBtnRef = useRef(null);
   const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors, isSubmitSuccessful },
-    reset,
-  } = useForm();
+    formState,
+    loading,
+    setAttachments,
+    errorState,
+    setFormState,
+    handleCarrerSubmit,
+    isModalOpen,
+    setIsModalOpen,
+    submissionMessage,
+  } = useContext(CareerContext);
 
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset({ something: "" });
-    }
-  }, [isSubmitSuccessful, reset]);
-  const formSubmitHandler = async (formData) => {
-    const form = new FormData();
-    Object.keys(attachments).forEach((k) => {
-      form.append(k, attachments[k]);
-    });
-    for (var key in formData) {
-      form.append(key, formData[key]);
-    }
-    submitBtnRef.current.innerText = "Submitting...";
-    const response = await fetch(
-      "https://updotweb-msr94.ondigitalocean.app/backend/api/data-submission/careers",
-      {
-        method: "POST",
-        headers: {
-          // "Content-Type": "multipart/form-data",
-        },
-        body: form,
-      }
-    );
-    if (response.ok) {
-      setSubmissionMessage(
-        `Hey, ${formData.name}!, Thankyou for submitting application form`
-      );
-    } else {
-      setSubmissionMessage(`Error occured while submitting form!!`);
-    }
-    submitBtnRef.current.innerText = "Submit";
-    setIsModalOpen(true);
-  };
-
-  // const onSubmitBtnClickHandler = (e) => {
-  //   submitBtnRef.current.classList.add(`${classes["animate-btn"]}`);
-  // };
   const fileContainerSize = window.innerWidth > 800 ? "17.9rem" : "8.8rem";
   const setAttechment = (fieldName, result) => {
     setAttachments((prevState) => {
@@ -78,142 +38,133 @@ const ApplyForm = (props) => {
         {submissionMessage}
       </Modal>
       <div ref={formOuterRef} className={`${classes["form-container-change"]}`}>
-        <form
-          className={classes.form}
-          onSubmit={handleSubmit(formSubmitHandler)}
-        >
+        <form className={classes.form} onSubmit={handleCarrerSubmit}>
           <div
             className={`${classes["form-field"]} ${classes["form-field-1"]}`}
           >
-            <div className={classes["field-container"]}>
+            <div id="name" className={classes["field-container"]}>
               <Input
                 type="text"
                 placeholder="Name*"
-                register={register}
-                fieldName="name"
-                error={errors}
-                required={true}
-                left={window.innerWidth > 800 ? "1%" : "3%"}
-                // onFirstChange={() => {}}
+                autoComplete="name"
+                value={formState.name}
+                left={window.innerWidth > 800 ? "1%" : "4%"}
+                handleChange={(val) =>
+                  setFormState({ ...formState, name: val })
+                }
               />
-              <p className={classes["input-error"]}>
-                {errors.name?.type === "required" && "*Name is required."}
-              </p>
+              {errorState.name && (
+                <p className={classes["input-error"]}>{errorState.name}</p>
+              )}
             </div>
           </div>
           <div
             className={`${classes["form-field"]} ${classes["form-field-2"]} ${classes["animate-field-1"]}`}
           >
-            <div className={classes["field-container"]}>
-              <DropDown
-                placeholder="Code*"
-                register={register}
-                fieldName="code"
-                setValue={setValue}
-                data={dialCodes}
-                required={true}
-              />
-              <p className={classes["input-error"]}>
-                {errors.code?.type === "required" && "*Code is required."}
-              </p>
+            <div id="countryCode" className={classes["field-container"]}>
+              <SearchField formState={formState} setFormState={setFormState} />
+              {errorState.countryCode && (
+                <p className={classes["input-error"]}>
+                  {errorState.countryCode}
+                </p>
+              )}
             </div>
-            <div className={classes["field-container"]}>
+            <div id="phoneNumber" className={classes["field-container"]}>
               <Input
                 type="tel"
                 placeholder="Phone Number*"
-                register={register}
-                fieldName="phoneNumber"
-                left={window.innerWidth > 800 ? "2%" : "3%"}
-                required={true}
+                value={formState.phoneNumber}
+                handleChange={(val) =>
+                  setFormState({ ...formState, phoneNumber: val })
+                }
+                left={window.innerWidth > 800 ? "1%" : "4%"}
+                autoComplete="tel-national"
               />
-              <p className={classes["input-error"]}>
-                {errors.phoneNumber?.type === "required" &&
-                  "*Phone Number is required."}
-              </p>
+              {errorState.phoneNumber && (
+                <p className={classes["input-error"]}>
+                  {errorState.phoneNumber}
+                </p>
+              )}
             </div>
           </div>
 
           <div
             className={`${classes["form-field"]} ${classes["form-field-1"]} ${classes["animate-field-2"]}`}
           >
-            <div className={classes["field-container"]}>
+            <div id="emailId" className={classes["field-container"]}>
               <Input
-                type="text"
+                type="email"
                 placeholder="Email ID*"
-                register={register}
-                fieldName="emailId"
-                left={window.innerWidth > 800 ? "1%" : "3%"}
-                required={true}
+                autoComplete="email"
+                value={formState.emailId}
+                handleChange={(val) =>
+                  setFormState({ ...formState, emailId: val })
+                }
+                left={window.innerWidth > 800 ? "1%" : "4%"}
               />
-              <p className={classes["input-error"]}>
-                {errors.emailId?.type === "required" &&
-                  "*Email ID is required."}
-              </p>
+              {errorState.emailId && (
+                <p className={classes["input-error"]}>{errorState.emailId}</p>
+              )}
             </div>
           </div>
           <div
             className={`${classes["form-field"]} ${classes["form-field-3"]}`}
           >
-            <div>
+            <div id="currentJob">
               <DropDown
                 placeholder="Are your currently employed?*"
-                register={register}
-                fieldName="currentlyEmployed"
-                setValue={setValue}
                 data={["Yes", "No"]}
-                required={true}
+                handleChange={(val) =>
+                  setFormState({ ...formState, currentJob: val })
+                }
               />
-              <p className={classes["input-error"]}>
-                {errors.currentlyEmployed?.type === "required" &&
-                  "*Employment status is required."}
-              </p>
+              {errorState.currentJob && (
+                <p className={classes["input-error"]}>
+                  {errorState.currentJob}
+                </p>
+              )}
             </div>
-            <div>
+            <div id="source">
               <DropDown
                 placeholder="How Did You Hear About Us*"
-                register={register}
-                fieldName="hearAboutUs"
-                setValue={setValue}
                 data={["Search Engine", "Social Media", "Referral"]}
-                required={true}
+                handleChange={(val) =>
+                  setFormState({ ...formState, source: val })
+                }
               />
-              <p className={classes["input-error"]}>
-                {errors.hearAboutUs?.type === "required" &&
-                  "*Hear About Us is required."}
-              </p>
+              {errorState.source && (
+                <p className={classes["input-error"]}>{errorState.source}</p>
+              )}
             </div>
           </div>
           <div
             className={`${classes["form-field"]} ${classes["form-field-3"]}`}
           >
-            <div>
+            <div id="position">
               <DropDown
                 placeholder="Position Applying For*"
-                register={register}
-                fieldName="position"
-                setValue={setValue}
-                // defaultValue={props.positions[0]}
                 data={props.positions}
-                required={true}
+                handleChange={(val) =>
+                  setFormState({ ...formState, position: val })
+                }
               />
-              <p className={classes["input-error"]}>
-                {errors.position?.type === "required" &&
-                  "*Position is required."}
-              </p>
+              {errorState.position && (
+                <p className={classes["input-error"]}>{errorState.position}</p>
+              )}
             </div>
-            <div>
+            <div id="preferredJoiningDate">
               <DropDown
                 placeholder="Preferred Joining Time*"
-                register={register}
-                fieldName="joiningTime"
-                setValue={setValue}
                 data={["Immediate", "Within a month", "More than a month"]}
-                required={true}
+                handleChange={(val) =>
+                  setFormState({ ...formState, preferredJoiningDate: val })
+                }
               />
-              <p className={classes["input-error"]}>
-                {errors.joiningTime?.type === "required" &&
-                  "*Joining Time is required."}
-              </p>
+              {errorState.preferredJoiningDate && (
+                <p className={classes["input-error"]}>
+                  {errorState.preferredJoiningDate}
+                </p>
+              )}
             </div>
           </div>
           <div
@@ -222,29 +173,25 @@ const ApplyForm = (props) => {
             <div>
               <DropDown
                 placeholder="Current Salary"
-                register={register}
-                fieldName="currentSalary"
-                setValue={setValue}
                 data={[
                   "0 - 2,00,000",
                   "2,00,000 - 5,00,000",
                   "5,00,000 - 10,00,000",
                   "10,00,000+",
                 ]}
-                required={false}
+                handleChange={(val) =>
+                  setFormState({ ...formState, currentSalary: val })
+                }
               />
-              <p className={classes["input-error"]}>
-                {/* {errors.emailId?.type === "required" && "*Email ID is required."} */}
-              </p>
             </div>
             <div>
               <Input
                 type="text"
                 placeholder="Expected Salary (Per anum eg. xxxxxx)"
-                register={register}
-                fieldName="expectedSalary"
-                left={window.innerWidth > 800 ? "1.5%" : "3%"}
-                required={false}
+                value={formState.expectedSalary}
+                handleChange={(val) =>
+                  setFormState({ ...formState, expectedSalary: val })
+                }
               />
             </div>
           </div>
@@ -265,19 +212,20 @@ const ApplyForm = (props) => {
                 />
                 <InputFile
                   name="file2"
-                  setAttechment={setAttechment}
+                  setAttachment={setAttechment}
                   height={fileContainerSize}
                   width={fileContainerSize}
                 />
               </div>
             </div>
+
             <Input
               type="url"
               placeholder="Portfolio Link"
-              register={register}
-              fieldName="portfolioLink"
-              left="1.5%"
-              required={false}
+              value={formState.portfolioLink}
+              handleChange={(val) =>
+                setFormState({ ...formState, portfolioLink: val })
+              }
             />
           </div>
           <div
@@ -291,7 +239,7 @@ const ApplyForm = (props) => {
                 e.target.classList.add("btn-active");
               }}
             >
-              Submit
+              {loading ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>

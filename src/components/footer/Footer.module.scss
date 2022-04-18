@@ -2,8 +2,8 @@
   position: relative;
   min-height: 30vh;
   width: 100vw;
-  padding: 2vh 7.5vw;
-  padding-top: 10vh;
+  padding: 1vh 7.5vw;
+  margin-top: 6rem;
   background-color: var(--bg-color);
 }
 .footer a,
@@ -59,10 +59,13 @@
 .footer-link img {
   width: auto;
   height: 2rem;
+    aspect-ratio: 4;
   filter: var(--filter);
 }
 .footer-link img.insta-icon {
   height: 3rem;
+  width: auto;
+  aspect-ratio: 4;
   transform: translateY(15%);
 }
 .footer-bottom p,
@@ -74,16 +77,28 @@ span {
   font-weight: bold;
   margin: 0 1rem;
 }
-.up-arrow {
+.up-arrow-wrap {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-
-.up-arrow img {
-  height: auto;
-  width: 4rem;
-  filter: var(--filter);
+.up-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color-2);
+  mix-blend-mode: difference;
+  border-radius: 100%;
+  width: 6rem;
+  height: 6rem;
+}
+.up-arrow svg {
+  width: 20px;
+  height: 10px;
+}
+.up-arrow svg path {
+  stroke: var(--text-color-2);
+  // filter: var(--filter);
 }
 @media only screen and (max-width: 800px) {
   .footer {
@@ -110,6 +125,7 @@ span {
   .footer-link img {
     width: 5rem;
     height: auto;
+    aspect-ratio: 1;
   }
   .follow .footer-link-container {
     row-gap: 0.5rem;
@@ -117,6 +133,7 @@ span {
   .footer-link img.insta-icon {
     height: auto;
     width: 6rem;
+    aspect-ratio: 1;
     transform: translateY(5%);
   }
   .footer-top a,
@@ -143,13 +160,14 @@ span {
     grid-column: 2/3;
     grid-row: 1 /2;
   }
-  .up-arrow {
-    grid-column: 2 / 3;
+  .up-arrow-wrap {
+    display: unset;
+    grid-column: 1/2;
   }
-  .up-arrow img {
-    width: auto;
-    height: 1.5rem;
-    margin-top: 4rem;
+
+  .up-arrow {
+    width: 4rem;
+    height: 4rem;
   }
   .footer-bottom {
     align-items: center;

@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import BlogHeader from "../ui/blogHeader/BlogHeader";
+import SearchContext from "../../context/searchContext";
 
 import insightData from "./insightData.json";
 import downArrow from "./../../assets/img/down-arrow.svg";
@@ -7,31 +8,39 @@ import downArrow from "./../../assets/img/down-arrow.svg";
 import classes from "./Insight.module.scss";
 import BlogCard from "../ui/blogCard/BlogCard";
 
-let insightCount = 0;
-
 const Insight = () => {
   const [insightCards, setInsightCards] = useState([]);
   // const [loadMoreCount, setLoadMoreCount] = useState(1);
 
+  const { handleInsightSearch, insightState, insight } =
+    useContext(SearchContext);
+
   useEffect(() => {
-    let els = insightData.map((data) => {
-      insightCount++;
+    let allData = insight.length === 0 ? insightData : insight;
+    console.log(allData);
+    const els = allData.map((item, i) => {
       return (
         <BlogCard
-          key={data.key}
-          index={insightCount - 1}
-          insightId={data.key}
-          heading={data.heading}
-          image={`insights/${data.data.intro_image}`}
+          key={item.key}
+          index={i}
+          insightId={item.key}
+          heading={item.heading}
+          image={`insights/${item.data.intro_image}`}
+          arrowInline={true}
+          isArrowLeftMargin={true}
         />
       );
     });
-    setInsightCards((prevState) => [...prevState, ...els]);
-  }, []);
+    setInsightCards(els);
+  }, [insight]);
 
   return (
     <div className={`${classes["insight-container"]}`}>
-      <BlogHeader navData={["Latest", "Most Viewed"]} />
+      <BlogHeader
+        handleSearch={handleInsightSearch}
+        searchState={insightState}
+        navData={["Latest"]}
+      />
       <div className={classes["insight-card-container"]}>
         {insightCards}
         <button

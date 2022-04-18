@@ -10,15 +10,12 @@ import Clients from "../components/clients/Clients";
 import Newsletter from "../components/newsletter/Newsletter";
 import Footer from "../components/footer/Footer";
 import Header from "../components/ui/header/Header";
-import Nav from "../components/ui/nav/Nav";
-import { useSelector } from "react-redux";
 
 const HomePage = (props) => {
-  const isNavActive = useSelector((state) => state.navState.isActive);
   return (
     <Fragment>
       <Header showNavBtn={true} headerDisplayed={props.headerDisplayed} />
-      {isNavActive && <Nav />}
+
       <Home showLogo={true} heading="We do things better at" />
       <Featured />
       <Skills />
