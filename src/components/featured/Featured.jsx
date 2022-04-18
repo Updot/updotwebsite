@@ -3,7 +3,7 @@ import SectionHeading from "../ui/SectionHeading";
 import SmallNav from "../ui/smallNav/SmallNav";
 import FeaturedInfo from "./featuredInfo/FeaturedInfo";
 
-import remaxLogo from "../../assets/img/featured/remax.svg";
+import remaxLogo from "../../assets/img/clients/Remax.svg";
 import remaxWeb from "../../assets/img/featured/remax-web.svg";
 import virtuselLogo from "../../assets/img/featured/virtusel.svg";
 import virtuselWeb from "../../assets/img/featured/virtusel-web.svg";

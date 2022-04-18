@@ -13,7 +13,7 @@ function CustomCursor() {
     setCursorPos({ x, y });
   }, []);
 
-  const { cursorType, navOpen } = useGlobalStateContext();
+  const { cursorType } = useGlobalStateContext();
 
   useEffect(() => {
     document.addEventListener("mousemove", onMouseMove);
@@ -24,7 +24,7 @@ function CustomCursor() {
 
   return (
     <>
-      {!!cursorType && navOpen ? (
+      {!!cursorType ? (
         <div
           className="hovered"
           data-name="nav-btn"

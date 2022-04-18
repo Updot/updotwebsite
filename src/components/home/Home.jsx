@@ -22,7 +22,12 @@ const Home = (props) => {
   const scrollRef = useRef(null);
   const dispatch = useDispatch();
   gsap.registerPlugin(ScrollToPlugin);
-
+  gsap.set("h1 span", {
+    css: {
+      opacity: 0,
+      translateY: 100,
+    },
+  });
   useEffect(() => {
     let tl = gsap.timeline();
     tl.from("h1 span", 1.8, {

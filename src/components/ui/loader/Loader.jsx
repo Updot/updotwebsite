@@ -3,12 +3,11 @@ import classes from "./Loader.module.scss";
 import updot from "../../../assets/img/updot-logo.svg";
 import { useDispatch } from "react-redux";
 import { pageStateAction } from "../../../store/pageState";
+
 const Loader = () => {
   const dispatch = useDispatch();
-  window.onLoad = (e) => {
-    setTimeout(() => {
-      dispatch(pageStateAction.setLoaded());
-    }, 2000);
+  window.onload = (e) => {
+    dispatch(pageStateAction.setLoaded());
   };
   return (
     <div className={classes["loader"]}>

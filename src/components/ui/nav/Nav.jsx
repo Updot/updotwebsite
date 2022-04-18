@@ -22,8 +22,9 @@ const Nav = () => {
     (state) => state.themeState.isLightThemeActive
   );
   const { onCursor, onNav } = useGlobalDispatchContext();
-  const { navOpen } = useGlobalStateContext();
+  const { navOpen, cursorStyles, cursorType } = useGlobalStateContext();
 
+  console.log(cursorStyles, cursorType);
   const dispatch = useDispatch();
   const navRef = useRef();
   const swipwTextRef = useRef();
@@ -92,7 +93,7 @@ const Nav = () => {
       onMouseLeave={() => onCursor("cursor-main")}
       className={`${classes["navbar"]}      
       ${isLightThemeActive && classes["navbar-bg-slide"]}`}
-      onClick={() => onNav()}
+      onClick={() => cursorType === "hovered" && onNav()}
       style={{ display: "none", transform: "translate(101%, 0%)" }}
     >
       <ul className={classes["nav-container"]}>
@@ -107,7 +108,7 @@ const Nav = () => {
             onMouseLeave={() => onCursor("hovered")}
           >
             <NavLink
-              // onClick={() => (window.innerWidth < 800 ? null : onNav())}
+              onClick={() => !cursorType && onNav()}
               to={`${navItem.link}`}
               activeClassName={classes["active-nav"]}
             >
