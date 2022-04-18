@@ -13,10 +13,10 @@ import classes from "./Clients.module.scss";
 // import fortuneBlack from "../../assets/img/clients/Fortune-Avenue-Logo-black.svg";
 // import yottahawk from "../../assets/img/clients/Yottahawk-Logo.svg";
 // import yottahawkBlack from "../../assets/img/clients/Yottahawk-Logo-black.svg";
-import remaxLogo from "../../assets/img/featured/remax.svg";
+import remaxLogo from "../../assets/img/clients/Remax.svg";
 // import virtuselLogo from "../../assets/img/featured/virtusel.svg";
 import wolfwizardLogo from "../../assets/img/featured/wolfwizard.svg";
-import fortuneLogo from "../../assets/img/featured/fortune.png";
+import fortuneLogo from "../../assets/img/clients/Fortune-Avenue-Logo-Final.svg";
 import hyundaiLogo from "../../assets/img/clients/Hyundai.svg";
 import kiaLogo from "../../assets/img/clients/Kia.svg";
 

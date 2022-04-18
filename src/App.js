@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, useLocation, Route, Switch } from "react-router-dom";
+import { useLocation, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import GlobalProvider from "./context/globalContext";
 import { ContactProvider, CareerProvider } from "./context/formContext";
@@ -44,7 +44,6 @@ function App() {
       sessionStorage.setItem("landingDisplayed", true);
     }
   }, []);
-
   useEffect(() => {
     const handler = (event) => {
       if (window.scrollY > 100) {
@@ -77,10 +76,10 @@ function App() {
               <Landing setLandingDisplayed={setLandingDisplayed} />
             )} */}
 
-              <BrowserRouter>
-                <Nav />
+              <Nav />
 
-                <React.Suspense fallback={<Loader />}>
+              <React.Suspense fallback={<Loader />}>
+                <Switch>
                   {window.innerWidth > 800 && (
                     <Route path="/" exact>
                       {!landingDisplayed && (
@@ -89,43 +88,40 @@ function App() {
                       <HomePage headerDisplayed={headerDisplayed} />
                     </Route>
                   )}
-
-                  <Switch>
-                    {window.innerWidth < 800 && (
-                      <Route path="/" exact>
-                        <HomePage headerDisplayed={headerDisplayed} />
-                      </Route>
-                    )}
-                    <Route exact path="/about-us">
-                      <About headerDisplayed={headerDisplayed} />
+                  {window.innerWidth < 800 && (
+                    <Route path="/" exact>
+                      <HomePage headerDisplayed={headerDisplayed} />
                     </Route>
-                    <Route path="/insights">
-                      <Insights headerDisplayed={headerDisplayed} />
-                    </Route>
-                    <Route path="/work">
-                      <WorkPage headerDisplayed={headerDisplayed} />
-                    </Route>
-                    <Route path="/contact">
-                      <ContactPage headerDisplayed={headerDisplayed} />
-                    </Route>
-                    <Route path="/services">
-                      <ServicesPage headerDisplayed={headerDisplayed} />
-                    </Route>
-                    <Route path="/careers">
-                      <CareersPage headerDisplayed={headerDisplayed} />
-                    </Route>
-                    <Route path="/term-and-conditions">
-                      <TermPage headerDisplayed={headerDisplayed} />
-                    </Route>
-                    <Route path="/privacy-policy">
-                      <PrivacyPage headerDisplayed={headerDisplayed} />
-                    </Route>
-                    <Route path="*">
-                      {location.pathname !== "/" && <NotFound />}
-                    </Route>
-                  </Switch>
-                </React.Suspense>
-              </BrowserRouter>
+                  )}
+                  <Route exact path="/about-us">
+                    <About headerDisplayed={headerDisplayed} />
+                  </Route>
+                  <Route path="/insights">
+                    <Insights headerDisplayed={headerDisplayed} />
+                  </Route>
+                  <Route path="/work">
+                    <WorkPage headerDisplayed={headerDisplayed} />
+                  </Route>
+                  <Route path="/contact">
+                    <ContactPage headerDisplayed={headerDisplayed} />
+                  </Route>
+                  <Route path="/services">
+                    <ServicesPage headerDisplayed={headerDisplayed} />
+                  </Route>
+                  <Route path="/careers">
+                    <CareersPage headerDisplayed={headerDisplayed} />
+                  </Route>
+                  <Route path="/term-and-conditions">
+                    <TermPage headerDisplayed={headerDisplayed} />
+                  </Route>
+                  <Route path="/privacy-policy">
+                    <PrivacyPage headerDisplayed={headerDisplayed} />
+                  </Route>
+                  <Route path="*">
+                    {location.pathname !== "/" && <NotFound />}
+                  </Route>
+                </Switch>
+              </React.Suspense>
 
               <svg style={{ display: "none" }}>
                 <defs>

@@ -17,7 +17,7 @@ const Insight = () => {
 
   useEffect(() => {
     let allData = insight.length === 0 ? insightData : insight;
-    console.log(allData);
+
     const els = allData.map((item, i) => {
       return (
         <BlogCard
